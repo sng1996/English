@@ -16,6 +16,7 @@ extension InboxView {
         cv.dataSource = self
         
         addSubview(scrollView)
+        addSubview(addView)
         scrollView.addSubview(scrollContainer)
         scrollContainer.addSubview(labelContainer)
         scrollContainer.addSubview(cv)
@@ -23,6 +24,9 @@ extension InboxView {
         
         addConstraintsWithFormat(format: "H:|[v0]|", views: scrollView)
         addConstraintsWithFormat(format: "V:|[v0]|", views: scrollView)
+        
+        addConstraintsWithFormat(format: "H:|[v0]|", views: addView)
+        addView.bottomAnchor.constraint(equalTo: topAnchor).isActive = true
         
         addConstraintsWithFormat(format: "H:|[v0(\(Screen.width))]|", views: scrollContainer)
         addConstraintsWithFormat(format: "V:|[v0]|", views: scrollContainer)
@@ -36,6 +40,25 @@ extension InboxView {
         
         cvHeightAnchor = cv.heightAnchor.constraint(equalToConstant: 100)
         cvHeightAnchor.isActive = true
+    }
+    
+    func createBlurView() {
+        removeBlurView()
+        let blurView = BlurView()
+        scrollView.addSubview(blurView)
+        addView.blurView = blurView
+        self.blurView = blurView
+        
+        addConstraintsWithFormat(format: "H:|[v0]|", views: blurView)
+        addConstraintsWithFormat(format: "V:|[v0]|", views: blurView)
+    }
+    
+    func removeBlurView() {
+        if let blurView = blurView {
+            blurView.removeFromSuperview()
+            self.blurView = nil
+            addView.blurView = nil
+        }
     }
 
 }

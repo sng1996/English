@@ -40,7 +40,6 @@ extension InboxView: UICollectionViewDelegateFlowLayout {
         let word = vm.words[indexPath.row]
         cell.sourceItem = word.original
         cell.container.layoutIfNeeded()
-        print(cell.container.frame.size)
         return cell.container.frame.size
     }
     

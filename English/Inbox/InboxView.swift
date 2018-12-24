@@ -6,6 +6,7 @@
 //  Copyright © 2018 gavrilko. All rights reserved.
 //
 
+import DynamicBlurView
 import AlignedCollectionViewFlowLayout
 import UIKit
 
@@ -51,6 +52,9 @@ class InboxView: UIView {
         return collectionView
     }()
     
+    let addView = AddView()
+    
+    var blurView: BlurView?
     var cvHeightAnchor: NSLayoutConstraint!
     var vm = InboxViewModel()
     

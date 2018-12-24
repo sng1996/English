@@ -49,6 +49,16 @@
 		2AE8E75921D0ABB900B7A8A2 /* InboxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8E75821D0ABB900B7A8A2 /* InboxExtension.swift */; };
 		2AE8E75B21D0ABC800B7A8A2 /* InboxDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8E75A21D0ABC800B7A8A2 /* InboxDelegate.swift */; };
 		2AE8E75D21D0B39500B7A8A2 /* WordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8E75C21D0B39500B7A8A2 /* WordCell.swift */; };
+		2AE8E76021D0C7BA00B7A8A2 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8E75F21D0C7BA00B7A8A2 /* AddView.swift */; };
+		2AE8E76221D0C7CA00B7A8A2 /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8E76121D0C7CA00B7A8A2 /* AddViewModel.swift */; };
+		2AE8E76421D0C9CF00B7A8A2 /* OpenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8E76321D0C9CF00B7A8A2 /* OpenButton.swift */; };
+		2AE8E76621D0D12900B7A8A2 /* AddViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8E76521D0D12900B7A8A2 /* AddViewExtension.swift */; };
+		2AE8E76821D0D20300B7A8A2 /* AddViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8E76721D0D20300B7A8A2 /* AddViewDelegate.swift */; };
+		2AE8E76A21D0D79900B7A8A2 /* InboxScrollExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8E76921D0D79900B7A8A2 /* InboxScrollExtension.swift */; };
+		2AE8E76C21D0D81100B7A8A2 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8E76B21D0D81100B7A8A2 /* BlurView.swift */; };
+		2AE8E76E21D0E49800B7A8A2 /* AddButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8E76D21D0E49800B7A8A2 /* AddButtonsView.swift */; };
+		2AE8E77021D0E4B300B7A8A2 /* AddButtonSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8E76F21D0E4B300B7A8A2 /* AddButtonSave.swift */; };
+		2AE8E77221D0E4C700B7A8A2 /* AddButtonCancel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8E77121D0E4C700B7A8A2 /* AddButtonCancel.swift */; };
 		3E9986C9B4E65D19242108C9 /* Pods_English.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBCE66BEB1F3FC35C9AB3803 /* Pods_English.framework */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +129,16 @@
 		2AE8E75821D0ABB900B7A8A2 /* InboxExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxExtension.swift; sourceTree = "<group>"; };
 		2AE8E75A21D0ABC800B7A8A2 /* InboxDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxDelegate.swift; sourceTree = "<group>"; };
 		2AE8E75C21D0B39500B7A8A2 /* WordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCell.swift; sourceTree = "<group>"; };
+		2AE8E75F21D0C7BA00B7A8A2 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		2AE8E76121D0C7CA00B7A8A2 /* AddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
+		2AE8E76321D0C9CF00B7A8A2 /* OpenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenButton.swift; sourceTree = "<group>"; };
+		2AE8E76521D0D12900B7A8A2 /* AddViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewExtension.swift; sourceTree = "<group>"; };
+		2AE8E76721D0D20300B7A8A2 /* AddViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewDelegate.swift; sourceTree = "<group>"; };
+		2AE8E76921D0D79900B7A8A2 /* InboxScrollExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxScrollExtension.swift; sourceTree = "<group>"; };
+		2AE8E76B21D0D81100B7A8A2 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		2AE8E76D21D0E49800B7A8A2 /* AddButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonsView.swift; sourceTree = "<group>"; };
+		2AE8E76F21D0E4B300B7A8A2 /* AddButtonSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonSave.swift; sourceTree = "<group>"; };
+		2AE8E77121D0E4C700B7A8A2 /* AddButtonCancel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonCancel.swift; sourceTree = "<group>"; };
 		BBCE66BEB1F3FC35C9AB3803 /* Pods_English.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_English.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0DDD567F5CBA4EDD4BA38D1 /* Pods-English.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-English.debug.xcconfig"; path = "Pods/Target Support Files/Pods-English/Pods-English.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -282,10 +302,13 @@
 		2AE8E71021CF8B7F00B7A8A2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2AE8E75E21D0C7A600B7A8A2 /* Add */,
 				2AE8E71921CF8EFB00B7A8A2 /* TabBar */,
 				2AE8E71E21CF92EC00B7A8A2 /* Line.swift */,
 				2AE8E72C21CFAF2F00B7A8A2 /* Button.swift */,
 				2AE8E75C21D0B39500B7A8A2 /* WordCell.swift */,
+				2AE8E76321D0C9CF00B7A8A2 /* OpenButton.swift */,
+				2AE8E76B21D0D81100B7A8A2 /* BlurView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -311,8 +334,9 @@
 				2AE8E75221D0AB7B00B7A8A2 /* InboxViewModel.swift */,
 				2AE8E73521CFB53000B7A8A2 /* InboxView.swift */,
 				2AE8E75621D0ABA400B7A8A2 /* InboxSetup.swift */,
-				2AE8E75821D0ABB900B7A8A2 /* InboxExtension.swift */,
 				2AE8E75A21D0ABC800B7A8A2 /* InboxDelegate.swift */,
+				2AE8E75821D0ABB900B7A8A2 /* InboxExtension.swift */,
+				2AE8E76921D0D79900B7A8A2 /* InboxScrollExtension.swift */,
 			);
 			path = Inbox;
 			sourceTree = "<group>";
@@ -355,6 +379,20 @@
 				2AE8E74A21D09EC600B7A8A2 /* ProsesView.swift */,
 			);
 			path = Proses;
+			sourceTree = "<group>";
+		};
+		2AE8E75E21D0C7A600B7A8A2 /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				2AE8E76121D0C7CA00B7A8A2 /* AddViewModel.swift */,
+				2AE8E75F21D0C7BA00B7A8A2 /* AddView.swift */,
+				2AE8E76521D0D12900B7A8A2 /* AddViewExtension.swift */,
+				2AE8E76721D0D20300B7A8A2 /* AddViewDelegate.swift */,
+				2AE8E76D21D0E49800B7A8A2 /* AddButtonsView.swift */,
+				2AE8E76F21D0E4B300B7A8A2 /* AddButtonSave.swift */,
+				2AE8E77121D0E4C700B7A8A2 /* AddButtonCancel.swift */,
+			);
+			path = Add;
 			sourceTree = "<group>";
 		};
 		50B4BF947FF536FA81BB5B50 /* Pods */ = {
@@ -577,27 +615,37 @@
 				2AE8E72121CF941600B7A8A2 /* UIColorExtension.swift in Sources */,
 				2AE8E74221CFC9D900B7A8A2 /* TabBarDelegate.swift in Sources */,
 				2AE8E72F21CFB11600B7A8A2 /* ViewControllerExtension.swift in Sources */,
+				2AE8E76421D0C9CF00B7A8A2 /* OpenButton.swift in Sources */,
 				2AE8E73C21CFB61200B7A8A2 /* UILabelExtension.swift in Sources */,
+				2AE8E76621D0D12900B7A8A2 /* AddViewExtension.swift in Sources */,
 				2AE8E73A21CFB59A00B7A8A2 /* SettingsView.swift in Sources */,
 				2AE8E74721D09E9900B7A8A2 /* ThousandsView.swift in Sources */,
+				2AE8E76021D0C7BA00B7A8A2 /* AddView.swift in Sources */,
 				2AE8E72721CF9C6B00B7A8A2 /* TabBarStartButton.swift in Sources */,
 				2AE8E75B21D0ABC800B7A8A2 /* InboxDelegate.swift in Sources */,
 				2AE8E73E21CFB66F00B7A8A2 /* UIFontExtension.swift in Sources */,
 				2AE8E6DB21CF894200B7A8A2 /* ViewController.swift in Sources */,
 				2AE8E73621CFB53000B7A8A2 /* InboxView.swift in Sources */,
 				2AE8E73121CFB12D00B7A8A2 /* ViewControllerDelegate.swift in Sources */,
+				2AE8E76C21D0D81100B7A8A2 /* BlurView.swift in Sources */,
 				2AE8E6D921CF894200B7A8A2 /* AppDelegate.swift in Sources */,
 				2AE8E74D21D09F9900B7A8A2 /* ViewControllerSetup.swift in Sources */,
+				2AE8E77021D0E4B300B7A8A2 /* AddButtonSave.swift in Sources */,
+				2AE8E76A21D0D79900B7A8A2 /* InboxScrollExtension.swift in Sources */,
+				2AE8E76821D0D20300B7A8A2 /* AddViewDelegate.swift in Sources */,
 				2AE8E74921D09EB100B7A8A2 /* ThemesView.swift in Sources */,
 				2AE8E75321D0AB7B00B7A8A2 /* InboxViewModel.swift in Sources */,
 				2AE8E75D21D0B39500B7A8A2 /* WordCell.swift in Sources */,
 				2AE8E71F21CF92EC00B7A8A2 /* Line.swift in Sources */,
 				2AE8E74021CFBE4B00B7A8A2 /* TabBarModulesView.swift in Sources */,
 				2AE8E72321CF947E00B7A8A2 /* TabBarButton.swift in Sources */,
+				2AE8E76221D0C7CA00B7A8A2 /* AddViewModel.swift in Sources */,
 				2AE8E72521CF9ADE00B7A8A2 /* UIViewExtension.swift in Sources */,
 				2AE8E75921D0ABB900B7A8A2 /* InboxExtension.swift in Sources */,
 				2AE8E74F21D0A3B600B7A8A2 /* TabBarButtonType.swift in Sources */,
+				2AE8E77221D0E4C700B7A8A2 /* AddButtonCancel.swift in Sources */,
 				2AE8E75121D0A72F00B7A8A2 /* TabBarSetup.swift in Sources */,
+				2AE8E76E21D0E49800B7A8A2 /* AddButtonsView.swift in Sources */,
 				2AE8E73821CFB58800B7A8A2 /* RepeatsView.swift in Sources */,
 				2AE8E71B21CF8F1400B7A8A2 /* TabBarView.swift in Sources */,
 				2AE8E72B21CFACEA00B7A8A2 /* TabBarExtension.swift in Sources */,
