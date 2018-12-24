@@ -31,5 +31,12 @@ struct Screen {
         default: return .iphone5
         }
     }
+    static var sideInset: CGFloat {
+        switch type {
+        case .iphone5: return 20.0
+        case .iphone8: return 25.0
+        default: return 30
+        }
+    }
     
 }

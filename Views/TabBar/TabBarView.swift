@@ -58,6 +58,7 @@ class TabBarView: UIView {
 
     init() {
         super.init(frame: .zero)
+        self.backgroundColor = .white
         setupViews()
     }
     

@@ -12,17 +12,12 @@ class ViewController: UIViewController {
     
     static let tabBarView = TabBarView()
     
-    let inboxView = InboxView()
-    
-    let repeatsView = RepeatsView()
-    
-    let settingsView = SettingsView()
-    
-    let thousandsView = ThousandsView()
-    
-    let themesView = ThemesView()
-    
-    let prosesView = ProsesView()
+    var inboxView: InboxView!
+    var repeatsView: RepeatsView!
+    var settingsView: SettingsView!
+    var thousandsView: ThousandsView!
+    var themesView: ThemesView!
+    var prosesView: ProsesView!
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -30,11 +25,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
-        
-        if let button = ViewController.tabBarView.buttons[0] as? TabBarButton {
-            button.didTap()
-        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -48,6 +38,19 @@ class ViewController: UIViewController {
         } else {
             Screen.safeTop = topLayoutGuide.length
             Screen.safeBottom = bottomLayoutGuide.length
+        }
+        
+        inboxView = InboxView()
+        repeatsView = RepeatsView()
+        settingsView = SettingsView()
+        thousandsView = ThousandsView()
+        themesView = ThemesView()
+        prosesView = ProsesView()
+        
+        setupViews()
+        
+        if let button = ViewController.tabBarView.buttons[0] as? TabBarButton {
+            button.didTap()
         }
     }
 

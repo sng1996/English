@@ -44,6 +44,12 @@
 		2AE8E74D21D09F9900B7A8A2 /* ViewControllerSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8E74C21D09F9900B7A8A2 /* ViewControllerSetup.swift */; };
 		2AE8E74F21D0A3B600B7A8A2 /* TabBarButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8E74E21D0A3B600B7A8A2 /* TabBarButtonType.swift */; };
 		2AE8E75121D0A72F00B7A8A2 /* TabBarSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8E75021D0A72F00B7A8A2 /* TabBarSetup.swift */; };
+		2AE8E75321D0AB7B00B7A8A2 /* InboxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8E75221D0AB7B00B7A8A2 /* InboxViewModel.swift */; };
+		2AE8E75721D0ABA400B7A8A2 /* InboxSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8E75621D0ABA400B7A8A2 /* InboxSetup.swift */; };
+		2AE8E75921D0ABB900B7A8A2 /* InboxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8E75821D0ABB900B7A8A2 /* InboxExtension.swift */; };
+		2AE8E75B21D0ABC800B7A8A2 /* InboxDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8E75A21D0ABC800B7A8A2 /* InboxDelegate.swift */; };
+		2AE8E75D21D0B39500B7A8A2 /* WordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8E75C21D0B39500B7A8A2 /* WordCell.swift */; };
+		3E9986C9B4E65D19242108C9 /* Pods_English.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBCE66BEB1F3FC35C9AB3803 /* Pods_English.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +70,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		053787419EDE455A0AAAA203 /* Pods-English.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-English.release.xcconfig"; path = "Pods/Target Support Files/Pods-English/Pods-English.release.xcconfig"; sourceTree = "<group>"; };
 		2AE8E6D521CF894200B7A8A2 /* English.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = English.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AE8E6D821CF894200B7A8A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AE8E6DA21CF894200B7A8A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +114,13 @@
 		2AE8E74C21D09F9900B7A8A2 /* ViewControllerSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSetup.swift; sourceTree = "<group>"; };
 		2AE8E74E21D0A3B600B7A8A2 /* TabBarButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButtonType.swift; sourceTree = "<group>"; };
 		2AE8E75021D0A72F00B7A8A2 /* TabBarSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarSetup.swift; sourceTree = "<group>"; };
+		2AE8E75221D0AB7B00B7A8A2 /* InboxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxViewModel.swift; sourceTree = "<group>"; };
+		2AE8E75621D0ABA400B7A8A2 /* InboxSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxSetup.swift; sourceTree = "<group>"; };
+		2AE8E75821D0ABB900B7A8A2 /* InboxExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxExtension.swift; sourceTree = "<group>"; };
+		2AE8E75A21D0ABC800B7A8A2 /* InboxDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxDelegate.swift; sourceTree = "<group>"; };
+		2AE8E75C21D0B39500B7A8A2 /* WordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCell.swift; sourceTree = "<group>"; };
+		BBCE66BEB1F3FC35C9AB3803 /* Pods_English.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_English.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0DDD567F5CBA4EDD4BA38D1 /* Pods-English.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-English.debug.xcconfig"; path = "Pods/Target Support Files/Pods-English/Pods-English.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E9986C9B4E65D19242108C9 /* Pods_English.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +160,8 @@
 				2AE8E6EF21CF894400B7A8A2 /* EnglishTests */,
 				2AE8E6FA21CF894400B7A8A2 /* EnglishUITests */,
 				2AE8E6D621CF894200B7A8A2 /* Products */,
+				50B4BF947FF536FA81BB5B50 /* Pods */,
+				AACB6CA730C837CE0E9EB2F3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -268,6 +285,7 @@
 				2AE8E71921CF8EFB00B7A8A2 /* TabBar */,
 				2AE8E71E21CF92EC00B7A8A2 /* Line.swift */,
 				2AE8E72C21CFAF2F00B7A8A2 /* Button.swift */,
+				2AE8E75C21D0B39500B7A8A2 /* WordCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -290,7 +308,11 @@
 		2AE8E73221CFB4FF00B7A8A2 /* Inbox */ = {
 			isa = PBXGroup;
 			children = (
+				2AE8E75221D0AB7B00B7A8A2 /* InboxViewModel.swift */,
 				2AE8E73521CFB53000B7A8A2 /* InboxView.swift */,
+				2AE8E75621D0ABA400B7A8A2 /* InboxSetup.swift */,
+				2AE8E75821D0ABB900B7A8A2 /* InboxExtension.swift */,
+				2AE8E75A21D0ABC800B7A8A2 /* InboxDelegate.swift */,
 			);
 			path = Inbox;
 			sourceTree = "<group>";
@@ -335,6 +357,23 @@
 			path = Proses;
 			sourceTree = "<group>";
 		};
+		50B4BF947FF536FA81BB5B50 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D0DDD567F5CBA4EDD4BA38D1 /* Pods-English.debug.xcconfig */,
+				053787419EDE455A0AAAA203 /* Pods-English.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AACB6CA730C837CE0E9EB2F3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BBCE66BEB1F3FC35C9AB3803 /* Pods_English.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -342,9 +381,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2AE8E70021CF894400B7A8A2 /* Build configuration list for PBXNativeTarget "English" */;
 			buildPhases = (
+				78B58AEFC0F7E0F5DA2EFE23 /* [CP] Check Pods Manifest.lock */,
 				2AE8E6D121CF894200B7A8A2 /* Sources */,
 				2AE8E6D221CF894200B7A8A2 /* Frameworks */,
 				2AE8E6D321CF894200B7A8A2 /* Resources */,
+				B1DD9ED090D03512C8E6702E /* [CP] Embed Pods Frameworks */,
+				49ADCD149A3475B463782A26 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -465,6 +507,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		49ADCD149A3475B463782A26 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-English/Pods-English-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		78B58AEFC0F7E0F5DA2EFE23 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-English-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B1DD9ED090D03512C8E6702E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-English/Pods-English-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlignedCollectionViewFlowLayout/AlignedCollectionViewFlowLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/CSV.swift/CSV.framework",
+				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlignedCollectionViewFlowLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CSV.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-English/Pods-English-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2AE8E6D121CF894200B7A8A2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -479,6 +581,7 @@
 				2AE8E73A21CFB59A00B7A8A2 /* SettingsView.swift in Sources */,
 				2AE8E74721D09E9900B7A8A2 /* ThousandsView.swift in Sources */,
 				2AE8E72721CF9C6B00B7A8A2 /* TabBarStartButton.swift in Sources */,
+				2AE8E75B21D0ABC800B7A8A2 /* InboxDelegate.swift in Sources */,
 				2AE8E73E21CFB66F00B7A8A2 /* UIFontExtension.swift in Sources */,
 				2AE8E6DB21CF894200B7A8A2 /* ViewController.swift in Sources */,
 				2AE8E73621CFB53000B7A8A2 /* InboxView.swift in Sources */,
@@ -486,10 +589,13 @@
 				2AE8E6D921CF894200B7A8A2 /* AppDelegate.swift in Sources */,
 				2AE8E74D21D09F9900B7A8A2 /* ViewControllerSetup.swift in Sources */,
 				2AE8E74921D09EB100B7A8A2 /* ThemesView.swift in Sources */,
+				2AE8E75321D0AB7B00B7A8A2 /* InboxViewModel.swift in Sources */,
+				2AE8E75D21D0B39500B7A8A2 /* WordCell.swift in Sources */,
 				2AE8E71F21CF92EC00B7A8A2 /* Line.swift in Sources */,
 				2AE8E74021CFBE4B00B7A8A2 /* TabBarModulesView.swift in Sources */,
 				2AE8E72321CF947E00B7A8A2 /* TabBarButton.swift in Sources */,
 				2AE8E72521CF9ADE00B7A8A2 /* UIViewExtension.swift in Sources */,
+				2AE8E75921D0ABB900B7A8A2 /* InboxExtension.swift in Sources */,
 				2AE8E74F21D0A3B600B7A8A2 /* TabBarButtonType.swift in Sources */,
 				2AE8E75121D0A72F00B7A8A2 /* TabBarSetup.swift in Sources */,
 				2AE8E73821CFB58800B7A8A2 /* RepeatsView.swift in Sources */,
@@ -497,6 +603,7 @@
 				2AE8E72B21CFACEA00B7A8A2 /* TabBarExtension.swift in Sources */,
 				2AE8E6E121CF894200B7A8A2 /* English.xcdatamodeld in Sources */,
 				2AE8E72D21CFAF2F00B7A8A2 /* Button.swift in Sources */,
+				2AE8E75721D0ABA400B7A8A2 /* InboxSetup.swift in Sources */,
 				2AE8E72921CF9D9200B7A8A2 /* CALayerExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -670,6 +777,7 @@
 		};
 		2AE8E70121CF894400B7A8A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0DDD567F5CBA4EDD4BA38D1 /* Pods-English.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -689,6 +797,7 @@
 		};
 		2AE8E70221CF894400B7A8A2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 053787419EDE455A0AAAA203 /* Pods-English.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -22,6 +22,7 @@ extension UILabel {
         self.textColor = color
         self.font = font
         self.textAlignment = alignment
+        self.numberOfLines = Int.max
     }
     
 }
