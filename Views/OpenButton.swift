@@ -26,6 +26,7 @@ class OpenButton: Button {
 
     override init() {
         super.init()
+        self.isHidden = true
         setupViews()
     }
     

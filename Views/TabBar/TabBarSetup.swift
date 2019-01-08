@@ -39,16 +39,7 @@ extension TabBarView {
             modulesView.widthAnchor.constraint(equalToConstant: 200),
             modulesView.heightAnchor.constraint(equalToConstant: 70),
             modulesView.bottomAnchor.constraint(equalTo: topAnchor, constant: -10)
-            ])
-    }
-    
-    func createStartButton() {
-        startButton.removeFromSuperview()
-        stackView.addArrangedSubview(startButton)
-    }
-    
-    func removeStartButton() {
-        startButton.removeFromSuperview()
+        ])
     }
 
 }

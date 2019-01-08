@@ -10,41 +10,189 @@ import UIKit
 
 extension AddView {
     
-    func textViewDidChange(_ textView: UITextView) {
-        if textView == headerTextView {
-            headerDidChange(textView)
-        } else {
-            footerDidChange(textView)
-        }
+    func showHeaderView(_ text: String) {
+        headerTextView.text = text
     }
     
-    func headerDidChange(_ textView: UITextView) {
-        footerTextView.text = textView.text
+    func cleanHeaderView() {
+        headerTextView.text = ""
     }
     
-    func footerDidChange(_ textView: UITextView) {
-        
+    func showFooterView(_ text: String) {
+        footerHeightConstraint.isActive = false
+        footerTextView.text = text
     }
     
-    func hideFooter() {
-        heightConstraint.isActive = true
+    func hideFooterView() {
+        footerHeightConstraint.isActive = true
+        footerTextView.text = ""
     }
     
-    func showFooter() {
-        heightConstraint.isActive = false
-    }
-    
-    func activateKeyboard() {
+    func activateHeader() {
         headerTextView.becomeFirstResponder()
     }
     
-    func close() {
-        layoutIfNeeded()
-        if let blurView = blurView {
-            blurView.alpha = 0.0
-            blurView.container.alpha = 0.0
-        }
+    func activateFooter() {
+        footerTextView.becomeFirstResponder()
+    }
+    
+    func deactivateTextViews() {
+        headerTextView.resignFirstResponder()
+        footerTextView.resignFirstResponder()
+    }
+    
+    func hideTableView() {
+        updateTableView([])
+        addTableView.hide()
+    }
+    
+    func updateTableView(_ data: [Word]) {
+        addTableView.setData(data)
+    }
+    
+    func showTranslatesView() {
+        hideTranslatesButton()
+        translatesView.sourceItem = vm.word
+    }
+    
+    func hideTranslatesView() {
+        translatesView.close()
+    }
+    
+    func showSaveButton() {
+        buttonsView.showSaveButton()
+    }
+    
+    func hideSaveButton() {
+        buttonsView.hideSaveButton()
+    }
+    
+    func showTranslatesButton() {
+        openButton.isHidden = false
+    }
+    
+    func hideTranslatesButton() {
+        openButton.isHidden = true
+    }
+    
+    func showLoader() {
+        hideLoader()
         
+        let loader = LoaderView()
+        loaderContainer.addSubview(loader)
+        
+        loader.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            loader.centerXAnchor.constraint(equalTo: loaderContainer.centerXAnchor),
+            loader.centerYAnchor.constraint(equalTo: loaderContainer.centerYAnchor)
+        ])
+    }
+    
+    func hideLoader() {
+        for view in loaderContainer.subviews {
+            view.removeFromSuperview()
+        }
+    }
+    
+    func hide() {
+        topConstraint.isActive = false
+        bottomConstraint.isActive = true
+        bottomConstraint.constant = 0
+        layoutIfNeeded()
+        cleanHeaderView()
+        hideFooterView()
+        hideTableView()
+        hideTranslatesView()
+        hideSaveButton()
+        hideTranslatesButton()
+        deactivateTextViews()
+        delegate.hideAddView()
+    }
+    
+    /////////////User Actions/////////////
+    
+    func save() {
+        vm.save(
+            original: headerTextView.text,
+            translate: footerTextView.text
+        )
+        vm.cleanData()
+        hide()
+    }
+    
+    func cancel() {
+        vm.cleanData()
+        hide()
+    }
+    
+    func openTranslatesView() {
+        showTranslatesView()
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if textView == headerTextView {
+            headerTextViewDidChange()
+        } else {
+            footerTextViewDidChange()
+        }
+    }
+    
+    func headerTextViewDidChange() {
+        vm.cleanData()
+        hideFooterView()
+        hideTableView()
+        hideTranslatesView()
+        hideSaveButton()
+        hideTranslatesButton()
+        
+        if headerTextView.text != "" {
+            vm.translate(text: headerTextView.text)
+        }
+    }
+    
+    func footerTextViewDidChange() {
+        if footerTextView.text == "" {
+            hideSaveButton()
+        } else {
+            showSaveButton()
+        }
+    }
+    
+    func didChooseWord(_ word: Word) {
+        vm.word = word
+        
+        showHeaderView(word.original)
+        showFooterView(word.translate)
+        hideTableView()
+        showSaveButton()
+        vm.stopLoading()
+        
+        if !word.translates.isEmpty {
+            showTranslatesButton()
+        }
+    }
+    
+    func didChooseSelfTranslate() {
+        showFooterView("")
+        activateFooter()
+        hideTableView()
+        vm.stopLoading()
+    }
+    
+    func addTranslate(_ word: Word) {
+        addTableView.addData(word)
+    }
+    
+    func changeTranslate(_ text: String) {
+        showFooterView(text)
+    }
+    
+    @objc
+    func keyboardWillShow(notification: Notification) {
+        if let userInfo = notification.userInfo {
+            let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+            Keyboard.height = keyboardFrame.height
+        }
     }
     
 }

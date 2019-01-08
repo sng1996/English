@@ -64,4 +64,13 @@ extension TabBarView {
         delegate.start()
     }
     
+    func showStartButton() {
+        startButton.removeFromSuperview()
+        stackView.addArrangedSubview(startButton)
+    }
+    
+    func hideStartButton() {
+        startButton.removeFromSuperview()
+    }
+    
 }

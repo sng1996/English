@@ -1,0 +1,107 @@
+//
+//  TranslatesView.swift
+//  English
+//
+//  Created by Сергей Гаврилко on 25/12/2018.
+//  Copyright © 2018 gavrilko. All rights reserved.
+//
+
+import UIKit
+
+protocol TranslatesViewDelegate {
+    func changeTranslate(_ text: String)
+}
+
+class TranslatesView: UIView {
+    
+    var sourceItem: Any? {
+        didSet {
+            guard let word = sourceItem as? Word else { return }
+            translates = word.translates
+            setupViews()
+            chooseCurrentWord(translates, word.translate)
+        }
+    }
+
+    var views: [TranslatesItemView] = []
+    var translates: [Translate] = []
+    var delegate: TranslatesViewDelegate?
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    init() {
+        super.init(frame: .zero)
+    }
+    
+    func setupViews() {
+        for translate in translates {
+            let view = TranslatesItemView()
+            view.sourceItem = translate
+            view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(choose)))
+            self.addSubview(view)
+            
+            if let v = views.last {
+                addConstraintsWithFormat(format: "V:[v0][v1]", views: v, view)
+            } else {
+                addConstraintsWithFormat(format: "V:|[v0]", views: view)
+            }
+            addConstraintsWithFormat(format: "H:|[v0]|", views: view)
+            
+            view.backgroundColor = .white
+            views.append(view)
+        }
+        
+        if translates.count > 0 {
+            addConstraintsWithFormat(format: "V:[v0]-10-|", views: views.last!)
+        }
+    }
+    
+    func chooseCurrentWord(_ translates: [Translate], _ translate: String) {
+        var viewIndex = 0
+        var wordIndex = 0
+        
+        for trs in translates {
+            for tr in trs.trs {
+                if tr == translate {
+                    views[viewIndex].chooseWord(index: wordIndex)
+                    return
+                }
+                wordIndex += 1
+            }
+            wordIndex = 0
+            viewIndex += 1
+        }
+    }
+    
+    @objc func choose(_ gesture: UITapGestureRecognizer) {
+        guard let delegate = delegate else { return }
+        
+        let view = gesture.view as! TranslatesItemView
+        
+        if view.currentIndex < 0 {
+            _ = views.map { view in
+                view.clear()
+            }
+        }
+        view.setNext()
+        if let translate = view.getTranslate() {
+            delegate.changeTranslate(translate)
+        }
+    }
+    
+    func clear() {
+        _ = views.map { view in
+            view.clear()
+        }
+    }
+    
+    func close() {
+        for view in views {
+            view.removeFromSuperview()
+        }
+        views.removeAll()
+    }
+
+}

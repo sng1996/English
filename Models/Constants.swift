@@ -18,6 +18,7 @@ struct Screen {
     static var width: CGFloat = UIScreen.main.bounds.width
     static var safeTop: CGFloat = -1.0
     static var safeBottom: CGFloat = -1.0
+    static var heightCoef: CGFloat = Screen.height / 736
     static var type: ScreenType {
         switch height {
         case 568: return .iphone5
@@ -37,6 +38,15 @@ struct Screen {
         case .iphone8: return 25.0
         default: return 30
         }
+    }
+    
+}
+
+extension UserDefaults {
+    
+    enum Keys {
+        static let isOnNotification = "isOnNotification"
+        static let notificationTime = "notificationTime"
     }
     
 }

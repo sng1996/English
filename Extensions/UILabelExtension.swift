@@ -14,7 +14,8 @@ extension UILabel {
         text: String = "Заглушка",
         color: UIColor = .black,
         font: UIFont,
-        alignment: NSTextAlignment = .left
+        alignment: NSTextAlignment = .left,
+        lines: Int = Int.max
     ) {
         
         self.init(frame: .zero)
@@ -22,7 +23,7 @@ extension UILabel {
         self.textColor = color
         self.font = font
         self.textAlignment = alignment
-        self.numberOfLines = Int.max
+        self.numberOfLines = lines
     }
     
 }

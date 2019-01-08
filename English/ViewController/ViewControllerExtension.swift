@@ -48,9 +48,9 @@ extension ViewController {
     
     func start() {
         if inboxView.isHidden {
-            
+            repeatsView.openStartView()
         } else {
-            
+            inboxView.openStartView()
         }
     }
     

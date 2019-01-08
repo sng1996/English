@@ -19,7 +19,7 @@ class WordCell: UICollectionViewCell {
     
     let container = UIView()
     
-    let label = UILabel(font: UIFont.book(36))
+    let label = UILabel(font: UIFont.book(32))
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -47,6 +47,14 @@ class WordCell: UICollectionViewCell {
         addConstraintsWithFormat(format: "V:|[v0]|", views: label)
         
         contentView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    func setGray() {
+        label.textColor = UIColor(rgb: 0xDADADA)
+    }
+    
+    func setBlack() {
+        label.textColor = .black
     }
 
 }
