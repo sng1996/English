@@ -66,6 +66,7 @@ class ChoosingView: UIView {
     
     let nextStepButton = UIView()
     
+    let speechManager = SpeechManager()
     var vm = ChoosingViewModel()
     var delegate: ChoosingViewDelegate!
     let cellSize = CGSize(

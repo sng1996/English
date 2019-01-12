@@ -11,72 +11,65 @@ import UIKit
 extension TranslateView {
 
     func playSound() {
-        
+        if let word = sourceItem as? Word {
+            speechManager.play(word.original)
+        }
     }
     
     func open(_ wordData: WordData) {
         let word = Word(wordData)
         sourceItem = word
-        topConstraint.isActive = false
-        bottomConstraint.isActive = true
-        bottomConstraint.constant = 0
-        layoutIfNeeded()
+        
+        self.topConstraint.constant = -self.buttonsContainer.frame.minY
+        animateLayout()
+        
         ViewController.tabBarView.isHidden = true
         delegate.didOpenTranslateView()
     }
     
     func close() {
-        bottomConstraint.isActive = false
-        topConstraint.isActive = true
+        topConstraint.constant = 0
+        animateLayout()
         ViewController.tabBarView.isHidden = false
-        removeButtons()
         delegate.didCloseTranslateView()
-    }
-    
-    func createButtons() {
-        removeButtons()
-        let deleteButton = TranslateDeleteButton()
-        deleteButton.tapHandler = deleteWord
-        buttonsContainer.addSubview(deleteButton)
-        
-        addConstraintsWithFormat(format: "H:|[v0]|", views: deleteButton)
-        addConstraintsWithFormat(format: "V:|[v0]|", views: deleteButton)
-    }
-    
-    func removeButtons() {
-        for view in buttonsContainer.subviews {
-            view.removeFromSuperview()
-        }
     }
     
     func deleteWord() {
         if let wordData = (sourceItem as! Word).data {
-            WordDataManager.instance.delete(wordData)
+            wordDataService.delete(wordData)
             close()
         }
+    }
+    
+    func animateLayout() {
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
+            self.superview!.layoutIfNeeded()
+        }, completion: { finished in })
     }
     
     @objc
     func handlePanGesture(gesture: UIPanGestureRecognizer) {
         switch(gesture.state) {
         case UIGestureRecognizer.State.began:
+            maxY = -self.frame.height
+            currentY = topConstraint.constant
             break
             
         case UIGestureRecognizer.State.changed:
             let translation = gesture.translation(in: self)
-            if translation.y >= 0 {
-                bottomConstraint.constant = translation.y
-                layoutIfNeeded()
+            let constant = currentY + translation.y
+            if maxY <= constant {
+                topConstraint.constant = constant
             }
+            layoutIfNeeded()
             break
             
         case UIGestureRecognizer.State.ended:
-            let translation = gesture.translation(in: self)
-            if translation.y > 30 {
+            if topConstraint.constant < -buttonsContainer.frame.minY {
+                topConstraint.constant = maxY
+                animateLayout()
+            } else {
                 close()
-            }
-            if translation.y < -30 {
-                createButtons()
             }
             break
             

@@ -10,7 +10,7 @@ import DynamicBlurView
 import AlignedCollectionViewFlowLayout
 import UIKit
 
-class InboxView: UIView {
+class InboxView: UIView, ServiceProvider {
     
     let scrollView = ScrollView()
     

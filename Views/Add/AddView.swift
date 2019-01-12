@@ -42,8 +42,6 @@ class AddView: UIView {
         return textView
     }()
     
-    let openButton = OpenButton()
-    
     let loaderContainer = UIView()
     
     let addTableView = AddTableView()
@@ -78,7 +76,6 @@ class AddView: UIView {
         footerTextView.delegate = self
         addTableView.delegate = self
         translatesView.delegate = self
-        openButton.tapHandler = openTranslatesView
         
         headerTextView.inputAccessoryView = buttonsView
         footerTextView.inputAccessoryView = buttonsView
@@ -86,16 +83,14 @@ class AddView: UIView {
         addSubview(headerTextView)
         addSubview(footerTextView)
         addSubview(loaderContainer)
-        addSubview(openButton)
         addSubview(addTableView)
         addSubview(translatesView)
         
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0][v1(48)]-\(Screen.sideInset - 10)-|", views: headerTextView, loaderContainer)
-        addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0][v1]-\(Screen.sideInset - 10)-|", views: footerTextView, openButton)
+        addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0][v1]", views: footerTextView, loaderContainer)
         addConstraintsWithFormat(format: "H:|[v0]|", views: addTableView)
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: translatesView)
         addConstraintsWithFormat(format: "V:|-\(Screen.sideInset + Screen.safeTop)-[v0]-3-[v1]-10-[v2][v3]-\(Screen.sideInset - 13)-|", views: headerTextView, footerTextView, addTableView, translatesView)
-        addConstraintsWithFormat(format: "V:[v0]-\(Screen.sideInset - 10)-|", views: openButton)
         
         NSLayoutConstraint.activate([
             loaderContainer.heightAnchor.constraint(equalToConstant: 48),

@@ -9,7 +9,7 @@
 import CSV
 import UIKit
 
-class CSVManager: NSObject {
+class CSVManager {
     
     func getCSVReader(path: String, delimiter: UnicodeScalar = ",") -> CSVReader? {
         guard let filePath = Bundle.main.path(forResource: path, ofType: "csv") else { return nil }
@@ -19,46 +19,6 @@ class CSVManager: NSObject {
         } catch {
             return nil
         }
-    }
-    
-//    func getProseHeaders() -> [ProseHeader]? {
-//        var proseHeaders: [ProseHeader] = []
-//        guard let csv = getCSVReader(path: "ProsesSource/Proses") else {
-//            return nil
-//        }
-//
-//        while let row = csv.next() {
-//            let proseHeader = ProseHeader(
-//                name: row[0],
-//                author: row[1],
-//                type: row[2]
-//            )
-//            proseHeaders.append(proseHeader)
-//        }
-//
-//        return proseHeaders.isEmpty ? nil : proseHeaders
-//    }
-//
-//    func getProseText(_ name: String) -> String? {
-//        if let url = Bundle.main.url(forResource: "ProsesSource/\(name)", withExtension: "csv") {
-//            do {
-//                return try String(contentsOf: url, encoding: .utf8)
-//            }
-//            catch {}
-//        }
-//        return nil
-//    }
-    
-    func getThousands() -> [String] {
-        var thousands: [String] = []
-        guard let csv = getCSVReader(path: "csv/thousands") else {
-            return []
-        }
-        
-        while let row = csv.next() {
-            thousands.append(row[0])
-        }
-        return thousands
     }
     
 }

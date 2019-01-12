@@ -103,12 +103,13 @@ extension AddTableView: UITableViewDelegate {
 extension AddTableView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(words.count + 1)
         return words.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell!
+        
+        if indexPath.row > words.count { return cell }
         
         if indexPath.row == words.count {
             cell = tableView.dequeueReusableCell(withIdentifier: "AddSelfCell", for: indexPath)

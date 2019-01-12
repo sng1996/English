@@ -1,5 +1,5 @@
 //
-//  WordDataManager.swift
+//  WordDataService.swift
 //  English
 //
 //  Created by Сергей Гаврилко on 25/12/2018.
@@ -15,10 +15,7 @@ enum WordDataMode {
     static let archive = "ARCHIVE"
 }
 
-class WordDataManager: NSObject {
-
-    // Singleton
-    static let instance = WordDataManager()
+class WordDataService: ServiceProvider {
     
     var newWords: [WordData] = []
     var repeatWords: [WordData] = []
@@ -26,8 +23,7 @@ class WordDataManager: NSObject {
     
     var todayCount = 0
     
-    private override init() {
-        super.init()
+    init() {
         loadData()
     }
     
@@ -59,15 +55,14 @@ class WordDataManager: NSObject {
         
         removeSimilar(original)
         
-        let dateManager = DateManager()
         let wordData = WordData()
         wordData.original = original
         wordData.translate = translate
         wordData.translates = translates
         wordData.mode = WordDataMode.new
         wordData.count = 0
-        wordData.date = dateManager.today()
-        CoreDataManager.instance.saveContext()
+        wordData.date = Date()
+        coreDataService.saveContext()
         newWords.insert(wordData, at: 0)
     }
     
@@ -81,21 +76,20 @@ class WordDataManager: NSObject {
                     item.word.mode = WordDataMode.archive
                 }
             }
-            let dateManager = DateManager()
-            item.word.date = dateManager.today()
+            item.word.date = Date()
         }
-        CoreDataManager.instance.saveContext()
+        coreDataService.saveContext()
         
         loadData()
-        NotificationManager.instance.update()
+        NotificationManager().update()
     }
     
     func delete(_ wordData: WordData) {
-        CoreDataManager.instance.context.delete(wordData)
-        CoreDataManager.instance.saveContext()
+        coreDataService.context.delete(wordData)
+        coreDataService.saveContext()
         
         loadData()
-        NotificationManager.instance.update()
+        NotificationManager().update()
     }
     
     
@@ -106,21 +100,19 @@ class WordDataManager: NSObject {
         var tomorrowWords: [WordData] = []
         var futureWords: [WordData] = []
         
-        let dataManager = DateManager()
-        
         for word in words {
             if word.count == 0 {
                 todayWords.append(word)
             } else if word.count == 1 {
-                if word.date == dataManager.today() {
+                if word.date!.isToday() {
                     tomorrowWords.append(word)
                 } else {
                     todayWords.append(word)
                 }
             } else {
-                if word.date == dataManager.today() || word.date == dataManager.daysAgo(1) {
+                if word.date!.isToday() || word.date!.daysAgo(1) {
                     futureWords.append(word)
-                } else if word.date == dataManager.daysAgo(2) {
+                } else if word.date!.daysAgo(1) {
                     tomorrowWords.append(word)
                 } else {
                     todayWords.append(word)
@@ -131,13 +123,13 @@ class WordDataManager: NSObject {
     }
     
     private func getNewWordsFromCoreData() -> [WordData] {
-        let sort = NSSortDescriptor(key: #keyPath(WordData.date), ascending: false)
+        let sort = NSSortDescriptor(key: #keyPath(WordData.date), ascending: true)
         let predicate = NSPredicate(format: "mode = '\(WordDataMode.new)'")
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "WordData")
         fetchRequest.sortDescriptors = [sort]
         fetchRequest.predicate = predicate
         do {
-            return try CoreDataManager.instance.context.fetch(fetchRequest) as! [WordData]
+            return try coreDataService.context.fetch(fetchRequest) as! [WordData]
         } catch {
             print(error)
         }
@@ -151,7 +143,7 @@ class WordDataManager: NSObject {
         fetchRequest.sortDescriptors = [sort]
         fetchRequest.predicate = predicate
         do {
-            return try CoreDataManager.instance.context.fetch(fetchRequest) as! [WordData]
+            return try coreDataService.context.fetch(fetchRequest) as! [WordData]
         } catch {
             print(error)
         }
@@ -163,7 +155,7 @@ class WordDataManager: NSObject {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "WordData")
         fetchRequest.predicate = predicate
         do {
-            return try CoreDataManager.instance.context.fetch(fetchRequest) as! [WordData]
+            return try coreDataService.context.fetch(fetchRequest) as! [WordData]
         } catch {
             print(error)
         }
@@ -175,17 +167,17 @@ class WordDataManager: NSObject {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "WordData")
         fetchRequest.predicate = predicate
         do {
-            let words = try CoreDataManager.instance.context.fetch(fetchRequest) as! [WordData]
+            let words = try coreDataService.context.fetch(fetchRequest) as! [WordData]
             _ = words.map { word in
-                CoreDataManager.instance.context.delete(word)
+                coreDataService.context.delete(word)
             }
-            CoreDataManager.instance.saveContext()
+            coreDataService.saveContext()
         } catch {
             print(error)
         }
         
         loadData()
-        NotificationManager.instance.update()
+        NotificationManager().update()
     }
 
 }

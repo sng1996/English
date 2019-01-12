@@ -37,30 +37,37 @@ class SpellingView: UIView {
         alignment: .right
     )
     
-    let headerLabel = UILabel(
-        color: UIColor(rgb: 0x1A1A1A),
-        font: UIFont.book(36),
-        alignment: .center
-    )
+    let headerLabel: UILabel = {
+        let label = UILabel(
+            color: UIColor(rgb: 0x1A1A1A),
+            font: UIFont.book(36),
+            alignment: .center
+        )
+        label.minimumScaleFactor = 0.5
+        return label
+    }()
     
-    let textView: UITextView = {
-        let textView = UITextView()
+    let textView: TextView = {
+        let textView = TextView()
         textView.text = ""
         textView.placeholder = "Введите перевод"
         textView.placeholderColor = UIColor(rgb: 0xCBCBCB)
         textView.tintColor = .clear
-        textView.font = UIFont.book(36)
+        textView.font = UIFont.book(30)
         textView.textColor = .black
         textView.textAlignment = .center
         textView.isScrollEnabled = false
         textView.textContainerInset = UIEdgeInsets.zero
         textView.textContainer.lineFragmentPadding = 0
         textView.autocorrectionType = .no
+        textView.keyboardLanguage = "en"
+        textView.autocapitalizationType = .none
         return textView
     }()
     
     let button = SpellingButton()
     
+    let speechManager = SpeechManager()
     let vm = SpellingViewModel()
     var bottomConstraint: NSLayoutConstraint!
     var delegate: SpellingViewDelegate!

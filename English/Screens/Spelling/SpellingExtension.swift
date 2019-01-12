@@ -20,7 +20,7 @@ extension SpellingView {
     }
     
     func rightAnswer() {
-        //Speech.playSpeech(vm.getOriginal())
+        speechManager.play(vm.getOriginal())
         textView.textColor = UIColor(rgb: 0x53D397)
         var delay = 0.5
         if self.vm.getOriginal().count > 10 {

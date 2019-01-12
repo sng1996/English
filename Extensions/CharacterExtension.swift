@@ -17,4 +17,13 @@ extension Character {
         return scalars[scalars.startIndex].value
     }
     
+    func detectLanguage() -> String {
+        let code = unicodeScalarCodePoint()
+        if code >= 1072 && code <= 1103 {
+            return Language.ru
+        } else {
+            return Language.en
+        }
+    }
+    
 }

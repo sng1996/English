@@ -15,10 +15,10 @@ public class WordData: NSManagedObject {
 
     convenience init() {
         // Описание сущности
-        let entity = NSEntityDescription.entity(forEntityName: "WordData", in: CoreDataManager.instance.context)
+        let entity = NSEntityDescription.entity(forEntityName: "WordData", in: ServiceProviderInstances.coreDataServiceInstance.context)
         
         // Создание нового объекта
-        self.init(entity: entity!, insertInto: CoreDataManager.instance.context)
+        self.init(entity: entity!, insertInto: ServiceProviderInstances.coreDataServiceInstance.context)
     }
     
 }

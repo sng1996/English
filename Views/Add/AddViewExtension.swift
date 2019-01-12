@@ -51,7 +51,6 @@ extension AddView {
     }
     
     func showTranslatesView() {
-        hideTranslatesButton()
         translatesView.sourceItem = vm.word
     }
     
@@ -67,12 +66,12 @@ extension AddView {
         buttonsView.hideSaveButton()
     }
     
-    func showTranslatesButton() {
-        openButton.isHidden = false
+    func enableFooterTextView() {
+        footerTextView.isUserInteractionEnabled = true
     }
     
-    func hideTranslatesButton() {
-        openButton.isHidden = true
+    func disableFooterTextView() {
+        footerTextView.isUserInteractionEnabled = false
     }
     
     func showLoader() {
@@ -104,7 +103,6 @@ extension AddView {
         hideTableView()
         hideTranslatesView()
         hideSaveButton()
-        hideTranslatesButton()
         deactivateTextViews()
         delegate.hideAddView()
     }
@@ -116,11 +114,13 @@ extension AddView {
             original: headerTextView.text,
             translate: footerTextView.text
         )
+        disableFooterTextView()
         vm.cleanData()
         hide()
     }
     
     func cancel() {
+        disableFooterTextView()
         vm.cleanData()
         hide()
     }
@@ -143,7 +143,7 @@ extension AddView {
         hideTableView()
         hideTranslatesView()
         hideSaveButton()
-        hideTranslatesButton()
+        disableFooterTextView()
         
         if headerTextView.text != "" {
             vm.translate(text: headerTextView.text)
@@ -166,13 +166,11 @@ extension AddView {
         hideTableView()
         showSaveButton()
         vm.stopLoading()
-        
-        if !word.translates.isEmpty {
-            showTranslatesButton()
-        }
+        showTranslatesView()
     }
     
     func didChooseSelfTranslate() {
+        enableFooterTextView()
         showFooterView("")
         activateFooter()
         hideTableView()

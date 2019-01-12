@@ -13,15 +13,15 @@ protocol TranslateViewDelegate {
     func didCloseTranslateView()
 }
 
-class TranslateView: UIView {
+class TranslateView: UIView, ServiceProvider {
     
     var sourceItem: Any? {
         didSet {
             guard let word = sourceItem as? Word else { return }
-            translatesView.close()
             headerLabel.text = word.original
             footerLabel.text = word.translate
             translatesView.sourceItem = word
+            layoutIfNeeded()
         }
     }
     
@@ -36,18 +36,20 @@ class TranslateView: UIView {
     
     let footerLabel = UILabel(font: UIFont.book(24))
     
-    let line = Line()
-    
     let translatesView = TranslatesView()
     
     let soundButton = SoundButton()
     
     let buttonsContainer = UIView()
     
-    var bottomConstraint: NSLayoutConstraint!
+    let deleteButton = TranslateDeleteButton()
+    
+    let speechManager = SpeechManager()
+
     var topConstraint: NSLayoutConstraint!
-    var height: CGFloat!
-    var y: CGFloat!
+    
+    var maxY: CGFloat = 0.0
+    var currentY: CGFloat = 0.0
     var delegate: TranslateViewDelegate!
     
     required init?(coder aDecoder: NSCoder) {
@@ -62,30 +64,32 @@ class TranslateView: UIView {
     }
     
     func setupViews() {
+        deleteButton.tapHandler = deleteWord
         soundButton.tapHandler = playSound
         
         addSubview(panLine)
         addSubview(headerLabel)
         addSubview(footerLabel)
-        addSubview(line)
         addSubview(translatesView)
         addSubview(soundButton)
         addSubview(buttonsContainer)
+        buttonsContainer.addSubview(deleteButton)
         
         panLine.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             panLine.widthAnchor.constraint(equalToConstant: 30),
             panLine.heightAnchor.constraint(equalToConstant: 4),
-            panLine.centerXAnchor.constraint(equalTo: centerXAnchor)
+            panLine.centerXAnchor.constraint(equalTo: centerXAnchor),
+            soundButton.topAnchor.constraint(equalTo: headerLabel.topAnchor, constant: -10)
         ])
         
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0][v1]|", views: headerLabel, soundButton)
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0][v1]|", views: footerLabel, soundButton)
-        addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: line)
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: translatesView)
         addConstraintsWithFormat(format: "H:|[v0]|", views: buttonsContainer)
-        addConstraintsWithFormat(format: "V:|-[v0]-\(Screen.sideInset)-[v1]-3-[v2]-15-[v3(1)]-15-[v4]-10-[v5]-10-|", views: panLine, headerLabel, footerLabel, line, translatesView, buttonsContainer)
-        addConstraintsWithFormat(format: "V:[v0]-[v1]", views: panLine, soundButton)
+        addConstraintsWithFormat(format: "V:|-[v0]-\(Screen.sideInset)-[v1]-3-[v2]-15-[v3][v4]|", views: panLine, headerLabel, footerLabel, translatesView, buttonsContainer)
+        addConstraintsWithFormat(format: "H:|[v0]|", views: deleteButton)
+        addConstraintsWithFormat(format: "V:|[v0]|", views: deleteButton)
     }
     
 }

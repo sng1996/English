@@ -30,6 +30,10 @@ class CardView: UIView {
         alignment: .center
     )
     
+    let soundButton = SoundButton()
+    
+    let speechManager = SpeechManager()
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -52,18 +56,28 @@ class CardView: UIView {
     }
     
     func setupViews() {
+        soundButton.tapHandler = playSound
+        
         addSubview(headerLabel)
         addSubview(footerLabel)
+        addSubview(soundButton)
         
         addConstraintsWithFormat(format: "H:|-20-[v0]-20-|", views: headerLabel)
         addConstraintsWithFormat(format: "H:|-20-[v0]-20-|", views: footerLabel)
         addConstraintsWithFormat(format: "V:|-(>=10)-[v0]", views: headerLabel)
-        addConstraintsWithFormat(format: "V:[v0]-(>=10)-|", views: footerLabel)
+        addConstraintsWithFormat(format: "V:[v0]-[v1]-(>=10)-|", views: footerLabel, soundButton)
         
         NSLayoutConstraint.activate([
             headerLabel.bottomAnchor.constraint(equalTo: centerYAnchor, constant: -10),
-            footerLabel.topAnchor.constraint(equalTo: centerYAnchor, constant: 10)
+            footerLabel.topAnchor.constraint(equalTo: centerYAnchor, constant: 10),
+            soundButton.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
+    }
+    
+    func playSound() {
+        if let word = sourceItem as? WordData {
+            speechManager.play(word.original!)
+        }
     }
     
 }

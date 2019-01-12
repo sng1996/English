@@ -22,6 +22,6 @@ extension WordData {
     @NSManaged public var translates: [Translate]?
     @NSManaged public var mode: String?
     @NSManaged public var count: Int16
-    @NSManaged public var date: String?
+    @NSManaged public var date: Date?
 
 }

@@ -34,7 +34,6 @@ extension InboxView {
         addView.bottomConstraint.isActive = true
         
         addConstraintsWithFormat(format: "H:|[v0]|", views: translateView)
-        translateView.bottomConstraint = translateView.bottomAnchor.constraint(equalTo: bottomAnchor)
         translateView.topConstraint = translateView.topAnchor.constraint(equalTo: bottomAnchor)
         translateView.topConstraint.isActive = true
         

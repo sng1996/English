@@ -11,7 +11,6 @@ import UIKit
 extension RepeatsView {
     
     func openArchiveView() {
-        ViewController.tabBarView.isHidden = true
         let archiveView = ArchiveView()
         addSubview(archiveView)
         
@@ -34,7 +33,7 @@ extension RepeatsView {
     
     func updateScreen() {
         cv.reloadData()
-        if WordDataManager.instance.todayCount == 0 {
+        if wordDataService.todayCount == 0 {
             ViewController.tabBarView.hideStartButton()
         } else {
             ViewController.tabBarView.showStartButton()
@@ -47,7 +46,7 @@ extension RepeatsView {
         startView.delegate = self
         addSubview(startView)
         
-        let array = Array(WordDataManager.instance.repeatWords.prefix(WordDataManager.instance.todayCount))
+        let array = Array(wordDataService.repeatWords.prefix(wordDataService.todayCount))
         startView.sourceItem = Array(array.suffix(10))
         
         addConstraintsWithFormat(format: "H:|[v0]|", views: startView)

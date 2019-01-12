@@ -39,12 +39,12 @@ class OnlineDictionary: NSObject {
     
     func translate(_ text: String, language: String, tk: String) {
         let str = text.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-        var from = "en"
-        var to = "ru"
+        var from = Language.en
+        var to = Language.ru
         
-        if language == "ru" {
-            from = "ru"
-            to = "en"
+        if language == Language.ru {
+            from = Language.ru
+            to = Language.en
         }
         
         let requestManager = Alamofire.SessionManager.default

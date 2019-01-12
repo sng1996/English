@@ -17,6 +17,7 @@ class TranslatesView: UIView {
     var sourceItem: Any? {
         didSet {
             guard let word = sourceItem as? Word else { return }
+            close()
             translates = word.translates
             setupViews()
             chooseCurrentWord(translates, word.translate)
@@ -25,6 +26,7 @@ class TranslatesView: UIView {
 
     var views: [TranslatesItemView] = []
     var translates: [Translate] = []
+    var line = Line()
     var delegate: TranslatesViewDelegate?
     
     required init?(coder aDecoder: NSCoder) {
@@ -33,6 +35,11 @@ class TranslatesView: UIView {
     
     init() {
         super.init(frame: .zero)
+        line.isHidden = true
+        addSubview(line)
+        
+        addConstraintsWithFormat(format: "H:|[v0]|", views: line)
+        addConstraintsWithFormat(format: "V:|[v0(1)]", views: line)
     }
     
     func setupViews() {
@@ -45,7 +52,7 @@ class TranslatesView: UIView {
             if let v = views.last {
                 addConstraintsWithFormat(format: "V:[v0][v1]", views: v, view)
             } else {
-                addConstraintsWithFormat(format: "V:|[v0]", views: view)
+                addConstraintsWithFormat(format: "V:|-10-[v0]", views: view)
             }
             addConstraintsWithFormat(format: "H:|[v0]|", views: view)
             
@@ -54,6 +61,7 @@ class TranslatesView: UIView {
         }
         
         if translates.count > 0 {
+            line.isHidden = false
             addConstraintsWithFormat(format: "V:[v0]-10-|", views: views.last!)
         }
     }
@@ -102,6 +110,7 @@ class TranslatesView: UIView {
             view.removeFromSuperview()
         }
         views.removeAll()
+        line.isHidden = true
     }
 
 }

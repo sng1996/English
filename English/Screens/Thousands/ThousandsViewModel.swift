@@ -10,32 +10,31 @@ import UIKit
 
 class ThousandsViewModel: NSObject {
 
-    var words: [[String]] = []
-    var currentIndex = 0
-    
-    func loadData() {
-        words.removeAll()
-        
-        let csvManager = CSVManager()
-        let array = csvManager.getThousands()
-        var decimalArray: [String] = []
-        
-        for i in array.indices {
-            decimalArray.append(array[i])
-            if i % 10 == 9 {
-                words.append(decimalArray)
-                decimalArray = []
-            }
-        }
-        
-        print("DATA LOADED")
-    }
-    
-    func getNumberOfItems() -> Int {
-        if words.isEmpty {
-            return 0
-        }
-        return words[currentIndex].count
-    }
+//    var words: [[String]] = []
+//    var currentIndex = 0
+//    
+//    func loadData() {
+//        words.removeAll()
+//        
+//        let array = CSVManager().getThousands()
+//        var decimalArray: [String] = []
+//        
+//        for i in array.indices {
+//            decimalArray.append(array[i])
+//            if i % 10 == 9 {
+//                words.append(decimalArray)
+//                decimalArray = []
+//            }
+//        }
+//        
+//        print("DATA LOADED")
+//    }
+//    
+//    func getNumberOfItems() -> Int {
+//        if words.isEmpty {
+//            return 0
+//        }
+//        return words[currentIndex].count
+//    }
 
 }

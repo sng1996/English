@@ -9,7 +9,7 @@
 import AlignedCollectionViewFlowLayout
 import UIKit
 
-class RepeatsView: UIView {
+class RepeatsView: UIView, ServiceProvider {
     
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()

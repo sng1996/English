@@ -31,7 +31,7 @@ extension InboxView {
     
     func updateScreen() {
         cv.reloadData()
-        if WordDataManager.instance.newWords.count == 0 {
+        if wordDataService.newWords.count == 0 {
             ViewController.tabBarView.hideStartButton()
         } else {
             ViewController.tabBarView.showStartButton()
@@ -44,7 +44,7 @@ extension InboxView {
         startView.delegate = self
         addSubview(startView)
         
-        startView.sourceItem = Array(WordDataManager.instance.newWords.suffix(10))
+        startView.sourceItem = Array(wordDataService.newWords.suffix(10))
         
         addConstraintsWithFormat(format: "H:|[v0]|", views: startView)
         addConstraintsWithFormat(format: "V:|[v0]|", views: startView)

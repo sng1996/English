@@ -9,7 +9,7 @@
 import AlignedCollectionViewFlowLayout
 import UIKit
 
-class ArchiveView: UIView {
+class ArchiveView: UIView, ServiceProvider {
 
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -66,6 +66,7 @@ class ArchiveView: UIView {
     }
     
     func viewDidAppear() {
+        ViewController.tabBarView.isHidden = true
         updateScreen()
     }
 

@@ -13,7 +13,7 @@ extension ArchiveView: TranslateViewDelegate { }
 extension ArchiveView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let wordData = WordDataManager.instance.archiveWords[indexPath.row]
+        let wordData = wordDataService.archiveWords[indexPath.row]
         translateView.open(wordData)
     }
     
@@ -22,12 +22,12 @@ extension ArchiveView: UICollectionViewDelegate {
 extension ArchiveView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return WordDataManager.instance.archiveWords.count
+        return wordDataService.archiveWords.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WordCell", for: indexPath) as! WordCell
-        let word = WordDataManager.instance.archiveWords[indexPath.row]
+        let word = wordDataService.archiveWords[indexPath.row]
         cell.sourceItem = word.original
         
         cvHeightAnchor.constant = cv.collectionViewLayout.collectionViewContentSize.height
@@ -41,7 +41,7 @@ extension ArchiveView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cell = WordCell()
-        let word = WordDataManager.instance.archiveWords[indexPath.row]
+        let word = wordDataService.archiveWords[indexPath.row]
         cell.sourceItem = word.original
         cell.container.layoutIfNeeded()
         return cell.container.frame.size

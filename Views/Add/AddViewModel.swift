@@ -15,7 +15,7 @@ protocol AddViewModelDelegate {
     func hideLoader()
 }
 
-class AddViewModel: NSObject {
+class AddViewModel: NSObject, ServiceProvider {
     
     var word: Word?
     let onlineDictionary = OnlineDictionary()
@@ -29,21 +29,37 @@ class AddViewModel: NSObject {
         onlineDictionary.delegate = self
     }
     
+    func detectLanguage(text: String) -> String {
+        if let c = text.lowercased().first {
+            return c.detectLanguage()
+        }
+        return Language.en
+    }
+    
     func save(original: String, translate: String) {
         var translates: [Translate] = []
+        let language = detectLanguage(text: original)
         
         if let word = word {
             translates = word.translates
         }
         
-        WordDataManager.instance.createWord(
-            original: original,
-            translate: translate,
+        var header = original
+        var footer = translate
+        
+        if language == Language.ru {
+            header = translate
+            footer = original
+        }
+        
+        wordDataService.createWord(
+            original: header,
+            translate: footer,
             translates: translates
         )
     }
     
-    func translate(text: String, language: String = "en") {
+    func translate(text: String, language: String = Language.en) {
         let str = text.lowercased()
         let words = offlineDictionary.query(text: str)
         
@@ -53,7 +69,7 @@ class AddViewModel: NSObject {
                 return
             }
         }
-        
+        let language = detectLanguage(text: str)
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(translateOnline), userInfo: ["text": str, "language": language], repeats: false)
     }
     

@@ -16,7 +16,7 @@ extension RepeatsView: SpellingViewDelegate { }
 extension RepeatsView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let wordData = WordDataManager.instance.repeatWords[indexPath.row]
+        let wordData = wordDataService.repeatWords[indexPath.row]
         translateView.open(wordData)
     }
     
@@ -25,15 +25,15 @@ extension RepeatsView: UICollectionViewDelegate {
 extension RepeatsView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return WordDataManager.instance.repeatWords.count
+        return wordDataService.repeatWords.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WordCell", for: indexPath) as! WordCell
-        let word = WordDataManager.instance.repeatWords[indexPath.row]
+        let word = wordDataService.repeatWords[indexPath.row]
         cell.sourceItem = word.original
         
-        if indexPath.row >= WordDataManager.instance.todayCount {
+        if indexPath.row >= wordDataService.todayCount {
             cell.setGray()
         } else {
             cell.setBlack()
@@ -50,7 +50,7 @@ extension RepeatsView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cell = WordCell()
-        let word = WordDataManager.instance.repeatWords[indexPath.row]
+        let word = wordDataService.repeatWords[indexPath.row]
         cell.sourceItem = word.original
         cell.container.layoutIfNeeded()
         return cell.container.frame.size

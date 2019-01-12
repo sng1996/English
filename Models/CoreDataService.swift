@@ -1,5 +1,5 @@
 //
-//  CoreDataManager.swift
+//  CoreDataService.swift
 //  English
 //
 //  Created by Сергей Гаврилко on 25/12/2018.
@@ -9,13 +9,11 @@
 import CoreData
 import Foundation
 
-class CoreDataManager {
+class CoreDataService {
     
-    // Singleton
-    static let instance = CoreDataManager()
     var context: NSManagedObjectContext!
     
-    private init() {
+    init() {
         context = persistentContainer.viewContext
     }
     

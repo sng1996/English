@@ -27,7 +27,7 @@ class SettingsNotificationContainer: UIView {
         switchView.tintColor = UIColor(rgb: 0xE7E7E7)
         switchView.backgroundColor = UIColor(rgb: 0xE7E7E7)
         switchView.layer.cornerRadius = 15.5
-        switchView.isOn = NotificationManager.instance.isOn
+        switchView.isOn = NotificationManager().isOn
         return switchView
     }()
     
@@ -47,7 +47,7 @@ class SettingsNotificationContainer: UIView {
     }()
     
     let timeLabel = UILabel(
-        text: NotificationManager.instance.time,
+        text: NotificationManager().time,
         color: UIColor(rgb: 0x9A9A9A),
         font: UIFont.book(18)
     )
@@ -113,7 +113,7 @@ class SettingsNotificationContainer: UIView {
     
     @objc
     func didTapSwitch() {
-        NotificationManager.instance.changeValue(isOn: switchView.isOn)
+        NotificationManager().changeValue(isOn: switchView.isOn)
     }
     
     @objc
@@ -132,7 +132,7 @@ class SettingsNotificationContainer: UIView {
         formatter.dateFormat = "HH:mm"
         let text = formatter.string(from: timePicker.date)
         timeLabel.text = text
-        NotificationManager.instance.changeTime(text)
+        NotificationManager().changeTime(text)
         
         timePicker.removeFromSuperview()
         timePickerLabel.removeFromSuperview()

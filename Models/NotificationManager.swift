@@ -9,10 +9,7 @@
 import UserNotifications
 import UIKit
 
-class NotificationManager: NSObject {
-
-    // Singleton
-    static let instance = NotificationManager()
+class NotificationManager: ServiceProvider {
     
     var isOn: Bool {
         set {
@@ -35,10 +32,6 @@ class NotificationManager: NSObject {
         }
     }
     
-    private override init() {
-        super.init()
-    }
-    
     func changeValue(isOn: Bool) {
         self.isOn = isOn
         update()
@@ -55,7 +48,7 @@ class NotificationManager: NSObject {
         var min = 0
         
         if isOn {
-            count = WordDataManager.instance.todayCount
+            count = wordDataService.todayCount
             hour = Int(time.split(separator: ":")[0])!
             min = Int(time.split(separator: ":")[1])!
         }

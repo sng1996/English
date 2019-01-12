@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum Language {
+    static let en = "en"
+    static let ru = "ru"
+}
+
 enum ScreenType {
     case iphone5, iphone8, iphonePlus, iphoneX, iphoneMax, ipad97, ipad105, ipad129
 }
@@ -19,6 +24,7 @@ struct Screen {
     static var safeTop: CGFloat = -1.0
     static var safeBottom: CGFloat = -1.0
     static var heightCoef: CGFloat = Screen.height / 736
+    
     static var type: ScreenType {
         switch height {
         case 568: return .iphone5
@@ -32,21 +38,13 @@ struct Screen {
         default: return .iphone5
         }
     }
+    
     static var sideInset: CGFloat {
         switch type {
         case .iphone5: return 20.0
         case .iphone8: return 25.0
         default: return 30
         }
-    }
-    
-}
-
-extension UserDefaults {
-    
-    enum Keys {
-        static let isOnNotification = "isOnNotification"
-        static let notificationTime = "notificationTime"
     }
     
 }

@@ -25,7 +25,7 @@ class SpellingItem: Equatable {
     }
 }
 
-class SpellingViewModel: NSObject {
+class SpellingViewModel: NSObject, ServiceProvider {
     
     var sourceItem: Any? {
         didSet {
@@ -108,7 +108,7 @@ class SpellingViewModel: NSObject {
     
     func setRepeats() {
         let spellingItemList = removeDuplicates()
-        WordDataManager.instance.setRepeats(spellingItemList)
+        wordDataService.setRepeats(spellingItemList)
     }
     
     func removeDuplicates() -> [SpellingItem] {
