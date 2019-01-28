@@ -15,11 +15,20 @@ protocol AddButtonsViewDelegate {
 
 class AddButtonsView: UIView {
     
+    let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        return stackView
+    }()
+    
     let saveButton = AddButtonSave()
     
     let cancelButton = AddButtonCancel()
     
     var delegate: AddButtonsViewDelegate!
+    var rightConstraint: NSLayoutConstraint!
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -27,29 +36,38 @@ class AddButtonsView: UIView {
 
     init() {
         super.init(frame: .zero)
-        self.frame.size.height = 60.0
+        self.frame.size.height = 50.0
+        backgroundColor = .white
         setupViews()
     }
     
     func setupViews() {
-        saveButton.isHidden = true
         saveButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(save)))
         cancelButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(cancel)))
         
-        addSubview(saveButton)
-        addSubview(cancelButton)
+        addSubview(stackView)
+        stackView.addArrangedSubview(cancelButton)
+        stackView.addArrangedSubview(saveButton)
         
-        addConstraintsWithFormat(format: "H:[v0]-10-[v1]-\(Screen.sideInset)-|", views: saveButton, cancelButton)
-        addConstraintsWithFormat(format: "V:|-10-[v0]-10-|", views: cancelButton)
-        addConstraintsWithFormat(format: "V:|-10-[v0]-10-|", views: saveButton)
+        addConstraintsWithFormat(format: "H:|[v0]", views: stackView)
+        addConstraintsWithFormat(format: "V:|[v0]|", views: stackView)
+        
+        rightConstraint = stackView.rightAnchor.constraint(equalTo: rightAnchor, constant: Screen.width)
+        rightConstraint.isActive = true
     }
     
     func showSaveButton() {
-        saveButton.isHidden = false
+        rightConstraint.constant = 0
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
+            self.layoutIfNeeded()
+        }, completion: nil)
     }
     
     func hideSaveButton() {
-        saveButton.isHidden = true
+        rightConstraint.constant = Screen.width
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
+            self.layoutIfNeeded()
+        }, completion: nil)
     }
 
     @objc

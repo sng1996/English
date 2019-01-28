@@ -15,31 +15,28 @@ protocol AddViewDelegate {
 
 class AddView: UIView {
     
-    let headerTextView: TextView = {
-        let textView = TextView()
-        textView.text = ""
-        textView.placeholder = "Введите слово или фразу"
-        textView.placeholderColor = UIColor(rgb: 0xCBCBCB)
-        textView.font = UIFont.book(22)
-        textView.textColor = .black
-        textView.isScrollEnabled = false
-        textView.textContainerInset = UIEdgeInsets.zero
-        textView.textContainer.lineFragmentPadding = 0
-        textView.autocapitalizationType = .none
-        return textView
+    let headerTextField: TextField = {
+        let textField = TextField()
+        textField.placeholder = "Введите слово или фразу"
+        textField.font = UIFont.book(22)
+        textField.textColor = .black
+        textField.autocapitalizationType = .none
+        textField.borderStyle = .none
+        textField.returnKeyType = .done
+        textField.clearButtonMode = .whileEditing
+        return textField
     }()
     
-    let footerTextView: TextView = {
-        let textView = TextView()
-        textView.text = ""
-        textView.font = UIFont.book(18)
-        textView.textColor = .black
-        textView.isScrollEnabled = false
-        textView.textContainerInset = UIEdgeInsets.zero
-        textView.textContainer.lineFragmentPadding = 0
-        textView.autocapitalizationType = .none
-        textView.keyboardLanguage = "ru"
-        return textView
+    let footerTextField: TextField = {
+        let textField = TextField()
+        textField.placeholder = "Введите перевод"
+        textField.font = UIFont.book(18)
+        textField.textColor = .black
+        textField.autocapitalizationType = .none
+        textField.borderStyle = .none
+        textField.returnKeyType = .done
+        textField.keyboardLanguage = "ru"
+        return textField
     }()
     
     let loaderContainer = UIView()
@@ -49,12 +46,31 @@ class AddView: UIView {
     let translatesView = TranslatesView()
     
     let buttonsView = AddButtonsView()
+
+    var blurView: BlurView? {
+        didSet {
+            guard let view = blurView else { return }
+            view.container.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(cancel)))
+            view.isUserInteractionEnabled = true
+        }
+    }
     
-    var blurView: BlurView?
+    var canSave: Bool = false {
+        didSet {
+            if canSave {
+                showSaveButton()
+            } else {
+                hideSaveButton()
+            }
+        }
+    }
+    
+    let vm = AddViewModel()
+    
+    var loaderWidthConstraint: NSLayoutConstraint!
     var footerHeightConstraint: NSLayoutConstraint!
     var bottomConstraint: NSLayoutConstraint!
     var topConstraint: NSLayoutConstraint!
-    var vm = AddViewModel()
     var delegate: AddViewDelegate!
     
     required init?(coder aDecoder: NSCoder) {
@@ -69,35 +85,39 @@ class AddView: UIView {
     
     func setupViews() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        headerTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        footerTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         
         buttonsView.delegate = self
         vm.delegate = self
-        headerTextView.delegate = self
-        footerTextView.delegate = self
+        headerTextField.delegate = self
+        footerTextField.delegate = self
         addTableView.delegate = self
         translatesView.delegate = self
         
-        headerTextView.inputAccessoryView = buttonsView
-        footerTextView.inputAccessoryView = buttonsView
+        headerTextField.inputAccessoryView = buttonsView
+        footerTextField.inputAccessoryView = buttonsView
         
-        addSubview(headerTextView)
-        addSubview(footerTextView)
+        addSubview(headerTextField)
+        addSubview(footerTextField)
         addSubview(loaderContainer)
         addSubview(addTableView)
         addSubview(translatesView)
         
-        addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0][v1(48)]-\(Screen.sideInset - 10)-|", views: headerTextView, loaderContainer)
-        addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0][v1]", views: footerTextView, loaderContainer)
+        addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0][v1]-\(Screen.sideInset - 10)-|", views: headerTextField, loaderContainer)
+        addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0][v1]", views: footerTextField, loaderContainer)
         addConstraintsWithFormat(format: "H:|[v0]|", views: addTableView)
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: translatesView)
-        addConstraintsWithFormat(format: "V:|-\(Screen.sideInset + Screen.safeTop)-[v0]-3-[v1]-10-[v2][v3]-\(Screen.sideInset - 13)-|", views: headerTextView, footerTextView, addTableView, translatesView)
+        addConstraintsWithFormat(format: "V:|-\(Screen.sideInset + Screen.safeTop / 2)-[v0]-3-[v1]-10-[v2][v3]-\(Screen.sideInset - 13)-|", views: headerTextField, footerTextField, addTableView, translatesView)
         
         NSLayoutConstraint.activate([
             loaderContainer.heightAnchor.constraint(equalToConstant: 48),
-            loaderContainer.centerYAnchor.constraint(equalTo: headerTextView.centerYAnchor)
+            loaderContainer.centerYAnchor.constraint(equalTo: headerTextField.centerYAnchor)
         ])
         
-        footerHeightConstraint = footerTextView.heightAnchor.constraint(equalToConstant: 0)
+        loaderWidthConstraint = loaderContainer.widthAnchor.constraint(equalToConstant: 0)
+        loaderWidthConstraint.isActive = true
+        footerHeightConstraint = footerTextField.heightAnchor.constraint(equalToConstant: 0)
         footerHeightConstraint.isActive = true
     }
     

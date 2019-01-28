@@ -58,6 +58,14 @@ class AddTableView: UIView {
         heightConstraint.isActive = true
     }
     
+    func show() {
+        let y = 20.0 + (self.superview as! AddView).headerTextField.frame.height + 20.0
+        
+        maxHeight = Screen.height - Keyboard.height - y + 72.0
+        heightConstraint.constant = maxHeight
+        layoutIfNeeded()
+    }
+    
     func hide() {
         heightConstraint.constant = 0
         layoutIfNeeded()
@@ -74,12 +82,13 @@ class AddTableView: UIView {
     }
     
     func reloadData() {
-        let y = 20.0 + (self.superview as! AddView).headerTextView.frame.height + 20.0
-        
-        maxHeight = Screen.height - Keyboard.height - y + 72.0
-        heightConstraint.constant = maxHeight
-        layoutIfNeeded()
         tv.reloadData()
+    }
+    
+    func chooseFirst() {
+        if !words.isEmpty && heightConstraint.constant > 0 {
+            delegate.didChooseWord(words[0])
+        }
     }
     
 }

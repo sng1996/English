@@ -53,11 +53,11 @@ class WordDataService: ServiceProvider {
             return
         }
         
-        removeSimilar(original)
+        removeSimilar(original.clearTails())
         
         let wordData = WordData()
-        wordData.original = original
-        wordData.translate = translate
+        wordData.original = original.clearTails()
+        wordData.translate = translate.clearTails()
         wordData.translates = translates
         wordData.mode = WordDataMode.new
         wordData.count = 0
@@ -123,7 +123,7 @@ class WordDataService: ServiceProvider {
     }
     
     private func getNewWordsFromCoreData() -> [WordData] {
-        let sort = NSSortDescriptor(key: #keyPath(WordData.date), ascending: true)
+        let sort = NSSortDescriptor(key: #keyPath(WordData.date), ascending: false)
         let predicate = NSPredicate(format: "mode = '\(WordDataMode.new)'")
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "WordData")
         fetchRequest.sortDescriptors = [sort]

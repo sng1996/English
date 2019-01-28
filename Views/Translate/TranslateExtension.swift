@@ -20,7 +20,7 @@ extension TranslateView {
         let word = Word(wordData)
         sourceItem = word
         
-        self.topConstraint.constant = -self.buttonsContainer.frame.minY
+        self.topConstraint.constant = -self.frame.height
         animateLayout()
         
         ViewController.tabBarView.isHidden = true
@@ -28,6 +28,7 @@ extension TranslateView {
     }
     
     func close() {
+        optionsButton.isHidden = false
         topConstraint.constant = 0
         animateLayout()
         ViewController.tabBarView.isHidden = false
@@ -39,6 +40,10 @@ extension TranslateView {
             wordDataService.delete(wordData)
             close()
         }
+    }
+    
+    func openButtons() {
+        optionsButton.isHidden = true
     }
     
     func animateLayout() {
@@ -65,12 +70,7 @@ extension TranslateView {
             break
             
         case UIGestureRecognizer.State.ended:
-            if topConstraint.constant < -buttonsContainer.frame.minY {
-                topConstraint.constant = maxY
-                animateLayout()
-            } else {
-                close()
-            }
+            close()
             break
             
         default: break

@@ -10,33 +10,38 @@ import UIKit
 
 extension RepeatsView {
     
-    func openArchiveView() {
-        let archiveView = ArchiveView()
-        addSubview(archiveView)
-        
-        addConstraintsWithFormat(format: "H:|[v0]|", views: archiveView)
-        addConstraintsWithFormat(format: "V:|[v0]|", views: archiveView)
-    }
-    
     func didOpenTranslateView() {
         scrollView.isScrollEnabled = false
-        scrollView.backgroundColor = UIColor(rgb: 0xF3F3F3)
-        cv.backgroundColor = UIColor(rgb: 0xF3F3F3)
+        scrollView.backgroundColor = UIColor(rgb: 0xFBFBFB)
+        tv.backgroundColor = UIColor(rgb: 0xFBFBFB)
+        for cell in tv.visibleCells {
+            cell.backgroundColor = UIColor(rgb: 0xFBFBFB)
+        }
     }
     
     func didCloseTranslateView() {
         scrollView.backgroundColor = .white
-        cv.backgroundColor = .white
+        tv.backgroundColor = .white
         scrollView.isScrollEnabled = true
         updateScreen()
+        for cell in tv.visibleCells {
+            cell.backgroundColor = .white
+        }
     }
     
     func updateScreen() {
-        cv.reloadData()
+        tv.reloadData()
         if wordDataService.todayCount == 0 {
             ViewController.tabBarView.hideStartButton()
         } else {
             ViewController.tabBarView.showStartButton()
+        }
+        badge.sourceItem = wordDataService.todayCount
+        
+        if wordDataService.repeatWords.count == 0 {
+            emptyView.isHidden = false
+        } else {
+            emptyView.isHidden = true
         }
     }
     

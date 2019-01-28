@@ -30,31 +30,27 @@ class RepeatsView: UIView, ServiceProvider {
         font: UIFont.book(36)
     )
     
-    let archiveButton = RepeatsArchiveButton()
-    
-    let cv: UICollectionView = {
-        let alignedFlowLayout = AlignedCollectionViewFlowLayout()
-        alignedFlowLayout.horizontalAlignment = .left
-        alignedFlowLayout.verticalAlignment = .top
-        alignedFlowLayout.minimumInteritemSpacing = 25
-        alignedFlowLayout.minimumLineSpacing = 15
-        
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: alignedFlowLayout)
-        collectionView.isScrollEnabled = false
-        collectionView.register(WordCell.self, forCellWithReuseIdentifier: "WordCell")
-        collectionView.contentInset = UIEdgeInsets(
-            top: 0,
-            left: Screen.sideInset,
-            bottom: 0,
-            right: Screen.sideInset
-        )
-        collectionView.backgroundColor = .white
-        return collectionView
+    let tv: UITableView = {
+        let tableView = UITableView()
+        tableView.contentInsetAdjustmentBehavior = .never
+        tableView.separatorColor = .white
+        tableView.register(RepeatsCell.self, forCellReuseIdentifier: "RepeatsCell")
+        tableView.backgroundColor = .white
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = UITableView.automaticDimension
+        tableView.backgroundColor = .white
+        tableView.contentInset.bottom = ViewController.tabBarView.height
+        tableView.isScrollEnabled = false
+        return tableView
     }()
     
     let translateView = TranslateView()
     
-    var cvHeightAnchor: NSLayoutConstraint!
+    let emptyView = RepeatsEmptyView()
+    
+    let badge = Badge()
+    
+    var tvHeightAnchor: NSLayoutConstraint!
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

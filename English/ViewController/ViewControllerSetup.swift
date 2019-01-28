@@ -35,7 +35,7 @@ extension ViewController {
         view.addConstraintsWithFormat(format: "V:|[v0]|", views: thousandsView)
         view.addConstraintsWithFormat(format: "V:|[v0]|", views: themesView)
         view.addConstraintsWithFormat(format: "V:|[v0]|", views: prosesView)
-        view.addConstraintsWithFormat(format: "V:[v0(\(ViewController.tabBarView.height))]|", views: ViewController.tabBarView)
+        view.addConstraintsWithFormat(format: "V:[v0]|", views: ViewController.tabBarView)
     }
 
 }

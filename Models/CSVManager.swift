@@ -9,7 +9,7 @@
 import CSV
 import UIKit
 
-class CSVManager {
+class CSVManager: ServiceProvider {
     
     func getCSVReader(path: String, delimiter: UnicodeScalar = ",") -> CSVReader? {
         guard let filePath = Bundle.main.path(forResource: path, ofType: "csv") else { return nil }
@@ -18,6 +18,17 @@ class CSVManager {
             return try CSVReader(stream: stream, delimiter: delimiter)
         } catch {
             return nil
+        }
+    }
+    
+    func writeWordsFromCSVToCoreData(theme: Theme) {
+        let manager = ThemeWordDataManager()
+        if let csv = getCSVReader(path: "Themes/\(theme.filename)") {
+            var count = 1
+            while let row = csv.next() {
+                manager.create(original: row[0], translate: row[1], theme: theme.filename, row: count)
+                count += 1
+            }
         }
     }
     

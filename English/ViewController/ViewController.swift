@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ServiceProvider {
     
     static let tabBarView = TabBarView()
     
@@ -40,6 +40,8 @@ class ViewController: UIViewController {
             Screen.safeBottom = bottomLayoutGuide.length
         }
         
+        themesService.loadDataFromFiles()
+        
         inboxView = InboxView()
         repeatsView = RepeatsView()
         settingsView = SettingsView()
@@ -52,6 +54,7 @@ class ViewController: UIViewController {
         if let button = ViewController.tabBarView.buttons[0] as? TabBarButton {
             button.didTap()
         }
+        NotificationManager().update()
     }
 
 }

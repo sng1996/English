@@ -6,22 +6,22 @@
 //  Copyright © 2018 gavrilko. All rights reserved.
 //
 
-import UITextView_Placeholder
 import UIKit
 
 extension SpellingView {
     
-    func textViewDidChange(_ textView: UITextView) {
+    @objc
+    func textFieldDidChange(_ textField: UITextField) {
         headerLabel.text = vm.getTranslate()
-        textView.textColor = .black
-        if vm.tmpCompareWords(original: textView.text) {
+        textField.textColor = .black
+        if vm.tmpCompareWords(original: textField.text!) {
             rightAnswer()
         }
     }
     
     func rightAnswer() {
         speechManager.play(vm.getOriginal())
-        textView.textColor = UIColor(rgb: 0x53D397)
+        textField.textField.textColor = UIColor(rgb: 0x53D397)
         var delay = 0.5
         if self.vm.getOriginal().count > 10 {
             delay = Double(self.vm.getOriginal().count) / 20.0
@@ -32,7 +32,7 @@ extension SpellingView {
     @objc
     func finishStep() {
         countLabel.text = vm.getCountLabelText()
-        textView.becomeFirstResponder()
+        textField.textField.becomeFirstResponder()
         hide(complete: {
             self.startNextStep()
         })
@@ -40,15 +40,14 @@ extension SpellingView {
     
     func startNextStep() {
         guard let item = vm.getNextSpellingItem() else {
-            textView.resignFirstResponder()
+            textField.textField.resignFirstResponder()
             openResultView()
             vm.setRepeats()
             return
         }
         
         headerLabel.text = item.word.translate!
-        textView.text = ""
-        textView.placeholder = "Введите перевод"
+        textField.textField.text = ""
         show()
     }
     
@@ -63,14 +62,14 @@ extension SpellingView {
     }
     
     func showAnswer() {
-        textView.placeholder = vm.getOriginal()
-        textView.text = ""
+        headerLabel.text = vm.getOriginal()
+        textField.textField.text = ""
         vm.errorAnswer()
     }
     
     func show() {
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
-            self.textView.alpha = 1.0
+            self.textField.alpha = 1.0
             self.headerLabel.alpha = 1.0
         }, completion: { finished in
         })
@@ -78,7 +77,7 @@ extension SpellingView {
     
     func hide(complete: @escaping () -> ()) {
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
-            self.textView.alpha = 0.0
+            self.textField.alpha = 0.0
             self.headerLabel.alpha = 0.0
         }, completion: { finished in
             complete()

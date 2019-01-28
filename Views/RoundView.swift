@@ -16,7 +16,7 @@ class RoundView: UIView {
     
     init() {
         super.init(frame: .zero)
-        self.backgroundColor = .black
+        self.backgroundColor = UIColor(rgb: 0x767676)
         self.layer.cornerRadius = 2
         self.isUserInteractionEnabled = false
         setupViews()

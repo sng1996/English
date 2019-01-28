@@ -15,6 +15,13 @@ extension ArchiveView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let wordData = wordDataService.archiveWords[indexPath.row]
         translateView.open(wordData)
+        
+        for cell in collectionView.visibleCells {
+            let c = cell as! WordCell
+            c.setGray()
+        }
+        let cell = collectionView.cellForItem(at: indexPath) as! WordCell
+        cell.setBlack()
     }
     
 }

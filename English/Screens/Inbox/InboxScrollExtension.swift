@@ -13,22 +13,24 @@ extension InboxView: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         guard let blurView = blurView else { return }
+
+        let offset = scrollView.contentOffset.y * coef
         
-        addView.bottomConstraint.constant = -scrollView.contentOffset.y
+        addView.bottomConstraint.constant = -offset
         layoutIfNeeded()
         
         if scrollView.contentOffset.y < 0 {
-            blurView.alpha = -scrollView.contentOffset.y / addView.frame.height
-            blurView.container.alpha  = -scrollView.contentOffset.y / addView.frame.height
+            blurView.alpha = -offset / addView.frame.height
+            blurView.container.alpha  = -offset / addView.frame.height
         }
         
-        if scrollView.contentOffset.y < -addView.frame.height {
-            scrollView.contentOffset.y = -addView.frame.height
+        if offset < -addView.frame.height {
+            scrollView.contentOffset.y = -addView.frame.height / coef
         }
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if scrollView.contentOffset.y == -addView.frame.height {
+        if Int(scrollView.contentOffset.y * coef) == Int(-addView.frame.height) {
             fixScroll()
             addView.activateHeader()
         } else {
@@ -47,8 +49,8 @@ extension InboxView: UIScrollViewDelegate {
     func fixScroll() {
         addView.bottomConstraint.isActive = false
         addView.topConstraint.isActive = true
-        scrollView.contentOffset.y = -addView.frame.height
-        scrollView.contentInset.top = addView.frame.height
+        scrollView.contentOffset.y = -addView.frame.height / coef
+        scrollView.contentInset.top = addView.frame.height / coef
         scrollView.isScrollEnabled = false
     }
     

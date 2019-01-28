@@ -14,13 +14,12 @@ class ScrollView: UIScrollView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    init() {
+    init(inset: CGFloat = ViewController.tabBarView.height) {
         super.init(frame: .zero)
-        self.contentInset.bottom = ViewController.tabBarView.height
+        self.contentInset.bottom = inset
         self.showsVerticalScrollIndicator = false
         self.contentInsetAdjustmentBehavior = .never
         self.alwaysBounceVertical = true
-        self.backgroundColor = .white
     }
     
 }

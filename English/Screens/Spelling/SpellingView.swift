@@ -6,7 +6,6 @@
 //  Copyright © 2018 gavrilko. All rights reserved.
 //
 
-import UITextView_Placeholder
 import UIKit
 
 protocol SpellingViewDelegate {
@@ -19,8 +18,9 @@ class SpellingView: UIView {
         didSet {
             guard let words = sourceItem as? [WordData] else { return }
             vm.sourceItem = words
-            textView.becomeFirstResponder()
-            bottomConstraint.constant = -Keyboard.height - 20.0
+            countLabel.text = "0 из \(words.count)"
+            textField.textField.becomeFirstResponder()
+            bottomConstraint.constant = -Keyboard.height
             layoutIfNeeded()
             startNextStep()
         }
@@ -34,38 +34,27 @@ class SpellingView: UIView {
         text: "0 из 10",
         color: UIColor(rgb: 0xE7E7E7),
         font: UIFont.book(18),
-        alignment: .right
+        alignment: .center
     )
     
-    let headerLabel: UILabel = {
-        let label = UILabel(
-            color: UIColor(rgb: 0x1A1A1A),
-            font: UIFont.book(36),
-            alignment: .center
-        )
-        label.minimumScaleFactor = 0.5
-        return label
-    }()
-    
-    let textView: TextView = {
-        let textView = TextView()
-        textView.text = ""
-        textView.placeholder = "Введите перевод"
-        textView.placeholderColor = UIColor(rgb: 0xCBCBCB)
-        textView.tintColor = .clear
-        textView.font = UIFont.book(30)
-        textView.textColor = .black
-        textView.textAlignment = .center
-        textView.isScrollEnabled = false
-        textView.textContainerInset = UIEdgeInsets.zero
-        textView.textContainer.lineFragmentPadding = 0
-        textView.autocorrectionType = .no
-        textView.keyboardLanguage = "en"
-        textView.autocapitalizationType = .none
-        return textView
-    }()
+    let headerLabel = UILabel(
+        color: UIColor(rgb: 0x1A1A1A),
+        font: UIFont.book(36),
+        alignment: .center,
+        lines: 2,
+        scale: 0.5
+    )
     
     let button = SpellingButton()
+    
+    let footerLabel = UILabel(
+        text: "введите перевод",
+        color: UIColor(rgb: 0xCBCBCB),
+        font: UIFont.book(18),
+        alignment: .center
+    )
+    
+    let textField = SpellingTextField()
     
     let speechManager = SpeechManager()
     let vm = SpellingViewModel()

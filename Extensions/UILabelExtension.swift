@@ -15,7 +15,8 @@ extension UILabel {
         color: UIColor = .black,
         font: UIFont,
         alignment: NSTextAlignment = .left,
-        lines: Int = Int.max
+        lines: Int = Int.max,
+        scale: CGFloat = 1
     ) {
         
         self.init(frame: .zero)
@@ -24,6 +25,7 @@ extension UILabel {
         self.font = font
         self.textAlignment = alignment
         self.numberOfLines = lines
+        self.minimumScaleFactor = scale
     }
     
 }

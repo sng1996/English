@@ -18,7 +18,7 @@ class Button: UIView {
 
     init() {
         super.init(frame: .zero)
-        self.addGestureRecognizer(
+        addGestureRecognizer(
             UITapGestureRecognizer(
                 target: self,
                 action: #selector(didTap)

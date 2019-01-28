@@ -18,6 +18,7 @@ class ChoosingView: UIView {
         didSet {
             guard let words = sourceItem as? [WordData] else { return }
             vm.sourceItem = words
+            countLabel.text = "0 из \(words.count)"
             startNextStep()
         }
     }

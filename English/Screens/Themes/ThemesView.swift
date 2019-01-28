@@ -8,69 +8,43 @@
 
 import UIKit
 
-class ThemesView: UIView {
-    
-    let label = UILabel(
-        text: "Themes",
-        color: .gray,
-        font: UIFont.medium(48),
-        alignment: .center
+class ThemesView: UIView, ServiceProvider {
+
+    let scrollView = ScrollView(inset: 0)
+
+    let scrollContainer = UIView()
+
+    let headerLabel = UILabel(
+        text: "Наборы",
+        font: UIFont.book(36)
+    )
+
+    let footerLabel = UILabel(
+        text: "Слова и фразы, объединенные единой тематикой либо ситуацией",
+        color: UIColor(rgb: 0x9B9B9B),
+        font: UIFont.book(20)
     )
     
+    let tv = ThemesTableView()
+    
+    var cellViews: [ThemesCellView] = []
+    var tvHeightAnchor: NSLayoutConstraint!
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     init() {
         super.init(frame: .zero)
         self.backgroundColor = .white
         setupViews()
+        viewDidAppear()
     }
-    
+
     func viewDidAppear() {
         ViewController.tabBarView.hideStartButton()
+        ViewController.tabBarView.isHidden = false
+        update()
     }
-    
-    func setupViews() {
-        addSubview(label)
-        
-        addConstraintsWithFormat(format: "H:|[v0]|", views: label)
-        addConstraintsWithFormat(format: "V:|[v0]|", views: label)
-    }
-    
-}
 
-//class ThemesView: UIView {
-//
-//    let scrollView = ScrollView()
-//
-//    let scrollContainer = UIView()
-//
-//    let headerLabel = UILabel(
-//        text: "Наборы",
-//        font: UIFont.book(36)
-//    )
-//
-//    let footerLabel = UILabel(
-//        text: "Слова и фразы, объединенные единой тематикой либо ситуацией",
-//        color: UIColor(rgb: 0x9B9B9B),
-//        font: UIFont.book(20)
-//    )
-//
-//    let vm = ThemesViewModel()
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//
-//    init() {
-//        super.init(frame: .zero)
-//        self.backgroundColor = .white
-//        setupViews()
-//    }
-//
-//    func viewDidAppear() {
-//        ViewController.tabBarView.hideStartButton()
-//    }
-//
-//}
+}

@@ -96,6 +96,7 @@ class OfflineDictionary: NSObject {
         case "союз": return "союз"
         case "частица": return "част."
         case "сокращение": return "сокр."
+        case "abbreviatio": return "аббр."
         default: return pos
         }
     }

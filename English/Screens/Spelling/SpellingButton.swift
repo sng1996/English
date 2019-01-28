@@ -10,12 +10,11 @@ import UIKit
 
 class SpellingButton: Button {
     
-    let showLabel = UILabel(
-        text: "Показать ответ",
-        color: UIColor(rgb: 0xCBCBCB),
-        font: UIFont.medium(18),
-        alignment: .center
-    )
+    let imageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "Eye"))
+        imageView.isUserInteractionEnabled = false
+        return imageView
+    }()
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -23,18 +22,18 @@ class SpellingButton: Button {
 
     override init() {
         super.init()
-        self.frame.size.height = 40.0
         setupViews()
     }
     
     func setupViews() {
-        addSubview(showLabel)
+        addSubview(imageView)
         
-        translatesAutoresizingMaskIntoConstraints = false
-        showLabel.translatesAutoresizingMaskIntoConstraints = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            showLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            showLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+            imageView.widthAnchor.constraint(equalToConstant: 20),
+            imageView.heightAnchor.constraint(equalToConstant: 13.5),
+            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
     

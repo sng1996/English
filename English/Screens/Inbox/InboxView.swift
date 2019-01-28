@@ -48,9 +48,17 @@ class InboxView: UIView, ServiceProvider {
     
     let translateView = TranslateView()
     
+    let emptyView = InboxEmptyView()
+    
+    let vm = InboxViewModel()
     var blurView: BlurView?
     var cvHeightAnchor: NSLayoutConstraint!
-    var vm = InboxViewModel()
+    
+    var coef: CGFloat {
+        get {
+            return addView.frame.height / (addView.frame.height - Screen.safeTop + 10)
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

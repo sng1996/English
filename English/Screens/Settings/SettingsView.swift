@@ -10,15 +10,7 @@ import UIKit
 
 class SettingsView: UIView {
     
-    let scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.contentInset.bottom = ViewController.tabBarView.height
-        scrollView.showsVerticalScrollIndicator = false
-        scrollView.contentInsetAdjustmentBehavior = .never
-        scrollView.alwaysBounceVertical = true
-        scrollView.backgroundColor = .white
-        return scrollView
-    }()
+    let scrollView = ScrollView()
     
     let scrollContainer = UIView()
 

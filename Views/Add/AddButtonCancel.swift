@@ -18,9 +18,6 @@ class AddButtonCancel: Button {
     
     override init() {
         super.init()
-        self.backgroundColor = .white
-        self.layer.cornerRadius = 3
-        self.layer.setShadow(color: UIColor(rgb: 0xF95454))
         setupViews()
     }
     
@@ -30,10 +27,8 @@ class AddButtonCancel: Button {
         translatesAutoresizingMaskIntoConstraints = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            widthAnchor.constraint(equalToConstant: 40),
-            heightAnchor.constraint(equalToConstant: 40),
-            imageView.widthAnchor.constraint(equalToConstant: 24),
-            imageView.heightAnchor.constraint(equalToConstant: 24),
+            imageView.widthAnchor.constraint(equalToConstant: 10.5),
+            imageView.heightAnchor.constraint(equalToConstant: 10.5),
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             imageView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])

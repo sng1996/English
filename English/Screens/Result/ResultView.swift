@@ -34,13 +34,15 @@ class ResultView: UIView {
     let headerLabel = UILabel(
         color: UIColor(rgb: 0x1A1A1A),
         font: UIFont.book(36),
-        alignment: .center
+        alignment: .center,
+        scale: 0.5
     )
     
     let footerLabel = UILabel(
         color: UIColor(rgb: 0x030303),
         font: UIFont.medium(20),
-        alignment: .center
+        alignment: .center,
+        scale: 0.5
     )
     
     let nextButton = ResultNextButton()
@@ -69,6 +71,8 @@ class ResultView: UIView {
         addSubview(nextButton)
         addSubview(returnButton)
         
+        addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: headerLabel)
+        addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: footerLabel)
         addConstraintsWithFormat(format: "V:[v0]-35-[v1]-10-[v2]", views: imageView, headerLabel, footerLabel)
         addConstraintsWithFormat(format: "V:[v0]-15-[v1]-50-|", views: nextButton, returnButton)
         

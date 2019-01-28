@@ -14,6 +14,7 @@ class WordCell: UICollectionViewCell {
         didSet {
             guard let text = sourceItem as? String else { return }
             label.text = text
+            setBlack()
         }
     }
     

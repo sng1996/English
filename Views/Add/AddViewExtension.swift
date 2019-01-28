@@ -10,43 +10,43 @@ import UIKit
 
 extension AddView {
     
-    func showHeaderView(_ text: String) {
-        headerTextView.text = text
+    func showHeaderField(_ text: String) {
+        headerTextField.text = text
     }
     
-    func cleanHeaderView() {
-        headerTextView.text = ""
+    func cleanHeaderField() {
+        headerTextField.text = ""
     }
     
-    func showFooterView(_ text: String) {
+    func showFooterField(_ text: String) {
         footerHeightConstraint.isActive = false
-        footerTextView.text = text
+        footerTextField.text = text
     }
     
-    func hideFooterView() {
+    func hideFooterField() {
         footerHeightConstraint.isActive = true
-        footerTextView.text = ""
+        footerTextField.text = ""
     }
     
     func activateHeader() {
-        headerTextView.becomeFirstResponder()
+        headerTextField.becomeFirstResponder()
     }
     
     func activateFooter() {
-        footerTextView.becomeFirstResponder()
+        footerTextField.becomeFirstResponder()
     }
     
-    func deactivateTextViews() {
-        headerTextView.resignFirstResponder()
-        footerTextView.resignFirstResponder()
+    func deactivateTextFields() {
+        headerTextField.resignFirstResponder()
+        footerTextField.resignFirstResponder()
     }
     
     func hideTableView() {
-        updateTableView([])
         addTableView.hide()
     }
     
     func updateTableView(_ data: [Word]) {
+        addTableView.show()
         addTableView.setData(data)
     }
     
@@ -66,12 +66,12 @@ extension AddView {
         buttonsView.hideSaveButton()
     }
     
-    func enableFooterTextView() {
-        footerTextView.isUserInteractionEnabled = true
+    func enableFooterTextField() {
+        footerTextField.isUserInteractionEnabled = true
     }
     
-    func disableFooterTextView() {
-        footerTextView.isUserInteractionEnabled = false
+    func disableFooterTextField() {
+        footerTextField.isUserInteractionEnabled = false
     }
     
     func showLoader() {
@@ -85,42 +85,53 @@ extension AddView {
             loader.centerXAnchor.constraint(equalTo: loaderContainer.centerXAnchor),
             loader.centerYAnchor.constraint(equalTo: loaderContainer.centerYAnchor)
         ])
+        
+        loaderWidthConstraint.constant = 48
+        layoutIfNeeded()
     }
     
     func hideLoader() {
         for view in loaderContainer.subviews {
             view.removeFromSuperview()
         }
+        
+        loaderWidthConstraint.constant = 0
+        layoutIfNeeded()
     }
     
     func hide() {
-        topConstraint.isActive = false
-        bottomConstraint.isActive = true
         bottomConstraint.constant = 0
-        layoutIfNeeded()
-        cleanHeaderView()
-        hideFooterView()
+        cleanHeaderField()
+        hideFooterField()
         hideTableView()
         hideTranslatesView()
-        hideSaveButton()
-        deactivateTextViews()
+        deactivateTextFields()
         delegate.hideAddView()
+        canSave = false
+        
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
+            self.topConstraint.isActive = false
+            self.bottomConstraint.isActive = true
+            self.layoutIfNeeded()
+        }, completion: { finished in
+        })
     }
     
     /////////////User Actions/////////////
     
     func save() {
         vm.save(
-            original: headerTextView.text,
-            translate: footerTextView.text
+            original: headerTextField.text!,
+            translate: footerTextField.text!
         )
-        disableFooterTextView()
+        disableFooterTextField()
         vm.cleanData()
         hide()
     }
     
+    @objc
     func cancel() {
-        disableFooterTextView()
+        disableFooterTextField()
         vm.cleanData()
         hide()
     }
@@ -129,49 +140,76 @@ extension AddView {
         showTranslatesView()
     }
     
-    func textViewDidChange(_ textView: UITextView) {
-        if textView == headerTextView {
-            headerTextViewDidChange()
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        //  Backspace pressed
+        let  char = string.cString(using: String.Encoding.utf8)!
+        let isBackSpace = strcmp(char, "\\b")
+        if isBackSpace == -92 {
+            return true
+        }
+        
+        if textField.text!.count > 50 {
+            return false
+        }
+        
+        return true
+    }
+    
+    @objc
+    func textFieldDidChange(_ textField: TextField) {
+        if textField == headerTextField {
+            headerTextFieldDidChange()
         } else {
-            footerTextViewDidChange()
+            footerTextFieldDidChange()
         }
     }
     
-    func headerTextViewDidChange() {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == headerTextField {
+            if canSave {
+                save()
+            } else {
+                addTableView.chooseFirst()
+            }
+        }
+        return false
+    }
+    
+    func headerTextFieldDidChange() {
         vm.cleanData()
-        hideFooterView()
+        hideFooterField()
         hideTableView()
         hideTranslatesView()
-        hideSaveButton()
-        disableFooterTextView()
+        disableFooterTextField()
+        canSave = false
         
-        if headerTextView.text != "" {
-            vm.translate(text: headerTextView.text)
+        if headerTextField.text != "" {
+            vm.translate(text: headerTextField.text!)
         }
     }
     
-    func footerTextViewDidChange() {
-        if footerTextView.text == "" {
-            hideSaveButton()
+    func footerTextFieldDidChange() {
+        if footerTextField.text == "" {
+            canSave = false
         } else {
-            showSaveButton()
+            canSave = true
         }
     }
     
     func didChooseWord(_ word: Word) {
         vm.word = word
         
-        showHeaderView(word.original)
-        showFooterView(word.translate)
+        showHeaderField(word.original)
+        showFooterField(word.translate)
         hideTableView()
-        showSaveButton()
         vm.stopLoading()
         showTranslatesView()
+        canSave = true
     }
     
     func didChooseSelfTranslate() {
-        enableFooterTextView()
-        showFooterView("")
+        enableFooterTextField()
+        showFooterField("")
         activateFooter()
         hideTableView()
         vm.stopLoading()
@@ -182,7 +220,7 @@ extension AddView {
     }
     
     func changeTranslate(_ text: String) {
-        showFooterView(text)
+        showFooterField(text)
     }
     
     @objc

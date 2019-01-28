@@ -52,8 +52,7 @@ class NotificationManager: ServiceProvider {
             hour = Int(time.split(separator: ":")[0])!
             min = Int(time.split(separator: ":")[1])!
         }
-        
-        //ViewController.tabView.updateNotificationView(isHidden: !isOn)
+    
         updateSchedule(count, hour, min)
     }
     
@@ -68,7 +67,11 @@ class NotificationManager: ServiceProvider {
         UIApplication.shared.registerForRemoteNotifications()
         UIApplication.shared.applicationIconBadgeNumber = count
         
-        if count == 0 { return }
+        if count == 0 {
+            ViewController.tabBarView.hideBadge()
+            return
+        }
+        ViewController.tabBarView.showBadge()
         
         let content = UNMutableNotificationContent()
         content.title = "Напоминание"

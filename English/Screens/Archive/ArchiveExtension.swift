@@ -30,6 +30,11 @@ extension ArchiveView {
     
     func updateScreen() {
         cv.reloadData()
+        if wordDataService.archiveWords.count == 0 {
+            emptyView.isHidden = false
+        } else {
+            emptyView.isHidden = true
+        }
     }
 
 }

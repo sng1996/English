@@ -11,56 +11,58 @@ import UIKit
 extension TabBarView {
     
     func deactivateButtons() {
-        for button in buttons {
-            if let button = button as? TabBarButton {
-                button.deactivate()
-            }
-        }
+        currentButton.deactivate()
     }
     
     func didTapInbox() {
-        modulesView.isHidden = true
         modulesView.deactivateButtons()
         deactivateButtons()
         delegate.showInboxView()
+        currentButton = buttons[0]
+        hideModulesView()
     }
     
     func didTapRepeats() {
-        modulesView.isHidden = true
         modulesView.deactivateButtons()
         deactivateButtons()
         delegate.showRepeatsView()
+        currentButton = buttons[1]
+        hideModulesView()
     }
     
     func didTapModules() {
-        modulesView.isHidden = false
+        showModulesView()
         deactivateButtons()
     }
     
     func didTapSettings() {
-        modulesView.isHidden = true
         modulesView.deactivateButtons()
         deactivateButtons()
         delegate.showSettingsView()
+        currentButton = buttons[3]
+        hideModulesView()
     }
     
     func didTapThousands() {
-        modulesView.isHidden = true
         delegate.showThousandsView()
+        currentButton = buttons[2]
+        hideModulesView()
     }
     
     func didTapThemes() {
-        modulesView.isHidden = true
         delegate.showThemesView()
+        currentButton = buttons[2]
+        hideModulesView()
     }
     
     func didTapProse() {
-        modulesView.isHidden = true
         delegate.showProsesView()
+        currentButton = buttons[2]
+        hideModulesView()
     }
     
     func didTapStart() {
-        modulesView.isHidden = true
+        hideModulesView()
         delegate.start()
     }
     
@@ -71,6 +73,27 @@ extension TabBarView {
     
     func hideStartButton() {
         startButton.removeFromSuperview()
+    }
+    
+    func showModulesView() {
+        closeModulesView.isHidden = false
+        modulesView.isHidden = false
+    }
+    
+    @objc
+    func hideModulesView() {
+        closeModulesView.isHidden = true
+        modulesView.isHidden = true
+        buttons[2].deactivate()
+        currentButton.activate()
+    }
+    
+    func showBadge() {
+        buttons[1].showBadge()
+    }
+    
+    func hideBadge() {
+        buttons[1].hideBadge()
     }
     
 }

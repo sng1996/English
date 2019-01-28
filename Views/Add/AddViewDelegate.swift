@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension AddView: UITextViewDelegate { }
+extension AddView: UITextFieldDelegate { }
 extension AddView: AddViewModelDelegate { }
 extension AddView: AddButtonsViewDelegate { }
 extension AddView: AddTableViewDelegate { }

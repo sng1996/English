@@ -11,8 +11,14 @@ import UIKit
 extension InboxView {
 
     func hideAddView() {
-        scrollToInit()
-        removeBlurView()
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
+            self.scrollToInit()
+            if let blurView = self.blurView {
+                blurView.alpha = 0.0
+            }
+        }, completion: { finished in
+            self.removeBlurView()
+        })
         updateScreen()
     }
     
@@ -32,10 +38,20 @@ extension InboxView {
     func updateScreen() {
         cv.reloadData()
         if wordDataService.newWords.count == 0 {
+            showEmptyView()
             ViewController.tabBarView.hideStartButton()
         } else {
+            hideEmptyView()
             ViewController.tabBarView.showStartButton()
         }
+    }
+    
+    func showEmptyView() {
+        emptyView.isHidden = false
+    }
+    
+    func hideEmptyView() {
+        emptyView.isHidden = true
     }
     
     func openStartView() {

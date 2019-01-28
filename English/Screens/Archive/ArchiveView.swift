@@ -52,6 +52,8 @@ class ArchiveView: UIView, ServiceProvider {
     
     let translateView = TranslateView()
     
+    let emptyView = ArchiveEmptyView()
+    
     var cvHeightAnchor: NSLayoutConstraint!
     
     required init?(coder aDecoder: NSCoder) {

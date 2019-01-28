@@ -21,6 +21,7 @@ extension InboxView {
         addSubview(addView)
         addSubview(translateView)
         scrollView.addSubview(scrollContainer)
+        scrollView.addSubview(emptyView)
         scrollContainer.addSubview(labelContainer)
         scrollContainer.addSubview(cv)
         labelContainer.addSubview(label)
@@ -39,6 +40,9 @@ extension InboxView {
         
         addConstraintsWithFormat(format: "H:|[v0(\(Screen.width))]|", views: scrollContainer)
         addConstraintsWithFormat(format: "V:|[v0]|", views: scrollContainer)
+        
+        addConstraintsWithFormat(format: "H:|[v0(\(Screen.width))]", views: emptyView)
+        addConstraintsWithFormat(format: "V:|[v0(\(Screen.height))]", views: emptyView)
         
         addConstraintsWithFormat(format: "H:|[v0]|", views: labelContainer)
         addConstraintsWithFormat(format: "H:|[v0]|", views: cv)

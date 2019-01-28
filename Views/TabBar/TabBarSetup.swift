@@ -27,11 +27,19 @@ extension TabBarView {
         addConstraintsWithFormat(format: "H:|[v0]|", views: line)
         addConstraintsWithFormat(format: "H:|-10-[v0]-10-|", views: stackView)
         addConstraintsWithFormat(format: "V:|[v0(1)]", views: line)
-        addConstraintsWithFormat(format: "V:|[v0(70)]", views: stackView)
+        addConstraintsWithFormat(format: "V:|[v0(60)]", views: stackView)
+        addConstraintsWithFormat(format: "V:[v0(\(height))]", views: self)
     }
     
     func setupModulesView() {
-        superview!.addSubview(modulesView)
+        closeModulesView.isHidden = true
+        superview!.insertSubview(closeModulesView, belowSubview: self)
+        superview!.insertSubview(modulesView, belowSubview: self)
+        
+        closeModulesView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideModulesView)))
+        
+        superview!.addConstraintsWithFormat(format: "H:|[v0]|", views: closeModulesView)
+        superview!.addConstraintsWithFormat(format: "V:|[v0]|", views: closeModulesView)
         
         modulesView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

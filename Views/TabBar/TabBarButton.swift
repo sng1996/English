@@ -24,6 +24,14 @@ class TabBarButton: Button {
         return imageView
     }()
     
+    let badge: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(rgb: 0xF95454)
+        view.layer.cornerRadius = 2
+        view.isHidden = true
+        return view
+    }()
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -37,13 +45,19 @@ class TabBarButton: Button {
     func setupViews() {
         imageView.image = item.image
         addSubview(imageView)
+        addSubview(badge)
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        badge.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             imageView.widthAnchor.constraint(equalToConstant: item.size.width),
             imageView.heightAnchor.constraint(equalToConstant: item.size.height),
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imageView.centerYAnchor.constraint(equalTo: centerYAnchor)
+            imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            badge.widthAnchor.constraint(equalToConstant: 4),
+            badge.heightAnchor.constraint(equalToConstant: 4),
+            badge.leftAnchor.constraint(equalTo: imageView.rightAnchor),
+            badge.bottomAnchor.constraint(equalTo: imageView.topAnchor)
         ])
     }
     
@@ -58,6 +72,14 @@ class TabBarButton: Button {
     override func didTap() {
         super.didTap()
         activate()
+    }
+    
+    func showBadge() {
+        badge.isHidden = false
+    }
+    
+    func hideBadge() {
+        badge.isHidden = true
     }
     
 }

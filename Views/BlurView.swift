@@ -13,7 +13,7 @@ class BlurView: DynamicBlurView {
     
     let container: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(rgb: 0x030303, a: 0.1)
+        view.backgroundColor = UIColor(rgb: 0x000000, a: 0.02)
         return view
     }()
     

@@ -14,7 +14,7 @@ class AddCell: UITableViewCell {
         didSet {
             guard let word = sourceItem as? Word else { return }
             headerLabel.text = word.original
-            footerLabel.text = word.translate
+            //footerLabel.text = word.translate
         }
     }
     
@@ -40,12 +40,12 @@ class AddCell: UITableViewCell {
     
     func setupViews() {
         addSubview(headerLabel)
-        addSubview(footerLabel)
+        //addSubview(footerLabel)
         addSubview(line)
         
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: headerLabel)
-        addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: footerLabel)
-        addConstraintsWithFormat(format: "V:|-10-[v0][v1]-10-|", views: headerLabel, footerLabel)
+        //addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: footerLabel)
+        addConstraintsWithFormat(format: "V:|-10-[v0]-10-|", views: headerLabel)
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: line)
         addConstraintsWithFormat(format: "V:|[v0(1)]", views: line)
     }

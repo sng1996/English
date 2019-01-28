@@ -23,9 +23,9 @@ class TabBarView: UIView {
     var height: CGFloat {
         switch Screen.type {
         case .iphone5, .iphone8, .iphonePlus, .ipad97, .ipad105, .ipad129:
-            return 70
+            return 60
         case .iphoneX, .iphoneMax:
-            return 84
+            return 74
         }
     }
     
@@ -43,13 +43,16 @@ class TabBarView: UIView {
     
     let startButton = TabBarStartButton()
     
-    var buttons: [Button] = [
+    var buttons: [TabBarButton] = [
         TabBarButton(item: TabBarButtonType.inbox),
         TabBarButton(item: TabBarButtonType.repeats),
         TabBarButton(item: TabBarButtonType.modules),
         TabBarButton(item: TabBarButtonType.settings)
     ]
     
+    let closeModulesView = UIView()
+    
+    var currentButton: TabBarButton!
     var delegate: TabBarViewDelegate!
     
     required init?(coder aDecoder: NSCoder) {
@@ -59,6 +62,7 @@ class TabBarView: UIView {
     init() {
         super.init(frame: .zero)
         self.backgroundColor = .white
+        currentButton = buttons[0]
         setupViews()
     }
     

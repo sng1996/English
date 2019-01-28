@@ -61,7 +61,6 @@ extension ChoosingView {
         }
         
         speechManager.play(chooseItem.originalWord.original!)
-        countLabel.text = vm.getCountLabelText()
         headerLabel.text = chooseItem.originalWord.original
         cv.reloadData()
         show()

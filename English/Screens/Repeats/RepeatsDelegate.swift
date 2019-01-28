@@ -13,47 +13,46 @@ extension RepeatsView: StartViewDelegate { }
 extension RepeatsView: ChoosingViewDelegate { }
 extension RepeatsView: SpellingViewDelegate { }
 
-extension RepeatsView: UICollectionViewDelegate {
+extension RepeatsView: UITableViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let wordData = wordDataService.repeatWords[indexPath.row]
         translateView.open(wordData)
+        
+        for cell in tableView.visibleCells {
+            let c = cell as! RepeatsCell
+            c.deactivate()
+        }
+        let cell = tableView.cellForRow(at: indexPath) as! RepeatsCell
+        cell.activate()
     }
     
 }
 
-extension RepeatsView: UICollectionViewDataSource {
+extension RepeatsView: UITableViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return wordDataService.repeatWords.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WordCell", for: indexPath) as! WordCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RepeatsCell", for: indexPath) as! RepeatsCell
         let word = wordDataService.repeatWords[indexPath.row]
-        cell.sourceItem = word.original
+        cell.sourceItem = word
         
         if indexPath.row >= wordDataService.todayCount {
-            cell.setGray()
+            cell.deactivate()
         } else {
-            cell.setBlack()
+            cell.activate()
         }
         
-        cvHeightAnchor.constant = cv.collectionViewLayout.collectionViewContentSize.height
+        tvHeightAnchor.constant = tv.contentSize.height + 10
         layoutIfNeeded()
         return cell
-    }
-    
-}
-
-extension RepeatsView: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cell = WordCell()
-        let word = wordDataService.repeatWords[indexPath.row]
-        cell.sourceItem = word.original
-        cell.container.layoutIfNeeded()
-        return cell.container.frame.size
     }
     
 }

@@ -18,6 +18,7 @@ extension ArchiveView {
         
         addSubview(scrollView)
         addSubview(translateView)
+        addSubview(emptyView)
         addSubview(backButton)
         scrollView.addSubview(scrollContainer)
         scrollContainer.addSubview(cv)
@@ -29,6 +30,9 @@ extension ArchiveView {
         addConstraintsWithFormat(format: "H:|[v0]|", views: translateView)
         translateView.topConstraint = translateView.topAnchor.constraint(equalTo: bottomAnchor)
         translateView.topConstraint.isActive = true
+        
+        addConstraintsWithFormat(format: "H:|[v0]|", views: emptyView)
+        addConstraintsWithFormat(format: "V:[v0]-20-[v1]", views: label, emptyView)
         
         addConstraintsWithFormat(format: "H:|[v0(\(Screen.width))]|", views: scrollContainer)
         addConstraintsWithFormat(format: "V:|[v0]|", views: scrollContainer)

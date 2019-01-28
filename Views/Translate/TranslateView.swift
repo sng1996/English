@@ -42,6 +42,8 @@ class TranslateView: UIView, ServiceProvider {
     
     let buttonsContainer = UIView()
     
+    let optionsButton = TranslateOptionsButton()
+    
     let deleteButton = TranslateDeleteButton()
     
     let speechManager = SpeechManager()
@@ -65,6 +67,7 @@ class TranslateView: UIView, ServiceProvider {
     
     func setupViews() {
         deleteButton.tapHandler = deleteWord
+        optionsButton.tapHandler = openButtons
         soundButton.tapHandler = playSound
         
         addSubview(panLine)
@@ -74,6 +77,7 @@ class TranslateView: UIView, ServiceProvider {
         addSubview(soundButton)
         addSubview(buttonsContainer)
         buttonsContainer.addSubview(deleteButton)
+        buttonsContainer.addSubview(optionsButton)
         
         panLine.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -87,9 +91,11 @@ class TranslateView: UIView, ServiceProvider {
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0][v1]|", views: footerLabel, soundButton)
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: translatesView)
         addConstraintsWithFormat(format: "H:|[v0]|", views: buttonsContainer)
-        addConstraintsWithFormat(format: "V:|-[v0]-\(Screen.sideInset)-[v1]-3-[v2]-15-[v3][v4]|", views: panLine, headerLabel, footerLabel, translatesView, buttonsContainer)
+        addConstraintsWithFormat(format: "V:|-[v0]-10-[v1]-3-[v2]-15-[v3][v4]-\(Screen.safeBottom / 2)-|", views: panLine, headerLabel, footerLabel, translatesView, buttonsContainer)
         addConstraintsWithFormat(format: "H:|[v0]|", views: deleteButton)
         addConstraintsWithFormat(format: "V:|[v0]|", views: deleteButton)
+        addConstraintsWithFormat(format: "H:|[v0]|", views: optionsButton)
+        addConstraintsWithFormat(format: "V:|[v0]|", views: optionsButton)
     }
     
 }

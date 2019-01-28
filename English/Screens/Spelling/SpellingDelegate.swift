@@ -8,5 +8,4 @@
 
 import UIKit
 
-extension SpellingView: UITextViewDelegate { }
 extension SpellingView: ResultViewDelegate { }
