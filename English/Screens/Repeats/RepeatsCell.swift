@@ -40,6 +40,8 @@ class RepeatsCell: UITableViewCell {
         super.init(style: style,
                    reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
+        backgroundColor = .clear
+        contentView.backgroundColor = .clear
         setupViews()
     }
     

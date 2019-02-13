@@ -23,14 +23,8 @@ class RoundView: UIView {
     }
     
     func setupViews() {
-        addConstraintsWithFormat(
-            format: "H:[v0(4)]",
-            views: self
-        )
-        addConstraintsWithFormat(
-            format: "V:[v0(4)]",
-            views: self
-        )
+        addConstraintsWithFormat(format: "H:[v0(4)]", views: self)
+        addConstraintsWithFormat(format: "V:[v0(4)]", views: self)
     }
     
 }

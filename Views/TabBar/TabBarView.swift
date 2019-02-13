@@ -11,25 +11,14 @@ import UIKit
 protocol TabBarViewDelegate {
     func showInboxView()
     func showRepeatsView()
-    func showSettingsView()
-    func showThousandsView()
     func showThemesView()
-    func showProsesView()
+    func showSettingsView()
     func start()
 }
 
-class TabBarView: UIView {
+class TabBarView: ShadowsView {
     
-    var height: CGFloat {
-        switch Screen.type {
-        case .iphone5, .iphone8, .iphonePlus, .ipad97, .ipad105, .ipad129:
-            return 60
-        case .iphoneX, .iphoneMax:
-            return 74
-        }
-    }
-    
-    let line = Line()
+    let height: CGFloat = 60
     
     let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -39,30 +28,29 @@ class TabBarView: UIView {
         return stackView
     }()
     
-    let modulesView = TabBarModulesView()
-    
     let startButton = TabBarStartButton()
+    let startButtonContainer = UIView()
     
     var buttons: [TabBarButton] = [
         TabBarButton(item: TabBarButtonType.inbox),
         TabBarButton(item: TabBarButtonType.repeats),
-        TabBarButton(item: TabBarButtonType.modules),
+        TabBarButton(item: TabBarButtonType.themes),
         TabBarButton(item: TabBarButtonType.settings)
     ]
     
-    let closeModulesView = UIView()
-    
-    var currentButton: TabBarButton!
     var delegate: TabBarViewDelegate!
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    init() {
-        super.init(frame: .zero)
-        self.backgroundColor = .white
-        currentButton = buttons[0]
+    override init() {
+        super.init()
+        backgroundColor = .white
+        layer.borderWidth = 1
+        layer.borderColor = UIColor(rgb: 0x5BD49B, a: 0.04).cgColor
+        set(shadows: setupShadows())
+        set(cornerRadius: 5)
         setupViews()
     }
     

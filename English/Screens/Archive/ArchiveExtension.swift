@@ -11,7 +11,7 @@ import UIKit
 extension ArchiveView {
     
     func back() {
-        ViewController.tabBarView.isHidden = false
+        ViewController.tabBarView.show()
         removeFromSuperview()
     }
 

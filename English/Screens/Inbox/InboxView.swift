@@ -40,7 +40,7 @@ class InboxView: UIView, ServiceProvider {
             bottom: 0,
             right: Screen.sideInset
         )
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .clear
         return collectionView
     }()
     
@@ -50,7 +50,6 @@ class InboxView: UIView, ServiceProvider {
     
     let emptyView = InboxEmptyView()
     
-    let vm = InboxViewModel()
     var blurView: BlurView?
     var cvHeightAnchor: NSLayoutConstraint!
     

@@ -9,8 +9,8 @@
 import UIKit
 
 protocol AddButtonsViewDelegate {
-    func save()
-    func cancel()
+    func didTapSaveButton()
+    func didTapCancelButton()
 }
 
 class AddButtonsView: UIView {
@@ -28,7 +28,6 @@ class AddButtonsView: UIView {
     let cancelButton = AddButtonCancel()
     
     var delegate: AddButtonsViewDelegate!
-    var rightConstraint: NSLayoutConstraint!
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -49,35 +48,18 @@ class AddButtonsView: UIView {
         stackView.addArrangedSubview(cancelButton)
         stackView.addArrangedSubview(saveButton)
         
-        addConstraintsWithFormat(format: "H:|[v0]", views: stackView)
+        addConstraintsWithFormat(format: "H:|[v0]|", views: stackView)
         addConstraintsWithFormat(format: "V:|[v0]|", views: stackView)
-        
-        rightConstraint = stackView.rightAnchor.constraint(equalTo: rightAnchor, constant: Screen.width)
-        rightConstraint.isActive = true
     }
     
-    func showSaveButton() {
-        rightConstraint.constant = 0
-        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
-            self.layoutIfNeeded()
-        }, completion: nil)
-    }
-    
-    func hideSaveButton() {
-        rightConstraint.constant = Screen.width
-        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
-            self.layoutIfNeeded()
-        }, completion: nil)
-    }
-
     @objc
     func save() {
-        delegate.save()
+        delegate.didTapSaveButton()
     }
     
     @objc
     func cancel() {
-        delegate.cancel()
+        delegate.didTapCancelButton()
     }
 
 }

@@ -8,6 +8,13 @@
 
 import UIKit
 
+struct Shadow {
+    var color: UIColor
+    var offset: CGSize
+    var opacity: Float
+    var radius: CGFloat
+}
+
 extension CALayer {
     
     func setShadow(
@@ -16,10 +23,17 @@ extension CALayer {
         opacity: CGFloat = 0.1,
         radius: CGFloat = 6.0
         ) {
-        self.shadowColor = color.cgColor
-        self.shadowOffset = offset
-        self.shadowOpacity = Float(opacity)
-        self.shadowRadius = radius
+        shadowColor = color.cgColor
+        shadowOffset = offset
+        shadowOpacity = Float(opacity)
+        shadowRadius = radius
+    }
+    
+    func set(shadow: Shadow) {
+        shadowColor = shadow.color.cgColor
+        shadowOffset = shadow.offset
+        shadowOpacity = shadow.opacity
+        shadowRadius = shadow.radius
     }
     
 }

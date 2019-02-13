@@ -68,7 +68,7 @@ class ArchiveView: UIView, ServiceProvider {
     }
     
     func viewDidAppear() {
-        ViewController.tabBarView.isHidden = true
+        ViewController.tabBarView.hide()
         updateScreen()
     }
 

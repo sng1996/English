@@ -30,7 +30,7 @@ class RepeatsEmptyView: UIView {
         addSubview(label)
         
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: label)
-        addConstraintsWithFormat(format: "V:|[v0]->=0-|", views: label)
+        addConstraintsWithFormat(format: "V:|[v0]|", views: label)
     }
 
 }

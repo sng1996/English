@@ -20,10 +20,12 @@ extension InboxView: UICollectionViewDelegate {
         let wordData = wordDataService.newWords[indexPath.row]
         translateView.open(wordData)
         
-        for cell in collectionView.visibleCells {
-            let c = cell as! WordCell
-            c.setGray()
-        }
+        scrollView.isScrollEnabled = false
+        cellsToGray()
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
+            self.scrollView.backgroundColor = UIColor(rgb: 0xF3F3F3)
+        }, completion: nil)
+        
         let cell = collectionView.cellForItem(at: indexPath) as! WordCell
         cell.setBlack()
     }

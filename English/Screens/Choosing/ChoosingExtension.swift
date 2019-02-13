@@ -12,7 +12,7 @@ extension ChoosingView {
     
     func back() {
         removeFromSuperview()
-        ViewController.tabBarView.isHidden = false
+        ViewController.tabBarView.show()
     }
     
     func openNextTask() {

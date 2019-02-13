@@ -85,7 +85,7 @@ extension SpellingView {
     }
     
     func back() {
-        ViewController.tabBarView.isHidden = false
+        ViewController.tabBarView.show()
         removeFromSuperview()
     }
     

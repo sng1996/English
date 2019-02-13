@@ -75,7 +75,7 @@ class ThemesSecondView: UIView {
     }
     
     func viewDidAppear() {
-        ViewController.tabBarView.isHidden = true
+        ViewController.tabBarView.hide()
         tv.reloadData()
     }
     

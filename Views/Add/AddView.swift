@@ -50,18 +50,8 @@ class AddView: UIView {
     var blurView: BlurView? {
         didSet {
             guard let view = blurView else { return }
-            view.container.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(cancel)))
+            view.container.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapCancelButton)))
             view.isUserInteractionEnabled = true
-        }
-    }
-    
-    var canSave: Bool = false {
-        didSet {
-            if canSave {
-                showSaveButton()
-            } else {
-                hideSaveButton()
-            }
         }
     }
     
@@ -108,7 +98,7 @@ class AddView: UIView {
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0][v1]", views: footerTextField, loaderContainer)
         addConstraintsWithFormat(format: "H:|[v0]|", views: addTableView)
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: translatesView)
-        addConstraintsWithFormat(format: "V:|-\(Screen.sideInset + Screen.safeTop / 2)-[v0]-3-[v1]-10-[v2][v3]-\(Screen.sideInset - 13)-|", views: headerTextField, footerTextField, addTableView, translatesView)
+        addConstraintsWithFormat(format: "V:|-\(Screen.sideInset + Screen.safeTop / 2)-[v0]-3-[v1]-10-[v2][v3]|", views: headerTextField, footerTextField, addTableView, translatesView)
         
         NSLayoutConstraint.activate([
             loaderContainer.heightAnchor.constraint(equalToConstant: 48),

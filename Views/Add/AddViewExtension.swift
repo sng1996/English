@@ -58,47 +58,6 @@ extension AddView {
         translatesView.close()
     }
     
-    func showSaveButton() {
-        buttonsView.showSaveButton()
-    }
-    
-    func hideSaveButton() {
-        buttonsView.hideSaveButton()
-    }
-    
-    func enableFooterTextField() {
-        footerTextField.isUserInteractionEnabled = true
-    }
-    
-    func disableFooterTextField() {
-        footerTextField.isUserInteractionEnabled = false
-    }
-    
-    func showLoader() {
-        hideLoader()
-        
-        let loader = LoaderView()
-        loaderContainer.addSubview(loader)
-        
-        loader.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            loader.centerXAnchor.constraint(equalTo: loaderContainer.centerXAnchor),
-            loader.centerYAnchor.constraint(equalTo: loaderContainer.centerYAnchor)
-        ])
-        
-        loaderWidthConstraint.constant = 48
-        layoutIfNeeded()
-    }
-    
-    func hideLoader() {
-        for view in loaderContainer.subviews {
-            view.removeFromSuperview()
-        }
-        
-        loaderWidthConstraint.constant = 0
-        layoutIfNeeded()
-    }
-    
     func hide() {
         bottomConstraint.constant = 0
         cleanHeaderField()
@@ -106,8 +65,8 @@ extension AddView {
         hideTableView()
         hideTranslatesView()
         deactivateTextFields()
+        buttonsView.saveButton.currentMode = .arrow
         delegate.hideAddView()
-        canSave = false
         
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
             self.topConstraint.isActive = false
@@ -117,28 +76,29 @@ extension AddView {
         })
     }
     
-    /////////////User Actions/////////////
-    
-    func save() {
-        vm.save(
-            original: headerTextField.text!,
-            translate: footerTextField.text!
-        )
-        disableFooterTextField()
-        vm.cleanData()
-        hide()
-    }
-    
-    @objc
-    func cancel() {
-        disableFooterTextField()
-        vm.cleanData()
-        hide()
-    }
-    
-    func openTranslatesView() {
+    func toSecondStep(_ word: Word?) {
+        buttonsView.saveButton.currentMode = .save
+        
+        vm.word = word
+        hideTableView()
         showTranslatesView()
+        activateFooter()
+        
+        if let word = word {
+            showHeaderField(word.original)
+            showFooterField(word.translate)
+        }
     }
+    
+    func showLoader() {
+        buttonsView.saveButton.currentMode = .loader
+    }
+    
+    func startSave() {
+        buttonsView.saveButton.currentMode = .save
+    }
+    
+    /////////////User Actions/////////////
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         //  Backspace pressed
@@ -155,24 +115,10 @@ extension AddView {
         return true
     }
     
-    @objc
-    func textFieldDidChange(_ textField: TextField) {
+    @objc func textFieldDidChange(_ textField: TextField) {
         if textField == headerTextField {
             headerTextFieldDidChange()
-        } else {
-            footerTextFieldDidChange()
         }
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == headerTextField {
-            if canSave {
-                save()
-            } else {
-                addTableView.chooseFirst()
-            }
-        }
-        return false
     }
     
     func headerTextFieldDidChange() {
@@ -180,51 +126,66 @@ extension AddView {
         hideFooterField()
         hideTableView()
         hideTranslatesView()
-        disableFooterTextField()
-        canSave = false
+        if buttonsView.saveButton.currentMode != .arrow {
+            buttonsView.saveButton.currentMode = .arrow
+        }
         
         if headerTextField.text != "" {
-            vm.translate(text: headerTextField.text!)
+            vm.offlineTranslate(headerTextField.text!)
         }
     }
     
-    func footerTextFieldDidChange() {
-        if footerTextField.text == "" {
-            canSave = false
-        } else {
-            canSave = true
-        }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        didTapSaveButton()
+        return false
     }
     
-    func didChooseWord(_ word: Word) {
-        vm.word = word
+    func didTapSaveButton() {
+        if headerTextField.text == "" { return }
         
-        showHeaderField(word.original)
-        showFooterField(word.translate)
-        hideTableView()
-        vm.stopLoading()
-        showTranslatesView()
-        canSave = true
+        switch buttonsView.saveButton.currentMode {
+        case .arrow:
+            if let word = addTableView.getFirst() {
+                if word.original == headerTextField.text!.lowercased() {
+                    toSecondStep(word)
+                    return
+                }
+            }
+            vm.onlineTranslate(headerTextField.text!.lowercased())
+            break
+        case .loader:
+            break
+        case .save:
+            save()
+            break
+        }
     }
     
-    func didChooseSelfTranslate() {
-        enableFooterTextField()
-        showFooterField("")
-        activateFooter()
-        hideTableView()
-        vm.stopLoading()
+    func didChooseWord(_ word: Word?) {
+        toSecondStep(word)
     }
     
-    func addTranslate(_ word: Word) {
-        addTableView.addData(word)
+    func save() {
+        if footerTextField.text == "" { return }
+        
+        vm.save(
+            original: headerTextField.text!,
+            translate: footerTextField.text!
+        )
+        vm.cleanData()
+        hide()
+    }
+    
+    @objc func didTapCancelButton() {
+        vm.cleanData()
+        hide()
     }
     
     func changeTranslate(_ text: String) {
         showFooterField(text)
     }
     
-    @objc
-    func keyboardWillShow(notification: Notification) {
+    @objc func keyboardWillShow(notification: Notification) {
         if let userInfo = notification.userInfo {
             let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
             Keyboard.height = keyboardFrame.height

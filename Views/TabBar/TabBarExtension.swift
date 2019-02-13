@@ -11,81 +11,50 @@ import UIKit
 extension TabBarView {
     
     func deactivateButtons() {
-        currentButton.deactivate()
+        buttons.map {
+            $0.deactivate()
+        }
     }
     
     func didTapInbox() {
-        modulesView.deactivateButtons()
         deactivateButtons()
         delegate.showInboxView()
-        currentButton = buttons[0]
-        hideModulesView()
     }
     
     func didTapRepeats() {
-        modulesView.deactivateButtons()
         deactivateButtons()
         delegate.showRepeatsView()
-        currentButton = buttons[1]
-        hideModulesView()
-    }
-    
-    func didTapModules() {
-        showModulesView()
-        deactivateButtons()
-    }
-    
-    func didTapSettings() {
-        modulesView.deactivateButtons()
-        deactivateButtons()
-        delegate.showSettingsView()
-        currentButton = buttons[3]
-        hideModulesView()
-    }
-    
-    func didTapThousands() {
-        delegate.showThousandsView()
-        currentButton = buttons[2]
-        hideModulesView()
     }
     
     func didTapThemes() {
+        deactivateButtons()
         delegate.showThemesView()
-        currentButton = buttons[2]
-        hideModulesView()
     }
     
-    func didTapProse() {
-        delegate.showProsesView()
-        currentButton = buttons[2]
-        hideModulesView()
+    func didTapSettings() {
+        deactivateButtons()
+        delegate.showSettingsView()
     }
     
     func didTapStart() {
-        hideModulesView()
         delegate.start()
     }
     
     func showStartButton() {
-        startButton.removeFromSuperview()
-        stackView.addArrangedSubview(startButton)
+        startButtonContainer.removeFromSuperview()
+        stackView.addArrangedSubview(startButtonContainer)
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
+            self.layoutIfNeeded()
+            self.startButton.alpha = 1.0
+        }, completion: nil)
     }
     
     func hideStartButton() {
-        startButton.removeFromSuperview()
-    }
-    
-    func showModulesView() {
-        closeModulesView.isHidden = false
-        modulesView.isHidden = false
-    }
-    
-    @objc
-    func hideModulesView() {
-        closeModulesView.isHidden = true
-        modulesView.isHidden = true
-        buttons[2].deactivate()
-        currentButton.activate()
+        startButtonContainer.removeFromSuperview()
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
+            self.layoutIfNeeded()
+            self.startButton.alpha = 0.0
+        }, completion: nil)
     }
     
     func showBadge() {
@@ -94,6 +63,18 @@ extension TabBarView {
     
     func hideBadge() {
         buttons[1].hideBadge()
+    }
+    
+    func show() {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
+            self.alpha = 1.0
+        }, completion: nil)
+    }
+    
+    func hide() {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
+            self.alpha = 0.0
+        }, completion: nil)
     }
     
 }

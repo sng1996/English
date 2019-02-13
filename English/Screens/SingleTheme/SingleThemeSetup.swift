@@ -26,9 +26,9 @@ extension SingleThemeView {
         
         addConstraintsWithFormat(format: "H:|[v0]|", views: scrollView)
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]", views: backButton)
-        addConstraintsWithFormat(format: "H:[v0]-\(Screen.sideInset)-|", views:     addButton)
+        addConstraintsWithFormat(format: "H:[v0]-\(Screen.sideInset)-|", views: addButton)
         addConstraintsWithFormat(format: "H:|[v0(\(Screen.width))]|", views: scrollContainer)
-        addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: headerLabel)
+        addConstraintsWithFormat(format: "H:|-\(Screen.sideInset + Screen.safeTop)-[v0]-\(Screen.sideInset)-|", views: headerLabel)
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: footerLabel)
         addConstraintsWithFormat(format: "H:|[v0]|", views: tv)
         

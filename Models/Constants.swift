@@ -19,12 +19,12 @@ enum ScreenType {
 
 struct Screen {
     
-    static var height: CGFloat = UIScreen.main.bounds.height
     static var width: CGFloat = UIScreen.main.bounds.width
+    static var height: CGFloat = UIScreen.main.bounds.height
     static var safeTop: CGFloat = -1.0
     static var safeBottom: CGFloat = -1.0
-    static var heightCoef: CGFloat = Screen.height / 736
     static var widthCoef: CGFloat = Screen.width / 414
+    static var heightCoef: CGFloat = Screen.height / 736
     
     static var type: ScreenType {
         switch height {

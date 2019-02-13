@@ -28,7 +28,7 @@ extension ThemesSecondView {
         addConstraintsWithFormat(format: "V:|[v0]|", views: scrollView)
         
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]", views: backButton)
-        addConstraintsWithFormat(format: "V:|-\(Screen.sideInset)-[v0]", views: backButton)
+        addConstraintsWithFormat(format: "V:[v0]-\(Screen.sideInset)-|", views: backButton)
         
         addConstraintsWithFormat(format: "H:|[v0(\(Screen.width))]|", views: scrollContainer)
         addConstraintsWithFormat(format: "V:|[v0]|", views: scrollContainer)

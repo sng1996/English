@@ -16,7 +16,7 @@ class Line: UIView {
 
     init() {
         super.init(frame: .zero)
-        self.backgroundColor = UIColor(rgb: 0xF6F6F6)
+        self.backgroundColor = UIColor(rgb: 0xFAFAFA)
     }
 
 }

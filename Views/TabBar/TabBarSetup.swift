@@ -13,41 +13,44 @@ extension TabBarView {
     func setupViews() {
         buttons[0].tapHandler = didTapInbox
         buttons[1].tapHandler = didTapRepeats
-        buttons[2].tapHandler = didTapModules
+        buttons[2].tapHandler = didTapThemes
         buttons[3].tapHandler = didTapSettings
         startButton.tapHandler = didTapStart
-        modulesView.delegate = self
         
         addSubview(stackView)
         for button in buttons {
             stackView.addArrangedSubview(button)
         }
-        addSubview(line)
+        addSubview(startButton)
         
-        addConstraintsWithFormat(format: "H:|[v0]|", views: line)
-        addConstraintsWithFormat(format: "H:|-10-[v0]-10-|", views: stackView)
-        addConstraintsWithFormat(format: "V:|[v0(1)]", views: line)
-        addConstraintsWithFormat(format: "V:|[v0(60)]", views: stackView)
+        
+        addConstraintsWithFormat(format: "H:|[v0]|", views: stackView)
+        addConstraintsWithFormat(format: "V:|[v0]|", views: stackView)
         addConstraintsWithFormat(format: "V:[v0(\(height))]", views: self)
+        addConstraintsWithFormat(format: "H:[v0]|", views: startButton)
+        addConstraintsWithFormat(format: "V:|[v0]|", views: startButton)
     }
     
-    func setupModulesView() {
-        closeModulesView.isHidden = true
-        superview!.insertSubview(closeModulesView, belowSubview: self)
-        superview!.insertSubview(modulesView, belowSubview: self)
-        
-        closeModulesView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideModulesView)))
-        
-        superview!.addConstraintsWithFormat(format: "H:|[v0]|", views: closeModulesView)
-        superview!.addConstraintsWithFormat(format: "V:|[v0]|", views: closeModulesView)
-        
-        modulesView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            modulesView.centerXAnchor.constraint(equalTo: buttons[2].centerXAnchor),
-            modulesView.widthAnchor.constraint(equalToConstant: 200),
-            modulesView.heightAnchor.constraint(equalToConstant: 70),
-            modulesView.bottomAnchor.constraint(equalTo: topAnchor, constant: -10)
-        ])
+    func setupShadows() -> [Shadow] {
+        let shadow1 = Shadow(
+            color: UIColor(rgb: 0x0F0F0F),
+            offset: .zero,
+            opacity: 0.01,
+            radius: 0
+        )
+        let shadow2 = Shadow(
+            color: UIColor(rgb: 0x24B43F),
+            offset: CGSize(width: 0, height: 3),
+            opacity: 0.1,
+            radius: 6
+        )
+        let shadow3 = Shadow(
+            color: UIColor(rgb: 0x176630),
+            offset: CGSize(width: 0, height: 4),
+            opacity: 0.0521,
+            radius: 9
+        )
+        return [shadow1, shadow2, shadow3]
     }
 
 }

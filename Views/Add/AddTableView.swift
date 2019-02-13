@@ -9,8 +9,7 @@
 import UIKit
 
 protocol AddTableViewDelegate {
-    func didChooseWord(_ word: Word)
-    func didChooseSelfTranslate()
+    func didChooseWord(_ word: Word?)
 }
 
 class AddTableView: UIView {
@@ -21,7 +20,6 @@ class AddTableView: UIView {
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorColor = .white
         tableView.register(AddCell.self, forCellReuseIdentifier: "AddCell")
-        tableView.register(AddSelfCell.self, forCellReuseIdentifier: "AddSelfCell")
         tableView.backgroundColor = .white
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = UITableView.automaticDimension
@@ -73,11 +71,7 @@ class AddTableView: UIView {
     
     func setData(_ words: [Word]) {
         self.words = words
-        reloadData()
-    }
-    
-    func addData(_ word: Word) {
-        words.insert(word, at: 0)
+        if words.count == 0 { hide() }
         reloadData()
     }
     
@@ -85,10 +79,11 @@ class AddTableView: UIView {
         tv.reloadData()
     }
     
-    func chooseFirst() {
+    func getFirst() -> Word? {
         if !words.isEmpty && heightConstraint.constant > 0 {
-            delegate.didChooseWord(words[0])
+            return words[0]
         }
+        return nil
     }
     
 }
@@ -100,11 +95,7 @@ extension AddTableView: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == words.count {
-            delegate.didChooseSelfTranslate()
-        } else {
-            delegate.didChooseWord(words[indexPath.row])
-        }
+        delegate.didChooseWord(words[indexPath.row])
     }
     
 }
@@ -112,20 +103,12 @@ extension AddTableView: UITableViewDelegate {
 extension AddTableView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return words.count + 1
+        return words.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: UITableViewCell!
-        
-        if indexPath.row > words.count { return cell }
-        
-        if indexPath.row == words.count {
-            cell = tableView.dequeueReusableCell(withIdentifier: "AddSelfCell", for: indexPath)
-        } else {
-            cell = tableView.dequeueReusableCell(withIdentifier: "AddCell", for: indexPath)
-            (cell as! AddCell).sourceItem = words[indexPath.row]
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AddCell", for: indexPath) as! AddCell
+        cell.sourceItem = words[indexPath.row]
         
         heightConstraint.constant = min(tableView.contentSize.height + 10, maxHeight)
         layoutIfNeeded()

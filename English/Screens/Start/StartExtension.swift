@@ -11,7 +11,7 @@ import UIKit
 extension StartView {
     
     func back() {
-        ViewController.tabBarView.isHidden = false
+        ViewController.tabBarView.show()
         self.removeFromSuperview()
     }
     

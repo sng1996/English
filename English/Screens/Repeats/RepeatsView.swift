@@ -11,15 +11,7 @@ import UIKit
 
 class RepeatsView: UIView, ServiceProvider {
     
-    let scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.contentInset.bottom = ViewController.tabBarView.height
-        scrollView.showsVerticalScrollIndicator = false
-        scrollView.contentInsetAdjustmentBehavior = .never
-        scrollView.alwaysBounceVertical = true
-        scrollView.backgroundColor = .white
-        return scrollView
-    }()
+    let scrollView = ScrollView()
     
     let scrollContainer = UIView()
     
@@ -33,13 +25,11 @@ class RepeatsView: UIView, ServiceProvider {
     let tv: UITableView = {
         let tableView = UITableView()
         tableView.contentInsetAdjustmentBehavior = .never
-        tableView.separatorColor = .white
+        tableView.separatorColor = .clear
         tableView.register(RepeatsCell.self, forCellReuseIdentifier: "RepeatsCell")
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = .clear
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = UITableView.automaticDimension
-        tableView.backgroundColor = .white
-        tableView.contentInset.bottom = ViewController.tabBarView.height
         tableView.isScrollEnabled = false
         return tableView
     }()

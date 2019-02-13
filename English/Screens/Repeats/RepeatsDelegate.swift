@@ -19,11 +19,13 @@ extension RepeatsView: UITableViewDelegate {
         let wordData = wordDataService.repeatWords[indexPath.row]
         translateView.open(wordData)
         
-        for cell in tableView.visibleCells {
-            let c = cell as! RepeatsCell
-            c.deactivate()
-        }
-        let cell = tableView.cellForRow(at: indexPath) as! RepeatsCell
+        scrollView.isScrollEnabled = false
+        cellsToGray()
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
+            self.scrollView.backgroundColor = UIColor(rgb: 0xF3F3F3)
+        }, completion: nil)
+        
+        let cell = tv.cellForRow(at: indexPath) as! RepeatsCell
         cell.activate()
     }
     

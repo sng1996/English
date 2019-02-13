@@ -82,8 +82,8 @@ class ThemesCellView: UIView {
     func setupCardViews(_ themes: [Theme]) {
         for i in themes.indices {
             let cardView = ThemesCardView()
-            cardView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(open)))
             cardView.sourceItem = themes[i]
+            cardView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(open)))
             cardViews.append(cardView)
             scrollContainer.addSubview(cardView)
             

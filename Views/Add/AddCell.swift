@@ -45,7 +45,7 @@ class AddCell: UITableViewCell {
         
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: headerLabel)
         //addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: footerLabel)
-        addConstraintsWithFormat(format: "V:|-10-[v0]-10-|", views: headerLabel)
+        addConstraintsWithFormat(format: "V:|-12-[v0]-12-|", views: headerLabel)
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: line)
         addConstraintsWithFormat(format: "V:|[v0(1)]", views: line)
     }

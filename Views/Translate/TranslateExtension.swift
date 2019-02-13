@@ -19,26 +19,30 @@ extension TranslateView {
     func open(_ wordData: WordData) {
         let word = Word(wordData)
         sourceItem = word
+        isHidden = false
         
-        self.topConstraint.constant = -self.frame.height
+        ViewController.tabBarView.hide()
+        topConstraint.constant = -view.frame.height
         animateLayout()
-        
-        ViewController.tabBarView.isHidden = true
-        delegate.didOpenTranslateView()
     }
     
     func close() {
         optionsButton.isHidden = false
         topConstraint.constant = 0
-        animateLayout()
-        ViewController.tabBarView.isHidden = false
+        ViewController.tabBarView.show()
         delegate.didCloseTranslateView()
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
+            self.superview!.layoutIfNeeded()
+        }, completion: { finished in
+            self.isHidden = true
+        })
     }
     
     func deleteWord() {
         if let wordData = (sourceItem as! Word).data {
             wordDataService.delete(wordData)
             close()
+            delegate.updateScreen()
         }
     }
     
@@ -47,22 +51,22 @@ extension TranslateView {
     }
     
     func animateLayout() {
-        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
             self.superview!.layoutIfNeeded()
         }, completion: { finished in })
     }
     
-    @objc
-    func handlePanGesture(gesture: UIPanGestureRecognizer) {
+    @objc func handlePanGesture(gesture: UIPanGestureRecognizer) {
         switch(gesture.state) {
         case UIGestureRecognizer.State.began:
-            maxY = -self.frame.height
+            maxY = -view.frame.height
             currentY = topConstraint.constant
             break
             
         case UIGestureRecognizer.State.changed:
             let translation = gesture.translation(in: self)
             let constant = currentY + translation.y
+            
             if maxY <= constant {
                 topConstraint.constant = constant
             }
@@ -70,7 +74,9 @@ extension TranslateView {
             break
             
         case UIGestureRecognizer.State.ended:
-            close()
+            if maxY < topConstraint.constant {
+                close()
+            }
             break
             
         default: break

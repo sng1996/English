@@ -10,22 +10,29 @@ import UIKit
 
 extension RepeatsView {
     
-    func didOpenTranslateView() {
-        scrollView.isScrollEnabled = false
-        scrollView.backgroundColor = UIColor(rgb: 0xFBFBFB)
-        tv.backgroundColor = UIColor(rgb: 0xFBFBFB)
-        for cell in tv.visibleCells {
-            cell.backgroundColor = UIColor(rgb: 0xFBFBFB)
+    func didCloseTranslateView() {
+        scrollView.isScrollEnabled = true
+        cellsToBlack()
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
+            self.scrollView.backgroundColor = .white
+        }, completion: nil)
+    }
+    
+    func cellsToGray() {
+        for c in tv.visibleCells {
+            let cell = c as! RepeatsCell
+            UIView.transition(with: cell.headerLabel, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                cell.deactivate()
+            }, completion: nil)
         }
     }
     
-    func didCloseTranslateView() {
-        scrollView.backgroundColor = .white
-        tv.backgroundColor = .white
-        scrollView.isScrollEnabled = true
-        updateScreen()
-        for cell in tv.visibleCells {
-            cell.backgroundColor = .white
+    func cellsToBlack() {
+        for c in tv.visibleCells {
+            let cell = c as! RepeatsCell
+            UIView.transition(with: cell.headerLabel, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                cell.activate()
+            }, completion: nil)
         }
     }
     
@@ -46,7 +53,7 @@ extension RepeatsView {
     }
     
     func openStartView() {
-        ViewController.tabBarView.isHidden = true
+        ViewController.tabBarView.hide()
         let startView = StartView()
         startView.delegate = self
         addSubview(startView)
@@ -59,7 +66,7 @@ extension RepeatsView {
     }
     
     func openChoosingView(_ words: [WordData]) {
-        ViewController.tabBarView.isHidden = true
+        ViewController.tabBarView.hide()
         let choosingView = ChoosingView()
         choosingView.delegate = self
         addSubview(choosingView)
@@ -71,7 +78,7 @@ extension RepeatsView {
     }
     
     func openSpellingView(_ words: [WordData]) {
-        ViewController.tabBarView.isHidden = true
+        ViewController.tabBarView.hide()
         let spellingView = SpellingView()
         spellingView.delegate = self
         addSubview(spellingView)

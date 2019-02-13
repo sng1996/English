@@ -24,12 +24,13 @@ extension RepeatsView {
         topContainer.addSubview(label)
         topContainer.addSubview(badge)
         
+        translatesAutoresizingMaskIntoConstraints = false
+        
         addConstraintsWithFormat(format: "H:|[v0]|", views: scrollView)
         addConstraintsWithFormat(format: "V:|[v0]|", views: scrollView)
         
         addConstraintsWithFormat(format: "H:|[v0]|", views: translateView)
-        translateView.topConstraint = translateView.topAnchor.constraint(equalTo: bottomAnchor)
-        translateView.topConstraint.isActive = true
+        addConstraintsWithFormat(format: "V:|[v0]|", views: translateView)
         
         addConstraintsWithFormat(format: "H:|[v0]|", views: emptyView)
         addConstraintsWithFormat(format: "V:[v0][v1]", views: topContainer, emptyView)

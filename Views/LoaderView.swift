@@ -13,23 +13,16 @@ class LoaderView: UIView {
     let time: Double = 0.5
     let distance: CGFloat = 5.0
     
-    let round1: RoundView = {
+    var round: RoundView {
         let view = RoundView()
+        view.backgroundColor = UIColor(rgb: 0x68DBA5)
         view.alpha = 0.0
         return view
-    }()
+    }
     
-    let round2: RoundView = {
-        let view = RoundView()
-        view.alpha = 0.0
-        return view
-    }()
-    
-    let round3: RoundView = {
-        let view = RoundView()
-        view.alpha = 0.0
-        return view
-    }()
+    var round1: RoundView!
+    var round2: RoundView!
+    var round3: RoundView!
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -37,32 +30,23 @@ class LoaderView: UIView {
     
     init() {
         super.init(frame: .zero)
-        self.backgroundColor = .white
         setupViews()
         startAnimation()
     }
     
     func setupViews() {
+        round1 = round
+        round2 = round
+        round3 = round
+        
         addSubview(round1)
         addSubview(round2)
         addSubview(round3)
         
-        addConstraintsWithFormat(
-            format: "H:|[v0]-\(distance)-[v1]-\(distance)-[v2]|",
-            views: round1, round2, round3
-        )
-        addConstraintsWithFormat(
-            format: "V:|[v0]|",
-            views: round1
-        )
-        addConstraintsWithFormat(
-            format: "V:|[v0]|",
-            views: round2
-        )
-        addConstraintsWithFormat(
-            format: "V:|[v0]|",
-            views: round3
-        )
+        addConstraintsWithFormat(format: "H:|[v0]-\(distance)-[v1]-\(distance)-[v2]|", views: round1, round2, round3)
+        addConstraintsWithFormat(format: "V:|[v0]|", views: round1)
+        addConstraintsWithFormat(format: "V:|[v0]|", views: round2)
+        addConstraintsWithFormat(format: "V:|[v0]|", views: round3)
     }
     
     func startAnimation() {

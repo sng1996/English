@@ -26,17 +26,18 @@ extension InboxView {
         scrollContainer.addSubview(cv)
         labelContainer.addSubview(label)
         
+        translatesAutoresizingMaskIntoConstraints = false
+        
         addConstraintsWithFormat(format: "H:|[v0]|", views: scrollView)
         addConstraintsWithFormat(format: "V:|[v0]|", views: scrollView)
+        
+        addConstraintsWithFormat(format: "H:|[v0]|", views: translateView)
+        addConstraintsWithFormat(format: "V:|[v0]|", views: translateView)
         
         addConstraintsWithFormat(format: "H:|[v0]|", views: addView)
         addView.bottomConstraint = addView.bottomAnchor.constraint(equalTo: topAnchor, constant: 0)
         addView.topConstraint = addView.topAnchor.constraint(equalTo: topAnchor)
         addView.bottomConstraint.isActive = true
-        
-        addConstraintsWithFormat(format: "H:|[v0]|", views: translateView)
-        translateView.topConstraint = translateView.topAnchor.constraint(equalTo: bottomAnchor)
-        translateView.topConstraint.isActive = true
         
         addConstraintsWithFormat(format: "H:|[v0(\(Screen.width))]|", views: scrollContainer)
         addConstraintsWithFormat(format: "V:|[v0]|", views: scrollContainer)

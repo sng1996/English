@@ -34,7 +34,7 @@ extension ThemesView {
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: headerLabel)
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: footerLabel)
         addConstraintsWithFormat(format: "H:|[v0]|", views: tv)
-        addConstraintsWithFormat(format: "V:|-40-[v0]-3-[v1]-20-[v2]|", views: headerLabel, footerLabel, tv)
+        addConstraintsWithFormat(format: "V:|-\(Screen.safeTop + 40)-[v0]-3-[v1]-20-[v2]|", views: headerLabel, footerLabel, tv)
         
         tvHeightAnchor = tv.heightAnchor.constraint(equalToConstant: 1000)
         tvHeightAnchor.isActive = true

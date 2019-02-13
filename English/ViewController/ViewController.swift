@@ -41,19 +41,7 @@ class ViewController: UIViewController, ServiceProvider {
         }
         
         themesService.loadDataFromFiles()
-        
-        inboxView = InboxView()
-        repeatsView = RepeatsView()
-        settingsView = SettingsView()
-        thousandsView = ThousandsView()
-        themesView = ThemesView()
-        prosesView = ProsesView()
-        
         setupViews()
-        
-        if let button = ViewController.tabBarView.buttons[0] as? TabBarButton {
-            button.didTap()
-        }
         NotificationManager().update()
     }
 

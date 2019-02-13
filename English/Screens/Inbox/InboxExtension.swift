@@ -22,17 +22,30 @@ extension InboxView {
         updateScreen()
     }
     
-    func didOpenTranslateView() {
-        scrollView.isScrollEnabled = false
-        scrollView.backgroundColor = UIColor(rgb: 0xF3F3F3)
-        cv.backgroundColor = UIColor(rgb: 0xF3F3F3)
+    func didCloseTranslateView() {
+        scrollView.isScrollEnabled = true
+        cellsToBlack()
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
+            self.scrollView.backgroundColor = .white
+        }, completion: nil)
     }
     
-    func didCloseTranslateView() {
-        scrollView.backgroundColor = .white
-        cv.backgroundColor = .white
-        scrollView.isScrollEnabled = true
-        updateScreen()
+    func cellsToGray() {
+        for c in cv.visibleCells {
+            let cell = c as! WordCell
+            UIView.transition(with: cell.label, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                cell.label.textColor = UIColor(rgb: 0xDADADA)
+            }, completion: nil)
+        }
+    }
+    
+    func cellsToBlack() {
+        for c in cv.visibleCells {
+            let cell = c as! WordCell
+            UIView.transition(with: cell.label, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                cell.label.textColor = .black
+            }, completion: nil)
+        }
     }
     
     func updateScreen() {
@@ -55,7 +68,7 @@ extension InboxView {
     }
     
     func openStartView() {
-        ViewController.tabBarView.isHidden = true
+        ViewController.tabBarView.hide()
         let startView = StartView()
         startView.delegate = self
         addSubview(startView)
@@ -67,7 +80,7 @@ extension InboxView {
     }
     
     func openChoosingView(_ words: [WordData]) {
-        ViewController.tabBarView.isHidden = true
+        ViewController.tabBarView.hide()
         let choosingView = ChoosingView()
         choosingView.delegate = self
         addSubview(choosingView)
@@ -79,7 +92,7 @@ extension InboxView {
     }
     
     func openSpellingView(_ words: [WordData]) {
-        ViewController.tabBarView.isHidden = true
+        ViewController.tabBarView.hide()
         let spellingView = SpellingView()
         spellingView.delegate = self
         addSubview(spellingView)

@@ -43,7 +43,7 @@ class ThemesView: UIView, ServiceProvider {
 
     func viewDidAppear() {
         ViewController.tabBarView.hideStartButton()
-        ViewController.tabBarView.isHidden = false
+        ViewController.tabBarView.show()
         update()
     }
 
