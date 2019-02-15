@@ -13,7 +13,7 @@ class ThemesCardView: UIView {
     var sourceItem: Any? {
         didSet {
             guard let item = sourceItem as? Theme else { return }
-            imageView.image = UIImage(named: item.filename)
+            imageView.image = UIImage(named: "History")
             headerLabel.text = item.name
             footerLabel.text = item.getCounts()
         }

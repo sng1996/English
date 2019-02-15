@@ -43,14 +43,21 @@ class NotificationManager: ServiceProvider {
     }
     
     func update() {
-        var count = 0
+        var count = wordDataService.todayCount
         var hour = 0
         var min = 0
         
+        if count == 0 {
+            ViewController.tabBarView.hideBadge()
+        } else {
+            ViewController.tabBarView.showBadge()
+        }
+        
         if isOn {
-            count = wordDataService.todayCount
             hour = Int(time.split(separator: ":")[0])!
             min = Int(time.split(separator: ":")[1])!
+        } else {
+            count = 0
         }
     
         updateSchedule(count, hour, min)
@@ -66,12 +73,6 @@ class NotificationManager: ServiceProvider {
         
         UIApplication.shared.registerForRemoteNotifications()
         UIApplication.shared.applicationIconBadgeNumber = count
-        
-        if count == 0 {
-            ViewController.tabBarView.hideBadge()
-            return
-        }
-        ViewController.tabBarView.showBadge()
         
         let content = UNMutableNotificationContent()
         content.title = "Напоминание"

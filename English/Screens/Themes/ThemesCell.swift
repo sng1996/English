@@ -25,7 +25,7 @@ class ThemesCell: UITableViewCell {
         }
         didSet {
             if let view = view {
-                self.addSubview(view)
+                addSubview(view)
                 addConstraintsWithFormat(format: "H:|[v0]|", views: view)
                 addConstraintsWithFormat(format: "V:|[v0]|", views: view)
             }

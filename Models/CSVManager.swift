@@ -23,7 +23,7 @@ class CSVManager: ServiceProvider {
     
     func writeWordsFromCSVToCoreData(theme: Theme) {
         let manager = ThemeWordDataManager()
-        if let csv = getCSVReader(path: "Themes/\(theme.filename)") {
+        if let csv = getCSVReader(path: "NewThemes/\(theme.filename)") {
             var count = 1
             while let row = csv.next() {
                 manager.create(original: row[0], translate: row[1], theme: theme.filename, row: count)

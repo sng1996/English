@@ -18,10 +18,10 @@ extension ArchiveView: UICollectionViewDelegate {
         
         for cell in collectionView.visibleCells {
             let c = cell as! WordCell
-            c.setGray()
+            c.deactivate()
         }
         let cell = collectionView.cellForItem(at: indexPath) as! WordCell
-        cell.setBlack()
+        cell.activate()
     }
     
 }

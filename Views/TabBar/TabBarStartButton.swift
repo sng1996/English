@@ -10,11 +10,9 @@ import UIKit
 
 class TabBarStartButton: Button {
     
-    let view: UIView = {
-        let view = UIView()
+    let view: ShadowsView = {
+        let view = ShadowsView()
         view.backgroundColor = UIColor(rgb: 0x68DBA5)
-        view.layer.cornerRadius = 5
-        view.layer.setShadow(color: UIColor(rgb: 0x68DBA5))
         view.isUserInteractionEnabled = false
         return view
     }()
@@ -23,6 +21,30 @@ class TabBarStartButton: Button {
     
     let width = (Screen.width - 20) / 5
     let side: CGFloat = 40
+    
+    var shadows: [Shadow] {
+        get {
+            let shadow1 = Shadow(
+                color: UIColor(rgb: 0x0F0F0F),
+                offset: .zero,
+                opacity: 0.01,
+                radius: 0
+            )
+            let shadow2 = Shadow(
+                color: UIColor(rgb: 0x24B43F),
+                offset: CGSize(width: 0, height: 3),
+                opacity: 0.1,
+                radius: 6
+            )
+            let shadow3 = Shadow(
+                color: UIColor(rgb: 0x176630),
+                offset: CGSize(width: 0, height: 4),
+                opacity: 0.0521,
+                radius: 9
+            )
+            return [shadow1, shadow2, shadow3]
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -35,6 +57,9 @@ class TabBarStartButton: Button {
     }
     
     func setupViews() {
+        view.set(shadows: shadows)
+        view.set(cornerRadius: 5)
+        
         addSubview(view)
         view.addSubview(imageView)
         

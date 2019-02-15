@@ -89,5 +89,10 @@ extension ThemesSecondView {
         headerLabel.alpha = 0.0
         tv.alpha = 0.0
     }
+    
+    func presentInbox() {
+        delegate.presentInbox()
+        removeFromSuperview()
+    }
 
 }

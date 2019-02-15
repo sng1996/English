@@ -50,6 +50,18 @@
 		2A16D23121D7107F00B34013 /* SettingsNotificationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A16D23021D7107E00B34013 /* SettingsNotificationContainer.swift */; };
 		2A16D23321D7220600B34013 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A16D23221D7220600B34013 /* NotificationManager.swift */; };
 		2A197CA12214083900CD239B /* ShadowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A197CA02214083900CD239B /* ShadowsView.swift */; };
+		2A197CA522165A2000CD239B /* InboxHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A197CA422165A2000CD239B /* InboxHint.swift */; };
+		2A197CA72216820800CD239B /* RepeatsHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A197CA62216820800CD239B /* RepeatsHint.swift */; };
+		2A197CA92216884700CD239B /* NewThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A197CA82216884700CD239B /* NewThemeView.swift */; };
+		2A197CAC2216894600CD239B /* NewThemeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A197CAB2216894600CD239B /* NewThemeTableView.swift */; };
+		2A197CAE2216897600CD239B /* NewThemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A197CAD2216897600CD239B /* NewThemeCell.swift */; };
+		2A197CB02216899900CD239B /* NewThemeCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A197CAF2216899900CD239B /* NewThemeCheckbox.swift */; };
+		2A197CB222168A1900CD239B /* NewThemeSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A197CB122168A1900CD239B /* NewThemeSetup.swift */; };
+		2A197CB422168AF100CD239B /* NewThemeActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A197CB322168AF100CD239B /* NewThemeActions.swift */; };
+		2A197CB622168B7500CD239B /* NewThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A197CB522168B7500CD239B /* NewThemeViewModel.swift */; };
+		2A197CB822168DA300CD239B /* NewThemeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A197CB722168DA300CD239B /* NewThemeDelegate.swift */; };
+		2A197CBA22168E2100CD239B /* NewThemeAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A197CB922168E2100CD239B /* NewThemeAddButton.swift */; };
+		2A197CBC221691C200CD239B /* NewThemes in Resources */ = {isa = PBXBuildFile; fileRef = 2A197CBB221691C100CD239B /* NewThemes */; };
 		2A1DCB3A21E5B1F2002B37CF /* SpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1DCB3921E5B1F2002B37CF /* SpeechManager.swift */; };
 		2A3FAC0821F415330025B1A2 /* RepeatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAC0721F415330025B1A2 /* RepeatsCell.swift */; };
 		2A3FAC0A21F41F3C0025B1A2 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAC0921F41F3C0025B1A2 /* Badge.swift */; };
@@ -235,6 +247,18 @@
 		2A16D23021D7107E00B34013 /* SettingsNotificationContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNotificationContainer.swift; sourceTree = "<group>"; };
 		2A16D23221D7220600B34013 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		2A197CA02214083900CD239B /* ShadowsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowsView.swift; sourceTree = "<group>"; };
+		2A197CA422165A2000CD239B /* InboxHint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxHint.swift; sourceTree = "<group>"; };
+		2A197CA62216820800CD239B /* RepeatsHint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatsHint.swift; sourceTree = "<group>"; };
+		2A197CA82216884700CD239B /* NewThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemeView.swift; sourceTree = "<group>"; };
+		2A197CAB2216894600CD239B /* NewThemeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemeTableView.swift; sourceTree = "<group>"; };
+		2A197CAD2216897600CD239B /* NewThemeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemeCell.swift; sourceTree = "<group>"; };
+		2A197CAF2216899900CD239B /* NewThemeCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemeCheckbox.swift; sourceTree = "<group>"; };
+		2A197CB122168A1900CD239B /* NewThemeSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemeSetup.swift; sourceTree = "<group>"; };
+		2A197CB322168AF100CD239B /* NewThemeActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemeActions.swift; sourceTree = "<group>"; };
+		2A197CB522168B7500CD239B /* NewThemeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemeViewModel.swift; sourceTree = "<group>"; };
+		2A197CB722168DA300CD239B /* NewThemeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemeDelegate.swift; sourceTree = "<group>"; };
+		2A197CB922168E2100CD239B /* NewThemeAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemeAddButton.swift; sourceTree = "<group>"; };
+		2A197CBB221691C100CD239B /* NewThemes */ = {isa = PBXFileReference; lastKnownFileType = folder; name = NewThemes; path = Resources/NewThemes; sourceTree = "<group>"; };
 		2A1DCB3921E5B1F2002B37CF /* SpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
 		2A3FAC0721F415330025B1A2 /* RepeatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatsCell.swift; sourceTree = "<group>"; };
 		2A3FAC0921F41F3C0025B1A2 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
@@ -457,6 +481,22 @@
 			path = Archive;
 			sourceTree = "<group>";
 		};
+		2A197CAA2216884D00CD239B /* NewTheme */ = {
+			isa = PBXGroup;
+			children = (
+				2A197CB522168B7500CD239B /* NewThemeViewModel.swift */,
+				2A197CA82216884700CD239B /* NewThemeView.swift */,
+				2A197CB122168A1900CD239B /* NewThemeSetup.swift */,
+				2A197CB322168AF100CD239B /* NewThemeActions.swift */,
+				2A197CB722168DA300CD239B /* NewThemeDelegate.swift */,
+				2A197CAB2216894600CD239B /* NewThemeTableView.swift */,
+				2A197CAD2216897600CD239B /* NewThemeCell.swift */,
+				2A197CAF2216899900CD239B /* NewThemeCheckbox.swift */,
+				2A197CB922168E2100CD239B /* NewThemeAddButton.swift */,
+			);
+			path = NewTheme;
+			sourceTree = "<group>";
+		};
 		2A3FAC0F21F5929E0025B1A2 /* SingleTheme */ = {
 			isa = PBXGroup;
 			children = (
@@ -500,6 +540,7 @@
 				2AE8E78321D1EA0600B7A8A2 /* OfflineDictionary.sqlite */,
 				2A16D20321D4584000B34013 /* SupportDictionary.sqlite */,
 				2ABB914921FDCD56003E1521 /* Themes */,
+				2A197CBB221691C100CD239B /* NewThemes */,
 				2AE8E6D721CF894200B7A8A2 /* English */,
 				2AE8E71021CF8B7F00B7A8A2 /* Views */,
 				2AE8E70C21CF8AA000B7A8A2 /* Models */,
@@ -625,6 +666,7 @@
 				2ABB915321FED1DC003E1521 /* Music */,
 				2A3FAC0F21F5929E0025B1A2 /* SingleTheme */,
 				2ABB913C21FD4968003E1521 /* ThemesSecond */,
+				2A197CAA2216884D00CD239B /* NewTheme */,
 				2AE8E74421D09E5D00B7A8A2 /* Themes */,
 				2A16D21021D4EEC300B34013 /* Spelling */,
 				2A16D20921D4DE6F00B34013 /* Result */,
@@ -694,9 +736,9 @@
 				2AE8E75021D0A72F00B7A8A2 /* TabBarSetup.swift */,
 				2AE8E72A21CFACEA00B7A8A2 /* TabBarExtension.swift */,
 				2AE8E72221CF947E00B7A8A2 /* TabBarButton.swift */,
+				2AE8E74E21D0A3B600B7A8A2 /* TabBarButtonType.swift */,
 				2AE8E72621CF9C6B00B7A8A2 /* TabBarStartButton.swift */,
 				2AE8E73F21CFBE4B00B7A8A2 /* TabBarModulesView.swift */,
-				2AE8E74E21D0A3B600B7A8A2 /* TabBarButtonType.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -710,6 +752,7 @@
 				2AE8E75A21D0ABC800B7A8A2 /* InboxDelegate.swift */,
 				2AE8E76921D0D79900B7A8A2 /* InboxScrollExtension.swift */,
 				2AF9919B21F07BF900616B5F /* InboxEmptyView.swift */,
+				2A197CA422165A2000CD239B /* InboxHint.swift */,
 			);
 			path = Inbox;
 			sourceTree = "<group>";
@@ -723,6 +766,7 @@
 				2A16D22121D60D7D00B34013 /* RepeatsDelegate.swift */,
 				2AF9919D21F0B43800616B5F /* RepeatsEmptyView.swift */,
 				2A3FAC0721F415330025B1A2 /* RepeatsCell.swift */,
+				2A197CA62216820800CD239B /* RepeatsHint.swift */,
 			);
 			path = Repeats;
 			sourceTree = "<group>";
@@ -931,6 +975,7 @@
 			files = (
 				2ABB914A21FDCD57003E1521 /* Themes in Resources */,
 				2AE8E6E621CF894400B7A8A2 /* LaunchScreen.storyboard in Resources */,
+				2A197CBC221691C200CD239B /* NewThemes in Resources */,
 				2AE8E71621CF8D0100B7A8A2 /* FuturaPTHeavy.otf in Resources */,
 				2AE8E71821CF8D0600B7A8A2 /* FuturaPTMedium.otf in Resources */,
 				2A16D20421D4584100B34013 /* SupportDictionary.sqlite in Resources */,
@@ -1030,6 +1075,7 @@
 				2AFFB5C421FB015D0011FD82 /* ThemeWordData.swift in Sources */,
 				2AE8E74B21D09EC600B7A8A2 /* ProsesView.swift in Sources */,
 				2AF3067521E5B6C000326262 /* DateExtension.swift in Sources */,
+				2A197CB02216899900CD239B /* NewThemeCheckbox.swift in Sources */,
 				2A1DCB3A21E5B1F2002B37CF /* SpeechManager.swift in Sources */,
 				2AFFB5B521FA9ABB0011FD82 /* Theme.swift in Sources */,
 				2AE8E78021D1E19300B7A8A2 /* AddCell.swift in Sources */,
@@ -1069,6 +1115,7 @@
 				2A16D1EB21D37C3C00B34013 /* StartPassButton.swift in Sources */,
 				2AE8E77821D1BE7100B7A8A2 /* OfflineDictionary.swift in Sources */,
 				2AE8E72721CF9C6B00B7A8A2 /* TabBarStartButton.swift in Sources */,
+				2A197CA92216884700CD239B /* NewThemeView.swift in Sources */,
 				2A16D1E321D34AF000B34013 /* StartView.swift in Sources */,
 				2A16D1ED21D37D3700B34013 /* StartButton.swift in Sources */,
 				2ABB914821FD5661003E1521 /* ThemesSecondExtension.swift in Sources */,
@@ -1080,8 +1127,10 @@
 				2A16D1F521D4551B00B34013 /* StartDelegate.swift in Sources */,
 				2A16D22B21D62D2200B34013 /* ArchiveSetup.swift in Sources */,
 				2AE8E6DB21CF894200B7A8A2 /* ViewController.swift in Sources */,
+				2A197CB822168DA300CD239B /* NewThemeDelegate.swift in Sources */,
 				2ABB915221FE8186003E1521 /* SingleThemeExtension.swift in Sources */,
 				2A16D1F321D454CE00B34013 /* StartExtension.swift in Sources */,
+				2A197CBA22168E2100CD239B /* NewThemeAddButton.swift in Sources */,
 				2AE8E73621CFB53000B7A8A2 /* InboxView.swift in Sources */,
 				2ABB913E21FD49A0003E1521 /* ThemesSecondView.swift in Sources */,
 				2AE8E73121CFB12D00B7A8A2 /* ViewControllerDelegate.swift in Sources */,
@@ -1095,6 +1144,7 @@
 				2AE8E74D21D09F9900B7A8A2 /* ViewControllerSetup.swift in Sources */,
 				2AE8E77021D0E4B300B7A8A2 /* AddButtonSave.swift in Sources */,
 				2AE8E78F21D235CF00B7A8A2 /* TranslateView.swift in Sources */,
+				2A197CB222168A1900CD239B /* NewThemeSetup.swift in Sources */,
 				2AE8E76A21D0D79900B7A8A2 /* InboxScrollExtension.swift in Sources */,
 				2A5B63F421E496AE00E7FD2E /* CharacterExtension.swift in Sources */,
 				2A5B63DA21E324B000E7FD2E /* ThousandCell.swift in Sources */,
@@ -1114,6 +1164,8 @@
 				2A99A05622093EB000283D21 /* TranslateSetup.swift in Sources */,
 				2A16D21A21D4F06000B34013 /* SpellingViewModel.swift in Sources */,
 				2A5B63E621E343C600E7FD2E /* CSVManager.swift in Sources */,
+				2A197CAC2216894600CD239B /* NewThemeTableView.swift in Sources */,
+				2A197CB622168B7500CD239B /* NewThemeViewModel.swift in Sources */,
 				2AF9919C21F07BF900616B5F /* InboxEmptyView.swift in Sources */,
 				2A5B63DE21E33B3A00E7FD2E /* ThousandAddButton.swift in Sources */,
 				2A16D1F121D454BE00B34013 /* StartSetup.swift in Sources */,
@@ -1143,6 +1195,7 @@
 				2AE8E76221D0C7CA00B7A8A2 /* AddViewModel.swift in Sources */,
 				2AE8E72521CF9ADE00B7A8A2 /* UIViewExtension.swift in Sources */,
 				2AE8E75921D0ABB900B7A8A2 /* InboxExtension.swift in Sources */,
+				2A197CAE2216897600CD239B /* NewThemeCell.swift in Sources */,
 				2A5B63F021E4851000E7FD2E /* RoundView.swift in Sources */,
 				2AFFB5B921FA9EA10011FD82 /* ThemesService.swift in Sources */,
 				2A3FAC0A21F41F3C0025B1A2 /* Badge.swift in Sources */,
@@ -1156,6 +1209,7 @@
 				2AE8E78C21D22C4A00B7A8A2 /* TranslatesItemView.swift in Sources */,
 				2A16D23121D7107F00B34013 /* SettingsNotificationContainer.swift in Sources */,
 				2AE8E76E21D0E49800B7A8A2 /* AddButtonsView.swift in Sources */,
+				2A197CB422168AF100CD239B /* NewThemeActions.swift in Sources */,
 				2A00FF1621DB74BC00A0657C /* ScrollView.swift in Sources */,
 				2A16D1FE21D455D700B34013 /* ChoosingExtension.swift in Sources */,
 				2ABB914C21FE6C6E003E1521 /* ThemeWord.swift in Sources */,
@@ -1168,6 +1222,7 @@
 				2AFFB5B321F82D830011FD82 /* SingleThemeDelegate.swift in Sources */,
 				2AE8E72B21CFACEA00B7A8A2 /* TabBarExtension.swift in Sources */,
 				2AE8E6E121CF894200B7A8A2 /* English.xcdatamodeld in Sources */,
+				2A197CA522165A2000CD239B /* InboxHint.swift in Sources */,
 				2AE8E72D21CFAF2F00B7A8A2 /* Button.swift in Sources */,
 				2A16D1F821D455B500B34013 /* ChoosingView.swift in Sources */,
 				2A16D20821D472D900B34013 /* ChoosingContinueView.swift in Sources */,
@@ -1178,6 +1233,7 @@
 				2AE8E77E21D1DC3500B7A8A2 /* AddTableView.swift in Sources */,
 				2A16D1E721D34DFD00B34013 /* CardView.swift in Sources */,
 				2AE8E72921CF9D9200B7A8A2 /* CALayerExtension.swift in Sources */,
+				2A197CA72216820800CD239B /* RepeatsHint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

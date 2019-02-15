@@ -39,31 +39,24 @@ class AddButtonSave: Button {
         didSet {
             switch currentMode {
             case .arrow:
-                hideLoader()
-                hideSave()
+                hideViews()
                 animateLayout(complete: {
-                    if let loader = self.loader {
-                        loader.removeFromSuperview()
-                    }
+                    self.removeLoader()
                     self.showArrow()
                     self.animateLayout()
                 })
                 break
             case .loader:
-                hideArrow()
-                hideSave()
+                hideViews()
                 animateLayout(complete: {
                     self.showLoader()
                     self.animateLayout()
                 })
                 break
             case .save:
-                hideLoader()
-                hideArrow()
+                hideViews()
                 animateLayout(complete: {
-                    if let loader = self.loader {
-                        loader.removeFromSuperview()
-                    }
+                    self.removeLoader()
                     self.showSave()
                     self.animateLayout()
                 })
@@ -112,6 +105,12 @@ class AddButtonSave: Button {
         ])
     }
     
+    private func hideViews() {
+        hideLoader()
+        hideArrow()
+        hideSave()
+    }
+    
     private func showArrow() {
         arrowWidthConstraint.constant = arrowSize.width
         arrowHeightConstraint.constant = arrowSize.height
@@ -132,7 +131,15 @@ class AddButtonSave: Button {
         saveHeightConstraint.constant = 0
     }
     
+    private func removeLoader() {
+        if let loader = self.loader {
+            loader.removeFromSuperview()
+        }
+    }
+    
     private func showLoader() {
+        removeLoader()
+        
         let loader = LoaderView()
         self.loader = loader
         addSubview(loader)

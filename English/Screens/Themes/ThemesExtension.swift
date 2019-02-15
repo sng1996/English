@@ -22,14 +22,19 @@ extension ThemesView {
     }
     
     func open(cardView: ThemesCardView) {
-        let themesSecondView = ThemesSecondView()
-        themesSecondView.delegate = self
-        addSubview(themesSecondView)
+        let newThemeView = NewThemeView()
+        newThemeView.delegate = self
+        addSubview(newThemeView)
         
-        addConstraintsWithFormat(format: "H:|[v0]|", views: themesSecondView)
-        addConstraintsWithFormat(format: "V:|[v0]|", views: themesSecondView)
+        addConstraintsWithFormat(format: "H:|[v0]|", views: newThemeView)
+        addConstraintsWithFormat(format: "V:|[v0]|", views: newThemeView)
         
-        themesSecondView.sourceItem = cardView
+        newThemeView.sourceItem = cardView
+    }
+    
+    func presentInbox() {
+        ViewController.tabBarView.show()
+        ViewController.tabBarView.buttons[0].didTap()
     }
 
 }

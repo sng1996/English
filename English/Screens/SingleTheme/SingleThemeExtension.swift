@@ -16,9 +16,14 @@ extension SingleThemeView {
     }
     
     func add() {
+        if addButton.isOpen {
+            delegate.presentInbox()
+            removeFromSuperview()
+            return
+        }
         vm.addActiveWords()
         tv.reloadData()
-        addButton.set(count: 0)
+        addButton.isOpen = true
         if let theme = vm.theme {
             footerLabel.text = theme.getCounts()
         }

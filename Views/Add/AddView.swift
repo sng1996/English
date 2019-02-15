@@ -98,7 +98,7 @@ class AddView: UIView {
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0][v1]", views: footerTextField, loaderContainer)
         addConstraintsWithFormat(format: "H:|[v0]|", views: addTableView)
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: translatesView)
-        addConstraintsWithFormat(format: "V:|-\(Screen.sideInset + Screen.safeTop / 2)-[v0]-3-[v1]-10-[v2][v3]|", views: headerTextField, footerTextField, addTableView, translatesView)
+        addConstraintsWithFormat(format: "V:|-\(Screen.sideInset + Screen.safeTop / 2)-[v0]-3-[v1]-23-[v2][v3]|", views: headerTextField, footerTextField, addTableView, translatesView)
         
         NSLayoutConstraint.activate([
             loaderContainer.heightAnchor.constraint(equalToConstant: 48),

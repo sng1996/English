@@ -10,6 +10,7 @@ import UIKit
 
 protocol ThemesSecondViewDelegate {
     func viewDidAppear()
+    func presentInbox()
 }
 
 class ThemesSecondView: UIView {

@@ -38,18 +38,24 @@ extension RepeatsView {
     
     func updateScreen() {
         tv.reloadData()
+        
+        if self.wordDataService.repeatWords.count == 0 {
+            self.emptyView.isHidden = false
+        } else {
+            self.emptyView.isHidden = true
+            
+            if !UserDefaults.standard.bool(forKey: UserDefaults.Keys.isShowRepeatsHint) {
+                self.showHint()
+            }
+        }
+        
+        
         if wordDataService.todayCount == 0 {
             ViewController.tabBarView.hideStartButton()
         } else {
             ViewController.tabBarView.showStartButton()
         }
         badge.sourceItem = wordDataService.todayCount
-        
-        if wordDataService.repeatWords.count == 0 {
-            emptyView.isHidden = false
-        } else {
-            emptyView.isHidden = true
-        }
     }
     
     func openStartView() {
@@ -87,6 +93,26 @@ extension RepeatsView {
         
         addConstraintsWithFormat(format: "H:|[v0]|", views: spellingView)
         addConstraintsWithFormat(format: "V:|[v0]|", views: spellingView)
+    }
+    
+    func showHint() {
+        UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isShowRepeatsHint)
+        
+        let view = RepeatsHint()
+        addSubview(view)
+        
+        addConstraintsWithFormat(format: "H:[v0]-10-|", views: view)
+        
+        let cell = tv.visibleCells.first!
+        view.topAnchor.constraint(equalTo: cell.bottomAnchor).isActive = true
+        
+        Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(hideHint), userInfo: ["view": view], repeats: false)
+    }
+    
+    @objc func hideHint(timer: Timer) {
+        let userInfo = timer.userInfo as! [String: UIView]
+        let view = userInfo["view"]
+        view!.removeFromSuperview()
     }
     
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 extension ThemesView: ThemesCellViewDelegate { }
-extension ThemesView: ThemesSecondViewDelegate { }
+extension ThemesView: NewThemeViewDelegate { }
 
 extension ThemesView: UITableViewDataSource {
     

@@ -12,7 +12,24 @@ class SingleThemeAddButton: Button {
 
     let imageView = ImageView(name: "Plus_green")
     
+    let label = UILabel(
+        text: "Добавлено",
+        color: UIColor(rgb: 0x53D397),
+        font: UIFont.medium(18),
+        alignment: .center
+    )
+    
     let badge = Badge()
+    
+    var isOpen: Bool = false {
+        didSet {
+            if isOpen {
+                open()
+            }
+        }
+    }
+    
+    var widthConstraint: NSLayoutConstraint!
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -24,10 +41,14 @@ class SingleThemeAddButton: Button {
         layer.cornerRadius = 3
         layer.setShadow(color: UIColor(rgb: 0x24B43F))
         setupViews()
-        set(count: 0)
     }
     
     func setupViews() {
+        label.isHidden = true
+        isHidden = true
+        set(count: 0)
+        
+        addSubview(label)
         addSubview(imageView)
         addSubview(badge)
         
@@ -38,15 +59,44 @@ class SingleThemeAddButton: Button {
             imageView.heightAnchor.constraint(equalToConstant: 16),
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            widthAnchor.constraint(equalToConstant: 40),
             heightAnchor.constraint(equalToConstant: 40),
             badge.centerXAnchor.constraint(equalTo: rightAnchor),
             badge.centerYAnchor.constraint(equalTo: topAnchor)
         ])
+        
+        addConstraintsWithFormat(format: "H:|-10-[v0]-10-|", views: label)
+        addConstraintsWithFormat(format: "V:|[v0]|", views: label)
+        
+        widthConstraint = widthAnchor.constraint(equalToConstant: 40)
+        widthConstraint.isActive = true
     }
     
     func set(count: Int) {
+        isHidden = count == 0
         badge.sourceItem = count
+    }
+    
+    private func open() {
+        imageView.isHidden = true
+        badge.isHidden = true
+        label.isHidden = false
+        widthConstraint.constant = 150
+    
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
+            self.layoutIfNeeded()
+        }, completion: { finish in
+            Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.close), userInfo: nil, repeats: false)
+        })
+    }
+    
+    @objc private func close() {
+        isOpen = false
+        imageView.isHidden = false
+        badge.isHidden = false
+        label.isHidden = true
+        widthConstraint.constant = 40
+        set(count: 0)
+        layoutIfNeeded()
     }
     
 }

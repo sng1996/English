@@ -28,15 +28,15 @@ extension SingleThemeView {
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]", views: backButton)
         addConstraintsWithFormat(format: "H:[v0]-\(Screen.sideInset)-|", views: addButton)
         addConstraintsWithFormat(format: "H:|[v0(\(Screen.width))]|", views: scrollContainer)
-        addConstraintsWithFormat(format: "H:|-\(Screen.sideInset + Screen.safeTop)-[v0]-\(Screen.sideInset)-|", views: headerLabel)
+        addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: headerLabel)
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: footerLabel)
         addConstraintsWithFormat(format: "H:|[v0]|", views: tv)
         
         addConstraintsWithFormat(format: "V:|[v0]|", views: scrollView)
         addConstraintsWithFormat(format: "V:[v0]-\(Screen.sideInset)-|", views: backButton)
-        addConstraintsWithFormat(format: "V:[v0]-\(Screen.sideInset)-|", views:     addButton)
+        addConstraintsWithFormat(format: "V:[v0]-\(Screen.sideInset)-|", views: addButton)
         addConstraintsWithFormat(format: "V:|[v0]|", views: scrollContainer)
-        addConstraintsWithFormat(format: "V:|-40-[v0]-3-[v1]-20-[v2]|", views: headerLabel, footerLabel, tv)
+        addConstraintsWithFormat(format: "V:|-\(Screen.sideInset + 40)-[v0]-3-[v1]-20-[v2]|", views: headerLabel, footerLabel, tv)
         
         tvHeightAnchor = tv.heightAnchor.constraint(equalToConstant: 100)
         tvHeightAnchor.isActive = true

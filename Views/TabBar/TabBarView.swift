@@ -16,9 +16,9 @@ protocol TabBarViewDelegate {
     func start()
 }
 
-class TabBarView: ShadowsView {
+class TabBarView: UIView {
     
-    let height: CGFloat = 60
+    let height: CGFloat = 60 + Screen.safeBottom / 2
     
     let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -44,13 +44,10 @@ class TabBarView: ShadowsView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override init() {
-        super.init()
+    init() {
+        super.init(frame: .zero)
         backgroundColor = .white
-        layer.borderWidth = 1
-        layer.borderColor = UIColor(rgb: 0x5BD49B, a: 0.04).cgColor
-        set(shadows: setupShadows())
-        set(cornerRadius: 5)
+        layer.setShadow(offset: .zero, radius: 1)
         setupViews()
     }
     

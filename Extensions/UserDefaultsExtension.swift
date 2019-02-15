@@ -13,6 +13,8 @@ extension UserDefaults {
     enum Keys {
         static let isOnNotification = "isOnNotification"
         static let notificationTime = "notificationTime"
+        static let isShowInboxHint = "isShowInboxHint"
+        static let isShowRepeatsHint = "isShowRepeatsHint"
     }
     
 }

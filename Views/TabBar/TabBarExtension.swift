@@ -11,7 +11,7 @@ import UIKit
 extension TabBarView {
     
     func deactivateButtons() {
-        buttons.map {
+        buttons.forEach {
             $0.deactivate()
         }
     }

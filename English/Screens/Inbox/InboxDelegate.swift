@@ -27,7 +27,7 @@ extension InboxView: UICollectionViewDelegate {
         }, completion: nil)
         
         let cell = collectionView.cellForItem(at: indexPath) as! WordCell
-        cell.setBlack()
+        cell.activate()
     }
     
 }
@@ -42,6 +42,12 @@ extension InboxView: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WordCell", for: indexPath) as! WordCell
         let word = wordDataService.newWords[indexPath.row]
         cell.sourceItem = word.original
+        
+        if indexPath.row > 9 {
+            cell.deactivate()
+        } else {
+            cell.activate()
+        }
         
         cvHeightAnchor.constant = cv.collectionViewLayout.collectionViewContentSize.height
         layoutIfNeeded()

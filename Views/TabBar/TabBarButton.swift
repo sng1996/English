@@ -18,9 +18,16 @@ class TabBarButton: Button {
     
     var item: ImageItem
     
-    let imageView: UIImageView = {
+    let backImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.isUserInteractionEnabled = false
+        return imageView
+    }()
+    
+    let frontImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.isUserInteractionEnabled = false
+        imageView.alpha = 0.0
         return imageView
     }()
     
@@ -43,30 +50,41 @@ class TabBarButton: Button {
     }
     
     func setupViews() {
-        imageView.image = item.image
-        addSubview(imageView)
+        backImageView.image = item.image
+        frontImageView.image = item.activatedImage
+        addSubview(backImageView)
+        addSubview(frontImageView)
         addSubview(badge)
         
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+        backImageView.translatesAutoresizingMaskIntoConstraints = false
+        frontImageView.translatesAutoresizingMaskIntoConstraints = false
         badge.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            imageView.widthAnchor.constraint(equalToConstant: item.size.width),
-            imageView.heightAnchor.constraint(equalToConstant: item.size.height),
-            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            backImageView.widthAnchor.constraint(equalToConstant: item.size.width),
+            backImageView.heightAnchor.constraint(equalToConstant: item.size.height),
+            backImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            backImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            frontImageView.widthAnchor.constraint(equalToConstant: item.size.width),
+            frontImageView.heightAnchor.constraint(equalToConstant: item.size.height),
+            frontImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            frontImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             badge.widthAnchor.constraint(equalToConstant: 4),
             badge.heightAnchor.constraint(equalToConstant: 4),
-            badge.leftAnchor.constraint(equalTo: imageView.rightAnchor),
-            badge.bottomAnchor.constraint(equalTo: imageView.topAnchor)
+            badge.leftAnchor.constraint(equalTo: backImageView.rightAnchor),
+            badge.bottomAnchor.constraint(equalTo: backImageView.topAnchor)
         ])
     }
     
     func activate() {
-        imageView.image = item.activatedImage
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
+            self.frontImageView.alpha = 1.0
+        }, completion: nil)
     }
     
     func deactivate() {
-        imageView.image = item.image
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
+            self.frontImageView.alpha = 0.0
+        }, completion: nil)
     }
     
     override func didTap() {

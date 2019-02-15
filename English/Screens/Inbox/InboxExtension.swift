@@ -56,6 +56,9 @@ extension InboxView {
         } else {
             hideEmptyView()
             ViewController.tabBarView.showStartButton()
+            if !UserDefaults.standard.bool(forKey: UserDefaults.Keys.isShowInboxHint) {
+                showHint()
+            }
         }
     }
     
@@ -101,6 +104,24 @@ extension InboxView {
         
         addConstraintsWithFormat(format: "H:|[v0]|", views: spellingView)
         addConstraintsWithFormat(format: "V:|[v0]|", views: spellingView)
+    }
+    
+    func showHint() {
+        UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isShowInboxHint)
+        
+        let view = InboxHint()
+        addSubview(view)
+        
+        addConstraintsWithFormat(format: "H:[v0]-10-|", views: view)
+        addConstraintsWithFormat(format: "V:[v0]-\(ViewController.tabBarView.height + 10)-|", views: view)
+        
+        Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(hideHint), userInfo: ["view": view], repeats: false)
+    }
+    
+    @objc func hideHint(timer: Timer) {
+        let userInfo = timer.userInfo as! [String: UIView]
+        let view = userInfo["view"]
+        view!.removeFromSuperview()
     }
 
 }

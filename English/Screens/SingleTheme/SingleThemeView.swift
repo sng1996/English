@@ -10,6 +10,7 @@ import UIKit
 
 protocol SingleThemeViewDelegate {
     func viewDidAppear()
+    func presentInbox()
 }
 
 class SingleThemeView: UIView {

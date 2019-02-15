@@ -14,7 +14,7 @@ class WordCell: UICollectionViewCell {
         didSet {
             guard let text = sourceItem as? String else { return }
             label.text = text
-            setBlack()
+            deactivate()
         }
     }
     
@@ -50,12 +50,12 @@ class WordCell: UICollectionViewCell {
         contentView.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func setGray() {
-        label.textColor = UIColor(rgb: 0xDADADA)
+    func activate() {
+        label.textColor = .black
     }
     
-    func setBlack() {
-        label.textColor = .black
+    func deactivate() {
+        label.textColor = UIColor(rgb: 0xDADADA)
     }
 
 }
