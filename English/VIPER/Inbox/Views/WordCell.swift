@@ -8,8 +8,14 @@
 
 import UIKit
 
-struct WordCellDataModel {
+class WordCellDataModel {
+    
     var text: String
+    
+    init(_ word: WordData) {
+        text = word.original ?? "Пустая строка"
+    }
+    
 }
 
 class WordCell: UICollectionViewCell {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InboxInteractor {
+class InboxInteractor: ServiceProvider {
 
     weak var presenter: InboxPresenterProtocol!
     
@@ -19,5 +19,18 @@ class InboxInteractor {
 }
 
 extension InboxInteractor: InboxInteractorProtocol {
+    
+    func update() {
+        wordDataService.loadNewWords()
+        presenter.updateView()
+    }
+    
+    func itemAt(_ index: Int) -> WordData {
+        return wordDataService.newWords[index]
+    }
+    
+    func numberOfItems() -> Int {
+        return wordDataService.newWords.count
+    }
     
 }

@@ -54,8 +54,7 @@ extension InboxViewController {
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]|", views: label)
         label.centerYAnchor.constraint(equalTo: labelContainer.centerYAnchor).isActive = true
         
-        cv.heightConstraint = cv.heightAnchor.constraint(equalToConstant: 100)
-        cv.heightConstraint.isActive = true
+        cv.setInitConstraint()
     }
     
 }

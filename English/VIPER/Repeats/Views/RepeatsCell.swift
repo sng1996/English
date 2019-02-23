@@ -8,14 +8,28 @@
 
 import UIKit
 
+class RepeatsCellDataModel {
+    
+    var original: String
+    var translate: String
+    var repeats: Int
+    
+    init(_ word: WordData) {
+        original = word.original
+        translate = word.translate
+        repeats = word.count
+    }
+    
+}
+
 class RepeatsCell: UITableViewCell {
 
     var sourceItem: Any? {
         didSet {
-            guard let word = sourceItem as? WordData else { return }
-            headerLabel.text = word.original
-            footerLabel.text = word.translate
-            repeatProgressBar.sourceItem = Int(word.count)
+            guard let model = sourceItem as? RepeatsCellDataModel else { return }
+            headerLabel.text = model.original
+            footerLabel.text = model.translate
+            repeatProgressBar.sourceItem = model.repeats
         }
     }
     
@@ -30,6 +44,16 @@ class RepeatsCell: UITableViewCell {
     )
     
     let repeatProgressBar = RepeatProgressBar()
+    
+    var isActive: Bool = true {
+        didSet {
+            if isActive {
+                activate()
+            } else {
+                deactivate()
+            }
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -56,12 +80,12 @@ class RepeatsCell: UITableViewCell {
         repeatProgressBar.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
     
-    func activate() {
+    private func activate() {
         headerLabel.textColor = UIColor(rgb: 0x030303)
         footerLabel.textColor = UIColor(rgb: 0xDADADA)
     }
     
-    func deactivate() {
+    private func deactivate() {
         headerLabel.textColor = UIColor(rgb: 0xE1E1E1)
         footerLabel.textColor = UIColor(rgb: 0xF5F5F5)
     }

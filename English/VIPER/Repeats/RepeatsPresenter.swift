@@ -22,4 +22,24 @@ class RepeatsPresenter {
 
 extension RepeatsPresenter: RepeatsPresenterProtocol {
     
+    func configureView() {
+        
+    }
+    
+    func tableViewDidSelectItemAt(_ indexPath: IndexPath) {
+        
+    }
+    
+    func tableViewNumberOfItems() -> Int {
+        
+    }
+    
+    func tableViewDataForItemAt(_ indexPath: IndexPath) -> RepeatsCellDataModel {
+        
+    }
+    
+    func updateView() {
+        
+    }
+    
 }

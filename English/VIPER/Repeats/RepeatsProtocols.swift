@@ -9,11 +9,16 @@
 import UIKit
 
 protocol RepeatsViewProtocol: class {
-    
+    func viewDidAppear()
+    func update()
 }
 
 protocol RepeatsPresenterProtocol: class {
-    
+    func configureView()
+    func tableViewDidSelectItemAt(_ indexPath: IndexPath)
+    func tableViewNumberOfItems() -> Int
+    func tableViewDataForItemAt(_ indexPath: IndexPath) -> RepeatsCellDataModel
+    func updateView()
 }
 
 protocol RepeatsInteractorProtocol: class {

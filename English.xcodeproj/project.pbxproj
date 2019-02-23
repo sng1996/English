@@ -104,6 +104,8 @@
 		2AAD5DD02221444000F77B26 /* InboxCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD5DC82221444000F77B26 /* InboxCollectionView.swift */; };
 		2AAD5DD12221444000F77B26 /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD5DC92221444000F77B26 /* InboxViewController.swift */; };
 		2AAD5DD22221444000F77B26 /* InboxSetupExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD5DCA2221444000F77B26 /* InboxSetupExtension.swift */; };
+		2AAD5DD722214AB300F77B26 /* RepeatsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD5DD622214AB300F77B26 /* RepeatsTableView.swift */; };
+		2AAD5DD922214CE800F77B26 /* RepeatsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD5DD822214CE800F77B26 /* RepeatsScrollView.swift */; };
 		2AADAFD722211DFA00C8E144 /* RepeatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADAFD622211DFA00C8E144 /* RepeatsViewController.swift */; };
 		2AADAFD922211EF300C8E144 /* RepeatsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADAFD822211EF300C8E144 /* RepeatsConfigurator.swift */; };
 		2AADAFDB22211F2700C8E144 /* RepeatsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADAFDA22211F2700C8E144 /* RepeatsInteractor.swift */; };
@@ -371,6 +373,8 @@
 		2AAD5DC82221444000F77B26 /* InboxCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxCollectionView.swift; sourceTree = "<group>"; };
 		2AAD5DC92221444000F77B26 /* InboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
 		2AAD5DCA2221444000F77B26 /* InboxSetupExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxSetupExtension.swift; sourceTree = "<group>"; };
+		2AAD5DD622214AB300F77B26 /* RepeatsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatsTableView.swift; sourceTree = "<group>"; };
+		2AAD5DD822214CE800F77B26 /* RepeatsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatsScrollView.swift; sourceTree = "<group>"; };
 		2AADAFD622211DFA00C8E144 /* RepeatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatsViewController.swift; sourceTree = "<group>"; };
 		2AADAFD822211EF300C8E144 /* RepeatsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatsConfigurator.swift; sourceTree = "<group>"; };
 		2AADAFDA22211F2700C8E144 /* RepeatsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatsInteractor.swift; sourceTree = "<group>"; };
@@ -695,6 +699,17 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		2AAD5DD522214A9B00F77B26 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2AAD5DD622214AB300F77B26 /* RepeatsTableView.swift */,
+				2AAD5DD822214CE800F77B26 /* RepeatsScrollView.swift */,
+				2AF9919D21F0B43800616B5F /* RepeatsEmptyView.swift */,
+				2A3FAC0721F415330025B1A2 /* RepeatsCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		2AADAFBD2221137700C8E144 /* VIPER */ = {
 			isa = PBXGroup;
 			children = (
@@ -715,13 +730,13 @@
 		2AADAFBE2221138200C8E144 /* Inbox */ = {
 			isa = PBXGroup;
 			children = (
-				2AAD5DD42221445000F77B26 /* Views */,
 				2AAD5DD32221444300F77B26 /* InboxViewController */,
 				2AAD5DBB222143F500F77B26 /* InboxPresenter.swift */,
 				2AAD5DBA222143F500F77B26 /* InboxInteractor.swift */,
 				2AAD5DBD222143F500F77B26 /* InboxRouter.swift */,
 				2AAD5DBC222143F500F77B26 /* InboxConfigurator.swift */,
 				2AAD5DB9222143F500F77B26 /* InboxProtocols.swift */,
+				2AAD5DD42221445000F77B26 /* Views */,
 			);
 			path = Inbox;
 			sourceTree = "<group>";
@@ -735,6 +750,7 @@
 				2AADAFD822211EF300C8E144 /* RepeatsConfigurator.swift */,
 				2AADAFE022211FC800C8E144 /* RepeatsRouter.swift */,
 				2AADAFDE22211FAC00C8E144 /* RepeatsProtocols.swift */,
+				2AAD5DD522214A9B00F77B26 /* Views */,
 			);
 			path = Repeats;
 			sourceTree = "<group>";
@@ -1094,8 +1110,6 @@
 				2A16D21F21D60D6E00B34013 /* RepeatsSetup.swift */,
 				2A16D22321D60D8A00B34013 /* RepeatsExtension.swift */,
 				2A16D22121D60D7D00B34013 /* RepeatsDelegate.swift */,
-				2AF9919D21F0B43800616B5F /* RepeatsEmptyView.swift */,
-				2A3FAC0721F415330025B1A2 /* RepeatsCell.swift */,
 				2A197CA62216820800CD239B /* RepeatsHint.swift */,
 			);
 			path = Repeats;
@@ -1438,6 +1452,7 @@
 				2A16D21621D4EF6700B34013 /* SpellingExtension.swift in Sources */,
 				2A16D20F21D4E18400B34013 /* ResultReturnButton.swift in Sources */,
 				2AADB00D22212F1000C8E144 /* ResultPresenter.swift in Sources */,
+				2AAD5DD722214AB300F77B26 /* RepeatsTableView.swift in Sources */,
 				2A3FAC1D21F6E7A00025B1A2 /* SingleThemeCheckbox.swift in Sources */,
 				2AAD5DC0222143F500F77B26 /* InboxPresenter.swift in Sources */,
 				2AADB0312221360D00C8E144 /* NewThemeProtocols.swift in Sources */,
@@ -1603,6 +1618,7 @@
 				2AADB00022212B6200C8E144 /* ChoosingPresenter.swift in Sources */,
 				2A00FF1621DB74BC00A0657C /* ScrollView.swift in Sources */,
 				2A16D1FE21D455D700B34013 /* ChoosingExtension.swift in Sources */,
+				2AAD5DD922214CE800F77B26 /* RepeatsScrollView.swift in Sources */,
 				2ABB914C21FE6C6E003E1521 /* ThemeWord.swift in Sources */,
 				2AADAFF92221285E00C8E144 /* StartRouter.swift in Sources */,
 				2A16D1E921D37A2200B34013 /* BackButton.swift in Sources */,

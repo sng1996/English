@@ -39,6 +39,11 @@ class InboxCollectionView: UICollectionView {
         )
     }
     
+    func setInitConstraint() {
+        heightConstraint = heightAnchor.constraint(equalToConstant: 100)
+        heightConstraint.isActive = true
+    }
+    
     func updateHeightConstraint() {
         heightConstraint.constant = collectionViewLayout.collectionViewContentSize.height
         superview!.layoutIfNeeded()
