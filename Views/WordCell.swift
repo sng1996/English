@@ -14,13 +14,19 @@ class WordCell: UICollectionViewCell {
         didSet {
             guard let text = sourceItem as? String else { return }
             label.text = text
-            deactivate()
+            container.layoutIfNeeded()
         }
     }
     
     let container = UIView()
     
     let label = UILabel(font: UIFont.book(32))
+    
+    var size: CGSize {
+        get {
+            return container.frame.size
+        }
+    }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

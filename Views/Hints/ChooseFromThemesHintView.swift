@@ -10,6 +10,6 @@ import UIKit
 
 class ChooseFromThemesHintView: UIView {
 
-    
+    let imageView = ImageView(name: "Conversation")
 
 }
