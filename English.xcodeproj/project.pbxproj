@@ -140,6 +140,12 @@
 		2AADB02D222135EA00C8E144 /* NewThemeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB02C222135EA00C8E144 /* NewThemeConfigurator.swift */; };
 		2AADB02F222135F900C8E144 /* NewThemeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB02E222135F900C8E144 /* NewThemeRouter.swift */; };
 		2AADB0312221360D00C8E144 /* NewThemeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB0302221360D00C8E144 /* NewThemeProtocols.swift */; };
+		2AADB0332221387D00C8E144 /* ThemesSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB0322221387D00C8E144 /* ThemesSecondViewController.swift */; };
+		2AADB0352221388F00C8E144 /* ThemesSecondPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB0342221388F00C8E144 /* ThemesSecondPresenter.swift */; };
+		2AADB037222138A500C8E144 /* ThemesSecondInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB036222138A500C8E144 /* ThemesSecondInteractor.swift */; };
+		2AADB039222138BD00C8E144 /* ThemesSecondConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB038222138BD00C8E144 /* ThemesSecondConfigurator.swift */; };
+		2AADB03B222138CA00C8E144 /* ThemesSecondRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB03A222138CA00C8E144 /* ThemesSecondRouter.swift */; };
+		2AADB03D222138DF00C8E144 /* ThemesSecondProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB03C222138DF00C8E144 /* ThemesSecondProtocols.swift */; };
 		2ABB913E21FD49A0003E1521 /* ThemesSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB913D21FD49A0003E1521 /* ThemesSecondView.swift */; };
 		2ABB914021FD4A92003E1521 /* ThemesSecondTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB913F21FD4A92003E1521 /* ThemesSecondTableView.swift */; };
 		2ABB914221FD4B08003E1521 /* ThemesSecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB914121FD4B08003E1521 /* ThemesSecondCell.swift */; };
@@ -391,6 +397,12 @@
 		2AADB02C222135EA00C8E144 /* NewThemeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemeConfigurator.swift; sourceTree = "<group>"; };
 		2AADB02E222135F900C8E144 /* NewThemeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemeRouter.swift; sourceTree = "<group>"; };
 		2AADB0302221360D00C8E144 /* NewThemeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemeProtocols.swift; sourceTree = "<group>"; };
+		2AADB0322221387D00C8E144 /* ThemesSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondViewController.swift; sourceTree = "<group>"; };
+		2AADB0342221388F00C8E144 /* ThemesSecondPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondPresenter.swift; sourceTree = "<group>"; };
+		2AADB036222138A500C8E144 /* ThemesSecondInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondInteractor.swift; sourceTree = "<group>"; };
+		2AADB038222138BD00C8E144 /* ThemesSecondConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondConfigurator.swift; sourceTree = "<group>"; };
+		2AADB03A222138CA00C8E144 /* ThemesSecondRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondRouter.swift; sourceTree = "<group>"; };
+		2AADB03C222138DF00C8E144 /* ThemesSecondProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondProtocols.swift; sourceTree = "<group>"; };
 		2ABB913D21FD49A0003E1521 /* ThemesSecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondView.swift; sourceTree = "<group>"; };
 		2ABB913F21FD4A92003E1521 /* ThemesSecondTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondTableView.swift; sourceTree = "<group>"; };
 		2ABB914121FD4B08003E1521 /* ThemesSecondCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondCell.swift; sourceTree = "<group>"; };
@@ -775,6 +787,12 @@
 		2AADB024222134BC00C8E144 /* ThemesSecond */ = {
 			isa = PBXGroup;
 			children = (
+				2AADB0322221387D00C8E144 /* ThemesSecondViewController.swift */,
+				2AADB0342221388F00C8E144 /* ThemesSecondPresenter.swift */,
+				2AADB036222138A500C8E144 /* ThemesSecondInteractor.swift */,
+				2AADB038222138BD00C8E144 /* ThemesSecondConfigurator.swift */,
+				2AADB03A222138CA00C8E144 /* ThemesSecondRouter.swift */,
+				2AADB03C222138DF00C8E144 /* ThemesSecondProtocols.swift */,
 			);
 			path = ThemesSecond;
 			sourceTree = "<group>";
@@ -1412,6 +1430,8 @@
 				2ABB914821FD5661003E1521 /* ThemesSecondExtension.swift in Sources */,
 				2A3170A122211D050038DE7D /* NotificationHintView.swift in Sources */,
 				2A16D22821D62BE800B34013 /* ArchiveView.swift in Sources */,
+				2AADB0332221387D00C8E144 /* ThemesSecondViewController.swift in Sources */,
+				2AADB03D222138DF00C8E144 /* ThemesSecondProtocols.swift in Sources */,
 				2AE8E75B21D0ABC800B7A8A2 /* InboxDelegate.swift in Sources */,
 				2AE8E73E21CFB66F00B7A8A2 /* UIFontExtension.swift in Sources */,
 				2AF991A021F0B6AF00616B5F /* ArchiveEmptyView.swift in Sources */,
@@ -1461,6 +1481,7 @@
 				2AE8E74921D09EB100B7A8A2 /* ThemesView.swift in Sources */,
 				2AADAFD422211BDC00C8E144 /* InboxProtocols.swift in Sources */,
 				2AF3067721E5C10100326262 /* RepeatProgressBar.swift in Sources */,
+				2AADB0352221388F00C8E144 /* ThemesSecondPresenter.swift in Sources */,
 				2A3FAC1321F593150025B1A2 /* SingleThemeViewModel.swift in Sources */,
 				2A3FAC1B21F6E50C0025B1A2 /* SingleThemeCell.swift in Sources */,
 				2A00FF1021DB65D800A0657C /* ThemesSetup.swift in Sources */,
@@ -1481,6 +1502,7 @@
 				2AEB315D21E9BCC400A718B4 /* ServiceProvider.swift in Sources */,
 				2AADAFC0222113FE00C8E144 /* InboxViewController.swift in Sources */,
 				2A00FF1421DB663500A0657C /* ThemesDelegate.swift in Sources */,
+				2AADB037222138A500C8E144 /* ThemesSecondInteractor.swift in Sources */,
 				2AADAFEC2221250900C8E144 /* SettingsRouter.swift in Sources */,
 				2AADAFDB22211F2700C8E144 /* RepeatsInteractor.swift in Sources */,
 				2AFFB5BB21FAB9710011FD82 /* ThemesTableView.swift in Sources */,
@@ -1517,10 +1539,12 @@
 				2A3FAC0A21F41F3C0025B1A2 /* Badge.swift in Sources */,
 				2A5B63E421E3421500E7FD2E /* ThousandsViewModel.swift in Sources */,
 				2AADAFE8222124D200C8E144 /* SettingsInteractor.swift in Sources */,
+				2AADB03B222138CA00C8E144 /* ThemesSecondRouter.swift in Sources */,
 				2ABB914E21FE71F3003E1521 /* SingleThemeTableView.swift in Sources */,
 				2AADAFE42221248B00C8E144 /* SettingsViewController.swift in Sources */,
 				2AE8E74F21D0A3B600B7A8A2 /* TabBarButtonType.swift in Sources */,
 				2A5B63E221E340F300E7FD2E /* ThousandsDelegate.swift in Sources */,
+				2AADB039222138BD00C8E144 /* ThemesSecondConfigurator.swift in Sources */,
 				2AE8E77221D0E4C700B7A8A2 /* AddButtonCancel.swift in Sources */,
 				2A3170A5222121870038DE7D /* ChooseFromThemesHintView.swift in Sources */,
 				2AE8E75121D0A72F00B7A8A2 /* TabBarSetup.swift in Sources */,
