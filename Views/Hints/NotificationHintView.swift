@@ -62,7 +62,7 @@ class NotificationHintView: UIView {
         addSubview(footerLabel)
         headerContainer.addSubview(imageView)
         headerContainer.addSubview(nameLabel)
-        
+        headerContainer.addSubview(timeLabel)
     }
 
 }
