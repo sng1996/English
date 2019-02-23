@@ -134,6 +134,12 @@
 		2AADB01E222132A600C8E144 /* SpellingConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB01D222132A600C8E144 /* SpellingConfigurator.swift */; };
 		2AADB020222132B300C8E144 /* SpellingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB01F222132B300C8E144 /* SpellingRouter.swift */; };
 		2AADB022222132C700C8E144 /* SpellingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB021222132C700C8E144 /* SpellingProtocols.swift */; };
+		2AADB027222135A900C8E144 /* NewThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB026222135A900C8E144 /* NewThemeViewController.swift */; };
+		2AADB029222135C400C8E144 /* NewThemePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB028222135C400C8E144 /* NewThemePresenter.swift */; };
+		2AADB02B222135D800C8E144 /* NewThemeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB02A222135D800C8E144 /* NewThemeInteractor.swift */; };
+		2AADB02D222135EA00C8E144 /* NewThemeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB02C222135EA00C8E144 /* NewThemeConfigurator.swift */; };
+		2AADB02F222135F900C8E144 /* NewThemeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB02E222135F900C8E144 /* NewThemeRouter.swift */; };
+		2AADB0312221360D00C8E144 /* NewThemeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB0302221360D00C8E144 /* NewThemeProtocols.swift */; };
 		2ABB913E21FD49A0003E1521 /* ThemesSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB913D21FD49A0003E1521 /* ThemesSecondView.swift */; };
 		2ABB914021FD4A92003E1521 /* ThemesSecondTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB913F21FD4A92003E1521 /* ThemesSecondTableView.swift */; };
 		2ABB914221FD4B08003E1521 /* ThemesSecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB914121FD4B08003E1521 /* ThemesSecondCell.swift */; };
@@ -379,6 +385,12 @@
 		2AADB01D222132A600C8E144 /* SpellingConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingConfigurator.swift; sourceTree = "<group>"; };
 		2AADB01F222132B300C8E144 /* SpellingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingRouter.swift; sourceTree = "<group>"; };
 		2AADB021222132C700C8E144 /* SpellingProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingProtocols.swift; sourceTree = "<group>"; };
+		2AADB026222135A900C8E144 /* NewThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemeViewController.swift; sourceTree = "<group>"; };
+		2AADB028222135C400C8E144 /* NewThemePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemePresenter.swift; sourceTree = "<group>"; };
+		2AADB02A222135D800C8E144 /* NewThemeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemeInteractor.swift; sourceTree = "<group>"; };
+		2AADB02C222135EA00C8E144 /* NewThemeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemeConfigurator.swift; sourceTree = "<group>"; };
+		2AADB02E222135F900C8E144 /* NewThemeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemeRouter.swift; sourceTree = "<group>"; };
+		2AADB0302221360D00C8E144 /* NewThemeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemeProtocols.swift; sourceTree = "<group>"; };
 		2ABB913D21FD49A0003E1521 /* ThemesSecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondView.swift; sourceTree = "<group>"; };
 		2ABB913F21FD4A92003E1521 /* ThemesSecondTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondTableView.swift; sourceTree = "<group>"; };
 		2ABB914121FD4B08003E1521 /* ThemesSecondCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondCell.swift; sourceTree = "<group>"; };
@@ -641,6 +653,9 @@
 		2AADAFBD2221137700C8E144 /* VIPER */ = {
 			isa = PBXGroup;
 			children = (
+				2AADB025222134CD00C8E144 /* SingleTheme */,
+				2AADB024222134BC00C8E144 /* ThemesSecond */,
+				2AADB023222134A700C8E144 /* NewTheme */,
 				2AADB016222131AD00C8E144 /* Spelling */,
 				2AADB00922212EDC00C8E144 /* Result */,
 				2AADAFFC22212B2C00C8E144 /* Choosing */,
@@ -742,6 +757,33 @@
 				2AADB021222132C700C8E144 /* SpellingProtocols.swift */,
 			);
 			path = Spelling;
+			sourceTree = "<group>";
+		};
+		2AADB023222134A700C8E144 /* NewTheme */ = {
+			isa = PBXGroup;
+			children = (
+				2AADB026222135A900C8E144 /* NewThemeViewController.swift */,
+				2AADB028222135C400C8E144 /* NewThemePresenter.swift */,
+				2AADB02A222135D800C8E144 /* NewThemeInteractor.swift */,
+				2AADB02C222135EA00C8E144 /* NewThemeConfigurator.swift */,
+				2AADB02E222135F900C8E144 /* NewThemeRouter.swift */,
+				2AADB0302221360D00C8E144 /* NewThemeProtocols.swift */,
+			);
+			path = NewTheme;
+			sourceTree = "<group>";
+		};
+		2AADB024222134BC00C8E144 /* ThemesSecond */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ThemesSecond;
+			sourceTree = "<group>";
+		};
+		2AADB025222134CD00C8E144 /* SingleTheme */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SingleTheme;
 			sourceTree = "<group>";
 		};
 		2ABB913C21FD4968003E1521 /* ThemesSecond */ = {
@@ -1324,6 +1366,8 @@
 				2AADAFDD22211F5500C8E144 /* RepeatsPresenter.swift in Sources */,
 				2AFFB5C521FB015D0011FD82 /* ThemeWordData+CoreDataProperties.swift in Sources */,
 				2AE8E79B21D25CFE00B7A8A2 /* TranslateDeleteButton.swift in Sources */,
+				2AADB02B222135D800C8E144 /* NewThemeInteractor.swift in Sources */,
+				2AADB02D222135EA00C8E144 /* NewThemeConfigurator.swift in Sources */,
 				2A00FF1A21DB8F7C00A0657C /* ThemesCell.swift in Sources */,
 				2A16D1EF21D3810100B34013 /* StartReturnButton.swift in Sources */,
 				2AEB315B21E9BC3C00A718B4 /* UserDefaultsExtension.swift in Sources */,
@@ -1338,6 +1382,7 @@
 				2AADB00D22212F1000C8E144 /* ResultPresenter.swift in Sources */,
 				2A3FAC1D21F6E7A00025B1A2 /* SingleThemeCheckbox.swift in Sources */,
 				2AADAFD222211BDC00C8E144 /* InboxInteractor.swift in Sources */,
+				2AADB0312221360D00C8E144 /* NewThemeProtocols.swift in Sources */,
 				2ABB914021FD4A92003E1521 /* ThemesSecondTableView.swift in Sources */,
 				2A00FF1221DB65FF00A0657C /* ThemesExtension.swift in Sources */,
 				2AE8E76621D0D12900B7A8A2 /* AddViewExtension.swift in Sources */,
@@ -1359,6 +1404,7 @@
 				2AADB00622212BA400C8E144 /* ChoosingRouter.swift in Sources */,
 				2AE8E77821D1BE7100B7A8A2 /* OfflineDictionary.swift in Sources */,
 				2AADAFD922211EF300C8E144 /* RepeatsConfigurator.swift in Sources */,
+				2AADB029222135C400C8E144 /* NewThemePresenter.swift in Sources */,
 				2AE8E72721CF9C6B00B7A8A2 /* TabBarStartButton.swift in Sources */,
 				2A197CA92216884700CD239B /* NewThemeView.swift in Sources */,
 				2A16D1E321D34AF000B34013 /* StartView.swift in Sources */,
@@ -1370,6 +1416,7 @@
 				2AE8E73E21CFB66F00B7A8A2 /* UIFontExtension.swift in Sources */,
 				2AF991A021F0B6AF00616B5F /* ArchiveEmptyView.swift in Sources */,
 				2A16D22421D60D8A00B34013 /* RepeatsExtension.swift in Sources */,
+				2AADB027222135A900C8E144 /* NewThemeViewController.swift in Sources */,
 				2AADAFD022211BDC00C8E144 /* InboxConfigurator.swift in Sources */,
 				2A16D1F521D4551B00B34013 /* StartDelegate.swift in Sources */,
 				2A16D22B21D62D2200B34013 /* ArchiveSetup.swift in Sources */,
@@ -1392,6 +1439,7 @@
 				2A16D20D21D4DFEB00B34013 /* ResultNextButton.swift in Sources */,
 				2AADAFE122211FC800C8E144 /* RepeatsRouter.swift in Sources */,
 				2AE8E6D921CF894200B7A8A2 /* AppDelegate.swift in Sources */,
+				2AADB02F222135F900C8E144 /* NewThemeRouter.swift in Sources */,
 				2AE8E7A321D26AA600B7A8A2 /* WordDataService.swift in Sources */,
 				2AE8E74D21D09F9900B7A8A2 /* ViewControllerSetup.swift in Sources */,
 				2AADB01C2221329000C8E144 /* SpellingInteractor.swift in Sources */,
