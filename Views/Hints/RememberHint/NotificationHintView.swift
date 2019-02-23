@@ -63,6 +63,18 @@ class NotificationHintView: UIView {
         headerContainer.addSubview(imageView)
         headerContainer.addSubview(nameLabel)
         headerContainer.addSubview(timeLabel)
+        
+        let sideInset = 14
+        
+        addConstraintsWithFormat(format: "H:|-\(sideInset)-[v0]-\(sideInset)-|", views: headerContainer)
+        addConstraintsWithFormat(format: "H:|-\(sideInset)-[v0]-\(sideInset)-|", views: headerLabel)
+        addConstraintsWithFormat(format: "H:|-\(sideInset)-[v0]-\(sideInset)-|", views: footerLabel)
+        addConstraintsWithFormat(format: "V:|-\(sideInset)-[v0]-8-[v1]-2-[v2]-\(sideInset)-|", views: headerContainer, headerLabel, footerLabel)
+        
+        addConstraintsWithFormat(format: "H:|[v0(27)]-7-[v1]->=15-[v2]|", views: imageView, nameLabel, timeLabel)
+        addConstraintsWithFormat(format: "V:|[v0(27)]|", views: imageView)
+        addConstraintsWithFormat(format: "V:|[v0]|", views: nameLabel)
+        addConstraintsWithFormat(format: "V:|[v0]|", views: timeLabel)
     }
 
 }
