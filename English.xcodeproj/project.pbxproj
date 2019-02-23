@@ -126,6 +126,24 @@
 		2AADB00422212B9100C8E144 /* ChoosingConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB00322212B9100C8E144 /* ChoosingConfigurator.swift */; };
 		2AADB00622212BA400C8E144 /* ChoosingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB00522212BA400C8E144 /* ChoosingRouter.swift */; };
 		2AADB00822212BB800C8E144 /* ChoosingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB00722212BB800C8E144 /* ChoosingProtocols.swift */; };
+		2AADB00B22212EFD00C8E144 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB00A22212EFD00C8E144 /* ResultViewController.swift */; };
+		2AADB00D22212F1000C8E144 /* ResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB00C22212F1000C8E144 /* ResultPresenter.swift */; };
+		2AADB00F22212F2100C8E144 /* ResultInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB00E22212F2100C8E144 /* ResultInteractor.swift */; };
+		2AADB01122212F3400C8E144 /* ResultConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB01022212F3400C8E144 /* ResultConfigurator.swift */; };
+		2AADB01322212F4200C8E144 /* ResultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB01222212F4200C8E144 /* ResultRouter.swift */; };
+		2AADB01522212F5300C8E144 /* ResultProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB01422212F5300C8E144 /* ResultProtocols.swift */; };
+		2AADB0182221326900C8E144 /* SpellingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB0172221326900C8E144 /* SpellingViewController.swift */; };
+		2AADB01A2221327D00C8E144 /* SpellingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB0192221327D00C8E144 /* SpellingPresenter.swift */; };
+		2AADB01C2221329000C8E144 /* SpellingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB01B2221329000C8E144 /* SpellingInteractor.swift */; };
+		2AADB01E222132A600C8E144 /* SpellingConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB01D222132A600C8E144 /* SpellingConfigurator.swift */; };
+		2AADB020222132B300C8E144 /* SpellingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB01F222132B300C8E144 /* SpellingRouter.swift */; };
+		2AADB022222132C700C8E144 /* SpellingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB021222132C700C8E144 /* SpellingProtocols.swift */; };
+		2AADB027222135A900C8E144 /* NewThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB026222135A900C8E144 /* NewThemeViewController.swift */; };
+		2AADB029222135C400C8E144 /* NewThemePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB028222135C400C8E144 /* NewThemePresenter.swift */; };
+		2AADB02B222135D800C8E144 /* NewThemeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB02A222135D800C8E144 /* NewThemeInteractor.swift */; };
+		2AADB02D222135EA00C8E144 /* NewThemeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB02C222135EA00C8E144 /* NewThemeConfigurator.swift */; };
+		2AADB02F222135F900C8E144 /* NewThemeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB02E222135F900C8E144 /* NewThemeRouter.swift */; };
+		2AADB0312221360D00C8E144 /* NewThemeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB0302221360D00C8E144 /* NewThemeProtocols.swift */; };
 		2ABB913E21FD49A0003E1521 /* ThemesSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB913D21FD49A0003E1521 /* ThemesSecondView.swift */; };
 		2ABB914021FD4A92003E1521 /* ThemesSecondTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB913F21FD4A92003E1521 /* ThemesSecondTableView.swift */; };
 		2ABB914221FD4B08003E1521 /* ThemesSecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB914121FD4B08003E1521 /* ThemesSecondCell.swift */; };
@@ -363,6 +381,24 @@
 		2AADB00322212B9100C8E144 /* ChoosingConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingConfigurator.swift; sourceTree = "<group>"; };
 		2AADB00522212BA400C8E144 /* ChoosingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingRouter.swift; sourceTree = "<group>"; };
 		2AADB00722212BB800C8E144 /* ChoosingProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingProtocols.swift; sourceTree = "<group>"; };
+		2AADB00A22212EFD00C8E144 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		2AADB00C22212F1000C8E144 /* ResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPresenter.swift; sourceTree = "<group>"; };
+		2AADB00E22212F2100C8E144 /* ResultInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultInteractor.swift; sourceTree = "<group>"; };
+		2AADB01022212F3400C8E144 /* ResultConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultConfigurator.swift; sourceTree = "<group>"; };
+		2AADB01222212F4200C8E144 /* ResultRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultRouter.swift; sourceTree = "<group>"; };
+		2AADB01422212F5300C8E144 /* ResultProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultProtocols.swift; sourceTree = "<group>"; };
+		2AADB0172221326900C8E144 /* SpellingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingViewController.swift; sourceTree = "<group>"; };
+		2AADB0192221327D00C8E144 /* SpellingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingPresenter.swift; sourceTree = "<group>"; };
+		2AADB01B2221329000C8E144 /* SpellingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingInteractor.swift; sourceTree = "<group>"; };
+		2AADB01D222132A600C8E144 /* SpellingConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingConfigurator.swift; sourceTree = "<group>"; };
+		2AADB01F222132B300C8E144 /* SpellingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingRouter.swift; sourceTree = "<group>"; };
+		2AADB021222132C700C8E144 /* SpellingProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingProtocols.swift; sourceTree = "<group>"; };
+		2AADB026222135A900C8E144 /* NewThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemeViewController.swift; sourceTree = "<group>"; };
+		2AADB028222135C400C8E144 /* NewThemePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemePresenter.swift; sourceTree = "<group>"; };
+		2AADB02A222135D800C8E144 /* NewThemeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemeInteractor.swift; sourceTree = "<group>"; };
+		2AADB02C222135EA00C8E144 /* NewThemeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemeConfigurator.swift; sourceTree = "<group>"; };
+		2AADB02E222135F900C8E144 /* NewThemeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemeRouter.swift; sourceTree = "<group>"; };
+		2AADB0302221360D00C8E144 /* NewThemeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemeProtocols.swift; sourceTree = "<group>"; };
 		2ABB913D21FD49A0003E1521 /* ThemesSecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondView.swift; sourceTree = "<group>"; };
 		2ABB913F21FD4A92003E1521 /* ThemesSecondTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondTableView.swift; sourceTree = "<group>"; };
 		2ABB914121FD4B08003E1521 /* ThemesSecondCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondCell.swift; sourceTree = "<group>"; };
@@ -638,6 +674,11 @@
 		2AADAFBD2221137700C8E144 /* VIPER */ = {
 			isa = PBXGroup;
 			children = (
+				2AADB025222134CD00C8E144 /* SingleTheme */,
+				2AADB024222134BC00C8E144 /* ThemesSecond */,
+				2AADB023222134A700C8E144 /* NewTheme */,
+				2AADB016222131AD00C8E144 /* Spelling */,
+				2AADB00922212EDC00C8E144 /* Result */,
 				2AADAFFC22212B2C00C8E144 /* Choosing */,
 				2AADAFEF222127AF00C8E144 /* Start */,
 				2AADAFE22221244400C8E144 /* Settings */,
@@ -711,6 +752,59 @@
 				2AADB00722212BB800C8E144 /* ChoosingProtocols.swift */,
 			);
 			path = Choosing;
+			sourceTree = "<group>";
+		};
+		2AADB00922212EDC00C8E144 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				2AADB00A22212EFD00C8E144 /* ResultViewController.swift */,
+				2AADB00C22212F1000C8E144 /* ResultPresenter.swift */,
+				2AADB00E22212F2100C8E144 /* ResultInteractor.swift */,
+				2AADB01022212F3400C8E144 /* ResultConfigurator.swift */,
+				2AADB01222212F4200C8E144 /* ResultRouter.swift */,
+				2AADB01422212F5300C8E144 /* ResultProtocols.swift */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		2AADB016222131AD00C8E144 /* Spelling */ = {
+			isa = PBXGroup;
+			children = (
+				2AADB0172221326900C8E144 /* SpellingViewController.swift */,
+				2AADB0192221327D00C8E144 /* SpellingPresenter.swift */,
+				2AADB01B2221329000C8E144 /* SpellingInteractor.swift */,
+				2AADB01D222132A600C8E144 /* SpellingConfigurator.swift */,
+				2AADB01F222132B300C8E144 /* SpellingRouter.swift */,
+				2AADB021222132C700C8E144 /* SpellingProtocols.swift */,
+			);
+			path = Spelling;
+			sourceTree = "<group>";
+		};
+		2AADB023222134A700C8E144 /* NewTheme */ = {
+			isa = PBXGroup;
+			children = (
+				2AADB026222135A900C8E144 /* NewThemeViewController.swift */,
+				2AADB028222135C400C8E144 /* NewThemePresenter.swift */,
+				2AADB02A222135D800C8E144 /* NewThemeInteractor.swift */,
+				2AADB02C222135EA00C8E144 /* NewThemeConfigurator.swift */,
+				2AADB02E222135F900C8E144 /* NewThemeRouter.swift */,
+				2AADB0302221360D00C8E144 /* NewThemeProtocols.swift */,
+			);
+			path = NewTheme;
+			sourceTree = "<group>";
+		};
+		2AADB024222134BC00C8E144 /* ThemesSecond */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ThemesSecond;
+			sourceTree = "<group>";
+		};
+		2AADB025222134CD00C8E144 /* SingleTheme */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SingleTheme;
 			sourceTree = "<group>";
 		};
 		2ABB913C21FD4968003E1521 /* ThemesSecond */ = {
@@ -1293,6 +1387,8 @@
 				2AADAFDD22211F5500C8E144 /* RepeatsPresenter.swift in Sources */,
 				2AFFB5C521FB015D0011FD82 /* ThemeWordData+CoreDataProperties.swift in Sources */,
 				2AE8E79B21D25CFE00B7A8A2 /* TranslateDeleteButton.swift in Sources */,
+				2AADB02B222135D800C8E144 /* NewThemeInteractor.swift in Sources */,
+				2AADB02D222135EA00C8E144 /* NewThemeConfigurator.swift in Sources */,
 				2A00FF1A21DB8F7C00A0657C /* ThemesCell.swift in Sources */,
 				2A16D1EF21D3810100B34013 /* StartReturnButton.swift in Sources */,
 				2AEB315B21E9BC3C00A718B4 /* UserDefaultsExtension.swift in Sources */,
@@ -1304,8 +1400,10 @@
 				2AE8E73C21CFB61200B7A8A2 /* UILabelExtension.swift in Sources */,
 				2A16D21621D4EF6700B34013 /* SpellingExtension.swift in Sources */,
 				2A16D20F21D4E18400B34013 /* ResultReturnButton.swift in Sources */,
+				2AADB00D22212F1000C8E144 /* ResultPresenter.swift in Sources */,
 				2A3FAC1D21F6E7A00025B1A2 /* SingleThemeCheckbox.swift in Sources */,
 				2AADAFD222211BDC00C8E144 /* InboxInteractor.swift in Sources */,
+				2AADB0312221360D00C8E144 /* NewThemeProtocols.swift in Sources */,
 				2ABB914021FD4A92003E1521 /* ThemesSecondTableView.swift in Sources */,
 				2A00FF1221DB65FF00A0657C /* ThemesExtension.swift in Sources */,
 				2AE8E76621D0D12900B7A8A2 /* AddViewExtension.swift in Sources */,
@@ -1315,6 +1413,7 @@
 				2AADAFEA222124EB00C8E144 /* SettingsConfigurator.swift in Sources */,
 				2A3FAC0821F415330025B1A2 /* RepeatsCell.swift in Sources */,
 				2AE8E73A21CFB59A00B7A8A2 /* SettingsView.swift in Sources */,
+				2AADB0182221326900C8E144 /* SpellingViewController.swift in Sources */,
 				2A5B63EE21E484C300E7FD2E /* LoaderView.swift in Sources */,
 				2AE8E74721D09E9900B7A8A2 /* ThousandsView.swift in Sources */,
 				2A31709F22211D050038DE7D /* RememberHintView.swift in Sources */,
@@ -1326,6 +1425,7 @@
 				2AADB00622212BA400C8E144 /* ChoosingRouter.swift in Sources */,
 				2AE8E77821D1BE7100B7A8A2 /* OfflineDictionary.swift in Sources */,
 				2AADAFD922211EF300C8E144 /* RepeatsConfigurator.swift in Sources */,
+				2AADB029222135C400C8E144 /* NewThemePresenter.swift in Sources */,
 				2AE8E72721CF9C6B00B7A8A2 /* TabBarStartButton.swift in Sources */,
 				2A197CA92216884700CD239B /* NewThemeView.swift in Sources */,
 				2A16D1E321D34AF000B34013 /* StartView.swift in Sources */,
@@ -1337,10 +1437,12 @@
 				2AE8E73E21CFB66F00B7A8A2 /* UIFontExtension.swift in Sources */,
 				2AF991A021F0B6AF00616B5F /* ArchiveEmptyView.swift in Sources */,
 				2A16D22421D60D8A00B34013 /* RepeatsExtension.swift in Sources */,
+				2AADB027222135A900C8E144 /* NewThemeViewController.swift in Sources */,
 				2AADAFD022211BDC00C8E144 /* InboxConfigurator.swift in Sources */,
 				2A16D1F521D4551B00B34013 /* StartDelegate.swift in Sources */,
 				2A16D22B21D62D2200B34013 /* ArchiveSetup.swift in Sources */,
 				2AE8E6DB21CF894200B7A8A2 /* ViewController.swift in Sources */,
+				2AADB01E222132A600C8E144 /* SpellingConfigurator.swift in Sources */,
 				2AADAFEE2221252100C8E144 /* SettingsProtocols.swift in Sources */,
 				2A197CB822168DA300CD239B /* NewThemeDelegate.swift in Sources */,
 				2ABB915221FE8186003E1521 /* SingleThemeExtension.swift in Sources */,
@@ -1358,19 +1460,24 @@
 				2A16D20D21D4DFEB00B34013 /* ResultNextButton.swift in Sources */,
 				2AADAFE122211FC800C8E144 /* RepeatsRouter.swift in Sources */,
 				2AE8E6D921CF894200B7A8A2 /* AppDelegate.swift in Sources */,
+				2AADB02F222135F900C8E144 /* NewThemeRouter.swift in Sources */,
 				2AE8E7A321D26AA600B7A8A2 /* WordDataService.swift in Sources */,
 				2AE8E74D21D09F9900B7A8A2 /* ViewControllerSetup.swift in Sources */,
+				2AADB01C2221329000C8E144 /* SpellingInteractor.swift in Sources */,
 				2AE8E77021D0E4B300B7A8A2 /* AddButtonSave.swift in Sources */,
 				2AE8E78F21D235CF00B7A8A2 /* TranslateView.swift in Sources */,
 				2A197CB222168A1900CD239B /* NewThemeSetup.swift in Sources */,
 				2AE8E76A21D0D79900B7A8A2 /* InboxScrollExtension.swift in Sources */,
+				2AADB020222132B300C8E144 /* SpellingRouter.swift in Sources */,
 				2A5B63F421E496AE00E7FD2E /* CharacterExtension.swift in Sources */,
 				2A5B63DA21E324B000E7FD2E /* ThousandCell.swift in Sources */,
 				2A31709E22211D050038DE7D /* RememberHintDeclineButton.swift in Sources */,
+				2AADB022222132C700C8E144 /* SpellingProtocols.swift in Sources */,
 				2AE8E76821D0D20300B7A8A2 /* AddViewDelegate.swift in Sources */,
 				2AF991A221F0C06F00616B5F /* RoundsView.swift in Sources */,
 				2A16D21221D4EF0700B34013 /* SpellingView.swift in Sources */,
 				2ABB915521FED1F4003E1521 /* MusicView.swift in Sources */,
+				2AADB01A2221327D00C8E144 /* SpellingPresenter.swift in Sources */,
 				2AADB00822212BB800C8E144 /* ChoosingProtocols.swift in Sources */,
 				2AE8E74921D09EB100B7A8A2 /* ThemesView.swift in Sources */,
 				2AADAFD422211BDC00C8E144 /* InboxProtocols.swift in Sources */,
@@ -1382,6 +1489,7 @@
 				2A197CA12214083900CD239B /* ShadowsView.swift in Sources */,
 				2AE8E75D21D0B39500B7A8A2 /* WordCell.swift in Sources */,
 				2A3FAC1F21F72DDB0025B1A2 /* StringExtension.swift in Sources */,
+				2AADB00B22212EFD00C8E144 /* ResultViewController.swift in Sources */,
 				2A99A05622093EB000283D21 /* TranslateSetup.swift in Sources */,
 				2A16D21A21D4F06000B34013 /* SpellingViewModel.swift in Sources */,
 				2A5B63E621E343C600E7FD2E /* CSVManager.swift in Sources */,
@@ -1427,6 +1535,7 @@
 				2A197CAE2216897600CD239B /* NewThemeCell.swift in Sources */,
 				2A5B63F021E4851000E7FD2E /* RoundView.swift in Sources */,
 				2AFFB5B921FA9EA10011FD82 /* ThemesService.swift in Sources */,
+				2AADB00F22212F2100C8E144 /* ResultInteractor.swift in Sources */,
 				2AADAFF52221283600C8E144 /* StartInteractor.swift in Sources */,
 				2A3FAC0A21F41F3C0025B1A2 /* Badge.swift in Sources */,
 				2A5B63E421E3421500E7FD2E /* ThousandsViewModel.swift in Sources */,
@@ -1439,6 +1548,7 @@
 				2A3170A5222121870038DE7D /* ChooseFromThemesHintView.swift in Sources */,
 				2AE8E75121D0A72F00B7A8A2 /* TabBarSetup.swift in Sources */,
 				2ABB914221FD4B08003E1521 /* ThemesSecondCell.swift in Sources */,
+				2AADB01322212F4200C8E144 /* ResultRouter.swift in Sources */,
 				2AADAFF12221280700C8E144 /* StartViewController.swift in Sources */,
 				2AE8E78C21D22C4A00B7A8A2 /* TranslatesItemView.swift in Sources */,
 				2A16D23121D7107F00B34013 /* SettingsNotificationContainer.swift in Sources */,
@@ -1456,6 +1566,7 @@
 				2A16D21421D4EF4E00B34013 /* SpellingSetup.swift in Sources */,
 				2AE8E71B21CF8F1400B7A8A2 /* TabBarView.swift in Sources */,
 				2A3170AD222138640038DE7D /* InboxCollectionViewExtension.swift in Sources */,
+				2AADB01122212F3400C8E144 /* ResultConfigurator.swift in Sources */,
 				2AADAFF72221284C00C8E144 /* StartConfigurator.swift in Sources */,
 				2AFFB5B321F82D830011FD82 /* SingleThemeDelegate.swift in Sources */,
 				2AE8E72B21CFACEA00B7A8A2 /* TabBarExtension.swift in Sources */,
@@ -1467,6 +1578,7 @@
 				2A16D20821D472D900B34013 /* ChoosingContinueView.swift in Sources */,
 				2A16D1E521D34DE300B34013 /* CardsView.swift in Sources */,
 				2A16D22021D60D6E00B34013 /* RepeatsSetup.swift in Sources */,
+				2AADB01522212F5300C8E144 /* ResultProtocols.swift in Sources */,
 				2A16D20B21D4DE7F00B34013 /* ResultView.swift in Sources */,
 				2AADAFDF22211FAC00C8E144 /* RepeatsProtocols.swift in Sources */,
 				2AE8E75721D0ABA400B7A8A2 /* InboxSetup.swift in Sources */,
