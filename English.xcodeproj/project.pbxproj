@@ -67,6 +67,7 @@
 		2A31709F22211D050038DE7D /* RememberHintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A31709B22211D050038DE7D /* RememberHintView.swift */; };
 		2A3170A022211D050038DE7D /* RememberHintButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A31709C22211D050038DE7D /* RememberHintButton.swift */; };
 		2A3170A122211D050038DE7D /* NotificationHintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A31709D22211D050038DE7D /* NotificationHintView.swift */; };
+		2A3170A5222121870038DE7D /* ChooseFromThemesHintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3170A4222121870038DE7D /* ChooseFromThemesHintView.swift */; };
 		2A3FAC0821F415330025B1A2 /* RepeatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAC0721F415330025B1A2 /* RepeatsCell.swift */; };
 		2A3FAC0A21F41F3C0025B1A2 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAC0921F41F3C0025B1A2 /* Badge.swift */; };
 		2A3FAC0C21F45E1A0025B1A2 /* SpellingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAC0B21F45E1A0025B1A2 /* SpellingTextField.swift */; };
@@ -271,10 +272,11 @@
 		2A197CB922168E2100CD239B /* NewThemeAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemeAddButton.swift; sourceTree = "<group>"; };
 		2A197CBB221691C100CD239B /* NewThemes */ = {isa = PBXFileReference; lastKnownFileType = folder; name = NewThemes; path = Resources/NewThemes; sourceTree = "<group>"; };
 		2A1DCB3921E5B1F2002B37CF /* SpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
-		2A31709A22211D050038DE7D /* RememberHintDeclineButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RememberHintDeclineButton.swift; path = RememberHint/RememberHintDeclineButton.swift; sourceTree = "<group>"; };
-		2A31709B22211D050038DE7D /* RememberHintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RememberHintView.swift; path = RememberHint/RememberHintView.swift; sourceTree = "<group>"; };
-		2A31709C22211D050038DE7D /* RememberHintButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RememberHintButton.swift; path = RememberHint/RememberHintButton.swift; sourceTree = "<group>"; };
-		2A31709D22211D050038DE7D /* NotificationHintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationHintView.swift; path = RememberHint/NotificationHintView.swift; sourceTree = "<group>"; };
+		2A31709A22211D050038DE7D /* RememberHintDeclineButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RememberHintDeclineButton.swift; sourceTree = "<group>"; };
+		2A31709B22211D050038DE7D /* RememberHintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RememberHintView.swift; sourceTree = "<group>"; };
+		2A31709C22211D050038DE7D /* RememberHintButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RememberHintButton.swift; sourceTree = "<group>"; };
+		2A31709D22211D050038DE7D /* NotificationHintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHintView.swift; sourceTree = "<group>"; };
+		2A3170A4222121870038DE7D /* ChooseFromThemesHintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFromThemesHintView.swift; sourceTree = "<group>"; };
 		2A3FAC0721F415330025B1A2 /* RepeatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatsCell.swift; sourceTree = "<group>"; };
 		2A3FAC0921F41F3C0025B1A2 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		2A3FAC0B21F45E1A0025B1A2 /* SpellingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingTextField.swift; sourceTree = "<group>"; };
@@ -522,12 +524,21 @@
 		2A31709022210B040038DE7D /* Hints */ = {
 			isa = PBXGroup;
 			children = (
+				2A3170A32221213B0038DE7D /* RememberHint */,
+				2A3170A4222121870038DE7D /* ChooseFromThemesHintView.swift */,
+			);
+			path = Hints;
+			sourceTree = "<group>";
+		};
+		2A3170A32221213B0038DE7D /* RememberHint */ = {
+			isa = PBXGroup;
+			children = (
 				2A31709B22211D050038DE7D /* RememberHintView.swift */,
 				2A31709D22211D050038DE7D /* NotificationHintView.swift */,
 				2A31709C22211D050038DE7D /* RememberHintButton.swift */,
 				2A31709A22211D050038DE7D /* RememberHintDeclineButton.swift */,
 			);
-			path = Hints;
+			path = RememberHint;
 			sourceTree = "<group>";
 		};
 		2A3FAC0F21F5929E0025B1A2 /* SingleTheme */ = {
@@ -1279,6 +1290,7 @@
 				2AE8E74F21D0A3B600B7A8A2 /* TabBarButtonType.swift in Sources */,
 				2A5B63E221E340F300E7FD2E /* ThousandsDelegate.swift in Sources */,
 				2AE8E77221D0E4C700B7A8A2 /* AddButtonCancel.swift in Sources */,
+				2A3170A5222121870038DE7D /* ChooseFromThemesHintView.swift in Sources */,
 				2AE8E75121D0A72F00B7A8A2 /* TabBarSetup.swift in Sources */,
 				2ABB914221FD4B08003E1521 /* ThemesSecondCell.swift in Sources */,
 				2AE8E78C21D22C4A00B7A8A2 /* TranslatesItemView.swift in Sources */,
