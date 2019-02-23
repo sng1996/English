@@ -63,6 +63,8 @@
 		2A197CBA22168E2100CD239B /* NewThemeAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A197CB922168E2100CD239B /* NewThemeAddButton.swift */; };
 		2A197CBC221691C200CD239B /* NewThemes in Resources */ = {isa = PBXBuildFile; fileRef = 2A197CBB221691C100CD239B /* NewThemes */; };
 		2A1DCB3A21E5B1F2002B37CF /* SpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1DCB3921E5B1F2002B37CF /* SpeechManager.swift */; };
+		2A31709222210B350038DE7D /* RememberHintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A31709122210B350038DE7D /* RememberHintView.swift */; };
+		2A31709422210CC20038DE7D /* NotificationHintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A31709322210CC20038DE7D /* NotificationHintView.swift */; };
 		2A3FAC0821F415330025B1A2 /* RepeatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAC0721F415330025B1A2 /* RepeatsCell.swift */; };
 		2A3FAC0A21F41F3C0025B1A2 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAC0921F41F3C0025B1A2 /* Badge.swift */; };
 		2A3FAC0C21F45E1A0025B1A2 /* SpellingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAC0B21F45E1A0025B1A2 /* SpellingTextField.swift */; };
@@ -266,6 +268,8 @@
 		2A197CB922168E2100CD239B /* NewThemeAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemeAddButton.swift; sourceTree = "<group>"; };
 		2A197CBB221691C100CD239B /* NewThemes */ = {isa = PBXFileReference; lastKnownFileType = folder; name = NewThemes; path = Resources/NewThemes; sourceTree = "<group>"; };
 		2A1DCB3921E5B1F2002B37CF /* SpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
+		2A31709122210B350038DE7D /* RememberHintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RememberHintView.swift; sourceTree = "<group>"; };
+		2A31709322210CC20038DE7D /* NotificationHintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHintView.swift; sourceTree = "<group>"; };
 		2A3FAC0721F415330025B1A2 /* RepeatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatsCell.swift; sourceTree = "<group>"; };
 		2A3FAC0921F41F3C0025B1A2 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		2A3FAC0B21F45E1A0025B1A2 /* SpellingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingTextField.swift; sourceTree = "<group>"; };
@@ -509,6 +513,15 @@
 			path = NewTheme;
 			sourceTree = "<group>";
 		};
+		2A31709022210B040038DE7D /* Hints */ = {
+			isa = PBXGroup;
+			children = (
+				2A31709122210B350038DE7D /* RememberHintView.swift */,
+				2A31709322210CC20038DE7D /* NotificationHintView.swift */,
+			);
+			path = Hints;
+			sourceTree = "<group>";
+		};
 		2A3FAC0F21F5929E0025B1A2 /* SingleTheme */ = {
 			isa = PBXGroup;
 			children = (
@@ -738,6 +751,7 @@
 		2AE8E71021CF8B7F00B7A8A2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2A31709022210B040038DE7D /* Hints */,
 				2AE8E78D21D235A900B7A8A2 /* Translate */,
 				2AE8E75E21D0C7A600B7A8A2 /* Add */,
 				2AE8E71921CF8EFB00B7A8A2 /* TabBar */,
@@ -1109,6 +1123,7 @@
 				2AFFB5C421FB015D0011FD82 /* ThemeWordData.swift in Sources */,
 				2AE8E74B21D09EC600B7A8A2 /* ProsesView.swift in Sources */,
 				2AF3067521E5B6C000326262 /* DateExtension.swift in Sources */,
+				2A31709222210B350038DE7D /* RememberHintView.swift in Sources */,
 				2A197CB02216899900CD239B /* NewThemeCheckbox.swift in Sources */,
 				2A1DCB3A21E5B1F2002B37CF /* SpeechManager.swift in Sources */,
 				2AFFB5B521FA9ABB0011FD82 /* Theme.swift in Sources */,
@@ -1190,6 +1205,7 @@
 				2A16D21221D4EF0700B34013 /* SpellingView.swift in Sources */,
 				2ABB915521FED1F4003E1521 /* MusicView.swift in Sources */,
 				2AE8E74921D09EB100B7A8A2 /* ThemesView.swift in Sources */,
+				2A31709422210CC20038DE7D /* NotificationHintView.swift in Sources */,
 				2AF3067721E5C10100326262 /* RepeatProgressBar.swift in Sources */,
 				2A3FAC1321F593150025B1A2 /* SingleThemeViewModel.swift in Sources */,
 				2A3FAC1B21F6E50C0025B1A2 /* SingleThemeCell.swift in Sources */,
