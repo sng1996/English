@@ -63,8 +63,10 @@
 		2A197CBA22168E2100CD239B /* NewThemeAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A197CB922168E2100CD239B /* NewThemeAddButton.swift */; };
 		2A197CBC221691C200CD239B /* NewThemes in Resources */ = {isa = PBXBuildFile; fileRef = 2A197CBB221691C100CD239B /* NewThemes */; };
 		2A1DCB3A21E5B1F2002B37CF /* SpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1DCB3921E5B1F2002B37CF /* SpeechManager.swift */; };
-		2A31709222210B350038DE7D /* RememberHintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A31709122210B350038DE7D /* RememberHintView.swift */; };
-		2A31709422210CC20038DE7D /* NotificationHintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A31709322210CC20038DE7D /* NotificationHintView.swift */; };
+		2A31709E22211D050038DE7D /* RememberHintDeclineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A31709A22211D050038DE7D /* RememberHintDeclineButton.swift */; };
+		2A31709F22211D050038DE7D /* RememberHintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A31709B22211D050038DE7D /* RememberHintView.swift */; };
+		2A3170A022211D050038DE7D /* RememberHintButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A31709C22211D050038DE7D /* RememberHintButton.swift */; };
+		2A3170A122211D050038DE7D /* NotificationHintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A31709D22211D050038DE7D /* NotificationHintView.swift */; };
 		2A3FAC0821F415330025B1A2 /* RepeatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAC0721F415330025B1A2 /* RepeatsCell.swift */; };
 		2A3FAC0A21F41F3C0025B1A2 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAC0921F41F3C0025B1A2 /* Badge.swift */; };
 		2A3FAC0C21F45E1A0025B1A2 /* SpellingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAC0B21F45E1A0025B1A2 /* SpellingTextField.swift */; };
@@ -268,8 +270,10 @@
 		2A197CB922168E2100CD239B /* NewThemeAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewThemeAddButton.swift; sourceTree = "<group>"; };
 		2A197CBB221691C100CD239B /* NewThemes */ = {isa = PBXFileReference; lastKnownFileType = folder; name = NewThemes; path = Resources/NewThemes; sourceTree = "<group>"; };
 		2A1DCB3921E5B1F2002B37CF /* SpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
-		2A31709122210B350038DE7D /* RememberHintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RememberHintView.swift; sourceTree = "<group>"; };
-		2A31709322210CC20038DE7D /* NotificationHintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHintView.swift; sourceTree = "<group>"; };
+		2A31709A22211D050038DE7D /* RememberHintDeclineButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RememberHintDeclineButton.swift; path = RememberHint/RememberHintDeclineButton.swift; sourceTree = "<group>"; };
+		2A31709B22211D050038DE7D /* RememberHintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RememberHintView.swift; path = RememberHint/RememberHintView.swift; sourceTree = "<group>"; };
+		2A31709C22211D050038DE7D /* RememberHintButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RememberHintButton.swift; path = RememberHint/RememberHintButton.swift; sourceTree = "<group>"; };
+		2A31709D22211D050038DE7D /* NotificationHintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationHintView.swift; path = RememberHint/NotificationHintView.swift; sourceTree = "<group>"; };
 		2A3FAC0721F415330025B1A2 /* RepeatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatsCell.swift; sourceTree = "<group>"; };
 		2A3FAC0921F41F3C0025B1A2 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		2A3FAC0B21F45E1A0025B1A2 /* SpellingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingTextField.swift; sourceTree = "<group>"; };
@@ -516,8 +520,10 @@
 		2A31709022210B040038DE7D /* Hints */ = {
 			isa = PBXGroup;
 			children = (
-				2A31709122210B350038DE7D /* RememberHintView.swift */,
-				2A31709322210CC20038DE7D /* NotificationHintView.swift */,
+				2A31709B22211D050038DE7D /* RememberHintView.swift */,
+				2A31709D22211D050038DE7D /* NotificationHintView.swift */,
+				2A31709C22211D050038DE7D /* RememberHintButton.swift */,
+				2A31709A22211D050038DE7D /* RememberHintDeclineButton.swift */,
 			);
 			path = Hints;
 			sourceTree = "<group>";
@@ -1123,7 +1129,6 @@
 				2AFFB5C421FB015D0011FD82 /* ThemeWordData.swift in Sources */,
 				2AE8E74B21D09EC600B7A8A2 /* ProsesView.swift in Sources */,
 				2AF3067521E5B6C000326262 /* DateExtension.swift in Sources */,
-				2A31709222210B350038DE7D /* RememberHintView.swift in Sources */,
 				2A197CB02216899900CD239B /* NewThemeCheckbox.swift in Sources */,
 				2A1DCB3A21E5B1F2002B37CF /* SpeechManager.swift in Sources */,
 				2AFFB5B521FA9ABB0011FD82 /* Theme.swift in Sources */,
@@ -1159,6 +1164,7 @@
 				2AE8E73A21CFB59A00B7A8A2 /* SettingsView.swift in Sources */,
 				2A5B63EE21E484C300E7FD2E /* LoaderView.swift in Sources */,
 				2AE8E74721D09E9900B7A8A2 /* ThousandsView.swift in Sources */,
+				2A31709F22211D050038DE7D /* RememberHintView.swift in Sources */,
 				2AE8E76021D0C7BA00B7A8A2 /* AddView.swift in Sources */,
 				2AE8E79F21D268B600B7A8A2 /* WordData+CoreDataProperties.swift in Sources */,
 				2A16D23321D7220600B34013 /* NotificationManager.swift in Sources */,
@@ -1170,6 +1176,7 @@
 				2A16D1E321D34AF000B34013 /* StartView.swift in Sources */,
 				2A16D1ED21D37D3700B34013 /* StartButton.swift in Sources */,
 				2ABB914821FD5661003E1521 /* ThemesSecondExtension.swift in Sources */,
+				2A3170A122211D050038DE7D /* NotificationHintView.swift in Sources */,
 				2A16D22821D62BE800B34013 /* ArchiveView.swift in Sources */,
 				2AE8E75B21D0ABC800B7A8A2 /* InboxDelegate.swift in Sources */,
 				2AE8E73E21CFB66F00B7A8A2 /* UIFontExtension.swift in Sources */,
@@ -1201,13 +1208,13 @@
 				2AE8E76A21D0D79900B7A8A2 /* InboxScrollExtension.swift in Sources */,
 				2A5B63F421E496AE00E7FD2E /* CharacterExtension.swift in Sources */,
 				2A5B63DA21E324B000E7FD2E /* ThousandCell.swift in Sources */,
+				2A31709E22211D050038DE7D /* RememberHintDeclineButton.swift in Sources */,
 				2AE8E76821D0D20300B7A8A2 /* AddViewDelegate.swift in Sources */,
 				2AF991A221F0C06F00616B5F /* RoundsView.swift in Sources */,
 				2A16D21221D4EF0700B34013 /* SpellingView.swift in Sources */,
 				2ABB915521FED1F4003E1521 /* MusicView.swift in Sources */,
 				2AE8E74921D09EB100B7A8A2 /* ThemesView.swift in Sources */,
 				2AADAFD422211BDC00C8E144 /* InboxProtocols.swift in Sources */,
-				2A31709422210CC20038DE7D /* NotificationHintView.swift in Sources */,
 				2AF3067721E5C10100326262 /* RepeatProgressBar.swift in Sources */,
 				2A3FAC1321F593150025B1A2 /* SingleThemeViewModel.swift in Sources */,
 				2A3FAC1B21F6E50C0025B1A2 /* SingleThemeCell.swift in Sources */,
@@ -1251,6 +1258,7 @@
 				2AE8E76221D0C7CA00B7A8A2 /* AddViewModel.swift in Sources */,
 				2AE8E72521CF9ADE00B7A8A2 /* UIViewExtension.swift in Sources */,
 				2AE8E75921D0ABB900B7A8A2 /* InboxExtension.swift in Sources */,
+				2A3170A022211D050038DE7D /* RememberHintButton.swift in Sources */,
 				2A197CAE2216897600CD239B /* NewThemeCell.swift in Sources */,
 				2A5B63F021E4851000E7FD2E /* RoundView.swift in Sources */,
 				2AFFB5B921FA9EA10011FD82 /* ThemesService.swift in Sources */,
