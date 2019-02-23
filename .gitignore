@@ -1,0 +1,9 @@
+# Ignore macOS Finder user-related files
+.DS_Store
+
+# Ignore Xcode user-related files
+English.xcworkspace/xcuserdata/
+
+# Ignore AppCode user-related files
+.idea/
+
