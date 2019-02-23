@@ -16,11 +16,9 @@ extension TranslateView {
         }
     }
     
-    func open(_ wordData: WordData) {
-        let word = Word(wordData)
-        sourceItem = word
+    func open(with model: TranslateViewDataModel) {
+        sourceItem = model
         isHidden = false
-        
         ViewController.tabBarView.hide()
         topConstraint.constant = -view.frame.height
         animateLayout()

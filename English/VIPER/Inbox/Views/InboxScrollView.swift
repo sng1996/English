@@ -9,6 +9,16 @@
 import UIKit
 
 class InboxScrollView: UIScrollView {
+    
+    var isActive: Bool = true {
+        didSet {
+            if isActive {
+                activate()
+            } else {
+                deactivate()
+            }
+        }
+    }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -27,6 +37,20 @@ class InboxScrollView: UIScrollView {
         contentOffset.y = -position
         contentInset.top = position
         isScrollEnabled = position == 0
+    }
+    
+    private func activate() {
+        isScrollEnabled = true
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
+            self.backgroundColor = .white
+        }, completion: nil)
+    }
+    
+    private func deactivate() {
+        isScrollEnabled = false
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
+            self.backgroundColor = UIColor(rgb: 0xF3F3F3)
+        }, completion: nil)
     }
 
 }

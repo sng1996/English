@@ -8,6 +8,20 @@
 
 import UIKit
 
+class TranslateViewDataModel {
+    
+    var original: String
+    var translate: String
+    var translates: [Translate]
+    
+    init(_ word: Word) {
+        original = word.original
+        translate = word.translate
+        translates = word.translates
+    }
+    
+}
+
 protocol TranslateViewDelegate {
     func didCloseTranslateView()
 }
@@ -16,10 +30,10 @@ class TranslateView: UIView, ServiceProvider {
     
     var sourceItem: Any? {
         didSet {
-            guard let word = sourceItem as? Word else { return }
-            headerLabel.text = word.original
-            footerLabel.text = word.translate
-            translatesView.sourceItem = word
+            guard let model = sourceItem as? TranslateViewDataModel else { return }
+            headerLabel.text = model.original
+            footerLabel.text = model.translate
+            translatesView.sourceItem = model.translates
             layoutIfNeeded()
         }
     }

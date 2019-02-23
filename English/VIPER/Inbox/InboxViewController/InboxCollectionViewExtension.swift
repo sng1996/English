@@ -11,6 +11,8 @@ import UIKit
 extension InboxViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        cv.activateCell(at: indexPath)
+        scrollView.isActive = false
         presenter.collectionViewDidSelectItemAt(indexPath)
     }
     

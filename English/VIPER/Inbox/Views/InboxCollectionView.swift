@@ -44,4 +44,16 @@ class InboxCollectionView: UICollectionView {
         superview!.layoutIfNeeded()
     }
     
+    func activateCell(at indexPath: IndexPath) {
+        deactivateCells()
+        let cell = cellForItem(at: indexPath) as! WordCell
+        cell.isActive = true
+    }
+    
+    func deactivateCells() {
+        visibleCells.forEach {
+            ($0 as! WordCell).isActive = true
+        }
+    }
+    
 }

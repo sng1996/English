@@ -15,6 +15,7 @@ protocol InboxViewProtocol: class {
     func hideEmptyView()
     func showStartButton()
     func hideStartButton()
+    func openTranslateView(with model: TranslateViewDataModel)
 }
 
 protocol InboxPresenterProtocol: class {
@@ -22,6 +23,7 @@ protocol InboxPresenterProtocol: class {
     func collectionViewDidSelectItemAt(_ indexPath: IndexPath)
     func collectionViewNumberOfItems() -> Int
     func collectionViewDataForItemAt(_ indexPath: IndexPath) -> WordCellDataModel
+    func updateView()
 }
 
 protocol InboxInteractorProtocol: class {

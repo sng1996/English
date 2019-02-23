@@ -102,6 +102,10 @@ extension InboxViewController: InboxViewProtocol {
         ViewController.tabBarView.hideStartButton()
     }
     
+    func openTranslateView(with model: TranslateViewDataModel) {
+        translateView.open(with: model)
+    }
+    
 }
 
 extension InboxViewController: AddViewDelegate {
@@ -122,10 +126,7 @@ extension InboxViewController: AddViewDelegate {
 extension InboxViewController: TranslateViewDelegate {
     
     func didCloseTranslateView() {
-        scrollView.isScrollEnabled = true
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
-            self.scrollView.backgroundColor = .white
-        }, completion: nil)
+        scrollView.isActive = true
         presenter.configureView()
     }
     
