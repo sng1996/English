@@ -109,6 +109,12 @@
 		2AADAFEA222124EB00C8E144 /* SettingsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADAFE9222124EB00C8E144 /* SettingsConfigurator.swift */; };
 		2AADAFEC2221250900C8E144 /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADAFEB2221250900C8E144 /* SettingsRouter.swift */; };
 		2AADAFEE2221252100C8E144 /* SettingsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADAFED2221252100C8E144 /* SettingsProtocols.swift */; };
+		2AADAFF12221280700C8E144 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADAFF02221280700C8E144 /* StartViewController.swift */; };
+		2AADAFF32221282100C8E144 /* StartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADAFF22221282100C8E144 /* StartPresenter.swift */; };
+		2AADAFF52221283600C8E144 /* StartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADAFF42221283600C8E144 /* StartInteractor.swift */; };
+		2AADAFF72221284C00C8E144 /* StartConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADAFF62221284C00C8E144 /* StartConfigurator.swift */; };
+		2AADAFF92221285E00C8E144 /* StartRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADAFF82221285E00C8E144 /* StartRouter.swift */; };
+		2AADAFFB2221287100C8E144 /* StartProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADAFFA2221287100C8E144 /* StartProtocols.swift */; };
 		2ABB913E21FD49A0003E1521 /* ThemesSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB913D21FD49A0003E1521 /* ThemesSecondView.swift */; };
 		2ABB914021FD4A92003E1521 /* ThemesSecondTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB913F21FD4A92003E1521 /* ThemesSecondTableView.swift */; };
 		2ABB914221FD4B08003E1521 /* ThemesSecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB914121FD4B08003E1521 /* ThemesSecondCell.swift */; };
@@ -329,6 +335,12 @@
 		2AADAFE9222124EB00C8E144 /* SettingsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsConfigurator.swift; sourceTree = "<group>"; };
 		2AADAFEB2221250900C8E144 /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
 		2AADAFED2221252100C8E144 /* SettingsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProtocols.swift; sourceTree = "<group>"; };
+		2AADAFF02221280700C8E144 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		2AADAFF22221282100C8E144 /* StartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPresenter.swift; sourceTree = "<group>"; };
+		2AADAFF42221283600C8E144 /* StartInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartInteractor.swift; sourceTree = "<group>"; };
+		2AADAFF62221284C00C8E144 /* StartConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartConfigurator.swift; sourceTree = "<group>"; };
+		2AADAFF82221285E00C8E144 /* StartRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartRouter.swift; sourceTree = "<group>"; };
+		2AADAFFA2221287100C8E144 /* StartProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartProtocols.swift; sourceTree = "<group>"; };
 		2ABB913D21FD49A0003E1521 /* ThemesSecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondView.swift; sourceTree = "<group>"; };
 		2ABB913F21FD4A92003E1521 /* ThemesSecondTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondTableView.swift; sourceTree = "<group>"; };
 		2ABB914121FD4B08003E1521 /* ThemesSecondCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondCell.swift; sourceTree = "<group>"; };
@@ -582,6 +594,7 @@
 		2AADAFBD2221137700C8E144 /* VIPER */ = {
 			isa = PBXGroup;
 			children = (
+				2AADAFEF222127AF00C8E144 /* Start */,
 				2AADAFE22221244400C8E144 /* Settings */,
 				2AADAFD522211D8E00C8E144 /* Repeats */,
 				2AADAFBE2221138200C8E144 /* Inbox */,
@@ -626,6 +639,19 @@
 				2AADAFED2221252100C8E144 /* SettingsProtocols.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		2AADAFEF222127AF00C8E144 /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				2AADAFF02221280700C8E144 /* StartViewController.swift */,
+				2AADAFF22221282100C8E144 /* StartPresenter.swift */,
+				2AADAFF42221283600C8E144 /* StartInteractor.swift */,
+				2AADAFF62221284C00C8E144 /* StartConfigurator.swift */,
+				2AADAFF82221285E00C8E144 /* StartRouter.swift */,
+				2AADAFFA2221287100C8E144 /* StartProtocols.swift */,
+			);
+			path = Start;
 			sourceTree = "<group>";
 		};
 		2ABB913C21FD4968003E1521 /* ThemesSecond */ = {
@@ -1201,6 +1227,7 @@
 				2AE8E71D21CF8F7D00B7A8A2 /* Constants.swift in Sources */,
 				2AFFB5BD21FABBE30011FD82 /* ThemesCardView.swift in Sources */,
 				2AE8E78A21D22C2300B7A8A2 /* TranslatesView.swift in Sources */,
+				2AADAFF32221282100C8E144 /* StartPresenter.swift in Sources */,
 				2AE8E77A21D1C0D800B7A8A2 /* Word.swift in Sources */,
 				2AADAFE6222124A400C8E144 /* SettingsPresenter.swift in Sources */,
 				2AADAFDD22211F5500C8E144 /* RepeatsPresenter.swift in Sources */,
@@ -1313,6 +1340,7 @@
 				2A3FAC1521F5A0800025B1A2 /* SingleThemeAddButton.swift in Sources */,
 				2AE8E71F21CF92EC00B7A8A2 /* Line.swift in Sources */,
 				2A16D1FC21D455CC00B34013 /* ChoosingSetup.swift in Sources */,
+				2AADAFFB2221287100C8E144 /* StartProtocols.swift in Sources */,
 				2AE8E78621D1F17A00B7A8A2 /* Keyboard.swift in Sources */,
 				2A5B63EC21E4838600E7FD2E /* TextView.swift in Sources */,
 				2AE8E74021CFBE4B00B7A8A2 /* TabBarModulesView.swift in Sources */,
@@ -1333,6 +1361,7 @@
 				2A197CAE2216897600CD239B /* NewThemeCell.swift in Sources */,
 				2A5B63F021E4851000E7FD2E /* RoundView.swift in Sources */,
 				2AFFB5B921FA9EA10011FD82 /* ThemesService.swift in Sources */,
+				2AADAFF52221283600C8E144 /* StartInteractor.swift in Sources */,
 				2A3FAC0A21F41F3C0025B1A2 /* Badge.swift in Sources */,
 				2A5B63E421E3421500E7FD2E /* ThousandsViewModel.swift in Sources */,
 				2AADAFE8222124D200C8E144 /* SettingsInteractor.swift in Sources */,
@@ -1344,6 +1373,7 @@
 				2A3170A5222121870038DE7D /* ChooseFromThemesHintView.swift in Sources */,
 				2AE8E75121D0A72F00B7A8A2 /* TabBarSetup.swift in Sources */,
 				2ABB914221FD4B08003E1521 /* ThemesSecondCell.swift in Sources */,
+				2AADAFF12221280700C8E144 /* StartViewController.swift in Sources */,
 				2AE8E78C21D22C4A00B7A8A2 /* TranslatesItemView.swift in Sources */,
 				2A16D23121D7107F00B34013 /* SettingsNotificationContainer.swift in Sources */,
 				2AE8E76E21D0E49800B7A8A2 /* AddButtonsView.swift in Sources */,
@@ -1351,12 +1381,14 @@
 				2A00FF1621DB74BC00A0657C /* ScrollView.swift in Sources */,
 				2A16D1FE21D455D700B34013 /* ChoosingExtension.swift in Sources */,
 				2ABB914C21FE6C6E003E1521 /* ThemeWord.swift in Sources */,
+				2AADAFF92221285E00C8E144 /* StartRouter.swift in Sources */,
 				2A16D1E921D37A2200B34013 /* BackButton.swift in Sources */,
 				2A16D21C21D4F42B00B34013 /* SpellingButton.swift in Sources */,
 				2A3FAC0C21F45E1A0025B1A2 /* SpellingTextField.swift in Sources */,
 				2AE8E73821CFB58800B7A8A2 /* RepeatsView.swift in Sources */,
 				2A16D21421D4EF4E00B34013 /* SpellingSetup.swift in Sources */,
 				2AE8E71B21CF8F1400B7A8A2 /* TabBarView.swift in Sources */,
+				2AADAFF72221284C00C8E144 /* StartConfigurator.swift in Sources */,
 				2AFFB5B321F82D830011FD82 /* SingleThemeDelegate.swift in Sources */,
 				2AE8E72B21CFACEA00B7A8A2 /* TabBarExtension.swift in Sources */,
 				2AE8E6E121CF894200B7A8A2 /* English.xcdatamodeld in Sources */,

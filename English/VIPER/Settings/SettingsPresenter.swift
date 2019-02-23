@@ -20,7 +20,7 @@ class SettingsPresenter {
     
 }
 
-extension RSettingsPresenter: SettingsPresenterProtocol {
+extension SettingsPresenter: SettingsPresenterProtocol {
     
 }
 
