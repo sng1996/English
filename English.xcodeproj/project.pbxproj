@@ -88,12 +88,6 @@
 		2A5B63F221E48C8A00E7FD2E /* OnlineDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5B63F121E48C8A00E7FD2E /* OnlineDictionary.swift */; };
 		2A5B63F421E496AE00E7FD2E /* CharacterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5B63F321E496AE00E7FD2E /* CharacterExtension.swift */; };
 		2A99A05622093EB000283D21 /* TranslateSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A99A05522093EB000283D21 /* TranslateSetup.swift */; };
-		2AADAFB222210AC400C8E144 /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADAFB122210AC400C8E144 /* InboxViewController.swift */; };
-		2AADAFB422210B0500C8E144 /* InboxPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADAFB322210B0500C8E144 /* InboxPresenter.swift */; };
-		2AADAFB622210B2700C8E144 /* InboxInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADAFB522210B2700C8E144 /* InboxInteractor.swift */; };
-		2AADAFB822210B4100C8E144 /* InboxConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADAFB722210B4100C8E144 /* InboxConfigurator.swift */; };
-		2AADAFBA22210B5B00C8E144 /* InboxRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADAFB922210B5B00C8E144 /* InboxRouter.swift */; };
-		2AADAFBC22210B7A00C8E144 /* InboxProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADAFBB22210B7A00C8E144 /* InboxProtocols.swift */; };
 		2ABB913E21FD49A0003E1521 /* ThemesSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB913D21FD49A0003E1521 /* ThemesSecondView.swift */; };
 		2ABB914021FD4A92003E1521 /* ThemesSecondTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB913F21FD4A92003E1521 /* ThemesSecondTableView.swift */; };
 		2ABB914221FD4B08003E1521 /* ThemesSecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB914121FD4B08003E1521 /* ThemesSecondCell.swift */; };
@@ -293,12 +287,6 @@
 		2A5B63F121E48C8A00E7FD2E /* OnlineDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineDictionary.swift; sourceTree = "<group>"; };
 		2A5B63F321E496AE00E7FD2E /* CharacterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterExtension.swift; sourceTree = "<group>"; };
 		2A99A05522093EB000283D21 /* TranslateSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateSetup.swift; sourceTree = "<group>"; };
-		2AADAFB122210AC400C8E144 /* InboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InboxViewController.swift; path = ../../../../../Documents/InboxViewController.swift; sourceTree = "<group>"; };
-		2AADAFB322210B0500C8E144 /* InboxPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InboxPresenter.swift; path = ../../../../../Documents/InboxPresenter.swift; sourceTree = "<group>"; };
-		2AADAFB522210B2700C8E144 /* InboxInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InboxInteractor.swift; path = ../../../../../Documents/InboxInteractor.swift; sourceTree = "<group>"; };
-		2AADAFB722210B4100C8E144 /* InboxConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InboxConfigurator.swift; path = ../../../../../Documents/InboxConfigurator.swift; sourceTree = "<group>"; };
-		2AADAFB922210B5B00C8E144 /* InboxRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxRouter.swift; sourceTree = "<group>"; };
-		2AADAFBB22210B7A00C8E144 /* InboxProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InboxProtocols.swift; path = ../../../../../Documents/InboxProtocols.swift; sourceTree = "<group>"; };
 		2ABB913D21FD49A0003E1521 /* ThemesSecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondView.swift; sourceTree = "<group>"; };
 		2ABB913F21FD4A92003E1521 /* ThemesSecondTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondTableView.swift; sourceTree = "<group>"; };
 		2ABB914121FD4B08003E1521 /* ThemesSecondCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondCell.swift; sourceTree = "<group>"; };
@@ -538,27 +526,6 @@
 			path = SingleTheme;
 			sourceTree = "<group>";
 		};
-		2AADAFAF22210A9700C8E144 /* VIPER */ = {
-			isa = PBXGroup;
-			children = (
-				2AADAFB022210AA200C8E144 /* Inbox */,
-			);
-			path = VIPER;
-			sourceTree = "<group>";
-		};
-		2AADAFB022210AA200C8E144 /* Inbox */ = {
-			isa = PBXGroup;
-			children = (
-				2AADAFB122210AC400C8E144 /* InboxViewController.swift */,
-				2AADAFB322210B0500C8E144 /* InboxPresenter.swift */,
-				2AADAFB522210B2700C8E144 /* InboxInteractor.swift */,
-				2AADAFB722210B4100C8E144 /* InboxConfigurator.swift */,
-				2AADAFB922210B5B00C8E144 /* InboxRouter.swift */,
-				2AADAFBB22210B7A00C8E144 /* InboxProtocols.swift */,
-			);
-			path = Inbox;
-			sourceTree = "<group>";
-		};
 		2ABB913C21FD4968003E1521 /* ThemesSecond */ = {
 			isa = PBXGroup;
 			children = (
@@ -613,7 +580,6 @@
 		2AE8E6D721CF894200B7A8A2 /* English */ = {
 			isa = PBXGroup;
 			children = (
-				2AADAFAF22210A9700C8E144 /* VIPER */,
 				2AE8E70E21CF8ADA00B7A8A2 /* General */,
 				2AE8E70F21CF8B2000B7A8A2 /* ViewController */,
 				2AE8E70D21CF8AB500B7A8A2 /* Screens */,
@@ -1165,7 +1131,6 @@
 				2AE8E77821D1BE7100B7A8A2 /* OfflineDictionary.swift in Sources */,
 				2AE8E72721CF9C6B00B7A8A2 /* TabBarStartButton.swift in Sources */,
 				2A197CA92216884700CD239B /* NewThemeView.swift in Sources */,
-				2AADAFBC22210B7A00C8E144 /* InboxProtocols.swift in Sources */,
 				2A16D1E321D34AF000B34013 /* StartView.swift in Sources */,
 				2A16D1ED21D37D3700B34013 /* StartButton.swift in Sources */,
 				2ABB914821FD5661003E1521 /* ThemesSecondExtension.swift in Sources */,
@@ -1175,7 +1140,6 @@
 				2AF991A021F0B6AF00616B5F /* ArchiveEmptyView.swift in Sources */,
 				2A16D22421D60D8A00B34013 /* RepeatsExtension.swift in Sources */,
 				2A16D1F521D4551B00B34013 /* StartDelegate.swift in Sources */,
-				2AADAFB822210B4100C8E144 /* InboxConfigurator.swift in Sources */,
 				2A16D22B21D62D2200B34013 /* ArchiveSetup.swift in Sources */,
 				2AE8E6DB21CF894200B7A8A2 /* ViewController.swift in Sources */,
 				2A197CB822168DA300CD239B /* NewThemeDelegate.swift in Sources */,
@@ -1184,7 +1148,6 @@
 				2A197CBA22168E2100CD239B /* NewThemeAddButton.swift in Sources */,
 				2AE8E73621CFB53000B7A8A2 /* InboxView.swift in Sources */,
 				2ABB913E21FD49A0003E1521 /* ThemesSecondView.swift in Sources */,
-				2AADAFBA22210B5B00C8E144 /* InboxRouter.swift in Sources */,
 				2AE8E73121CFB12D00B7A8A2 /* ViewControllerDelegate.swift in Sources */,
 				2AE8E76C21D0D81100B7A8A2 /* BlurView.swift in Sources */,
 				2A16D21821D4EF7200B34013 /* SpellingDelegate.swift in Sources */,
@@ -1252,19 +1215,16 @@
 				2A5B63F021E4851000E7FD2E /* RoundView.swift in Sources */,
 				2AFFB5B921FA9EA10011FD82 /* ThemesService.swift in Sources */,
 				2A3FAC0A21F41F3C0025B1A2 /* Badge.swift in Sources */,
-				2AADAFB422210B0500C8E144 /* InboxPresenter.swift in Sources */,
 				2A5B63E421E3421500E7FD2E /* ThousandsViewModel.swift in Sources */,
 				2ABB914E21FE71F3003E1521 /* SingleThemeTableView.swift in Sources */,
 				2AE8E74F21D0A3B600B7A8A2 /* TabBarButtonType.swift in Sources */,
 				2A5B63E221E340F300E7FD2E /* ThousandsDelegate.swift in Sources */,
-				2AADAFB622210B2700C8E144 /* InboxInteractor.swift in Sources */,
 				2AE8E77221D0E4C700B7A8A2 /* AddButtonCancel.swift in Sources */,
 				2AE8E75121D0A72F00B7A8A2 /* TabBarSetup.swift in Sources */,
 				2ABB914221FD4B08003E1521 /* ThemesSecondCell.swift in Sources */,
 				2AE8E78C21D22C4A00B7A8A2 /* TranslatesItemView.swift in Sources */,
 				2A16D23121D7107F00B34013 /* SettingsNotificationContainer.swift in Sources */,
 				2AE8E76E21D0E49800B7A8A2 /* AddButtonsView.swift in Sources */,
-				2AADAFB222210AC400C8E144 /* InboxViewController.swift in Sources */,
 				2A197CB422168AF100CD239B /* NewThemeActions.swift in Sources */,
 				2A00FF1621DB74BC00A0657C /* ScrollView.swift in Sources */,
 				2A16D1FE21D455D700B34013 /* ChoosingExtension.swift in Sources */,
