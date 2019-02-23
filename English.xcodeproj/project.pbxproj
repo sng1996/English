@@ -96,6 +96,7 @@
 		2AADAFD222211BDC00C8E144 /* InboxInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADAFCD22211BDC00C8E144 /* InboxInteractor.swift */; };
 		2AADAFD322211BDC00C8E144 /* InboxPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADAFCE22211BDC00C8E144 /* InboxPresenter.swift */; };
 		2AADAFD422211BDC00C8E144 /* InboxProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADAFCF22211BDC00C8E144 /* InboxProtocols.swift */; };
+		2AADAFD722211DFA00C8E144 /* RepeatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADAFD622211DFA00C8E144 /* RepeatsViewController.swift */; };
 		2ABB913E21FD49A0003E1521 /* ThemesSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB913D21FD49A0003E1521 /* ThemesSecondView.swift */; };
 		2ABB914021FD4A92003E1521 /* ThemesSecondTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB913F21FD4A92003E1521 /* ThemesSecondTableView.swift */; };
 		2ABB914221FD4B08003E1521 /* ThemesSecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB914121FD4B08003E1521 /* ThemesSecondCell.swift */; };
@@ -303,6 +304,7 @@
 		2AADAFCD22211BDC00C8E144 /* InboxInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxInteractor.swift; sourceTree = "<group>"; };
 		2AADAFCE22211BDC00C8E144 /* InboxPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxPresenter.swift; sourceTree = "<group>"; };
 		2AADAFCF22211BDC00C8E144 /* InboxProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxProtocols.swift; sourceTree = "<group>"; };
+		2AADAFD622211DFA00C8E144 /* RepeatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatsViewController.swift; sourceTree = "<group>"; };
 		2ABB913D21FD49A0003E1521 /* ThemesSecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondView.swift; sourceTree = "<group>"; };
 		2ABB913F21FD4A92003E1521 /* ThemesSecondTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondTableView.swift; sourceTree = "<group>"; };
 		2ABB914121FD4B08003E1521 /* ThemesSecondCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondCell.swift; sourceTree = "<group>"; };
@@ -547,6 +549,7 @@
 		2AADAFBD2221137700C8E144 /* VIPER */ = {
 			isa = PBXGroup;
 			children = (
+				2AADAFD522211D8E00C8E144 /* Repeats */,
 				2AADAFBE2221138200C8E144 /* Inbox */,
 			);
 			path = VIPER;
@@ -563,6 +566,14 @@
 				2AADAFCC22211BDC00C8E144 /* InboxRouter.swift */,
 			);
 			path = Inbox;
+			sourceTree = "<group>";
+		};
+		2AADAFD522211D8E00C8E144 /* Repeats */ = {
+			isa = PBXGroup;
+			children = (
+				2AADAFD622211DFA00C8E144 /* RepeatsViewController.swift */,
+			);
+			path = Repeats;
 			sourceTree = "<group>";
 		};
 		2ABB913C21FD4968003E1521 /* ThemesSecond */ = {
@@ -1286,6 +1297,7 @@
 				2AFFB5B321F82D830011FD82 /* SingleThemeDelegate.swift in Sources */,
 				2AE8E72B21CFACEA00B7A8A2 /* TabBarExtension.swift in Sources */,
 				2AE8E6E121CF894200B7A8A2 /* English.xcdatamodeld in Sources */,
+				2AADAFD722211DFA00C8E144 /* RepeatsViewController.swift in Sources */,
 				2A197CA522165A2000CD239B /* InboxHint.swift in Sources */,
 				2AE8E72D21CFAF2F00B7A8A2 /* Button.swift in Sources */,
 				2A16D1F821D455B500B34013 /* ChoosingView.swift in Sources */,
