@@ -38,11 +38,19 @@ extension InboxPresenter: InboxPresenterProtocol {
     
     func collectionViewDataForItemAt(_ indexPath: IndexPath) -> WordCellDataModel {
         let word = interactor.itemAt(indexPath.row)
-        return WordCellDataModel(text: word.original)
+        return WordCellDataModel(word)
     }
     
     func updateView() {
-        
+        let numberOfItems = interactor.numberOfItems()
+        if numberOfItems > 0 {
+            view.hideEmptyView()
+            view.hideStartButton()
+        } else {
+            view.showEmptyView()
+            view.showStartButton()
+        }
+        view.update()
     }
     
 }

@@ -14,10 +14,10 @@ class TranslateViewDataModel {
     var translate: String
     var translates: [Translate]
     
-    init(_ word: Word) {
-        original = word.original
-        translate = word.translate
-        translates = word.translates
+    init(_ word: WordData) {
+        original = word.original ?? "Пустая строка"
+        translate = word.translate ?? "Пустая строка"
+        translates = word.translates ?? []
     }
     
 }

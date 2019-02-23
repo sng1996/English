@@ -27,7 +27,9 @@ protocol InboxPresenterProtocol: class {
 }
 
 protocol InboxInteractorProtocol: class {
-    
+    func update()
+    func itemAt(_ index: Int) -> WordData
+    func numberOfItems() -> Int
 }
 
 protocol InboxRouterProtocol: class {
