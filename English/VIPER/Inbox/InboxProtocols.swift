@@ -8,22 +8,22 @@
 
 import UIKit
 
-protocol ChatViewProtocol: class {
+protocol InboxViewProtocol: class {
    
 }
 
-protocol ChatPresenterProtocol: class {
+protocol InboxPresenterProtocol: class {
     
 }
 
-protocol ChatInteractorProtocol: class {
+protocol InboxInteractorProtocol: class {
     
 }
 
-protocol ChatRouterProtocol: class {
+protocol InboxRouterProtocol: class {
     
 }
 
-protocol ChatConfiguratorProtocol: class {
+protocol InboxConfiguratorProtocol: class {
     func configure(with viewController: InboxViewController)
 }
