@@ -128,6 +128,12 @@
 		2AADB01122212F3400C8E144 /* ResultConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB01022212F3400C8E144 /* ResultConfigurator.swift */; };
 		2AADB01322212F4200C8E144 /* ResultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB01222212F4200C8E144 /* ResultRouter.swift */; };
 		2AADB01522212F5300C8E144 /* ResultProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB01422212F5300C8E144 /* ResultProtocols.swift */; };
+		2AADB0182221326900C8E144 /* SpellingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB0172221326900C8E144 /* SpellingViewController.swift */; };
+		2AADB01A2221327D00C8E144 /* SpellingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB0192221327D00C8E144 /* SpellingPresenter.swift */; };
+		2AADB01C2221329000C8E144 /* SpellingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB01B2221329000C8E144 /* SpellingInteractor.swift */; };
+		2AADB01E222132A600C8E144 /* SpellingConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB01D222132A600C8E144 /* SpellingConfigurator.swift */; };
+		2AADB020222132B300C8E144 /* SpellingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB01F222132B300C8E144 /* SpellingRouter.swift */; };
+		2AADB022222132C700C8E144 /* SpellingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB021222132C700C8E144 /* SpellingProtocols.swift */; };
 		2ABB913E21FD49A0003E1521 /* ThemesSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB913D21FD49A0003E1521 /* ThemesSecondView.swift */; };
 		2ABB914021FD4A92003E1521 /* ThemesSecondTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB913F21FD4A92003E1521 /* ThemesSecondTableView.swift */; };
 		2ABB914221FD4B08003E1521 /* ThemesSecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB914121FD4B08003E1521 /* ThemesSecondCell.swift */; };
@@ -367,6 +373,12 @@
 		2AADB01022212F3400C8E144 /* ResultConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultConfigurator.swift; sourceTree = "<group>"; };
 		2AADB01222212F4200C8E144 /* ResultRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultRouter.swift; sourceTree = "<group>"; };
 		2AADB01422212F5300C8E144 /* ResultProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultProtocols.swift; sourceTree = "<group>"; };
+		2AADB0172221326900C8E144 /* SpellingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingViewController.swift; sourceTree = "<group>"; };
+		2AADB0192221327D00C8E144 /* SpellingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingPresenter.swift; sourceTree = "<group>"; };
+		2AADB01B2221329000C8E144 /* SpellingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingInteractor.swift; sourceTree = "<group>"; };
+		2AADB01D222132A600C8E144 /* SpellingConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingConfigurator.swift; sourceTree = "<group>"; };
+		2AADB01F222132B300C8E144 /* SpellingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingRouter.swift; sourceTree = "<group>"; };
+		2AADB021222132C700C8E144 /* SpellingProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingProtocols.swift; sourceTree = "<group>"; };
 		2ABB913D21FD49A0003E1521 /* ThemesSecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondView.swift; sourceTree = "<group>"; };
 		2ABB913F21FD4A92003E1521 /* ThemesSecondTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondTableView.swift; sourceTree = "<group>"; };
 		2ABB914121FD4B08003E1521 /* ThemesSecondCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesSecondCell.swift; sourceTree = "<group>"; };
@@ -629,6 +641,7 @@
 		2AADAFBD2221137700C8E144 /* VIPER */ = {
 			isa = PBXGroup;
 			children = (
+				2AADB016222131AD00C8E144 /* Spelling */,
 				2AADB00922212EDC00C8E144 /* Result */,
 				2AADAFFC22212B2C00C8E144 /* Choosing */,
 				2AADAFEF222127AF00C8E144 /* Start */,
@@ -716,6 +729,19 @@
 				2AADB01422212F5300C8E144 /* ResultProtocols.swift */,
 			);
 			path = Result;
+			sourceTree = "<group>";
+		};
+		2AADB016222131AD00C8E144 /* Spelling */ = {
+			isa = PBXGroup;
+			children = (
+				2AADB0172221326900C8E144 /* SpellingViewController.swift */,
+				2AADB0192221327D00C8E144 /* SpellingPresenter.swift */,
+				2AADB01B2221329000C8E144 /* SpellingInteractor.swift */,
+				2AADB01D222132A600C8E144 /* SpellingConfigurator.swift */,
+				2AADB01F222132B300C8E144 /* SpellingRouter.swift */,
+				2AADB021222132C700C8E144 /* SpellingProtocols.swift */,
+			);
+			path = Spelling;
 			sourceTree = "<group>";
 		};
 		2ABB913C21FD4968003E1521 /* ThemesSecond */ = {
@@ -1321,6 +1347,7 @@
 				2AADAFEA222124EB00C8E144 /* SettingsConfigurator.swift in Sources */,
 				2A3FAC0821F415330025B1A2 /* RepeatsCell.swift in Sources */,
 				2AE8E73A21CFB59A00B7A8A2 /* SettingsView.swift in Sources */,
+				2AADB0182221326900C8E144 /* SpellingViewController.swift in Sources */,
 				2A5B63EE21E484C300E7FD2E /* LoaderView.swift in Sources */,
 				2AE8E74721D09E9900B7A8A2 /* ThousandsView.swift in Sources */,
 				2A31709F22211D050038DE7D /* RememberHintView.swift in Sources */,
@@ -1347,6 +1374,7 @@
 				2A16D1F521D4551B00B34013 /* StartDelegate.swift in Sources */,
 				2A16D22B21D62D2200B34013 /* ArchiveSetup.swift in Sources */,
 				2AE8E6DB21CF894200B7A8A2 /* ViewController.swift in Sources */,
+				2AADB01E222132A600C8E144 /* SpellingConfigurator.swift in Sources */,
 				2AADAFEE2221252100C8E144 /* SettingsProtocols.swift in Sources */,
 				2A197CB822168DA300CD239B /* NewThemeDelegate.swift in Sources */,
 				2ABB915221FE8186003E1521 /* SingleThemeExtension.swift in Sources */,
@@ -1366,17 +1394,21 @@
 				2AE8E6D921CF894200B7A8A2 /* AppDelegate.swift in Sources */,
 				2AE8E7A321D26AA600B7A8A2 /* WordDataService.swift in Sources */,
 				2AE8E74D21D09F9900B7A8A2 /* ViewControllerSetup.swift in Sources */,
+				2AADB01C2221329000C8E144 /* SpellingInteractor.swift in Sources */,
 				2AE8E77021D0E4B300B7A8A2 /* AddButtonSave.swift in Sources */,
 				2AE8E78F21D235CF00B7A8A2 /* TranslateView.swift in Sources */,
 				2A197CB222168A1900CD239B /* NewThemeSetup.swift in Sources */,
 				2AE8E76A21D0D79900B7A8A2 /* InboxScrollExtension.swift in Sources */,
+				2AADB020222132B300C8E144 /* SpellingRouter.swift in Sources */,
 				2A5B63F421E496AE00E7FD2E /* CharacterExtension.swift in Sources */,
 				2A5B63DA21E324B000E7FD2E /* ThousandCell.swift in Sources */,
 				2A31709E22211D050038DE7D /* RememberHintDeclineButton.swift in Sources */,
+				2AADB022222132C700C8E144 /* SpellingProtocols.swift in Sources */,
 				2AE8E76821D0D20300B7A8A2 /* AddViewDelegate.swift in Sources */,
 				2AF991A221F0C06F00616B5F /* RoundsView.swift in Sources */,
 				2A16D21221D4EF0700B34013 /* SpellingView.swift in Sources */,
 				2ABB915521FED1F4003E1521 /* MusicView.swift in Sources */,
+				2AADB01A2221327D00C8E144 /* SpellingPresenter.swift in Sources */,
 				2AADB00822212BB800C8E144 /* ChoosingProtocols.swift in Sources */,
 				2AE8E74921D09EB100B7A8A2 /* ThemesView.swift in Sources */,
 				2AADAFD422211BDC00C8E144 /* InboxProtocols.swift in Sources */,
