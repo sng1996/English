@@ -10,7 +10,7 @@ import UITextView_Placeholder
 import UIKit
 
 protocol AddViewDelegate {
-    func hideAddView()
+    func didCloseAddView()
 }
 
 class AddView: UIView {
@@ -52,6 +52,12 @@ class AddView: UIView {
             guard let view = blurView else { return }
             view.container.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapCancelButton)))
             view.isUserInteractionEnabled = true
+        }
+    }
+    
+    var height: CGFloat {
+        get {
+            return frame.height
         }
     }
     
