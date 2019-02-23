@@ -8,12 +8,16 @@
 
 import UIKit
 
+struct WordCellDataModel {
+    var text: String
+}
+
 class WordCell: UICollectionViewCell {
     
     var sourceItem: Any? {
         didSet {
-            guard let text = sourceItem as? String else { return }
-            label.text = text
+            guard let model = sourceItem as? WordCellDataModel else { return }
+            label.text = model.text
             container.layoutIfNeeded()
         }
     }
@@ -25,6 +29,16 @@ class WordCell: UICollectionViewCell {
     var size: CGSize {
         get {
             return container.frame.size
+        }
+    }
+    
+    var isActive: Bool = true {
+        didSet {
+            if isActive {
+                activate()
+            } else {
+                deactivate()
+            }
         }
     }
 
@@ -56,11 +70,15 @@ class WordCell: UICollectionViewCell {
         contentView.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func activate() {
+    func update(with indexPath: IndexPath) {
+        isActive = indexPath.row < 10
+    }
+    
+    private func activate() {
         label.textColor = .black
     }
     
-    func deactivate() {
+    private func deactivate() {
         label.textColor = UIColor(rgb: 0xDADADA)
     }
 

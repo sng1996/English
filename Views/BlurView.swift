@@ -35,5 +35,10 @@ class BlurView: DynamicBlurView {
         addConstraintsWithFormat(format: "V:[v0(\(2 * Screen.height))]|", views: container)
     }
     
+    func updateOpacity(with constant: CGFloat) {
+        alpha = constant
+        container.alpha = constant
+    }
+    
 }
 

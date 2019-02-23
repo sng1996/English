@@ -10,6 +10,16 @@ import UIKit
 
 extension AddView {
     
+    func updateBottomConstraint(with constant: CGFloat) {
+        bottomConstraint.constant = constant
+        superview!.layoutIfNeeded()
+    }
+    
+    func updateConstraintsForOpenState() {
+        bottomConstraint.isActive = false
+        topConstraint.isActive = true
+    }
+    
     func showHeaderField(_ text: String) {
         headerTextField.text = text
     }

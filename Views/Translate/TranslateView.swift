@@ -9,7 +9,6 @@
 import UIKit
 
 protocol TranslateViewDelegate {
-    func updateScreen()
     func didCloseTranslateView()
 }
 

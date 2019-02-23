@@ -69,6 +69,10 @@
 		2A3170A122211D050038DE7D /* NotificationHintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A31709D22211D050038DE7D /* NotificationHintView.swift */; };
 		2A3170A5222121870038DE7D /* ChooseFromThemesHintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3170A4222121870038DE7D /* ChooseFromThemesHintView.swift */; };
 		2A3170A82221269E0038DE7D /* InboxCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3170A72221269E0038DE7D /* InboxCollectionView.swift */; };
+		2A3170AA222132D60038DE7D /* InboxScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3170A9222132D60038DE7D /* InboxScrollView.swift */; };
+		2A3170AD222138640038DE7D /* InboxCollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3170AC222138640038DE7D /* InboxCollectionViewExtension.swift */; };
+		2A3170AF222138760038DE7D /* InboxScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3170AE222138760038DE7D /* InboxScrollViewExtension.swift */; };
+		2A3170B1222139830038DE7D /* InboxSetupExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3170B0222139830038DE7D /* InboxSetupExtension.swift */; };
 		2A3FAC0821F415330025B1A2 /* RepeatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAC0721F415330025B1A2 /* RepeatsCell.swift */; };
 		2A3FAC0A21F41F3C0025B1A2 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAC0921F41F3C0025B1A2 /* Badge.swift */; };
 		2A3FAC0C21F45E1A0025B1A2 /* SpellingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAC0B21F45E1A0025B1A2 /* SpellingTextField.swift */; };
@@ -326,6 +330,10 @@
 		2A31709D22211D050038DE7D /* NotificationHintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHintView.swift; sourceTree = "<group>"; };
 		2A3170A4222121870038DE7D /* ChooseFromThemesHintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFromThemesHintView.swift; sourceTree = "<group>"; };
 		2A3170A72221269E0038DE7D /* InboxCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxCollectionView.swift; sourceTree = "<group>"; };
+		2A3170A9222132D60038DE7D /* InboxScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxScrollView.swift; sourceTree = "<group>"; };
+		2A3170AC222138640038DE7D /* InboxCollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxCollectionViewExtension.swift; sourceTree = "<group>"; };
+		2A3170AE222138760038DE7D /* InboxScrollViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxScrollViewExtension.swift; sourceTree = "<group>"; };
+		2A3170B0222139830038DE7D /* InboxSetupExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxSetupExtension.swift; sourceTree = "<group>"; };
 		2A3FAC0721F415330025B1A2 /* RepeatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatsCell.swift; sourceTree = "<group>"; };
 		2A3FAC0921F41F3C0025B1A2 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		2A3FAC0B21F45E1A0025B1A2 /* SpellingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingTextField.swift; sourceTree = "<group>"; };
@@ -640,10 +648,23 @@
 		2A3170A6222126760038DE7D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2A3170A9222132D60038DE7D /* InboxScrollView.swift */,
 				2A3170A72221269E0038DE7D /* InboxCollectionView.swift */,
 				2AF9919B21F07BF900616B5F /* InboxEmptyView.swift */,
+				2AE8E75C21D0B39500B7A8A2 /* WordCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2A3170AB222138430038DE7D /* InboxViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2AADAFBF222113FE00C8E144 /* InboxViewController.swift */,
+				2A3170B0222139830038DE7D /* InboxSetupExtension.swift */,
+				2A3170AC222138640038DE7D /* InboxCollectionViewExtension.swift */,
+				2A3170AE222138760038DE7D /* InboxScrollViewExtension.swift */,
+			);
+			path = InboxViewController;
 			sourceTree = "<group>";
 		};
 		2A3FAC0F21F5929E0025B1A2 /* SingleTheme */ = {
@@ -682,7 +703,7 @@
 		2AADAFBE2221138200C8E144 /* Inbox */ = {
 			isa = PBXGroup;
 			children = (
-				2AADAFBF222113FE00C8E144 /* InboxViewController.swift */,
+				2A3170AB222138430038DE7D /* InboxViewController */,
 				2AADAFCE22211BDC00C8E144 /* InboxPresenter.swift */,
 				2AADAFCD22211BDC00C8E144 /* InboxInteractor.swift */,
 				2AADAFCB22211BDC00C8E144 /* InboxConfigurator.swift */,
@@ -1002,7 +1023,6 @@
 				2AE8E71921CF8EFB00B7A8A2 /* TabBar */,
 				2AE8E71E21CF92EC00B7A8A2 /* Line.swift */,
 				2AE8E72C21CFAF2F00B7A8A2 /* Button.swift */,
-				2AE8E75C21D0B39500B7A8A2 /* WordCell.swift */,
 				2AE8E76B21D0D81100B7A8A2 /* BlurView.swift */,
 				2AE8E78921D22C2300B7A8A2 /* TranslatesView.swift */,
 				2AE8E78B21D22C4A00B7A8A2 /* TranslatesItemView.swift */,
@@ -1368,6 +1388,7 @@
 				2AE8E74B21D09EC600B7A8A2 /* ProsesView.swift in Sources */,
 				2AF3067521E5B6C000326262 /* DateExtension.swift in Sources */,
 				2A197CB02216899900CD239B /* NewThemeCheckbox.swift in Sources */,
+				2A3170AF222138760038DE7D /* InboxScrollViewExtension.swift in Sources */,
 				2A1DCB3A21E5B1F2002B37CF /* SpeechManager.swift in Sources */,
 				2AADB00422212B9100C8E144 /* ChoosingConfigurator.swift in Sources */,
 				2AFFB5B521FA9ABB0011FD82 /* Theme.swift in Sources */,
@@ -1500,11 +1521,13 @@
 				2A16D1F121D454BE00B34013 /* StartSetup.swift in Sources */,
 				2AADAFFE22212B5000C8E144 /* ChoosingViewController.swift in Sources */,
 				2AEB315D21E9BCC400A718B4 /* ServiceProvider.swift in Sources */,
+				2A3170B1222139830038DE7D /* InboxSetupExtension.swift in Sources */,
 				2AADAFC0222113FE00C8E144 /* InboxViewController.swift in Sources */,
 				2A00FF1421DB663500A0657C /* ThemesDelegate.swift in Sources */,
 				2AADB037222138A500C8E144 /* ThemesSecondInteractor.swift in Sources */,
 				2AADAFEC2221250900C8E144 /* SettingsRouter.swift in Sources */,
 				2AADAFDB22211F2700C8E144 /* RepeatsInteractor.swift in Sources */,
+				2A3170AA222132D60038DE7D /* InboxScrollView.swift in Sources */,
 				2AFFB5BB21FAB9710011FD82 /* ThemesTableView.swift in Sources */,
 				2AE8E79921D241D700B7A8A2 /* SoundButton.swift in Sources */,
 				2AFFB5C721FB0B860011FD82 /* ThemeWordDataManager.swift in Sources */,
@@ -1566,6 +1589,7 @@
 				2AE8E73821CFB58800B7A8A2 /* RepeatsView.swift in Sources */,
 				2A16D21421D4EF4E00B34013 /* SpellingSetup.swift in Sources */,
 				2AE8E71B21CF8F1400B7A8A2 /* TabBarView.swift in Sources */,
+				2A3170AD222138640038DE7D /* InboxCollectionViewExtension.swift in Sources */,
 				2AADB01122212F3400C8E144 /* ResultConfigurator.swift in Sources */,
 				2AADAFF72221284C00C8E144 /* StartConfigurator.swift in Sources */,
 				2AFFB5B321F82D830011FD82 /* SingleThemeDelegate.swift in Sources */,

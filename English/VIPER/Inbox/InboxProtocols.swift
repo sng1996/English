@@ -9,11 +9,19 @@
 import UIKit
 
 protocol InboxViewProtocol: class {
-   
+    func viewDidAppear()
+    func update()
+    func showEmptyView()
+    func hideEmptyView()
+    func showStartButton()
+    func hideStartButton()
 }
 
 protocol InboxPresenterProtocol: class {
-    
+    func configureView()
+    func collectionViewDidSelectItemAt(_ indexPath: IndexPath)
+    func collectionViewNumberOfItems() -> Int
+    func collectionViewDataForItemAt(_ indexPath: IndexPath) -> WordCellDataModel
 }
 
 protocol InboxInteractorProtocol: class {
