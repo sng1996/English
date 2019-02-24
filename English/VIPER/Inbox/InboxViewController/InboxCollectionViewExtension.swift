@@ -27,7 +27,6 @@ extension InboxViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WordCell", for: indexPath) as! WordCell
         cell.sourceItem = presenter.collectionViewDataForItemAt(indexPath)
-        cell.update(with: indexPath)
         cv.updateHeightConstraint()
         return cell
     }

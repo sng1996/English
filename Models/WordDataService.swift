@@ -27,27 +27,6 @@ class WordDataService: ServiceProvider {
         loadData()
     }
     
-    func loadData() {
-        loadNewWords()
-        loadRepeatWords()
-        loadArchiveWords()
-    }
-    
-    func loadNewWords() {
-        newWords = getNewWordsFromCoreData()
-    }
-    
-    func loadRepeatWords() {
-        let words = getRepeatWordsFromCoreData()
-        let data = sortRepeats(words)
-        repeatWords = data.0
-        todayCount = data.1
-    }
-    
-    func loadArchiveWords() {
-        archiveWords = getArchiveWordsFromCoreData()
-    }
-    
     func createWord(original: String, translate: String, translates: [Translate] = []) {
         if original == "" || translate == "" {
             return
@@ -94,6 +73,27 @@ class WordDataService: ServiceProvider {
     
     
     ///////////////////////PRIVATE ZONE/////////////////////////////////
+    
+    private func loadData() {
+        loadNewWords()
+        loadRepeatWords()
+        loadArchiveWords()
+    }
+    
+    private func loadNewWords() {
+        newWords = getNewWordsFromCoreData()
+    }
+    
+    private func loadRepeatWords() {
+        let words = getRepeatWordsFromCoreData()
+        let data = sortRepeats(words)
+        repeatWords = data.0
+        todayCount = data.1
+    }
+    
+    private func loadArchiveWords() {
+        archiveWords = getArchiveWordsFromCoreData()
+    }
     
     private func sortRepeats(_ words: [WordData]) -> ([WordData], Int) {
         var todayWords: [WordData] = []

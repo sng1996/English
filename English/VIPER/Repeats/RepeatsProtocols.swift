@@ -11,6 +11,11 @@ import UIKit
 protocol RepeatsViewProtocol: class {
     func viewDidAppear()
     func update()
+    func showEmptyView()
+    func hideEmptyView()
+    func showStartButton()
+    func hideStartButton()
+    func openTranslateView(with model: TranslateViewDataModel)
 }
 
 protocol RepeatsPresenterProtocol: class {
@@ -18,11 +23,12 @@ protocol RepeatsPresenterProtocol: class {
     func tableViewDidSelectItemAt(_ indexPath: IndexPath)
     func tableViewNumberOfItems() -> Int
     func tableViewDataForItemAt(_ indexPath: IndexPath) -> RepeatsCellDataModel
-    func updateView()
 }
 
 protocol RepeatsInteractorProtocol: class {
-    
+    var todayWordsCount: Int
+    func itemAt(_ index: Int) -> WordData
+    func numberOfItems() -> Int
 }
 
 protocol RepeatsRouterProtocol: class {

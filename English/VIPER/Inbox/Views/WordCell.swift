@@ -11,9 +11,11 @@ import UIKit
 class WordCellDataModel {
     
     var text: String
+    var isActive: Bool
     
-    init(_ word: WordData) {
+    init(_ word: WordData, isActive: Bool) {
         text = word.original ?? "Пустая строка"
+        self.isActive = isActive
     }
     
 }
@@ -74,10 +76,6 @@ class WordCell: UICollectionViewCell {
         addConstraintsWithFormat(format: "V:|[v0]|", views: label)
         
         contentView.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    func update(with indexPath: IndexPath) {
-        isActive = indexPath.row < 10
     }
     
     private func activate() {

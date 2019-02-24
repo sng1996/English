@@ -8,7 +8,32 @@
 
 import UIKit
 
+class SettingsNotificationContainerDataModel {
+    
+    var isOn: Bool
+    var time: String
+    
+    init(isOn: Bool, time: String) {
+        self.isOn = isOn
+        self.time = time
+    }
+    
+}
+
+protocol SettingsNotificationContainerDelegate {
+    func didChangeSwitchValue(_ value: Bool)
+    func didTapSaveButton(with date: Date)
+}
+
 class SettingsNotificationContainer: UIView {
+    
+    var sourceItem: Any? {
+        didSet {
+            guard let model = sourceItem as? SettingsNotificationContainerDataModel else { return }
+            switchView.isOn = model.isOn
+            timeLabel.text = model.time
+        }
+    }
     
     let headerLabel = UILabel(
         text: "Уведомления",
@@ -27,7 +52,6 @@ class SettingsNotificationContainer: UIView {
         switchView.tintColor = UIColor(rgb: 0xE7E7E7)
         switchView.backgroundColor = UIColor(rgb: 0xE7E7E7)
         switchView.layer.cornerRadius = 15.5
-        switchView.isOn = NotificationManager().isOn
         return switchView
     }()
     
@@ -47,7 +71,6 @@ class SettingsNotificationContainer: UIView {
     }()
     
     let timeLabel = UILabel(
-        text: NotificationManager().time,
         color: UIColor(rgb: 0x9A9A9A),
         font: UIFont.book(18)
     )
@@ -70,6 +93,8 @@ class SettingsNotificationContainer: UIView {
         return label
     }()
     
+    var delegate: SettingsNotificationContainerDelegate!
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -82,7 +107,7 @@ class SettingsNotificationContainer: UIView {
     func setupViews() {
         switchView.addTarget(self, action: #selector(didTapSwitch), for: .valueChanged)
         timeContainer.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openTimePicker)))
-        timePickerLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(saveTime)))
+        timePickerLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapSaveButton)))
         
         addSubview(headerLabel)
         addSubview(footerLabel)
@@ -111,13 +136,11 @@ class SettingsNotificationContainer: UIView {
         timeLabel.centerYAnchor.constraint(equalTo: timeView.centerYAnchor).isActive = true
     }
     
-    @objc
-    func didTapSwitch() {
-        NotificationManager().changeValue(isOn: switchView.isOn)
+    @objc func didTapSwitch() {
+        delegate.didChangeSwitchValue(switchView.isOn)
     }
     
-    @objc
-    func openTimePicker() {
+    @objc func openTimePicker() {
         timePickerContainer.addSubview(timePicker)
         timePickerContainer.addSubview(timePickerLabel)
         
@@ -126,14 +149,8 @@ class SettingsNotificationContainer: UIView {
         addConstraintsWithFormat(format: "V:|[v0(162)][v1(40)]|", views: timePicker, timePickerLabel)
     }
     
-    @objc
-    func saveTime() {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
-        let text = formatter.string(from: timePicker.date)
-        timeLabel.text = text
-        NotificationManager().changeTime(text)
-        
+    @objc func didTapSaveButton() {
+        delegate.didTapSaveButton(with: timePicker.date)
         timePicker.removeFromSuperview()
         timePickerLabel.removeFromSuperview()
     }

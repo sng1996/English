@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RepeatsInteractor {
+class RepeatsInteractor: ServiceProvider {
     
     weak var presenter: RepeatsPresenterProtocol!
     
@@ -19,6 +19,20 @@ class RepeatsInteractor {
 }
 
 extension RepeatsInteractor: RepeatsInteractorProtocol {
+
+    var todayWordsCount: Int {
+        get {
+            return wordDataService.todayCount
+        }
+    }
+    
+    func itemAt(_ index: Int) -> WordData {
+        return wordDataService.repeatWords[index]
+    }
+    
+    func numberOfItems() -> Int {
+        return wordDataService.repeatWords.count
+    }
     
 }
 

@@ -12,6 +12,8 @@ class SettingsInteractor {
     
     weak var presenter: SettingsPresenterProtocol!
     
+    var notificationService = NotificationService()
+    
     required init(presenter: SettingsPresenterProtocol) {
         self.presenter = presenter
     }
@@ -19,5 +21,23 @@ class SettingsInteractor {
 }
 
 extension SettingsInteractor: SettingsInteractorProtocol {
+    
+    func getIsOn() -> Bool {
+        return notificationService.isOn
+    }
+    
+    func getTime() -> String {
+        return notificationService.time
+    }
+    
+    func set(isOn: Bool) {
+        notificationService.isOn = isOn
+        presenter.updateNotificationContainer()
+    }
+    
+    func set(time: String) {
+        notificationService.time = time
+        presenter.updateNotificationContainer()
+    }
     
 }
