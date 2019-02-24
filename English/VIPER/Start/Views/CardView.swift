@@ -8,13 +8,25 @@
 
 import UIKit
 
+class CardViewDataModel {
+    
+    var original: String
+    var translate: String
+    
+    init(_ word: WordData) {
+        original = word.original ?? "Пустая строка"
+        translate = word.translate ?? "Пустая строка"
+    }
+    
+}
+
 class CardView: UIView {
     
     var sourceItem: Any? {
         didSet {
-            guard let wordData = sourceItem as? WordData else { return }
-            headerLabel.text = wordData.original
-            footerLabel.text = wordData.translate
+            guard let model = sourceItem as? CardViewDataModel else { return }
+            headerLabel.text = model.original
+            footerLabel.text = model.translate
         }
     }
 
@@ -40,22 +52,23 @@ class CardView: UIView {
     
     init() {
         super.init(frame: .zero)
-        self.backgroundColor = .white
-        self.layer.cornerRadius = 3
-        self.isUserInteractionEnabled = true
-        self.layer.setShadow(
-            offset: .zero,
-            opacity: 0.05,
-            radius: 14
-        )
-        self.frame.size = CGSize(
-            width: Screen.width - 2 * Screen.sideInset,
-            height: 414 * Screen.heightCoef
-        )
         setupViews()
     }
     
     func setupViews() {
+        backgroundColor = .white
+        layer.cornerRadius = 3
+        isUserInteractionEnabled = true
+        layer.setShadow(
+            offset: .zero,
+            opacity: 0.05,
+            radius: 14
+        )
+        frame.size = CGSize(
+            width: Screen.width - 2 * Screen.sideInset,
+            height: 414 * Screen.heightCoef
+        )
+        
         soundButton.tapHandler = playSound
         
         addSubview(headerLabel)

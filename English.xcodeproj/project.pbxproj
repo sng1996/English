@@ -585,11 +585,6 @@
 				2A16D1F021D454BE00B34013 /* StartSetup.swift */,
 				2A16D1F221D454CE00B34013 /* StartExtension.swift */,
 				2A16D1F421D4551B00B34013 /* StartDelegate.swift */,
-				2A16D1E421D34DE300B34013 /* CardsView.swift */,
-				2A16D1E621D34DFD00B34013 /* CardView.swift */,
-				2A16D1EA21D37C3C00B34013 /* StartPassButton.swift */,
-				2A16D1EC21D37D3700B34013 /* StartButton.swift */,
-				2A16D1EE21D3810100B34013 /* StartReturnButton.swift */,
 			);
 			path = Start;
 			sourceTree = "<group>";
@@ -799,6 +794,7 @@
 				2AADAFF62221284C00C8E144 /* StartConfigurator.swift */,
 				2AADAFF82221285E00C8E144 /* StartRouter.swift */,
 				2AADAFFA2221287100C8E144 /* StartProtocols.swift */,
+				2AFD906F22227B3C00D42274 /* Views */,
 			);
 			path = Start;
 			sourceTree = "<group>";
@@ -1223,6 +1219,18 @@
 			isa = PBXGroup;
 			children = (
 				2A16D23021D7107E00B34013 /* SettingsNotificationContainer.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2AFD906F22227B3C00D42274 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2A16D1E421D34DE300B34013 /* CardsView.swift */,
+				2A16D1E621D34DFD00B34013 /* CardView.swift */,
+				2A16D1EC21D37D3700B34013 /* StartButton.swift */,
+				2A16D1EA21D37C3C00B34013 /* StartPassButton.swift */,
+				2A16D1EE21D3810100B34013 /* StartReturnButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

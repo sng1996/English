@@ -22,5 +22,31 @@ class StartPresenter {
 
 extension StartPresenter: StartPresenterProtocol {
     
+    func configureView() {
+        view.update()
+    }
+    
+    func didTapBackButton() {
+        router.back()
+    }
+    
+    func didTapPassButton() {
+        router.presentChoosingView()
+    }
+    
+    func didTapStartButton() {
+        router.presentChoosingView()
+    }
+    
+    func numberOfItems() -> Int {
+        return interactor.numberOfItems()
+    }
+    
+    func itemAt(_ index: Int) -> CardViewDataModel {
+        let word = interactor.itemAt(index)
+        let model = CardViewDataModel(word)
+        return model
+    }
+    
 }
 

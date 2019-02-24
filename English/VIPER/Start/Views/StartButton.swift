@@ -23,9 +23,10 @@ class StartButton: Button {
     
     override init() {
         super.init()
-        self.backgroundColor = .white
-        self.layer.cornerRadius = 3
-        self.layer.setShadow(color: UIColor(rgb: 0x53D397))
+        backgroundColor = .white
+        layer.cornerRadius = 3
+        layer.setShadow(color: UIColor(rgb: 0x53D397))
+        isHidden = true
         setupViews()
     }
     
