@@ -1,5 +1,5 @@
 //
-//  WordsCountButton.swift
+//  RepeatsGrayButton.swift
 //  English
 //
 //  Created by Сергей Гаврилко on 24/02/2019.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class WordsCountButton: Button {
-
+class RepeatsGrayButton: Button {
+    
     let label = UILabel(
         text: "Ок!",
         color: .white,
@@ -41,5 +41,5 @@ class WordsCountButton: Button {
         addConstraintsWithFormat(format: "H:|-30-[v0]-30-|", views: label)
         addConstraintsWithFormat(format: "V:|[v0(\(height))]|", views: label)
     }
-
+    
 }

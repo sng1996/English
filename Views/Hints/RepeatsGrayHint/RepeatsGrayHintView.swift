@@ -1,5 +1,5 @@
 //
-//  WordsCountHintView.swift
+//  RepeatsGrayHintView.swift
 //  English
 //
 //  Created by Сергей Гаврилко on 24/02/2019.
@@ -8,15 +8,17 @@
 
 import UIKit
 
-class WordsCountHintView: UIView {
+class RepeatsGrayHintView: UIView {
 
     let label = UILabel(
-        text: "Оптимальное количество слов для начала обучение: 5-10",
-        color: UIColor(rgb: 0x626262),
+        text: "Слова, отмеченные серым нужно будет повторить завтра",
+        color: UIColor(rgb: 0x454545),
         font: UIFont.book(18)
     )
     
-    let button = WordsCountButton()
+    let button = RepeatsGrayButton()
+    
+    let tailImageView = ImageView(name: "Tail_white")
     
     let container: UIView = {
         let view = UIView()
@@ -37,25 +39,24 @@ class WordsCountHintView: UIView {
     
     init() {
         super.init(frame: .zero)
-        backgroundColor = UIColor(rgb: 0xFFFFFF, a: 0.8)
         setupViews()
     }
     
     func setupViews() {
+        addSubview(tailImageView)
         addSubview(container)
         container.addSubview(label)
         container.addSubview(button)
         
-        addConstraintsWithFormat(format: "H:|-\(Screen.sideInset + 10)-[v0]-\(Screen.sideInset + 10)-|", views: container)
+        let width = 261 * Screen.widthCoef
+        
+        addConstraintsWithFormat(format: "H:|-15-[v0(22)]", views: tailImageView)
+        addConstraintsWithFormat(format: "H:|[v0(\(width))]|", views: container)
+        addConstraintsWithFormat(format: "V:|[v0][v1(11)]|", views: container, tailImageView)
         
         addConstraintsWithFormat(format: "H:|-20-[v0]-20-|", views: label)
-        addConstraintsWithFormat(format: "V:|-20-[v0]-8-[v1]-15-|", views: label, button)
-        
-        NSLayoutConstraint.activate([
-            button.centerXAnchor.constraint(equalTo: centerXAnchor),
-            container.centerYAnchor.constraint(equalTo: centerYAnchor),
-        ])
-
+        addConstraintsWithFormat(format: "H:|-20-[v0]", views: button)
+        addConstraintsWithFormat(format: "V:|-25-[v0]-15-[v1]-20-|", views: label, button)
     }
 
 }

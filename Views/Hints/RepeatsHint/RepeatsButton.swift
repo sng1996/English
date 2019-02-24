@@ -1,5 +1,5 @@
 //
-//  WordsCountButton.swift
+//  RepeatsButton.swift
 //  English
 //
 //  Created by Сергей Гаврилко on 24/02/2019.
@@ -8,19 +8,19 @@
 
 import UIKit
 
-class WordsCountButton: Button {
-
+class RepeatsButton: Button {
+    
     let label = UILabel(
-        text: "Ок!",
+        text: "Понятно!",
         color: .white,
-        font: UIFont.medium(14)
+        font: UIFont.medium(18)
     )
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let height: CGFloat = 30
+    let height: CGFloat = 50
     
     override init() {
         super.init()
@@ -38,8 +38,8 @@ class WordsCountButton: Button {
     func setupViews() {
         addSubview(label)
         
-        addConstraintsWithFormat(format: "H:|-30-[v0]-30-|", views: label)
+        addConstraintsWithFormat(format: "H:|-40-[v0]-40-|", views: label)
         addConstraintsWithFormat(format: "V:|[v0(\(height))]|", views: label)
     }
-
+    
 }

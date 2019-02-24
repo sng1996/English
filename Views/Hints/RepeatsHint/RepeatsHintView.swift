@@ -1,5 +1,5 @@
 //
-//  WordsCountHintView.swift
+//  RepeatsHintView.swift
 //  English
 //
 //  Created by Сергей Гаврилко on 24/02/2019.
@@ -8,15 +8,17 @@
 
 import UIKit
 
-class WordsCountHintView: UIView {
+class RepeatsHintView: UIView {
 
     let label = UILabel(
-        text: "Оптимальное количество слов для начала обучение: 5-10",
-        color: UIColor(rgb: 0x626262),
+        text: "Для полного закрепления повторите слово 3 раза",
+        color: UIColor(rgb: 0x454545),
         font: UIFont.book(18)
     )
     
-    let button = WordsCountButton()
+    let tailImageView = ImageView(name: "TailRight_white")
+    
+    let button = RepeatsButton()
     
     let container: UIView = {
         let view = UIView()
@@ -37,25 +39,29 @@ class WordsCountHintView: UIView {
     
     init() {
         super.init(frame: .zero)
-        backgroundColor = UIColor(rgb: 0xFFFFFF, a: 0.8)
         setupViews()
     }
     
     func setupViews() {
         addSubview(container)
+        addSubview(tailImageView)
+        addSubview(button)
         container.addSubview(label)
-        container.addSubview(button)
         
-        addConstraintsWithFormat(format: "H:|-\(Screen.sideInset + 10)-[v0]-\(Screen.sideInset + 10)-|", views: container)
+        let width = 237 * Screen.widthCoef
+
+        addConstraintsWithFormat(format: "H:[v0(\(width))][v1(11)]-60-|", views: container, tailImageView)
+
+        addConstraintsWithFormat(format: "V:|-115-[v0]->=10-[v1]-60-|", views: container, button)
         
-        addConstraintsWithFormat(format: "H:|-20-[v0]-20-|", views: label)
-        addConstraintsWithFormat(format: "V:|-20-[v0]-8-[v1]-15-|", views: label, button)
+        addConstraintsWithFormat(format: "H:|-25-[v0]-25-|", views: label)
+        addConstraintsWithFormat(format: "V:|-20-[v0]-20-|", views: label)
         
         NSLayoutConstraint.activate([
             button.centerXAnchor.constraint(equalTo: centerXAnchor),
-            container.centerYAnchor.constraint(equalTo: centerYAnchor),
+            tailImageView.centerYAnchor.constraint(equalTo: container.centerYAnchor),
+            tailImageView.heightAnchor.constraint(equalToConstant: 22),
         ])
-
     }
 
 }
