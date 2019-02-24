@@ -12,6 +12,9 @@
 		2A00FF1421DB663500A0657C /* ThemesDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A00FF1321DB663500A0657C /* ThemesDelegate.swift */; };
 		2A00FF1621DB74BC00A0657C /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A00FF1521DB74BC00A0657C /* ScrollView.swift */; };
 		2A00FF1A21DB8F7C00A0657C /* ThemesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A00FF1921DB8F7C00A0657C /* ThemesCell.swift */; };
+		2A084DCD222263E40016F208 /* StartHintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A084DCC222263E40016F208 /* StartHintView.swift */; };
+		2A084DCF22226B0B0016F208 /* WordsCountHintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A084DCE22226B0B0016F208 /* WordsCountHintView.swift */; };
+		2A084DD422226E600016F208 /* WordsCountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A084DD322226E600016F208 /* WordsCountButton.swift */; };
 		2A16D1E321D34AF000B34013 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A16D1E221D34AF000B34013 /* StartView.swift */; };
 		2A16D1E521D34DE300B34013 /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A16D1E421D34DE300B34013 /* CardsView.swift */; };
 		2A16D1E721D34DFD00B34013 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A16D1E621D34DFD00B34013 /* CardView.swift */; };
@@ -281,6 +284,9 @@
 		2A00FF1321DB663500A0657C /* ThemesDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesDelegate.swift; sourceTree = "<group>"; };
 		2A00FF1521DB74BC00A0657C /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
 		2A00FF1921DB8F7C00A0657C /* ThemesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesCell.swift; sourceTree = "<group>"; };
+		2A084DCC222263E40016F208 /* StartHintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartHintView.swift; sourceTree = "<group>"; };
+		2A084DCE22226B0B0016F208 /* WordsCountHintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsCountHintView.swift; sourceTree = "<group>"; };
+		2A084DD322226E600016F208 /* WordsCountButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsCountButton.swift; sourceTree = "<group>"; };
 		2A16D1E221D34AF000B34013 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		2A16D1E421D34DE300B34013 /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
 		2A16D1E621D34DFD00B34013 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -559,6 +565,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A084DD222226E2B0016F208 /* WordsCountHint */ = {
+			isa = PBXGroup;
+			children = (
+				2A084DCE22226B0B0016F208 /* WordsCountHintView.swift */,
+				2A084DD322226E600016F208 /* WordsCountButton.swift */,
+			);
+			path = WordsCountHint;
+			sourceTree = "<group>";
+		};
 		2A16D1E121D34ACE00B34013 /* Start */ = {
 			isa = PBXGroup;
 			children = (
@@ -644,8 +659,10 @@
 		2A31709022210B040038DE7D /* Hints */ = {
 			isa = PBXGroup;
 			children = (
+				2A084DD222226E2B0016F208 /* WordsCountHint */,
 				2A3170A32221213B0038DE7D /* RememberHint */,
 				2A3170A4222121870038DE7D /* ChooseFromThemesHintView.swift */,
+				2A084DCC222263E40016F208 /* StartHintView.swift */,
 			);
 			path = Hints;
 			sourceTree = "<group>";
@@ -1420,6 +1437,7 @@
 				2AE8E74B21D09EC600B7A8A2 /* ProsesView.swift in Sources */,
 				2AF3067521E5B6C000326262 /* DateExtension.swift in Sources */,
 				2A197CB02216899900CD239B /* NewThemeCheckbox.swift in Sources */,
+				2A084DCD222263E40016F208 /* StartHintView.swift in Sources */,
 				2A1DCB3A21E5B1F2002B37CF /* SpeechManager.swift in Sources */,
 				2AADB00422212B9100C8E144 /* ChoosingConfigurator.swift in Sources */,
 				2AFFB5B521FA9ABB0011FD82 /* Theme.swift in Sources */,
@@ -1490,6 +1508,7 @@
 				2A16D22821D62BE800B34013 /* ArchiveView.swift in Sources */,
 				2AADB0332221387D00C8E144 /* ThemesSecondViewController.swift in Sources */,
 				2AADB03D222138DF00C8E144 /* ThemesSecondProtocols.swift in Sources */,
+				2A084DD422226E600016F208 /* WordsCountButton.swift in Sources */,
 				2AE8E75B21D0ABC800B7A8A2 /* InboxDelegate.swift in Sources */,
 				2AE8E73E21CFB66F00B7A8A2 /* UIFontExtension.swift in Sources */,
 				2AF991A021F0B6AF00616B5F /* ArchiveEmptyView.swift in Sources */,
@@ -1552,6 +1571,7 @@
 				2AADB00B22212EFD00C8E144 /* ResultViewController.swift in Sources */,
 				2A99A05622093EB000283D21 /* TranslateSetup.swift in Sources */,
 				2A16D21A21D4F06000B34013 /* SpellingViewModel.swift in Sources */,
+				2A084DCF22226B0B0016F208 /* WordsCountHintView.swift in Sources */,
 				2A5B63E621E343C600E7FD2E /* CSVManager.swift in Sources */,
 				2A197CAC2216894600CD239B /* NewThemeTableView.swift in Sources */,
 				2A197CB622168B7500CD239B /* NewThemeViewModel.swift in Sources */,

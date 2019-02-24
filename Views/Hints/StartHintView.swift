@@ -1,19 +1,17 @@
 //
-//  ChooseFromThemesHintView.swift
+//  StartHintView.swift
 //  English
 //
-//  Created by Сергей Гаврилко on 23/02/2019.
+//  Created by Сергей Гаврилко on 24/02/2019.
 //  Copyright © 2019 gavrilko. All rights reserved.
 //
 
 import UIKit
 
-class ChooseFromThemesHintView: UIView {
+class StartHintView: UIView {
 
-    let imageView = ImageView(name: "Conversation")
-    
     let label = UILabel(
-        text: "Либо выберите слова из готовых наборов!",
+        text: "Нажмите, чтобы начать обучение!",
         color: UIColor(rgb: 0x454545),
         font: UIFont.book(18)
     )
@@ -43,26 +41,18 @@ class ChooseFromThemesHintView: UIView {
     }
     
     func setupViews() {
-        addSubview(tailImageView)
         addSubview(container)
-        container.addSubview(imageView)
+        addSubview(tailImageView)
         container.addSubview(label)
         
-        let width = 299 * Screen.widthCoef
-        
-        addConstraintsWithFormat(format: "H:|-20-[v0(50)]-20-[v1]-20-|", views: imageView, label)
-        addConstraintsWithFormat(format: "V:|-20-[v0]-20-|", views: imageView)
+        let width = 237 * Screen.widthCoef
         
         addConstraintsWithFormat(format: "H:|[v0(\(width))]|", views: container)
+        addConstraintsWithFormat(format: "H:[v0(22)]-20-|", views: tailImageView)
         addConstraintsWithFormat(format: "V:|[v0][v1(11)]|", views: container, tailImageView)
         
-        NSLayoutConstraint.activate([
-            imageView.heightAnchor.constraint(equalToConstant: 53),
-            imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            label.centerYAnchor.constraint(equalTo: centerYAnchor),
-            tailImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            tailImageView.widthAnchor.constraint(equalToConstant: 22)
-        ])
+        addConstraintsWithFormat(format: "H:|-25-[v0]-25-|", views: label)
+        addConstraintsWithFormat(format: "V:|-20-[v0]-20-|", views: label)
     }
 
 }
