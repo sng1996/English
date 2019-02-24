@@ -22,4 +22,48 @@ class ChoosingPresenter {
 
 extension ChoosingPresenter: ChoosingPresenterProtocol {
     
+    var currentItem: ChoosingViewControllerDataModel {
+        get {
+            let item = interactor.currentItem
+            let countText = "\(interactor.currentIndex + 1) из \(interactor.numberOfItems)"
+            let model = ChoosingViewControllerDataModel(header: item.wordData.original!, count: countText)
+            return model
+        }
+    }
+    
+    func configureView() {
+        interactor.update()
+    }
+    
+    func didTapBackButton() {
+        router.back()
+    }
+    
+    func didTapNextButton() {
+        interactor.loadNextStep()
+    }
+    
+    func collectionViewDidSelectItemAt(_ indexPath: IndexPath) {
+        interactor.didSelectItemAt(indexPath.row)
+    }
+    
+    func collectionViewItemAt(_ indexPath: IndexPath) -> ChoosingCellDataModel {
+        let text = interactor.itemAt(indexPath.row)
+        let model = ChoosingCellDataModel(text)
+        return model
+    }
+    
+    func updateView() {
+        view.update()
+    }
+    
+    func updateView(isRight: Bool, index: Int) {
+        let indexPath = IndexPath(row: index, section: 0)
+        view.update(isRight: isRight, indexPath: indexPath)
+    }
+    
+    func finish(with mistakes: Int) {
+        router.presentResultView(with: mistakes)
+    }
+    
 }

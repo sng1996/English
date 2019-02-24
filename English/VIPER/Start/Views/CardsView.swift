@@ -13,18 +13,15 @@ enum Side {
 }
 
 protocol CardsViewDelegate {
-    func cardsViewDataSource() -> [WordData]
-    func showHeaderContainer()
-    func hideHeaderContainer()
     func showReturnButton()
     func hideReturnButton()
-    func hidePassButton()
     func showStartButton()
+    func numberOfItems() -> Int
+    func itemAt(_ index: Int) -> CardViewDataModel
 }
 
 class CardsView: UIView {
     
-    var words: [WordData] = []
     var cards: [CardView] = []
     var removedCards: [CardView] = []
     
@@ -50,7 +47,6 @@ class CardsView: UIView {
     }
     
     func reloadData() {
-        words = delegate.cardsViewDataSource()
         setupViews()
         
         cardSize = cards[0].frame.size
@@ -60,10 +56,15 @@ class CardsView: UIView {
     }
     
     func setupViews() {
-        for i in words.indices {
+        cards.removeAll()
+        removedCards.removeAll()
+        
+        let count = delegate.numberOfItems()
+        
+        for i in 0..<count {
             let card = CardView()
-            card.sourceItem = words[i]
-            if i < words.count - 1 {
+            card.sourceItem = delegate.itemAt(i)
+            if i < count - 1 {
                 card.addGestureRecognizer(
                     UIPanGestureRecognizer(
                         target: self,
@@ -99,7 +100,6 @@ class CardsView: UIView {
     
     
     @objc func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
-        
         switch(gesture.state) {
         case UIGestureRecognizer.State.began:
             if cards.count > 3 {
@@ -125,6 +125,7 @@ class CardsView: UIView {
             if cards.count > 2 {
                 moveThirdCard()
             }
+            
             break
             
         case UIGestureRecognizer.State.ended:
@@ -261,13 +262,11 @@ class CardsView: UIView {
     }
     
     func didThrowCard(to: Side) {
-        if cards.count == words.count {
-            delegate.hideHeaderContainer()
+        if removedCards.isEmpty {
             delegate.showReturnButton()
         }
         
         if cards.count == 2 {
-            delegate.hidePassButton()
             delegate.showStartButton()
         }
         
@@ -278,7 +277,6 @@ class CardsView: UIView {
     func returnCard() {
         if removedCards.count == 1 {
             delegate.hideReturnButton()
-            delegate.showHeaderContainer()
         }
         let card = removedCards.removeLast()
         cards.insert(card, at: 0)
@@ -286,6 +284,5 @@ class CardsView: UIView {
         animateBack(card: card)
         restCardsBackAnimation()
     }
-
 
 }

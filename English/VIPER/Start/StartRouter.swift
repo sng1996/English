@@ -20,5 +20,13 @@ class StartRouter {
 
 extension StartRouter: StartRouterProtocol {
     
+    func back() {
+        
+    }
+    
+    func presentChoosingView() {
+        
+    }
+    
 }
 

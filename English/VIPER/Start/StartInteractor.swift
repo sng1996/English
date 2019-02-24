@@ -12,6 +12,8 @@ class StartInteractor {
     
     weak var presenter: StartPresenterProtocol!
     
+    var words: [WordData] = []
+    
     required init(presenter: StartPresenterProtocol) {
         self.presenter = presenter
     }
@@ -19,5 +21,13 @@ class StartInteractor {
 }
 
 extension StartInteractor: StartInteractorProtocol {
+    
+    func numberOfItems() -> Int {
+        return words.count
+    }
+    
+    func itemAt(_ index: Int) -> WordData {
+        return words[index]
+    }
     
 }

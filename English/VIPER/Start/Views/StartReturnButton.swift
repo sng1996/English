@@ -26,6 +26,8 @@ class StartReturnButton: Button {
     }
     
     func setupViews() {
+        isHidden = true
+        
         addSubview(imageView)
         
         imageView.translatesAutoresizingMaskIntoConstraints = false

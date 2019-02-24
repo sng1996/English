@@ -256,6 +256,8 @@
 		2AF991A421F0C1D100616B5F /* TranslateOptionsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF991A321F0C1D100616B5F /* TranslateOptionsButton.swift */; };
 		2AFD906A22226A5100D42274 /* RepeatsSetupExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFD906922226A5100D42274 /* RepeatsSetupExtension.swift */; };
 		2AFD906C22226A9000D42274 /* RepeatsTableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFD906B22226A9000D42274 /* RepeatsTableViewExtension.swift */; };
+		2AFD90722222838A00D42274 /* ChoosingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFD90712222838A00D42274 /* ChoosingCollectionView.swift */; };
+		2AFD907422228CD700D42274 /* ChoosingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFD907322228CD700D42274 /* ChoosingService.swift */; };
 		2AFFB5B321F82D830011FD82 /* SingleThemeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFFB5B221F82D830011FD82 /* SingleThemeDelegate.swift */; };
 		2AFFB5B521FA9ABB0011FD82 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFFB5B421FA9ABB0011FD82 /* Theme.swift */; };
 		2AFFB5B921FA9EA10011FD82 /* ThemesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFFB5B821FA9EA10011FD82 /* ThemesService.swift */; };
@@ -542,6 +544,8 @@
 		2AF991A321F0C1D100616B5F /* TranslateOptionsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateOptionsButton.swift; sourceTree = "<group>"; };
 		2AFD906922226A5100D42274 /* RepeatsSetupExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatsSetupExtension.swift; sourceTree = "<group>"; };
 		2AFD906B22226A9000D42274 /* RepeatsTableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatsTableViewExtension.swift; sourceTree = "<group>"; };
+		2AFD90712222838A00D42274 /* ChoosingCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingCollectionView.swift; sourceTree = "<group>"; };
+		2AFD907322228CD700D42274 /* ChoosingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingService.swift; sourceTree = "<group>"; };
 		2AFFB5B221F82D830011FD82 /* SingleThemeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleThemeDelegate.swift; sourceTree = "<group>"; };
 		2AFFB5B421FA9ABB0011FD82 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		2AFFB5B821FA9EA10011FD82 /* ThemesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesService.swift; sourceTree = "<group>"; };
@@ -615,11 +619,6 @@
 				2A16D1F021D454BE00B34013 /* StartSetup.swift */,
 				2A16D1F221D454CE00B34013 /* StartExtension.swift */,
 				2A16D1F421D4551B00B34013 /* StartDelegate.swift */,
-				2A16D1E421D34DE300B34013 /* CardsView.swift */,
-				2A16D1E621D34DFD00B34013 /* CardView.swift */,
-				2A16D1EA21D37C3C00B34013 /* StartPassButton.swift */,
-				2A16D1EC21D37D3700B34013 /* StartButton.swift */,
-				2A16D1EE21D3810100B34013 /* StartReturnButton.swift */,
 			);
 			path = Start;
 			sourceTree = "<group>";
@@ -632,8 +631,6 @@
 				2A16D1FB21D455CC00B34013 /* ChoosingSetup.swift */,
 				2A16D1FD21D455D700B34013 /* ChoosingExtension.swift */,
 				2A16D1FF21D455E200B34013 /* ChoosingDelegate.swift */,
-				2A16D20521D4688200B34013 /* ChoosingCell.swift */,
-				2A16D20721D472D900B34013 /* ChoosingContinueView.swift */,
 			);
 			path = Choosing;
 			sourceTree = "<group>";
@@ -833,6 +830,7 @@
 				2AADAFF62221284C00C8E144 /* StartConfigurator.swift */,
 				2AADAFF82221285E00C8E144 /* StartRouter.swift */,
 				2AADAFFA2221287100C8E144 /* StartProtocols.swift */,
+				2AFD906F22227B3C00D42274 /* Views */,
 			);
 			path = Start;
 			sourceTree = "<group>";
@@ -846,6 +844,7 @@
 				2AADB00322212B9100C8E144 /* ChoosingConfigurator.swift */,
 				2AADB00522212BA400C8E144 /* ChoosingRouter.swift */,
 				2AADB00722212BB800C8E144 /* ChoosingProtocols.swift */,
+				2AFD90702222837400D42274 /* Views */,
 			);
 			path = Choosing;
 			sourceTree = "<group>";
@@ -1059,6 +1058,7 @@
 				2AE8E7A221D26AA600B7A8A2 /* WordDataService.swift */,
 				2AFFB5B821FA9EA10011FD82 /* ThemesService.swift */,
 				2AEB315C21E9BCC400A718B4 /* ServiceProvider.swift */,
+				2AFD907322228CD700D42274 /* ChoosingService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1257,6 +1257,28 @@
 			isa = PBXGroup;
 			children = (
 				2A16D23021D7107E00B34013 /* SettingsNotificationContainer.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2AFD906F22227B3C00D42274 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2A16D1E421D34DE300B34013 /* CardsView.swift */,
+				2A16D1E621D34DFD00B34013 /* CardView.swift */,
+				2A16D1EC21D37D3700B34013 /* StartButton.swift */,
+				2A16D1EA21D37C3C00B34013 /* StartPassButton.swift */,
+				2A16D1EE21D3810100B34013 /* StartReturnButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2AFD90702222837400D42274 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2AFD90712222838A00D42274 /* ChoosingCollectionView.swift */,
+				2A16D20521D4688200B34013 /* ChoosingCell.swift */,
+				2A16D20721D472D900B34013 /* ChoosingContinueView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1515,6 +1537,7 @@
 				2AE8E79B21D25CFE00B7A8A2 /* TranslateDeleteButton.swift in Sources */,
 				2AADB02B222135D800C8E144 /* NewThemeInteractor.swift in Sources */,
 				2AADB02D222135EA00C8E144 /* NewThemeConfigurator.swift in Sources */,
+				2AFD90722222838A00D42274 /* ChoosingCollectionView.swift in Sources */,
 				2A00FF1A21DB8F7C00A0657C /* ThemesCell.swift in Sources */,
 				2A16D1EF21D3810100B34013 /* StartReturnButton.swift in Sources */,
 				2A084DE22222A0EC0016F208 /* TranslateHintView.swift in Sources */,
@@ -1534,6 +1557,7 @@
 				2AAD5DC0222143F500F77B26 /* InboxPresenter.swift in Sources */,
 				2AADB0312221360D00C8E144 /* NewThemeProtocols.swift in Sources */,
 				2ABB914021FD4A92003E1521 /* ThemesSecondTableView.swift in Sources */,
+				2AFD907422228CD700D42274 /* ChoosingService.swift in Sources */,
 				2A00FF1221DB65FF00A0657C /* ThemesExtension.swift in Sources */,
 				2AE8E76621D0D12900B7A8A2 /* AddViewExtension.swift in Sources */,
 				2A5B63E021E33B4C00E7FD2E /* ThousandNextButton.swift in Sources */,
