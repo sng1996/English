@@ -20,11 +20,6 @@ class InboxInteractor: ServiceProvider {
 
 extension InboxInteractor: InboxInteractorProtocol {
     
-    func update() {
-        wordDataService.loadNewWords()
-        presenter.updateView()
-    }
-    
     func itemAt(_ index: Int) -> WordData {
         return wordDataService.newWords[index]
     }

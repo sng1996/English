@@ -13,11 +13,13 @@ class RepeatsCellDataModel {
     var original: String
     var translate: String
     var repeats: Int
+    var isActive: Bool
     
-    init(_ word: WordData) {
+    init(_ word: WordData, isActive: Bool) {
         original = word.original
         translate = word.translate
         repeats = word.count
+        self.isActive = isActive
     }
     
 }

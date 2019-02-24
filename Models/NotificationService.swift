@@ -1,5 +1,5 @@
 //
-//  NotificationManager.swift
+//  NotificationService.swift
 //  English
 //
 //  Created by Сергей Гаврилко on 29/12/2018.
@@ -9,11 +9,12 @@
 import UserNotifications
 import UIKit
 
-class NotificationManager: ServiceProvider {
+class NotificationService: ServiceProvider {
     
     var isOn: Bool {
         set {
             UserDefaults.standard.set(newValue, forKey: UserDefaults.Keys.isOnNotification)
+            update()
         }
         get {
             return UserDefaults.standard.bool(forKey: UserDefaults.Keys.isOnNotification)
@@ -23,6 +24,7 @@ class NotificationManager: ServiceProvider {
     var time: String {
         set {
             UserDefaults.standard.set(newValue, forKey: UserDefaults.Keys.notificationTime)
+            update()
         }
         get {
             if let time = UserDefaults.standard.string(forKey: UserDefaults.Keys.notificationTime) {
@@ -32,17 +34,7 @@ class NotificationManager: ServiceProvider {
         }
     }
     
-    func changeValue(isOn: Bool) {
-        self.isOn = isOn
-        update()
-    }
-    
-    func changeTime(_ time: String) {
-        self.time = time
-        update()
-    }
-    
-    func update() {
+    private func update() {
         var count = wordDataService.todayCount
         var hour = 0
         var min = 0

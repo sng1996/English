@@ -23,11 +23,9 @@ protocol InboxPresenterProtocol: class {
     func collectionViewDidSelectItemAt(_ indexPath: IndexPath)
     func collectionViewNumberOfItems() -> Int
     func collectionViewDataForItemAt(_ indexPath: IndexPath) -> WordCellDataModel
-    func updateView()
 }
 
 protocol InboxInteractorProtocol: class {
-    func update()
     func itemAt(_ index: Int) -> WordData
     func numberOfItems() -> Int
 }
