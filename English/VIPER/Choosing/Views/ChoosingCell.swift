@@ -13,12 +13,22 @@ enum CellColors {
     static let red = UIColor(rgb: 0xEB6D50)
 }
 
+class ChoosingCellDataModel {
+    
+    var text: String
+    
+    init(_ text: String) {
+        self.text = text
+    }
+    
+}
+
 class ChoosingCell: UICollectionViewCell {
     
     var sourceItem: Any? {
         didSet {
-            guard let text = sourceItem as? String else { return }
-            label.text = text
+            guard let model = sourceItem as? ChoosingCellDataModel else { return }
+            label.text = model.text
         }
     }
     
@@ -35,14 +45,14 @@ class ChoosingCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor(rgb: 0xF8F8F8).cgColor
-        self.layer.cornerRadius = 3
-        self.layer.masksToBounds = false
-        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.layer.cornerRadius).cgPath
-        self.contentView.clipsToBounds = false
-        self.layer.setShadow(opacity: 0.0)
-        self.backgroundColor = .white
+        layer.borderWidth = 1
+        layer.borderColor = UIColor(rgb: 0xF8F8F8).cgColor
+        layer.cornerRadius = 3
+        layer.masksToBounds = false
+        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: layer.cornerRadius).cgPath
+        contentView.clipsToBounds = false
+        layer.setShadow(opacity: 0.0)
+        backgroundColor = .white
         setupViews()
     }
     
@@ -57,14 +67,14 @@ class ChoosingCell: UICollectionViewCell {
         addConstraintsWithFormat(format: "V:|[v0]|", views: continueView)
     }
     
-    func draw(color: UIColor) {
-        self.layer.shadowColor = color.cgColor
+    func dropShadow(color: UIColor) {
+        layer.shadowColor = color.cgColor
         let animation = CABasicAnimation(keyPath: "shadowOpacity")
         animation.fromValue = layer.shadowOpacity
         animation.toValue = 0.1
         animation.duration = 0.2
-        self.layer.add(animation, forKey: animation.keyPath)
-        self.layer.shadowOpacity = 0.1
+        layer.add(animation, forKey: animation.keyPath)
+        layer.shadowOpacity = 0.1
         
         UIView.transition(
             with: label,
@@ -72,7 +82,8 @@ class ChoosingCell: UICollectionViewCell {
             options: .transitionCrossDissolve,
             animations: {
                 self.label.textColor = color
-            }, completion: nil)
+            }, completion: nil
+        )
     }
     
     func showContinueView() {
@@ -83,10 +94,10 @@ class ChoosingCell: UICollectionViewCell {
         continueView.alpha = 0.0
     }
     
-    func clean() {
+    func toInit() {
         hideContinueView()
         label.textColor = UIColor(rgb: 0x4A4A4A)
-        self.layer.shadowOpacity = 0.0
+        layer.shadowOpacity = 0.0
     }
     
 }
