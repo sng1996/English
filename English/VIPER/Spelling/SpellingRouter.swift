@@ -20,4 +20,12 @@ class SpellingRouter {
 
 extension SpellingRouter: SpellingRouterProtocol {
     
+    func back() {
+        
+    }
+    
+    func finish() {
+        
+    }
+    
 }

@@ -23,13 +23,13 @@ class InboxPresenter {
 extension InboxPresenter: InboxPresenterProtocol {
     
     func configureView() {
-        let numberOfItems = interactor.numberOfItems()
+        let numberOfItems = interactor.numberOfItems
         if numberOfItems > 0 {
             view.hideEmptyView()
-            view.hideStartButton()
+            view.showStartButton()
         } else {
             view.showEmptyView()
-            view.showStartButton()
+            view.hideStartButton()
         }
         view.update()
     }
@@ -41,7 +41,7 @@ extension InboxPresenter: InboxPresenterProtocol {
     }
     
     func collectionViewNumberOfItems() -> Int {
-        return interactor.numberOfItems()
+        return interactor.numberOfItems
     }
     
     func collectionViewDataForItemAt(_ indexPath: IndexPath) -> WordCellDataModel {

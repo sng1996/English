@@ -11,18 +11,21 @@ import UIKit
 extension TabBarView {
 
     func setupViews() {
+        backgroundColor = .white
+        layer.setShadow(offset: .zero, radius: 1)
+        
         buttons[0].tapHandler = didTapInbox
         buttons[1].tapHandler = didTapRepeats
         buttons[2].tapHandler = didTapThemes
         buttons[3].tapHandler = didTapSettings
         startButton.tapHandler = didTapStart
         
-        addSubview(stackView)
         for button in buttons {
             stackView.addArrangedSubview(button)
         }
-        addSubview(startButton)
         
+        addSubview(stackView)
+        addSubview(startButton)
         
         addConstraintsWithFormat(format: "H:|-10-[v0]-10-|", views: stackView)
         addConstraintsWithFormat(format: "V:|[v0(60)]", views: stackView)

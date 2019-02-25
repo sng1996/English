@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SpellingTextFieldDelegate {
+    func textFieldDidChange(with text: String)
+}
+
 class SpellingTextField: UIView {
     
     let textField: TextField = {
@@ -20,6 +24,8 @@ class SpellingTextField: UIView {
         return textField
     }()
     
+    var delegate: SpellingTextFieldDelegate!
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -31,10 +37,16 @@ class SpellingTextField: UIView {
     }
     
     func setupViews() {
+        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        
         addSubview(textField)
         
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: textField)
         addConstraintsWithFormat(format: "V:|-20-[v0]-20-|", views: textField)
+    }
+    
+    @objc func textFieldDidChange() {
+        delegate.textFieldDidChange(with: textField.text!)
     }
     
 }

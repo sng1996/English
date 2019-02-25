@@ -1,5 +1,5 @@
 //
-//  SpeechManager.swift
+//  SpeechService.swift
 //  English
 //
 //  Created by Сергей Гаврилко on 09/01/2019.
@@ -9,14 +9,7 @@
 import AVFoundation
 import UIKit
 
-class SpeechManager {
-    
-    func load() {
-        let string = "hello"
-        let utterance = AVSpeechUtterance(string: string)
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        _ = AVSpeechSynthesizer()
-    }
+class SpeechService {
     
     func play(_ text: String) {
         let string = text

@@ -8,20 +8,6 @@
 
 import UIKit
 
-class TranslateViewDataModel {
-    
-    var original: String
-    var translate: String
-    var translates: [Translate]
-    
-    init(_ word: WordData) {
-        original = word.original ?? "Пустая строка"
-        translate = word.translate ?? "Пустая строка"
-        translates = word.translates ?? []
-    }
-    
-}
-
 protocol TranslateViewDelegate {
     func didCloseTranslateView()
 }
@@ -65,7 +51,7 @@ class TranslateView: UIView, ServiceProvider {
     
     let deleteButton = TranslateDeleteButton()
     
-    let speechManager = SpeechManager()
+    let speechService = SpeechService()
 
     var topConstraint: NSLayoutConstraint!
     

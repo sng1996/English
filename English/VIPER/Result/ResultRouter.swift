@@ -20,4 +20,12 @@ class ResultRouter {
 
 extension ResultRouter: ResultRouterProtocol {
     
+    func presentNext() {
+        
+    }
+    
+    func repeatTask() {
+        
+    }
+    
 }

@@ -28,6 +28,7 @@ class ChoosingCell: UICollectionViewCell {
     var sourceItem: Any? {
         didSet {
             guard let model = sourceItem as? ChoosingCellDataModel else { return }
+            toInit()
             label.text = model.text
         }
     }

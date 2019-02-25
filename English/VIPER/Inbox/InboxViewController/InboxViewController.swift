@@ -55,8 +55,9 @@ class InboxViewController: UIView {
         super.init(frame: .zero)
         configurator.configure(with: self)
         setupViews()
-        viewDidAppear()
     }
+    
+    //  MARK: Methods
     
     func createBlurView() {
         removeBlurView()
@@ -72,6 +73,12 @@ class InboxViewController: UIView {
             blurView.removeFromSuperview()
             self.blurView = nil
         }
+    }
+    
+    //  MARK: Actions
+    
+    func didTapStartButton() {
+        
     }
     
 }

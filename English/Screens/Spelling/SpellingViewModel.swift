@@ -8,23 +8,6 @@
 
 import UIKit
 
-class SpellingItem: Equatable {
-    
-    var word: WordData
-    var sortIndex: Int
-    var mistakes: Int
-    
-    static func == (lhs: SpellingItem, rhs: SpellingItem) -> Bool {
-        return lhs.word == rhs.word
-    }
-    
-    init(word: WordData) {
-        self.word = word
-        self.sortIndex = 0
-        self.mistakes = 0
-    }
-}
-
 class SpellingViewModel: NSObject, ServiceProvider {
     
     var sourceItem: Any? {

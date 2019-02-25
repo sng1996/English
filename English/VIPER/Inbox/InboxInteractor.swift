@@ -20,12 +20,14 @@ class InboxInteractor: ServiceProvider {
 
 extension InboxInteractor: InboxInteractorProtocol {
     
-    func itemAt(_ index: Int) -> WordData {
-        return wordDataService.newWords[index]
+    var numberOfItems: Int {
+        get {
+            return wordDataService.newWords.count
+        }
     }
     
-    func numberOfItems() -> Int {
-        return wordDataService.newWords.count
+    func itemAt(_ index: Int) -> WordData {
+        return wordDataService.newWords[index]
     }
     
 }

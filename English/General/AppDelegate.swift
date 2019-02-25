@@ -16,8 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ServiceProvider {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let speechManager = SpeechManager()
-        speechManager.load()
         return true
     }
 

@@ -31,6 +31,8 @@ class ChoosingViewController: UIView {
             headerLabel.text = model.header
             countLabel.text = model.count
             cv.reloadData()
+            showViews()
+            speechManager.play(model.header)
         }
     }
     
@@ -66,6 +68,8 @@ class ChoosingViewController: UIView {
         return view
     }()
     
+    let speechManager = SpeechManager()
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -80,6 +84,7 @@ class ChoosingViewController: UIView {
     func setupViews() {
         cv.delegate = self
         cv.dataSource = self
+        cv.choosingDelegate = self
         backButton.tapHandler = didTapBackButton
         nextButton.tapHandler = didTapNextButton
         
@@ -111,7 +116,26 @@ class ChoosingViewController: UIView {
     }
     
     func didTapNextButton() {
-        presenter.didTapNextButton()
+        hideViews()
+    }
+    
+    func showViews() {
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
+            self.headerLabel.alpha = 1.0
+            self.footerLabel.alpha = 1.0
+            self.cv.alpha = 1.0
+        }, completion: nil)
+    }
+    
+    func hideViews() {
+        nextButton.isHidden = true
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
+            self.cv.alpha = 0.0
+            self.headerLabel.alpha = 0.0
+            self.footerLabel.alpha = 0.0
+        }, completion: { finished in
+            self.presenter.didFinishHideViews()
+        })
     }
     
 }
@@ -122,61 +146,9 @@ extension ChoosingViewController: ChoosingViewProtocol {
         presenter.configureView()
     }
     
-    func update() {
-        sourceItem = presenter.currentItem
-    }
-    
     func update(isRight: Bool, indexPath: IndexPath) {
-        cv.update(isRight: isRight, indexPath: indexPath, complete: )
-        if !isRight {
-            nextButton.isHidden = true
-        }
+        cv.update(isRight: isRight, indexPath: indexPath)
     }
-    
-    @objc
-    func finishStep() {
-        countLabel.text = vm.getCountLabelText()
-        
-        hide(complete: {
-            self.startNextStep()
-        })
-    }
-    
-    @objc
-    func startNextStep() {
-        guard let chooseItem = vm.getNextChooseItem() else {
-            openResultView()
-            return
-        }
-        
-        speechManager.play(chooseItem.originalWord.original!)
-        headerLabel.text = chooseItem.originalWord.original
-        cv.reloadData()
-        show()
-    }
-    
-    func show() {
-        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
-            self.headerLabel.alpha = 1.0
-            self.footerLabel.alpha = 1.0
-            self.cv.alpha = 1.0
-        }, completion: nil)
-    }
-    
-    func hide(complete: @escaping () -> ()) {
-        for cell in cv.visibleCells {
-            (cell as! ChoosingCell).clean()
-        }
-        hideNextStepButton()
-        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
-            self.headerLabel.alpha = 0.0
-            self.footerLabel.alpha = 0.0
-            self.cv.alpha = 0.0
-        }, completion: { finished in
-            complete()
-        })
-    }
-
     
 }
 
@@ -206,6 +178,22 @@ extension ChoosingViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChoosingCell", for: indexPath) as! ChoosingCell
         cell.sourceItem = presenter.collectionViewItemAt(indexPath)
         return cell
+    }
+    
+}
+
+extension ChoosingViewController: ChoosingCollectionViewDelegate {
+    
+    func didFinishRightAnswerAnimation() {
+        hideViews()
+    }
+    
+    func getRightIndexPath() -> IndexPath {
+        return presenter.rightIndexPath
+    }
+    
+    func showNextButton() {
+        nextButton.isHidden = false
     }
     
 }

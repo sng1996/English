@@ -9,19 +9,23 @@
 import UIKit
 
 protocol ResultViewProtocol: class {
-    
+    var sourceItem: Any? { get set }
+    func viewDidAppear()
 }
 
 protocol ResultPresenterProtocol: class {
-    
+    func configureView()
+    func didTapNextButton()
+    func didTapReturnButton()
 }
 
 protocol ResultInteractorProtocol: class {
-    
+    var mistakes: Int { get set }
 }
 
 protocol ResultRouterProtocol: class {
-    
+    func presentNext()
+    func repeatTask()
 }
 
 protocol ResultConfiguratorProtocol: class {

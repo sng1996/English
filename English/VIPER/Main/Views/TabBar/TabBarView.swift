@@ -9,16 +9,13 @@
 import UIKit
 
 protocol TabBarViewDelegate {
-    func showInboxView()
-    func showRepeatsView()
-    func showThemesView()
-    func showSettingsView()
-    func start()
+    func didTapInboxButton()
+    func didTapRepeatsButton()
+    func didTapSettingsButton()
+    func didTapStartButton()
 }
 
 class TabBarView: UIView {
-    
-    let height: CGFloat = 60 + Screen.safeBottom / 2
     
     let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -38,6 +35,7 @@ class TabBarView: UIView {
         TabBarButton(item: TabBarButtonType.settings)
     ]
     
+    let height: CGFloat = 60 + Screen.safeBottom / 2
     var delegate: TabBarViewDelegate!
     
     required init?(coder aDecoder: NSCoder) {
@@ -46,8 +44,6 @@ class TabBarView: UIView {
 
     init() {
         super.init(frame: .zero)
-        backgroundColor = .white
-        layer.setShadow(offset: .zero, radius: 1)
         setupViews()
     }
     

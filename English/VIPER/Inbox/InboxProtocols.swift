@@ -26,8 +26,8 @@ protocol InboxPresenterProtocol: class {
 }
 
 protocol InboxInteractorProtocol: class {
+    var numberOfItems: Int { get }
     func itemAt(_ index: Int) -> WordData
-    func numberOfItems() -> Int
 }
 
 protocol InboxRouterProtocol: class {

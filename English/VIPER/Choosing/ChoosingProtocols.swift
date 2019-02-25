@@ -9,16 +9,17 @@
 import UIKit
 
 protocol ChoosingViewProtocol: class {
+    var sourceItem: Any? { get set }
     func viewDidAppear()
-    func update()
     func update(isRight: Bool, indexPath: IndexPath)
 }
 
 protocol ChoosingPresenterProtocol: class {
     var currentItem: ChoosingViewControllerDataModel { get }
+    var rightIndexPath: IndexPath { get }
     func configureView()
     func didTapBackButton()
-    func didTapNextButton()
+    func didFinishHideViews()
     func collectionViewDidSelectItemAt(_ indexPath: IndexPath)
     func collectionViewItemAt(_ indexPath: IndexPath) -> ChoosingCellDataModel
     func updateView()
@@ -38,6 +39,7 @@ protocol ChoosingInteractorProtocol: class {
 
 protocol ChoosingRouterProtocol: class {
     func back()
+    func presentResultView(with mistakes: Int)
 }
 
 protocol ChoosingConfiguratorProtocol: class {

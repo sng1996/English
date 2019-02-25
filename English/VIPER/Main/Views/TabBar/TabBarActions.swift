@@ -12,32 +12,31 @@ extension TabBarView {
     
     func deactivateButtons() {
         buttons.forEach {
-            $0.deactivate()
+            $0.isActive = false
         }
     }
     
     func didTapInbox() {
         deactivateButtons()
-        delegate.showInboxView()
+        delegate.didTapInboxButton()
     }
     
     func didTapRepeats() {
         deactivateButtons()
-        delegate.showRepeatsView()
+        delegate.didTapRepeatsButton()
     }
     
     func didTapThemes() {
         deactivateButtons()
-        delegate.showThemesView()
     }
     
     func didTapSettings() {
         deactivateButtons()
-        delegate.showSettingsView()
+        delegate.didTapSettingsButton()
     }
     
     func didTapStart() {
-        delegate.start()
+        delegate.didTapStartButton()
     }
     
     func showStartButton() {
@@ -58,11 +57,11 @@ extension TabBarView {
     }
     
     func showBadge() {
-        buttons[1].showBadge()
+        buttons[1].isBadgeActive = true
     }
     
     func hideBadge() {
-        buttons[1].hideBadge()
+        buttons[1].isBadgeActive = false
     }
     
     func show() {

@@ -8,7 +8,15 @@
 
 import UIKit
 
+protocol ChoosingCollectionViewDelegate {
+    func didFinishRightAnswerAnimation()
+    func getRightIndexPath() -> IndexPath
+    func showNextButton()
+}
+
 class ChoosingCollectionView: UICollectionView {
+    
+    var choosingDelegate: ChoosingCollectionViewDelegate!
     
     let layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -35,20 +43,25 @@ class ChoosingCollectionView: UICollectionView {
         height = 5 * 10 + 4 * cellSize.height
     }
     
-    func update(isRight: Bool, indexPath: IndexPath, complete: () -> ()) {
+    func update(isRight: Bool, indexPath: IndexPath) {
         let cell = cellForItem(at: indexPath) as! ChoosingCell
         
         if isRight {
             cell.dropShadow(color: CellColors.green)
-            Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(finishStep), userInfo: nil, repeats: false)
+            Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(didFinishAnimation), userInfo: nil, repeats: false)
         } else {
             cell.dropShadow(color: CellColors.red)
             cell.showContinueView()
             
-            let rightIndexPath = delegate.rightIndexPath()
-            let rightCell = cellForItem(at: IndexPath(row: rightIndexPath, section: 0)) as! ChoosingCell
+            let rightIndexPath = choosingDelegate.getRightIndexPath()
+            let rightCell = cellForItem(at: rightIndexPath) as! ChoosingCell
             rightCell.dropShadow(color: CellColors.green)
+            choosingDelegate.showNextButton()
         }
+    }
+    
+    @objc func didFinishAnimation() {
+        choosingDelegate.didFinishRightAnswerAnimation()
     }
     
 }

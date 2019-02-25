@@ -12,6 +12,8 @@ class ResultInteractor {
     
     weak var presenter: ResultPresenterProtocol!
     
+    var mistakesCount = 0
+    
     required init(presenter: ResultPresenterProtocol) {
         self.presenter = presenter
     }

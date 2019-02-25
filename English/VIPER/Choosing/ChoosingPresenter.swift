@@ -31,6 +31,14 @@ extension ChoosingPresenter: ChoosingPresenterProtocol {
         }
     }
     
+    var rightIndexPath: IndexPath {
+        get {
+            let item = interactor.currentItem
+            let index = item.rightAnswerIndex
+            return IndexPath(row: index, section: 0)
+        }
+    }
+    
     func configureView() {
         interactor.update()
     }
@@ -39,7 +47,7 @@ extension ChoosingPresenter: ChoosingPresenterProtocol {
         router.back()
     }
     
-    func didTapNextButton() {
+    func didFinishHideViews() {
         interactor.loadNextStep()
     }
     
@@ -54,7 +62,7 @@ extension ChoosingPresenter: ChoosingPresenterProtocol {
     }
     
     func updateView() {
-        view.update()
+        view.sourceItem = currentItem
     }
     
     func updateView(isRight: Bool, index: Int) {

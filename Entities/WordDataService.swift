@@ -60,7 +60,6 @@ class WordDataService: ServiceProvider {
         coreDataService.saveContext()
         
         loadData()
-        NotificationManager().update()
     }
     
     func delete(_ wordData: WordData) {
@@ -68,7 +67,6 @@ class WordDataService: ServiceProvider {
         coreDataService.saveContext()
         
         loadData()
-        NotificationManager().update()
     }
     
     
@@ -78,6 +76,9 @@ class WordDataService: ServiceProvider {
         loadNewWords()
         loadRepeatWords()
         loadArchiveWords()
+        
+        let notificationService = NotificationService()
+        notificationService.update()
     }
     
     private func loadNewWords() {
@@ -177,7 +178,6 @@ class WordDataService: ServiceProvider {
         }
         
         loadData()
-        NotificationManager().update()
     }
 
 }

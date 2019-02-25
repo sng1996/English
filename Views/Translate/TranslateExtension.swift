@@ -11,8 +11,8 @@ import UIKit
 extension TranslateView {
 
     func playSound() {
-        if let word = sourceItem as? Word {
-            speechManager.play(word.original)
+        if let model = sourceItem as? TranslateViewDataModel {
+            speechService.play(model.original)
         }
     }
     
@@ -37,10 +37,9 @@ extension TranslateView {
     }
     
     func deleteWord() {
-        if let wordData = (sourceItem as! Word).data {
+        if let wordData = (sourceItem as! TranslateViewDataModel).data {
             wordDataService.delete(wordData)
             close()
-            delegate.updateScreen()
         }
     }
     

@@ -39,6 +39,18 @@ class TabBarButton: Button {
         return view
     }()
     
+    var isActive: Bool = false {
+        didSet {
+            isActive ? activate() : deactivate()
+        }
+    }
+    
+    var isBadgeActive: Bool = false {
+        didSet {
+            badge.isHidden = !isBadgeActive
+        }
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -75,13 +87,13 @@ class TabBarButton: Button {
         ])
     }
     
-    func activate() {
+    private func activate() {
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
             self.frontImageView.alpha = 1.0
         }, completion: nil)
     }
     
-    func deactivate() {
+    private func deactivate() {
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
             self.frontImageView.alpha = 0.0
         }, completion: nil)
@@ -89,15 +101,7 @@ class TabBarButton: Button {
     
     override func didTap() {
         super.didTap()
-        activate()
-    }
-    
-    func showBadge() {
-        badge.isHidden = false
-    }
-    
-    func hideBadge() {
-        badge.isHidden = true
+        isActive = true
     }
     
 }

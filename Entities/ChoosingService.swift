@@ -13,7 +13,7 @@ struct ChoosingItem {
     var wordData: WordData!
     var supportWords: [String] = []
     var rightAnswerIndex = 0
-    var sortIndex: Int = 0
+    var sortIndex = Int(arc4random_uniform(1000))
     
     init(_ data: WordData, supportWords: [String]) {
         wordData = data
@@ -25,7 +25,6 @@ struct ChoosingItem {
         } else {
             self.supportWords.insert(wordData.translate!, at: rightAnswerIndex)
         }
-        sortIndex = Int(arc4random_uniform(1000))
     }
     
 }

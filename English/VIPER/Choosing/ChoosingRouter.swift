@@ -20,4 +20,12 @@ class ChoosingRouter {
 
 extension ChoosingRouter: ChoosingRouterProtocol {
     
+    func back() {
+        
+    }
+    
+    func presentResultView(with mistakes: Int) {
+        
+    }
+    
 }

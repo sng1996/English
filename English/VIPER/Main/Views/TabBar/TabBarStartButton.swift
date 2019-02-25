@@ -19,9 +19,6 @@ class TabBarStartButton: Button {
     
     let imageView = ImageView(name: "RightArrow_white")
     
-    let width = (Screen.width - 20) / 5
-    let side: CGFloat = 40
-    
     var shadows: [Shadow] {
         get {
             let shadow1 = Shadow(
@@ -46,17 +43,20 @@ class TabBarStartButton: Button {
         }
     }
     
+    let width = (Screen.width - 20) / 5
+    let side: CGFloat = 40
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     override init() {
         super.init()
-        alpha = 0.0
         setupViews()
     }
     
     func setupViews() {
+        alpha = 0.0
         view.set(shadows: shadows)
         view.set(cornerRadius: 5)
         
