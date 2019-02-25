@@ -181,6 +181,10 @@
 		2ABB915021FE72D7003E1521 /* SingleThemeSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB914F21FE72D7003E1521 /* SingleThemeSetup.swift */; };
 		2ABB915221FE8186003E1521 /* SingleThemeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB915121FE8186003E1521 /* SingleThemeExtension.swift */; };
 		2ABB915521FED1F4003E1521 /* MusicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB915421FED1F4003E1521 /* MusicView.swift */; };
+		2AC6B0C52223B3EA008552B0 /* ForgetHintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6B0C42223B3EA008552B0 /* ForgetHintView.swift */; };
+		2AC6B0C72223B3FE008552B0 /* ForgetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6B0C62223B3FE008552B0 /* ForgetButton.swift */; };
+		2AC6B0CA2223B99A008552B0 /* WrongHintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6B0C92223B99A008552B0 /* WrongHintView.swift */; };
+		2AC6B0CC2223B9AE008552B0 /* WrongButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6B0CB2223B9AE008552B0 /* WrongButton.swift */; };
 		2AE8E6D921CF894200B7A8A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8E6D821CF894200B7A8A2 /* AppDelegate.swift */; };
 		2AE8E6DB21CF894200B7A8A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8E6DA21CF894200B7A8A2 /* ViewController.swift */; };
 		2AE8E6DE21CF894200B7A8A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AE8E6DC21CF894200B7A8A2 /* Main.storyboard */; };
@@ -463,6 +467,10 @@
 		2ABB914F21FE72D7003E1521 /* SingleThemeSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleThemeSetup.swift; sourceTree = "<group>"; };
 		2ABB915121FE8186003E1521 /* SingleThemeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleThemeExtension.swift; sourceTree = "<group>"; };
 		2ABB915421FED1F4003E1521 /* MusicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicView.swift; sourceTree = "<group>"; };
+		2AC6B0C42223B3EA008552B0 /* ForgetHintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetHintView.swift; sourceTree = "<group>"; };
+		2AC6B0C62223B3FE008552B0 /* ForgetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetButton.swift; sourceTree = "<group>"; };
+		2AC6B0C92223B99A008552B0 /* WrongHintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongHintView.swift; sourceTree = "<group>"; };
+		2AC6B0CB2223B9AE008552B0 /* WrongButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongButton.swift; sourceTree = "<group>"; };
 		2AE8E6D521CF894200B7A8A2 /* English.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = English.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AE8E6D821CF894200B7A8A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AE8E6DA21CF894200B7A8A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -690,6 +698,8 @@
 		2A31709022210B040038DE7D /* Hints */ = {
 			isa = PBXGroup;
 			children = (
+				2AC6B0C82223B976008552B0 /* WrongHint */,
+				2AC6B0C32223B28F008552B0 /* ForgetHint */,
 				2A084DDC222293560016F208 /* RepeatsHint */,
 				2A084DD722228C320016F208 /* RepeatsGrayHint */,
 				2A084DD222226E2B0016F208 /* WordsCountHint */,
@@ -933,6 +943,24 @@
 				2ABB915421FED1F4003E1521 /* MusicView.swift */,
 			);
 			path = Music;
+			sourceTree = "<group>";
+		};
+		2AC6B0C32223B28F008552B0 /* ForgetHint */ = {
+			isa = PBXGroup;
+			children = (
+				2AC6B0C42223B3EA008552B0 /* ForgetHintView.swift */,
+				2AC6B0C62223B3FE008552B0 /* ForgetButton.swift */,
+			);
+			path = ForgetHint;
+			sourceTree = "<group>";
+		};
+		2AC6B0C82223B976008552B0 /* WrongHint */ = {
+			isa = PBXGroup;
+			children = (
+				2AC6B0C92223B99A008552B0 /* WrongHintView.swift */,
+				2AC6B0CB2223B9AE008552B0 /* WrongButton.swift */,
+			);
+			path = WrongHint;
 			sourceTree = "<group>";
 		};
 		2AE8E6CC21CF894200B7A8A2 = {
@@ -1659,6 +1687,7 @@
 				2A5B63E621E343C600E7FD2E /* CSVManager.swift in Sources */,
 				2A197CAC2216894600CD239B /* NewThemeTableView.swift in Sources */,
 				2A197CB622168B7500CD239B /* NewThemeViewModel.swift in Sources */,
+				2AC6B0C52223B3EA008552B0 /* ForgetHintView.swift in Sources */,
 				2A5B63DE21E33B3A00E7FD2E /* ThousandAddButton.swift in Sources */,
 				2A16D1F121D454BE00B34013 /* StartSetup.swift in Sources */,
 				2AADAFFE22212B5000C8E144 /* ChoosingViewController.swift in Sources */,
@@ -1667,6 +1696,7 @@
 				2AADB037222138A500C8E144 /* ThemesSecondInteractor.swift in Sources */,
 				2AADAFEC2221250900C8E144 /* SettingsRouter.swift in Sources */,
 				2AADAFDB22211F2700C8E144 /* RepeatsInteractor.swift in Sources */,
+				2AC6B0CC2223B9AE008552B0 /* WrongButton.swift in Sources */,
 				2AFFB5BB21FAB9710011FD82 /* ThemesTableView.swift in Sources */,
 				2AE8E79921D241D700B7A8A2 /* SoundButton.swift in Sources */,
 				2AFFB5C721FB0B860011FD82 /* ThemeWordDataManager.swift in Sources */,
@@ -1701,6 +1731,7 @@
 				2AADB00F22212F2100C8E144 /* ResultInteractor.swift in Sources */,
 				2AADAFF52221283600C8E144 /* StartInteractor.swift in Sources */,
 				2A3FAC0A21F41F3C0025B1A2 /* Badge.swift in Sources */,
+				2AC6B0CA2223B99A008552B0 /* WrongHintView.swift in Sources */,
 				2A5B63E421E3421500E7FD2E /* ThousandsViewModel.swift in Sources */,
 				2AADAFE8222124D200C8E144 /* SettingsInteractor.swift in Sources */,
 				2AADB03B222138CA00C8E144 /* ThemesSecondRouter.swift in Sources */,
@@ -1732,6 +1763,7 @@
 				2AE8E73821CFB58800B7A8A2 /* RepeatsView.swift in Sources */,
 				2A16D21421D4EF4E00B34013 /* SpellingSetup.swift in Sources */,
 				2AE8E71B21CF8F1400B7A8A2 /* TabBarView.swift in Sources */,
+				2AC6B0C72223B3FE008552B0 /* ForgetButton.swift in Sources */,
 				2AAD5DCC2221444000F77B26 /* InboxScrollView.swift in Sources */,
 				2AADB01122212F3400C8E144 /* ResultConfigurator.swift in Sources */,
 				2AADAFF72221284C00C8E144 /* StartConfigurator.swift in Sources */,

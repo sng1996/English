@@ -18,7 +18,7 @@ class RepeatsGrayHintView: UIView {
     
     let button = RepeatsGrayButton()
     
-    let tailImageView = ImageView(name: "Tail_white")
+    let tailImageView = ImageView(name: "TailDown_white")
     
     let container: UIView = {
         let view = UIView()

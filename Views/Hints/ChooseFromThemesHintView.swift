@@ -18,7 +18,7 @@ class ChooseFromThemesHintView: UIView {
         font: UIFont.book(18)
     )
     
-    let tailImageView = ImageView(name: "Tail_white")
+    let tailImageView = ImageView(name: "TailDown_white")
     
     let container: UIView = {
         let view = UIView()

@@ -1,23 +1,23 @@
 //
-//  WordsCountHintView.swift
+//  WrongHintView.swift
 //  English
 //
-//  Created by Сергей Гаврилко on 24/02/2019.
+//  Created by Сергей Гаврилко on 25/02/2019.
 //  Copyright © 2019 gavrilko. All rights reserved.
 //
 
 import UIKit
 
-class WordsCountHintView: UIView {
+class WrongHintView: UIView {
 
     let label = UILabel(
-        text: "Оптимальное количество слов для начала обучение: 5-10",
+        text: "Если вы ответили неправильно, слово нужно будет написать еще раз",
         color: UIColor(rgb: 0x626262),
         font: UIFont.book(18),
         alignment: .center
     )
     
-    let button = WordsCountButton()
+    let button = WrongButton()
     
     let container: UIView = {
         let view = UIView()
@@ -38,7 +38,6 @@ class WordsCountHintView: UIView {
     
     init() {
         super.init(frame: .zero)
-        backgroundColor = UIColor(rgb: 0xFFFFFF, a: 0.8)
         setupViews()
     }
     
@@ -47,16 +46,12 @@ class WordsCountHintView: UIView {
         container.addSubview(label)
         container.addSubview(button)
         
-        addConstraintsWithFormat(format: "H:|-\(Screen.sideInset + 10)-[v0]-\(Screen.sideInset + 10)-|", views: container)
+        addConstraintsWithFormat(format: "H:|[v0]|", views: container)
+        addConstraintsWithFormat(format: "V:|[v0]|", views: container)
         
         addConstraintsWithFormat(format: "H:|-20-[v0]-20-|", views: label)
         addConstraintsWithFormat(format: "V:|-20-[v0]-8-[v1]-15-|", views: label, button)
-        
-        NSLayoutConstraint.activate([
-            button.centerXAnchor.constraint(equalTo: centerXAnchor),
-            container.centerYAnchor.constraint(equalTo: centerYAnchor),
-        ])
 
+        button.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
-
 }
