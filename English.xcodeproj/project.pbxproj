@@ -101,6 +101,18 @@
 		2A5B63F421E496AE00E7FD2E /* CharacterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5B63F321E496AE00E7FD2E /* CharacterExtension.swift */; };
 		2A99A05622093EB000283D21 /* TranslateSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A99A05522093EB000283D21 /* TranslateSetup.swift */; };
 		2AA3A93A2224ED02005010EE /* TranslateSetupExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA3A9392224ED02005010EE /* TranslateSetupExtension.swift */; };
+		2AA3A93D2224EF11005010EE /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA3A93C2224EF11005010EE /* AddViewController.swift */; };
+		2AA3A93F2224EF24005010EE /* AddPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA3A93E2224EF24005010EE /* AddPresenter.swift */; };
+		2AA3A9412224EF2E005010EE /* AddInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA3A9402224EF2E005010EE /* AddInteractor.swift */; };
+		2AA3A9432224EF39005010EE /* AddRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA3A9422224EF39005010EE /* AddRouter.swift */; };
+		2AA3A9452224EF49005010EE /* AddConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA3A9442224EF49005010EE /* AddConfigurator.swift */; };
+		2AA3A9472224EF5D005010EE /* AddProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA3A9462224EF5D005010EE /* AddProtocols.swift */; };
+		2AA3A94A2224FC56005010EE /* AddHeaderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA3A9492224FC56005010EE /* AddHeaderTextField.swift */; };
+		2AA3A94C2224FD4A005010EE /* AddFooterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA3A94B2224FD4A005010EE /* AddFooterTextField.swift */; };
+		2AA3A94F22250F13005010EE /* AddSetupExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA3A94E22250F13005010EE /* AddSetupExtension.swift */; };
+		2AA3A95122250F58005010EE /* AddMethodsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA3A95022250F58005010EE /* AddMethodsExtension.swift */; };
+		2AA3A95322250F8D005010EE /* AddActionsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA3A95222250F8D005010EE /* AddActionsExtension.swift */; };
+		2AA3A95522250FE0005010EE /* AddDelegateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA3A95422250FE0005010EE /* AddDelegateExtensions.swift */; };
 		2AAD5DBE222143F500F77B26 /* InboxProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD5DB9222143F500F77B26 /* InboxProtocols.swift */; };
 		2AAD5DBF222143F500F77B26 /* InboxInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD5DBA222143F500F77B26 /* InboxInteractor.swift */; };
 		2AAD5DC0222143F500F77B26 /* InboxPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD5DBB222143F500F77B26 /* InboxPresenter.swift */; };
@@ -402,6 +414,18 @@
 		2A5B63F321E496AE00E7FD2E /* CharacterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterExtension.swift; sourceTree = "<group>"; };
 		2A99A05522093EB000283D21 /* TranslateSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateSetup.swift; sourceTree = "<group>"; };
 		2AA3A9392224ED02005010EE /* TranslateSetupExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateSetupExtension.swift; sourceTree = "<group>"; };
+		2AA3A93C2224EF11005010EE /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		2AA3A93E2224EF24005010EE /* AddPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPresenter.swift; sourceTree = "<group>"; };
+		2AA3A9402224EF2E005010EE /* AddInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInteractor.swift; sourceTree = "<group>"; };
+		2AA3A9422224EF39005010EE /* AddRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRouter.swift; sourceTree = "<group>"; };
+		2AA3A9442224EF49005010EE /* AddConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddConfigurator.swift; sourceTree = "<group>"; };
+		2AA3A9462224EF5D005010EE /* AddProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProtocols.swift; sourceTree = "<group>"; };
+		2AA3A9492224FC56005010EE /* AddHeaderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHeaderTextField.swift; sourceTree = "<group>"; };
+		2AA3A94B2224FD4A005010EE /* AddFooterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFooterTextField.swift; sourceTree = "<group>"; };
+		2AA3A94E22250F13005010EE /* AddSetupExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSetupExtension.swift; sourceTree = "<group>"; };
+		2AA3A95022250F58005010EE /* AddMethodsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMethodsExtension.swift; sourceTree = "<group>"; };
+		2AA3A95222250F8D005010EE /* AddActionsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActionsExtension.swift; sourceTree = "<group>"; };
+		2AA3A95422250FE0005010EE /* AddDelegateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDelegateExtensions.swift; sourceTree = "<group>"; };
 		2AAD5DB9222143F500F77B26 /* InboxProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InboxProtocols.swift; path = English/VIPER/Inbox/InboxProtocols.swift; sourceTree = SOURCE_ROOT; };
 		2AAD5DBA222143F500F77B26 /* InboxInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InboxInteractor.swift; path = English/VIPER/Inbox/InboxInteractor.swift; sourceTree = SOURCE_ROOT; };
 		2AAD5DBB222143F500F77B26 /* InboxPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InboxPresenter.swift; path = English/VIPER/Inbox/InboxPresenter.swift; sourceTree = SOURCE_ROOT; };
@@ -774,6 +798,46 @@
 			path = TranslateViewController;
 			sourceTree = "<group>";
 		};
+		2AA3A93B2224EED5005010EE /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				2AA3A94D22250EFD005010EE /* AddViewController */,
+				2AA3A93E2224EF24005010EE /* AddPresenter.swift */,
+				2AA3A9402224EF2E005010EE /* AddInteractor.swift */,
+				2AA3A9422224EF39005010EE /* AddRouter.swift */,
+				2AA3A9442224EF49005010EE /* AddConfigurator.swift */,
+				2AA3A9462224EF5D005010EE /* AddProtocols.swift */,
+				2AA3A9482224FC34005010EE /* Views */,
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
+		2AA3A9482224FC34005010EE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2AA3A9492224FC56005010EE /* AddHeaderTextField.swift */,
+				2AA3A94B2224FD4A005010EE /* AddFooterTextField.swift */,
+				2AE8E76D21D0E49800B7A8A2 /* AddButtonsView.swift */,
+				2AE8E76F21D0E4B300B7A8A2 /* AddButtonSave.swift */,
+				2AE8E77121D0E4C700B7A8A2 /* AddButtonCancel.swift */,
+				2AE8E77D21D1DC3500B7A8A2 /* AddTableView.swift */,
+				2AE8E77F21D1E19300B7A8A2 /* AddCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2AA3A94D22250EFD005010EE /* AddViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2AA3A93C2224EF11005010EE /* AddViewController.swift */,
+				2AA3A94E22250F13005010EE /* AddSetupExtension.swift */,
+				2AA3A95022250F58005010EE /* AddMethodsExtension.swift */,
+				2AA3A95222250F8D005010EE /* AddActionsExtension.swift */,
+				2AA3A95422250FE0005010EE /* AddDelegateExtensions.swift */,
+			);
+			path = AddViewController;
+			sourceTree = "<group>";
+		};
 		2AAD5DD32221444300F77B26 /* InboxViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -812,6 +876,7 @@
 			children = (
 				2AFC5F132223CAAF00F8677F /* Main */,
 				2AFC5F232223E6FA00F8677F /* Translate */,
+				2AA3A93B2224EED5005010EE /* Add */,
 				2AADAFBE2221138200C8E144 /* Inbox */,
 				2AADB025222134CD00C8E144 /* SingleTheme */,
 				2AADB024222134BC00C8E144 /* ThemesSecond */,
@@ -1290,11 +1355,6 @@
 				2AE8E75F21D0C7BA00B7A8A2 /* AddView.swift */,
 				2AE8E76521D0D12900B7A8A2 /* AddViewExtension.swift */,
 				2AE8E76721D0D20300B7A8A2 /* AddViewDelegate.swift */,
-				2AE8E76D21D0E49800B7A8A2 /* AddButtonsView.swift */,
-				2AE8E76F21D0E4B300B7A8A2 /* AddButtonSave.swift */,
-				2AE8E77121D0E4C700B7A8A2 /* AddButtonCancel.swift */,
-				2AE8E77D21D1DC3500B7A8A2 /* AddTableView.swift */,
-				2AE8E77F21D1E19300B7A8A2 /* AddCell.swift */,
 			);
 			path = Add;
 			sourceTree = "<group>";
@@ -1654,10 +1714,12 @@
 				2AFC5F2F2223E7A700F8677F /* TranslateProtocols.swift in Sources */,
 				2AE8E71D21CF8F7D00B7A8A2 /* Constants.swift in Sources */,
 				2A084DE0222299210016F208 /* AddHintView.swift in Sources */,
+				2AA3A95522250FE0005010EE /* AddDelegateExtensions.swift in Sources */,
 				2AFFB5BD21FABBE30011FD82 /* ThemesCardView.swift in Sources */,
 				2AAD5DCF2221444000F77B26 /* InboxCollectionViewExtension.swift in Sources */,
 				2AE8E78A21D22C2300B7A8A2 /* TranslatesView.swift in Sources */,
 				2AADB00222212B7900C8E144 /* ChoosingInteractor.swift in Sources */,
+				2AA3A94C2224FD4A005010EE /* AddFooterTextField.swift in Sources */,
 				2AADB04722213D7900C8E144 /* SingleThemeRouter.swift in Sources */,
 				2AADAFF32221282100C8E144 /* StartPresenter.swift in Sources */,
 				2AE8E77A21D1C0D800B7A8A2 /* Word.swift in Sources */,
@@ -1666,7 +1728,9 @@
 				2AFC5F222223E66C00F8677F /* TranslateViewDataModel.swift in Sources */,
 				2AADAFDD22211F5500C8E144 /* RepeatsPresenter.swift in Sources */,
 				2AFFB5C521FB015D0011FD82 /* ThemeWordData+CoreDataProperties.swift in Sources */,
+				2AA3A93D2224EF11005010EE /* AddViewController.swift in Sources */,
 				2AE8E79B21D25CFE00B7A8A2 /* TranslateDeleteButton.swift in Sources */,
+				2AA3A9412224EF2E005010EE /* AddInteractor.swift in Sources */,
 				2AADB02B222135D800C8E144 /* NewThemeInteractor.swift in Sources */,
 				2AADB02D222135EA00C8E144 /* NewThemeConfigurator.swift in Sources */,
 				2AFD90722222838A00D42274 /* ChoosingCollectionView.swift in Sources */,
@@ -1683,6 +1747,7 @@
 				2AE8E73C21CFB61200B7A8A2 /* UILabelExtension.swift in Sources */,
 				2A16D21621D4EF6700B34013 /* SpellingExtension.swift in Sources */,
 				2A16D20F21D4E18400B34013 /* ResultReturnButton.swift in Sources */,
+				2AA3A95322250F8D005010EE /* AddActionsExtension.swift in Sources */,
 				2AADB00D22212F1000C8E144 /* ResultPresenter.swift in Sources */,
 				2AAD5DD722214AB300F77B26 /* RepeatsTableView.swift in Sources */,
 				2A3FAC1D21F6E7A00025B1A2 /* SingleThemeCheckbox.swift in Sources */,
@@ -1719,6 +1784,7 @@
 				2AAD5DCE2221444000F77B26 /* InboxEmptyView.swift in Sources */,
 				2A16D1E321D34AF000B34013 /* StartView.swift in Sources */,
 				2A16D1ED21D37D3700B34013 /* StartButton.swift in Sources */,
+				2AA3A94A2224FC56005010EE /* AddHeaderTextField.swift in Sources */,
 				2ABB914821FD5661003E1521 /* ThemesSecondExtension.swift in Sources */,
 				2A3170A122211D050038DE7D /* NotificationHintView.swift in Sources */,
 				2A16D22821D62BE800B34013 /* ArchiveView.swift in Sources */,
@@ -1760,6 +1826,7 @@
 				2AE8E7A321D26AA600B7A8A2 /* WordDataService.swift in Sources */,
 				2AADB04922213D8800C8E144 /* SingleThemeProtocols.swift in Sources */,
 				2AE8E74D21D09F9900B7A8A2 /* ViewControllerSetup.swift in Sources */,
+				2AA3A9432224EF39005010EE /* AddRouter.swift in Sources */,
 				2AADB01C2221329000C8E144 /* SpellingInteractor.swift in Sources */,
 				2AE8E77021D0E4B300B7A8A2 /* AddButtonSave.swift in Sources */,
 				2AE8E78F21D235CF00B7A8A2 /* TranslateView.swift in Sources */,
@@ -1817,6 +1884,7 @@
 				2ABB914421FD5502003E1521 /* ThemesSecondSetup.swift in Sources */,
 				2A3FAC1521F5A0800025B1A2 /* SingleThemeAddButton.swift in Sources */,
 				2AE8E71F21CF92EC00B7A8A2 /* Line.swift in Sources */,
+				2AA3A93F2224EF24005010EE /* AddPresenter.swift in Sources */,
 				2A16D1FC21D455CC00B34013 /* ChoosingSetup.swift in Sources */,
 				2AADAFFB2221287100C8E144 /* StartProtocols.swift in Sources */,
 				2AE8E78621D1F17A00B7A8A2 /* Keyboard.swift in Sources */,
@@ -1839,6 +1907,7 @@
 				2A3170A022211D050038DE7D /* RememberHintButton.swift in Sources */,
 				2A197CAE2216897600CD239B /* NewThemeCell.swift in Sources */,
 				2A5B63F021E4851000E7FD2E /* RoundView.swift in Sources */,
+				2AA3A9472224EF5D005010EE /* AddProtocols.swift in Sources */,
 				2AFFB5B921FA9EA10011FD82 /* ThemesService.swift in Sources */,
 				2AFC5F1F2223CB6500F8677F /* MainProtocols.swift in Sources */,
 				2AADB00F22212F2100C8E144 /* ResultInteractor.swift in Sources */,
@@ -1853,6 +1922,7 @@
 				2AE8E74F21D0A3B600B7A8A2 /* TabBarButtonType.swift in Sources */,
 				2A5B63E221E340F300E7FD2E /* ThousandsDelegate.swift in Sources */,
 				2AADB039222138BD00C8E144 /* ThemesSecondConfigurator.swift in Sources */,
+				2AA3A9452224EF49005010EE /* AddConfigurator.swift in Sources */,
 				2AE8E77221D0E4C700B7A8A2 /* AddButtonCancel.swift in Sources */,
 				2A3170A5222121870038DE7D /* ChooseFromThemesHintView.swift in Sources */,
 				2AE8E75121D0A72F00B7A8A2 /* TabBarSetup.swift in Sources */,
@@ -1884,11 +1954,13 @@
 				2AFC5F1D2223CB4100F8677F /* MainRouter.swift in Sources */,
 				2AFFB5B321F82D830011FD82 /* SingleThemeDelegate.swift in Sources */,
 				2AE8E72B21CFACEA00B7A8A2 /* TabBarActions.swift in Sources */,
+				2AA3A94F22250F13005010EE /* AddSetupExtension.swift in Sources */,
 				2AE8E6E121CF894200B7A8A2 /* English.xcdatamodeld in Sources */,
 				2AAD5DBE222143F500F77B26 /* InboxProtocols.swift in Sources */,
 				2AADAFD722211DFA00C8E144 /* RepeatsViewController.swift in Sources */,
 				2AAD5DCB2221444000F77B26 /* WordCell.swift in Sources */,
 				2A084DD6222281BB0016F208 /* RepeatsHintView.swift in Sources */,
+				2AA3A95122250F58005010EE /* AddMethodsExtension.swift in Sources */,
 				2A197CA522165A2000CD239B /* InboxHint.swift in Sources */,
 				2AE8E72D21CFAF2F00B7A8A2 /* Button.swift in Sources */,
 				2A16D1F821D455B500B34013 /* ChoosingView.swift in Sources */,

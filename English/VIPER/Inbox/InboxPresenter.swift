@@ -49,4 +49,16 @@ extension InboxPresenter: InboxPresenterProtocol {
         return WordCellDataModel(word, isActive: isActive)
     }
     
+    func scrollViewDidScroll(contentOffset: CGFloat) {
+        router.addViewDidDragging(contentOffset)
+    }
+    
+    func scrollViewDidEndDragging(contentOffset: CGFloat) {
+        router.addViewDidEndDragging(contentOffset)
+    }
+    
+    func scrollViewWillBeginDragging() {
+        router.presentAddViewController()
+    }
+    
 }

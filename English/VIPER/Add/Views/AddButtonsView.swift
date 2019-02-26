@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddButtonsViewDelegate {
-    func didTapSaveButton()
+    func didTapSaveButton(with mode: SaveButtonMode)
     func didTapCancelButton()
 }
 
@@ -28,6 +28,15 @@ class AddButtonsView: UIView {
     let cancelButton = AddButtonCancel()
     
     var delegate: AddButtonsViewDelegate!
+    
+    var currentMode: SaveButtonMode {
+        get {
+            return saveButton.currentMode
+        }
+        set {
+            saveButton.currentMode = newValue
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -52,13 +61,15 @@ class AddButtonsView: UIView {
         addConstraintsWithFormat(format: "V:|[v0]|", views: stackView)
     }
     
-    @objc
-    func save() {
-        delegate.didTapSaveButton()
+    func currentModeToInit() {
+        saveButton.currentMode = .arrow
     }
     
-    @objc
-    func cancel() {
+    @objc func save() {
+        delegate.didTapSaveButton(with: currentMode)
+    }
+    
+    @objc func cancel() {
         delegate.didTapCancelButton()
     }
 

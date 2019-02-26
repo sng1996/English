@@ -8,13 +8,22 @@
 
 import UIKit
 
+class AddCellDataModel {
+    
+    var text: String
+    
+    init(_ word: Word) {
+        text = word.original
+    }
+    
+}
+
 class AddCell: UITableViewCell {
     
     var sourceItem: Any? {
         didSet {
-            guard let word = sourceItem as? Word else { return }
-            headerLabel.text = word.original
-            //footerLabel.text = word.translate
+            guard let model = sourceItem as? AddCellDataModel else { return }
+            headerLabel.text = model.original
         }
     }
     

@@ -27,23 +27,9 @@ class InboxViewController: UIView {
     
     let cv = InboxCollectionView()
     
-    let addView = AddView()
-    
     let emptyView = InboxEmptyView()
     
     var cvHeightAnchor: NSLayoutConstraint!
-    
-    var coef: CGFloat {
-        get {
-            return addView.frame.height / (addView.frame.height - Screen.safeTop + 10)
-        }
-    }
-    
-    var blurView: BlurView? {
-        didSet {
-            addView.blurView = blurView
-        }
-    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -57,35 +43,38 @@ class InboxViewController: UIView {
     
     //  MARK: Methods
     
+    func createBlurView() -> BlurView {
+        let blurView = BlurView()
+        blurView.frame = scrollView.bounds
+        scrollView.addSubview(blurView)
+        return blurView
+    }
+    
+    //  MARK: Actions
+    
     func viewDidAppear() {
         presenter.configureView()
     }
     
     func didCloseTranslateView() {
         scrollView.isActive = true
-        presenter.configureView()
+        viewDidAppear()
     }
     
-    func createBlurView() {
-        removeBlurView()
-        
-        let blurView = BlurView()
-        blurView.frame = scrollView.bounds
-        scrollView.addSubview(blurView)
-        self.blurView = blurView
+    func didCloseAddView() {
+        viewDidAppear()
     }
-    
-    func removeBlurView() {
-        if let blurView = blurView {
-            blurView.removeFromSuperview()
-            self.blurView = nil
-        }
-    }
-    
-    //  MARK: Actions
     
     func didTapStartButton() {
         
+    }
+    
+    func changeScrollViewContentOffset(value: CGFloat) {
+        scrollView.contentOffset.y = value
+    }
+    
+    func fixScrollViewContentOffset(value: CGFloat) {
+        scrollView.fix(at: value)
     }
     
 }
@@ -110,21 +99,6 @@ extension InboxViewController: InboxViewProtocol {
     
     func hideStartButton() {
         ViewController.tabBarView.hideStartButton()
-    }
-    
-}
-
-extension InboxViewController: AddViewDelegate {
-    
-    func didCloseAddView() {
-        guard let blurView = blurView else { return }
-        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
-            self.scrollView.fix(at: 0)
-            blurView.alpha = 0.0
-        }, completion: { finished in
-            self.removeBlurView()
-        })
-        presenter.configureView()
     }
     
 }

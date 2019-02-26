@@ -15,7 +15,7 @@ class Word: NSObject {
     var translates: [Translate]
     var data: WordData?
     
-    init(original: String, translate: String, translates: [Translate] = [], data: WordData? = nil) {
+    init(original: String, translate: String = "", translates: [Translate] = [], data: WordData? = nil) {
         self.original = original
         self.translate = translate
         self.translates = translates

@@ -21,6 +21,9 @@ protocol InboxPresenterProtocol: class {
     func collectionViewDidSelectItemAt(_ indexPath: IndexPath)
     func collectionViewNumberOfItems() -> Int
     func collectionViewDataForItemAt(_ indexPath: IndexPath) -> WordCellDataModel
+    func scrollViewDidScroll(contentOffset: CGFloat)
+    func scrollViewDidEndDragging(contentOffset: CGFloat)
+    func scrollViewWillBeginDragging()
 }
 
 protocol InboxInteractorProtocol: class {
@@ -30,6 +33,9 @@ protocol InboxInteractorProtocol: class {
 
 protocol InboxRouterProtocol: class {
     func presentTranslateViewController(with data: WordData)
+    func presentAddViewController()
+    func addViewDidDragging(_ contentOffset: CGFloat)
+    func addViewDidEndDragging(_ contentOffset: CGFloat)
 }
 
 protocol InboxConfiguratorProtocol: class {

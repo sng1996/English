@@ -9,7 +9,7 @@
 import UIKit
 
 protocol TranslatesViewDelegate {
-    func changeTranslate(_ text: String)
+    func didChangeTranslate(with text: String)
 }
 
 class TranslatesView: UIView {
@@ -105,7 +105,7 @@ class TranslatesView: UIView {
         }
     }
     
-    func close() {
+    func hide() {
         for view in views {
             view.removeFromSuperview()
         }

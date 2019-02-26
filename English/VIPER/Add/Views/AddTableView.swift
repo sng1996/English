@@ -9,7 +9,9 @@
 import UIKit
 
 protocol AddTableViewDelegate {
-    func didChooseWord(_ word: Word?)
+    func tableViewDidSelectRowAt(_ indexPath: IndexPath)
+    func tableViewNumberOfRows() -> Int
+    func tableViewDataForRowAt(_ indexPath: IndexPath) -> AddCellDataModel
 }
 
 class AddTableView: UIView {
@@ -28,8 +30,6 @@ class AddTableView: UIView {
         return tableView
     }()
     
-    var words: [Word] = []
-    
     var heightConstraint: NSLayoutConstraint!
     var maxHeight: CGFloat = 0.0
     var delegate: AddTableViewDelegate!
@@ -46,6 +46,7 @@ class AddTableView: UIView {
     func setupViews() {
         tv.delegate = self
         tv.dataSource = self
+        
         addSubview(tv)
         
         addConstraintsWithFormat(format: "H:|[v0]|", views: tv)
@@ -54,6 +55,11 @@ class AddTableView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         heightConstraint = heightAnchor.constraint(equalToConstant: 0)
         heightConstraint.isActive = true
+    }
+    
+    func updateConstraint() {
+        heightConstraint.constant = min(tv.contentSize.height + 10, maxHeight)
+        layoutIfNeeded()
     }
     
     func show() {
@@ -69,33 +75,16 @@ class AddTableView: UIView {
         layoutIfNeeded()
     }
     
-    func setData(_ words: [Word]) {
-        self.words = words
-        if words.count == 0 { hide() }
-        reloadData()
-    }
-    
     func reloadData() {
         tv.reloadData()
-    }
-    
-    func getFirst() -> Word? {
-        if !words.isEmpty && heightConstraint.constant > 0 {
-            return words[0]
-        }
-        return nil
     }
     
 }
 
 extension AddTableView: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate.didChooseWord(words[indexPath.row])
+        delegate.tableViewDidSelectRowAt(indexPath)
     }
     
 }
@@ -103,15 +92,15 @@ extension AddTableView: UITableViewDelegate {
 extension AddTableView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return words.count
+        let count = delegate.tableViewNumberOfRows()
+        if count == 0 { hide() }
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AddCell", for: indexPath) as! AddCell
-        cell.sourceItem = words[indexPath.row]
-        
-        heightConstraint.constant = min(tableView.contentSize.height + 10, maxHeight)
-        layoutIfNeeded()
+        cell.sourceItem = delegate.tableViewDataForRowAt(indexPath)
+        updateConstraint()
         return cell
     }
     

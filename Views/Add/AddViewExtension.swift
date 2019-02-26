@@ -10,15 +10,15 @@ import UIKit
 
 extension AddView {
     
-    func updateBottomConstraint(with constant: CGFloat) {
-        bottomConstraint.constant = constant
-        superview!.layoutIfNeeded()
-    }
+//    func updateBottomConstraint(with constant: CGFloat) {
+//        bottomConstraint.constant = constant
+//        superview!.layoutIfNeeded()
+//    }
     
-    func updateConstraintsForOpenState() {
-        bottomConstraint.isActive = false
-        topConstraint.isActive = true
-    }
+//    func updateConstraintsForOpenState() {
+//        bottomConstraint.isActive = false
+//        topConstraint.isActive = true
+//    }
     
     func showHeaderField(_ text: String) {
         headerTextField.text = text
@@ -28,19 +28,19 @@ extension AddView {
         headerTextField.text = ""
     }
     
-    func showFooterField(_ text: String) {
-        footerHeightConstraint.isActive = false
-        footerTextField.text = text
-    }
+//    func showFooterField(_ text: String) {
+//        footerHeightConstraint.isActive = false
+//        footerTextField.text = text
+//    }
     
-    func hideFooterField() {
-        footerHeightConstraint.isActive = true
-        footerTextField.text = ""
-    }
+//    func hideFooterField() {
+//        footerHeightConstraint.isActive = true
+//        footerTextField.text = ""
+//    }
     
-    func activateHeader() {
-        headerTextField.becomeFirstResponder()
-    }
+//    func activateHeader() {
+//        headerTextField.becomeFirstResponder()
+//    }
     
     func activateFooter() {
         footerTextField.becomeFirstResponder()
@@ -51,9 +51,9 @@ extension AddView {
         footerTextField.resignFirstResponder()
     }
     
-    func hideTableView() {
-        addTableView.hide()
-    }
+//    func hideTableView() {
+//        addTableView.hide()
+//    }
     
     func updateTableView(_ data: [Word]) {
         addTableView.show()
@@ -64,9 +64,9 @@ extension AddView {
         translatesView.sourceItem = vm.word
     }
     
-    func hideTranslatesView() {
-        translatesView.close()
-    }
+//    func hideTranslatesView() {
+//        translatesView.close()
+//    }
     
     func hide() {
         bottomConstraint.constant = 0

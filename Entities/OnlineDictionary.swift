@@ -24,7 +24,7 @@ extension StringProtocol {
 }
 
 protocol OnlineDictionaryDelegate {
-    func didFinishTranslate(_ word: Word?)
+    func didFinishTranslate(_ word: Word)
 }
 
 class OnlineDictionary: NSObject {
@@ -60,7 +60,7 @@ class OnlineDictionary: NSObject {
                         dictionary = (try JSONSerialization.jsonObject(with: d, options: []) as? [AnyObject])!
                     } catch let error as NSError {
                         print(error)
-                        self.delegate.didFinishTranslate(nil)
+                        self.delegate.didFinishTranslate(Word(original: text))
                         return
                     }
                 }
@@ -70,12 +70,12 @@ class OnlineDictionary: NSObject {
                 
                 guard let translateItem = main[0] as? [AnyObject] else {
                     print("Слово не найдено")
-                    self.delegate.didFinishTranslate(nil)
+                    self.delegate.didFinishTranslate(Word(original: text))
                     return
                 }
                 guard let translate = translateItem[0] as? String else {
                     print("Слово не найдено")
-                    self.delegate.didFinishTranslate(nil)
+                    self.delegate.didFinishTranslate(Word(original: text))
                     return
                 }
                 
@@ -91,7 +91,7 @@ class OnlineDictionary: NSObject {
                 
             case .failure(let error):
                 print("ERROR: \(text), \(tk)")
-                self.delegate.didFinishTranslate(nil)
+                self.delegate.didFinishTranslate(Word(original: text))
                 print(error)
             }
             
@@ -146,7 +146,7 @@ class OnlineDictionary: NSObject {
                 self.translate(text, language: language, tk: tk)
                 
             case .failure(let error):
-                self.delegate.didFinishTranslate(nil)
+                self.delegate.didFinishTranslate(Word(original: text))
                 print(error)
             }
             

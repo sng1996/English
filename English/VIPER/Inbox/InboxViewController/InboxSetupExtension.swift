@@ -13,13 +13,11 @@ extension InboxViewController {
     func setupViews() {
         backgroundColor = .white
         
-        addView.delegate = self
         scrollView.delegate = self
         cv.delegate = self
         cv.dataSource = self
         
         addSubview(scrollView)
-        addSubview(addView)
         scrollView.addSubview(scrollContainer)
         scrollView.addSubview(emptyView)
         scrollContainer.addSubview(labelContainer)
@@ -30,11 +28,6 @@ extension InboxViewController {
         
         addConstraintsWithFormat(format: "H:|[v0]|", views: scrollView)
         addConstraintsWithFormat(format: "V:|[v0]|", views: scrollView)
-        
-        addConstraintsWithFormat(format: "H:|[v0]|", views: addView)
-        addView.bottomConstraint = addView.bottomAnchor.constraint(equalTo: topAnchor, constant: 0)
-        addView.topConstraint = addView.topAnchor.constraint(equalTo: topAnchor)
-        addView.bottomConstraint.isActive = true
         
         addConstraintsWithFormat(format: "H:|[v0(\(Screen.width))]|", views: scrollContainer)
         addConstraintsWithFormat(format: "V:|[v0]|", views: scrollContainer)

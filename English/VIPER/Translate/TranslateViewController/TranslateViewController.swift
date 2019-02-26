@@ -66,6 +66,18 @@ class TranslateViewController: UIView {
     
     //  MARK: Methods
     
+    func animateLayout(complete: (() -> ())? = nil) {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
+            self.layoutIfNeeded()
+        }, completion: { finished in
+            if let complete = complete {
+                complete()
+            }
+        })
+    }
+    
+    //  MARK: Actions
+    
     func viewDidAppear() {
         presenter.configureView()
         isHidden = false
@@ -79,18 +91,6 @@ class TranslateViewController: UIView {
             self.removeFromSuperview()
         })
     }
-    
-    func animateLayout(complete: (() -> ())? = nil) {
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
-            self.layoutIfNeeded()
-        }, completion: { finished in
-            if let complete = complete {
-                complete()
-            }
-        })
-    }
-    
-    //  MARK: Actions
     
     func didTapDeleteButton() {
         presenter.didTapDeleteButton()
