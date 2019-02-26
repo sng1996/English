@@ -9,13 +9,11 @@
 import UIKit
 
 protocol InboxViewProtocol: class {
-    func viewDidAppear()
     func update()
     func showEmptyView()
     func hideEmptyView()
     func showStartButton()
     func hideStartButton()
-    func openTranslateView(with model: TranslateViewDataModel)
 }
 
 protocol InboxPresenterProtocol: class {
@@ -31,7 +29,7 @@ protocol InboxInteractorProtocol: class {
 }
 
 protocol InboxRouterProtocol: class {
-    
+    func presentTranslateViewController(with data: WordData)
 }
 
 protocol InboxConfiguratorProtocol: class {

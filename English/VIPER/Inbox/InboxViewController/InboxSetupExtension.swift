@@ -14,14 +14,12 @@ extension InboxViewController {
         backgroundColor = .white
         
         addView.delegate = self
-        translateView.delegate = self
         scrollView.delegate = self
         cv.delegate = self
         cv.dataSource = self
         
         addSubview(scrollView)
         addSubview(addView)
-        addSubview(translateView)
         scrollView.addSubview(scrollContainer)
         scrollView.addSubview(emptyView)
         scrollContainer.addSubview(labelContainer)
@@ -32,9 +30,6 @@ extension InboxViewController {
         
         addConstraintsWithFormat(format: "H:|[v0]|", views: scrollView)
         addConstraintsWithFormat(format: "V:|[v0]|", views: scrollView)
-        
-        addConstraintsWithFormat(format: "H:|[v0]|", views: translateView)
-        addConstraintsWithFormat(format: "V:|[v0]|", views: translateView)
         
         addConstraintsWithFormat(format: "H:|[v0]|", views: addView)
         addView.bottomConstraint = addView.bottomAnchor.constraint(equalTo: topAnchor, constant: 0)

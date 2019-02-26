@@ -29,8 +29,6 @@ class InboxViewController: UIView {
     
     let addView = AddView()
     
-    let translateView = TranslateView()
-    
     let emptyView = InboxEmptyView()
     
     var cvHeightAnchor: NSLayoutConstraint!
@@ -59,6 +57,15 @@ class InboxViewController: UIView {
     
     //  MARK: Methods
     
+    func viewDidAppear() {
+        presenter.configureView()
+    }
+    
+    func didCloseTranslateView() {
+        scrollView.isActive = true
+        presenter.configureView()
+    }
+    
     func createBlurView() {
         removeBlurView()
         
@@ -85,10 +92,6 @@ class InboxViewController: UIView {
 
 extension InboxViewController: InboxViewProtocol {
     
-    func viewDidAppear() {
-        presenter.configureView()
-    }
-    
     func update() {
         cv.reloadData()
     }
@@ -109,10 +112,6 @@ extension InboxViewController: InboxViewProtocol {
         ViewController.tabBarView.hideStartButton()
     }
     
-    func openTranslateView(with model: TranslateViewDataModel) {
-        translateView.open(with: model)
-    }
-    
 }
 
 extension InboxViewController: AddViewDelegate {
@@ -125,15 +124,6 @@ extension InboxViewController: AddViewDelegate {
         }, completion: { finished in
             self.removeBlurView()
         })
-        presenter.configureView()
-    }
-    
-}
-
-extension InboxViewController: TranslateViewDelegate {
-    
-    func didCloseTranslateView() {
-        scrollView.isActive = true
         presenter.configureView()
     }
     

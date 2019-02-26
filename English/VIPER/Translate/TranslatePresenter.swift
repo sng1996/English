@@ -21,4 +21,23 @@ class TranslatePresenter {
 }
 
 extension TranslatePresenter: TranslatePresenterProtocol {
+    
+    func configureView() {
+        let word = interactor.word
+        view.sourceItem = TranslateViewDataModel(word)
+    }
+    
+    func didTapDeleteButton() {
+        interactor.delete()
+        router.close()
+    }
+    
+    func didTapSoundButton() {
+        interactor.play()
+    }
+    
+    func didSwipeView() {
+        router.close()
+    }
+    
 }

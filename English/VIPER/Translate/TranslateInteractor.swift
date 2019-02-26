@@ -8,14 +8,27 @@
 
 import UIKit
 
-class TranslateInteractor: UIView {
+class TranslateInteractor: ServiceProvider {
 
     weak var presenter: TranslatePresenterProtocol!
+    var word: WordData
     
-    required init(presenter: TranslatePresenterProtocol) {
+    let speechService = SpeechService()
+    
+    required init(presenter: TranslatePresenterProtocol, data: WordData) {
         self.presenter = presenter
+        word = data
     }
 }
 
 extension TranslateInteractor: TranslateInteractorProtocol {
+    
+    func delete() {
+        wordDataService.delete(word)
+    }
+    
+    func play() {
+        speechService.play(word.original!)
+    }
+    
 }

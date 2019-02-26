@@ -20,4 +20,13 @@ class InboxRouter {
 
 extension InboxRouter: InboxRouterProtocol {
     
+    func presentTranslateViewController(with data: WordData) {
+        let translateViewController = TranslateViewController(with: data)
+        viewController.addSubview(translateViewController)
+        viewController.addConstraintsWithFormat(format: "H:|[v0]|", views: translateViewController)
+        viewController.addConstraintsWithFormat(format: "V:|[v0]|", views: translateViewController)
+        translateViewController.viewDidAppear()
+        ViewController.tabBarView.hide()
+    }
+    
 }

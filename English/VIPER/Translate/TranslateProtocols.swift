@@ -9,17 +9,26 @@
 import UIKit
 
 protocol TranslateViewProtocol: class {
+    var sourceItem: Any? { get set }
 }
 
 protocol TranslatePresenterProtocol: class {
+    func configureView()
+    func didTapDeleteButton()
+    func didTapSoundButton()
+    func didSwipeView()
 }
 
 protocol TranslateInteractorProtocol: class {
+    var word: WordData { get set }
+    func delete()
+    func play()
 }
 
 protocol TranslateRouterProtocol: class {
+    func close()
 }
 
 protocol TranslateConfiguratorProtocol: class {
-    func configure(with viewController: TranslateViewController)
+    func configure(with viewController: TranslateViewController, data: WordData)
 }

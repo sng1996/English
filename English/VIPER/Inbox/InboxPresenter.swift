@@ -36,8 +36,7 @@ extension InboxPresenter: InboxPresenterProtocol {
     
     func collectionViewDidSelectItemAt(_ indexPath: IndexPath) {
         let word = interactor.itemAt(indexPath.row)
-        let model = TranslateViewDataModel(word)
-        view.openTranslateView(with: model)
+        router.presentTranslateViewController(with: word)
     }
     
     func collectionViewNumberOfItems() -> Int {

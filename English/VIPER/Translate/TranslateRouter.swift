@@ -20,4 +20,15 @@ class TranslateRouter {
 
 extension TranslateRouter: TranslateRouterProtocol {
     
+    func close() {
+        if let inboxViewController = viewController.superview as? InboxViewController {
+            inboxViewController.didCloseTranslateView()
+        }
+        if let repeatsViewController = viewController.superview as? RepeatsViewController {
+            repeatsViewController.didCloseTranslateView()
+        }
+        viewController.viewWillDisappear()
+        ViewController.tabBarView.show()
+    }
+    
 }

@@ -100,6 +100,7 @@
 		2A5B63F221E48C8A00E7FD2E /* OnlineDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5B63F121E48C8A00E7FD2E /* OnlineDictionary.swift */; };
 		2A5B63F421E496AE00E7FD2E /* CharacterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5B63F321E496AE00E7FD2E /* CharacterExtension.swift */; };
 		2A99A05622093EB000283D21 /* TranslateSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A99A05522093EB000283D21 /* TranslateSetup.swift */; };
+		2AA3A93A2224ED02005010EE /* TranslateSetupExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA3A9392224ED02005010EE /* TranslateSetupExtension.swift */; };
 		2AAD5DBE222143F500F77B26 /* InboxProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD5DB9222143F500F77B26 /* InboxProtocols.swift */; };
 		2AAD5DBF222143F500F77B26 /* InboxInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD5DBA222143F500F77B26 /* InboxInteractor.swift */; };
 		2AAD5DC0222143F500F77B26 /* InboxPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD5DBB222143F500F77B26 /* InboxPresenter.swift */; };
@@ -266,7 +267,7 @@
 		2AFC5F1D2223CB4100F8677F /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFC5F1C2223CB4100F8677F /* MainRouter.swift */; };
 		2AFC5F1F2223CB6500F8677F /* MainProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFC5F1E2223CB6500F8677F /* MainProtocols.swift */; };
 		2AFC5F222223E66C00F8677F /* TranslateViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFC5F212223E66C00F8677F /* TranslateViewDataModel.swift */; };
-		2AFC5F252223E71300F8677F /* TranlsateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFC5F242223E71300F8677F /* TranlsateViewController.swift */; };
+		2AFC5F252223E71300F8677F /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFC5F242223E71300F8677F /* TranslateViewController.swift */; };
 		2AFC5F272223E72900F8677F /* TranslatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFC5F262223E72900F8677F /* TranslatePresenter.swift */; };
 		2AFC5F292223E73600F8677F /* TranslateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFC5F282223E73600F8677F /* TranslateInteractor.swift */; };
 		2AFC5F2B2223E74F00F8677F /* TranslateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFC5F2A2223E74F00F8677F /* TranslateRouter.swift */; };
@@ -400,6 +401,7 @@
 		2A5B63F121E48C8A00E7FD2E /* OnlineDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineDictionary.swift; sourceTree = "<group>"; };
 		2A5B63F321E496AE00E7FD2E /* CharacterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterExtension.swift; sourceTree = "<group>"; };
 		2A99A05522093EB000283D21 /* TranslateSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateSetup.swift; sourceTree = "<group>"; };
+		2AA3A9392224ED02005010EE /* TranslateSetupExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateSetupExtension.swift; sourceTree = "<group>"; };
 		2AAD5DB9222143F500F77B26 /* InboxProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InboxProtocols.swift; path = English/VIPER/Inbox/InboxProtocols.swift; sourceTree = SOURCE_ROOT; };
 		2AAD5DBA222143F500F77B26 /* InboxInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InboxInteractor.swift; path = English/VIPER/Inbox/InboxInteractor.swift; sourceTree = SOURCE_ROOT; };
 		2AAD5DBB222143F500F77B26 /* InboxPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InboxPresenter.swift; path = English/VIPER/Inbox/InboxPresenter.swift; sourceTree = SOURCE_ROOT; };
@@ -572,7 +574,7 @@
 		2AFC5F1C2223CB4100F8677F /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		2AFC5F1E2223CB6500F8677F /* MainProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProtocols.swift; sourceTree = "<group>"; };
 		2AFC5F212223E66C00F8677F /* TranslateViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewDataModel.swift; sourceTree = "<group>"; };
-		2AFC5F242223E71300F8677F /* TranlsateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranlsateViewController.swift; sourceTree = "<group>"; };
+		2AFC5F242223E71300F8677F /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
 		2AFC5F262223E72900F8677F /* TranslatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatePresenter.swift; sourceTree = "<group>"; };
 		2AFC5F282223E73600F8677F /* TranslateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateInteractor.swift; sourceTree = "<group>"; };
 		2AFC5F2A2223E74F00F8677F /* TranslateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateRouter.swift; sourceTree = "<group>"; };
@@ -761,6 +763,15 @@
 				2A3FAC1C21F6E7A00025B1A2 /* SingleThemeCheckbox.swift */,
 			);
 			path = SingleTheme;
+			sourceTree = "<group>";
+		};
+		2AA3A9382224ECE6005010EE /* TranslateViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2AFC5F242223E71300F8677F /* TranslateViewController.swift */,
+				2AA3A9392224ED02005010EE /* TranslateSetupExtension.swift */,
+			);
+			path = TranslateViewController;
 			sourceTree = "<group>";
 		};
 		2AAD5DD32221444300F77B26 /* InboxViewController */ = {
@@ -1341,7 +1352,7 @@
 		2AFC5F232223E6FA00F8677F /* Translate */ = {
 			isa = PBXGroup;
 			children = (
-				2AFC5F242223E71300F8677F /* TranlsateViewController.swift */,
+				2AA3A9382224ECE6005010EE /* TranslateViewController */,
 				2AFC5F262223E72900F8677F /* TranslatePresenter.swift */,
 				2AFC5F282223E73600F8677F /* TranslateInteractor.swift */,
 				2AFC5F2A2223E74F00F8677F /* TranslateRouter.swift */,
@@ -1867,7 +1878,7 @@
 				2AE8E71B21CF8F1400B7A8A2 /* TabBarView.swift in Sources */,
 				2AC6B0C72223B3FE008552B0 /* ForgetButton.swift in Sources */,
 				2AAD5DCC2221444000F77B26 /* InboxScrollView.swift in Sources */,
-				2AFC5F252223E71300F8677F /* TranlsateViewController.swift in Sources */,
+				2AFC5F252223E71300F8677F /* TranslateViewController.swift in Sources */,
 				2AADB01122212F3400C8E144 /* ResultConfigurator.swift in Sources */,
 				2AADAFF72221284C00C8E144 /* StartConfigurator.swift in Sources */,
 				2AFC5F1D2223CB4100F8677F /* MainRouter.swift in Sources */,
@@ -1881,6 +1892,7 @@
 				2A197CA522165A2000CD239B /* InboxHint.swift in Sources */,
 				2AE8E72D21CFAF2F00B7A8A2 /* Button.swift in Sources */,
 				2A16D1F821D455B500B34013 /* ChoosingView.swift in Sources */,
+				2AA3A93A2224ED02005010EE /* TranslateSetupExtension.swift in Sources */,
 				2A16D20821D472D900B34013 /* ChoosingContinueView.swift in Sources */,
 				2A16D1E521D34DE300B34013 /* CardsView.swift in Sources */,
 				2A16D22021D60D6E00B34013 /* RepeatsSetup.swift in Sources */,

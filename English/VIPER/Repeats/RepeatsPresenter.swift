@@ -27,7 +27,7 @@ extension RepeatsPresenter: RepeatsPresenterProtocol {
             view.hideEmptyView()
             view.hideStartButton()
         } else {
-            view.showEmptyView()
+            view.showEmptyView()p
             view.showStartButton()
         }
         view.update()
