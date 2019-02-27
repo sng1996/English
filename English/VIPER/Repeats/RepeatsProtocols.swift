@@ -14,6 +14,7 @@ protocol RepeatsViewProtocol: class {
     func hideEmptyView()
     func showStartButton()
     func hideStartButton()
+    func showRepeatsHint()
 }
 
 protocol RepeatsPresenterProtocol: class {
@@ -25,11 +26,15 @@ protocol RepeatsPresenterProtocol: class {
     func didSuccessfullyFinishStartView(with data: [WordData])
     func didSuccessfullyFinishChoosingView(with data: [WordData])
     func getBadgeValue() -> Int
+    func isShowRepeatsHint() -> Bool
+    func isShowRepeatsGrayHint() -> Bool
 }
 
 protocol RepeatsInteractorProtocol: class {
     var todayWordsCount: Int { get }
     var firstWords: [WordData] { get }
+    var isShowRepeatsHint: Bool { get }
+    var isShowRepeatsGrayHint: Bool { get }
     func itemAt(_ index: Int) -> WordData
     func numberOfItems() -> Int
 }

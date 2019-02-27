@@ -27,11 +27,15 @@ protocol AddPresenterProtocol: class {
     func tableViewDataForRowAt(_ indexPath: IndexPath) -> AddCellDataModel
     func startLoading()
     func startSecondStep()
+    func isShowAddHint() -> Bool
+    func isShowTranslateHint() -> Bool
 }
 
 protocol AddInteractorProtocol: class {
     var word: Word? { get set }
     var numberOfItems: Int { get }
+    var isShowAddHint: Bool { get }
+    var isShowTanslateHint: Bool { get }
     func textDidChange(with text: String)
     func didFinishFirstStep(with text: String)
     func save(header: String, footer: String)

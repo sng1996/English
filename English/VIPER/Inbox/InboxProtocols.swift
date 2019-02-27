@@ -19,6 +19,7 @@ protocol InboxViewProtocol: class {
 
 protocol InboxPresenterProtocol: class {
     func configureView()
+    func isShowCountHint() -> Bool
     func collectionViewDidSelectItemAt(_ indexPath: IndexPath)
     func collectionViewNumberOfItems() -> Int
     func collectionViewDataForItemAt(_ indexPath: IndexPath) -> WordCellDataModel
@@ -35,6 +36,8 @@ protocol InboxInteractorProtocol: class {
     var numberOfItems: Int { get }
     var firstWords: [WordData] { get }
     var isShowNotificationHint: Bool { get }
+    var isShowStartHint: Bool { get }
+    var isShowCountHint: Bool { get }
     func itemAt(_ index: Int) -> WordData
     func requestAccessForNotifications()
 }

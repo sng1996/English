@@ -27,7 +27,14 @@ class TabBarView: UIView {
     }()
     
     let startButton = TabBarStartButton()
+    
     let startButtonContainer = UIView()
+    
+    let hintView = ChooseFromThemesHintView()
+    
+    let startHintView = StartHintView()
+    
+    let line = Line()
     
     var buttons: [TabBarButton] = [
         TabBarButton(item: TabBarButtonType.inbox),

@@ -49,6 +49,8 @@ class MainViewController: UIViewController, ServiceProvider {
         
         view.addConstraintsWithFormat(format: "H:|[v0]|", views: MainViewController.tabBarView)
         view.addConstraintsWithFormat(format: "V:[v0]|", views: MainViewController.tabBarView)
+        view.layoutIfNeeded()
+        MainViewController.tabBarView.show()
     }
 
 }

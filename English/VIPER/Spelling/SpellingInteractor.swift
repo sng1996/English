@@ -30,7 +30,6 @@ class SpellingInteractor: ServiceProvider {
     func finish() {
         if isFirstTime {
             let spellingItemList = spellingService.removeDuplicates(for: spellingItems)
-            print("qpojfpow", spellingItems.count)
             wordDataService.setRepeats(spellingItemList)
             isFirstTime = false
         }

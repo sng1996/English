@@ -40,6 +40,22 @@ extension AddInteractor: AddInteractorProtocol {
         }
     }
     
+    var isShowAddHint: Bool {
+        get {
+            let result = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isShowAddHint)
+            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isShowAddHint)
+            return result
+        }
+    }
+    
+    var isShowTanslateHint: Bool {
+        get {
+            let result = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isShowTranslateHint)
+            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isShowTranslateHint)
+            return result
+        }
+    }
+    
     func textDidChange(with text: String) {
         words = offlineDictionary.query(text: text.lowercased())
     }

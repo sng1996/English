@@ -95,4 +95,12 @@ extension AddPresenter: AddPresenterProtocol {
         }
     }
     
+    func isShowAddHint() -> Bool {
+        return interactor.isShowAddHint
+    }
+    
+    func isShowTranslateHint() -> Bool {
+        return interactor.isShowTanslateHint
+    }
+    
 }

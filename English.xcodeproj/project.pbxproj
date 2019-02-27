@@ -17,8 +17,6 @@
 		2A084DD422226E600016F208 /* WordsCountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A084DD322226E600016F208 /* WordsCountButton.swift */; };
 		2A084DD6222281BB0016F208 /* RepeatsHintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A084DD5222281BB0016F208 /* RepeatsHintView.swift */; };
 		2A084DD922228C8B0016F208 /* RepeatsGrayHintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A084DD822228C8B0016F208 /* RepeatsGrayHintView.swift */; };
-		2A084DDB22228CCD0016F208 /* RepeatsGrayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A084DDA22228CCD0016F208 /* RepeatsGrayButton.swift */; };
-		2A084DDE2222938F0016F208 /* RepeatsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A084DDD2222938F0016F208 /* RepeatsButton.swift */; };
 		2A084DE0222299210016F208 /* AddHintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A084DDF222299210016F208 /* AddHintView.swift */; };
 		2A084DE22222A0EC0016F208 /* TranslateHintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A084DE12222A0EC0016F208 /* TranslateHintView.swift */; };
 		2A16D1E321D34AF000B34013 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A16D1E221D34AF000B34013 /* StartView.swift */; };
@@ -325,8 +323,6 @@
 		2A084DD322226E600016F208 /* WordsCountButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsCountButton.swift; sourceTree = "<group>"; };
 		2A084DD5222281BB0016F208 /* RepeatsHintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatsHintView.swift; sourceTree = "<group>"; };
 		2A084DD822228C8B0016F208 /* RepeatsGrayHintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatsGrayHintView.swift; sourceTree = "<group>"; };
-		2A084DDA22228CCD0016F208 /* RepeatsGrayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatsGrayButton.swift; sourceTree = "<group>"; };
-		2A084DDD2222938F0016F208 /* RepeatsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatsButton.swift; sourceTree = "<group>"; };
 		2A084DDF222299210016F208 /* AddHintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHintView.swift; sourceTree = "<group>"; };
 		2A084DE12222A0EC0016F208 /* TranslateHintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateHintView.swift; sourceTree = "<group>"; };
 		2A16D1E221D34AF000B34013 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
@@ -650,7 +646,6 @@
 			isa = PBXGroup;
 			children = (
 				2A084DD822228C8B0016F208 /* RepeatsGrayHintView.swift */,
-				2A084DDA22228CCD0016F208 /* RepeatsGrayButton.swift */,
 			);
 			path = RepeatsGrayHint;
 			sourceTree = "<group>";
@@ -659,7 +654,6 @@
 			isa = PBXGroup;
 			children = (
 				2A084DD5222281BB0016F208 /* RepeatsHintView.swift */,
-				2A084DDD2222938F0016F208 /* RepeatsButton.swift */,
 			);
 			path = RepeatsHint;
 			sourceTree = "<group>";
@@ -1702,7 +1696,6 @@
 				2AADAFF32221282100C8E144 /* StartPresenter.swift in Sources */,
 				2AE8E77A21D1C0D800B7A8A2 /* Word.swift in Sources */,
 				2AADAFE6222124A400C8E144 /* SettingsPresenter.swift in Sources */,
-				2A084DDB22228CCD0016F208 /* RepeatsGrayButton.swift in Sources */,
 				2AFC5F222223E66C00F8677F /* TranslateViewDataModel.swift in Sources */,
 				2AADAFDD22211F5500C8E144 /* RepeatsPresenter.swift in Sources */,
 				2AFFB5C521FB015D0011FD82 /* ThemeWordData+CoreDataProperties.swift in Sources */,
@@ -1943,7 +1936,6 @@
 				2A16D22021D60D6E00B34013 /* RepeatsSetup.swift in Sources */,
 				2A16D20B21D4DE7F00B34013 /* ResultView.swift in Sources */,
 				2AADAFDF22211FAC00C8E144 /* RepeatsProtocols.swift in Sources */,
-				2A084DDE2222938F0016F208 /* RepeatsButton.swift in Sources */,
 				2AE8E75721D0ABA400B7A8A2 /* InboxSetup.swift in Sources */,
 				2AFD906A22226A5100D42274 /* RepeatsSetupExtension.swift in Sources */,
 				2AE8E77E21D1DC3500B7A8A2 /* AddTableView.swift in Sources */,

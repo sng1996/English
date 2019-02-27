@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol WordsCountHintViewDelegate {
+    func didTapButton()
+}
+
 class WordsCountHintView: UIView {
 
     let label = UILabel(
@@ -32,17 +36,22 @@ class WordsCountHintView: UIView {
         return view
     }()
     
+    var delegate: WordsCountHintViewDelegate!
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     init() {
         super.init(frame: .zero)
-        backgroundColor = UIColor(rgb: 0xFFFFFF, a: 0.8)
         setupViews()
     }
     
     func setupViews() {
+        backgroundColor = UIColor(rgb: 0xFFFFFF, a: 0.8)
+        
+        button.tapHandler = didTapButton
+        
         addSubview(container)
         container.addSubview(label)
         container.addSubview(button)
@@ -56,7 +65,11 @@ class WordsCountHintView: UIView {
             button.centerXAnchor.constraint(equalTo: centerXAnchor),
             container.centerYAnchor.constraint(equalTo: centerYAnchor),
         ])
-
+    }
+    
+    func didTapButton() {
+        delegate.didTapButton()
+        removeFromSuperview()
     }
 
 }

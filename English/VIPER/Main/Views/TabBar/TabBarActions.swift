@@ -77,4 +77,30 @@ extension TabBarView {
         }, completion: nil)
     }
     
+    func showHint() {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
+            self.hintView.alpha = 1.0
+        }, completion: nil)
+    }
+    
+    func hideHint() {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
+            self.hintView.alpha = 0.0
+        }, completion: nil)
+    }
+    
+    func showStartHint() {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
+            self.startHintView.alpha = 1.0
+        }, completion: { complete in
+            Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.hideStartHint), userInfo: nil, repeats: false)
+        })
+    }
+    
+    @objc func hideStartHint() {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
+            self.startHintView.alpha = 0.0
+        }, completion: nil)
+    }
+    
 }

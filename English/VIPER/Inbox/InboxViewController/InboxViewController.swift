@@ -50,6 +50,17 @@ class InboxViewController: UIView {
         return blurView
     }
     
+    func showOptimalCountHint() {
+        if !presenter.isShowCountHint() {
+            let view = WordsCountHintView()
+            view.delegate = self
+            addSubview(view)
+            addConstraintsWithFormat(format: "H:|[v0]|", views: view)
+            addConstraintsWithFormat(format: "V:|[v0]|", views: view)
+            MainViewController.tabBarView.hide()
+        }
+    }
+    
     //  MARK: Actions
     
     func viewDidAppear() {
@@ -95,10 +106,12 @@ extension InboxViewController: InboxViewProtocol {
     
     func showEmptyView() {
         emptyView.isHidden = false
+        MainViewController.tabBarView.showHint()
     }
     
     func hideEmptyView() {
         emptyView.isHidden = true
+        MainViewController.tabBarView.hideHint()
     }
     
     func showStartButton() {
@@ -133,3 +146,10 @@ extension InboxViewController: RememberHintViewDelegate {
     
 }
 
+extension InboxViewController: WordsCountHintViewDelegate {
+    
+    func didTapButton() {
+        MainViewController.tabBarView.show()
+    }
+    
+}

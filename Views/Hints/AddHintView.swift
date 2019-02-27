@@ -40,24 +40,30 @@ class AddHintView: UIView {
     init() {
         super.init(frame: .zero)
         setupViews()
+        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(close), userInfo: nil, repeats: false)
     }
     
     func setupViews() {
-        addSubview(tailImageView)
         addSubview(container)
+        addSubview(tailImageView)
         container.addSubview(label)
         container.addSubview(languagesImageView)
         
         addConstraintsWithFormat(format: "H:|[v0]|", views: container)
         addConstraintsWithFormat(format: "V:|[v0(11)][v1]|", views: tailImageView, container)
         
-        addConstraintsWithFormat(format: "H:|-20-[v0]-20-[v1]-20-|", views: languagesImageView, label)
+        addConstraintsWithFormat(format: "H:|-20-[v0(50)]-20-[v1]-20-|", views: languagesImageView, label)
         addConstraintsWithFormat(format: "V:|-20-[v0(>=53)]-20-|", views: label)
 
         NSLayoutConstraint.activate([
             tailImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             languagesImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            languagesImageView.heightAnchor.constraint(equalToConstant: 53),
             tailImageView.widthAnchor.constraint(equalToConstant: 22),
         ])
+    }
+    
+    @objc func close() {
+        removeFromSuperview()
     }
 }

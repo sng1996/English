@@ -55,6 +55,7 @@ extension AddViewController {
             presenter.fixScrollViewContentOffset(value: height / coef)
             updateConstraintsForOpenState()
             headerTextField.becomeFirstResponder()
+            showAddHint()
         } else {
             blurView.alpha = 0.0
         }

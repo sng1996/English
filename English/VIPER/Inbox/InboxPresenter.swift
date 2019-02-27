@@ -27,6 +27,10 @@ extension InboxPresenter: InboxPresenterProtocol {
         if numberOfItems > 0 {
             view.hideEmptyView()
             view.showStartButton()
+            
+            if !interactor.isShowStartHint {
+                MainViewController.tabBarView.showStartHint()
+            }
         } else {
             view.showEmptyView()
             view.hideStartButton()
@@ -36,6 +40,10 @@ extension InboxPresenter: InboxPresenterProtocol {
         if !interactor.isShowNotificationHint {
             view.showRememberHint()
         }
+    }
+    
+    func isShowCountHint() -> Bool {
+        return interactor.isShowCountHint
     }
     
     func collectionViewDidSelectItemAt(_ indexPath: IndexPath) {

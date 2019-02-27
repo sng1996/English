@@ -8,17 +8,20 @@
 
 import UIKit
 
+protocol RepeatsGrayHintViewDelegate {
+    func didTapRepeatsGrayHintButton()
+}
+
 class RepeatsGrayHintView: UIView {
 
     let label = UILabel(
-        text: "Слова, отмеченные серым нужно будет повторить завтра",
-        color: UIColor(rgb: 0x454545),
-        font: UIFont.book(18)
+        text: "Слова, отмеченные серым, нужно будет повторить завтра или послезавтра",
+        color: UIColor(rgb: 0x626262),
+        font: UIFont.book(18),
+        alignment: .center
     )
     
-    let button = RepeatsGrayButton()
-    
-    let tailImageView = ImageView(name: "TailDown_white")
+    let button = WordsCountButton()
     
     let container: UIView = {
         let view = UIView()
@@ -33,6 +36,8 @@ class RepeatsGrayHintView: UIView {
         return view
     }()
     
+    var delegate: RepeatsGrayHintViewDelegate!
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -43,20 +48,28 @@ class RepeatsGrayHintView: UIView {
     }
     
     func setupViews() {
-        addSubview(tailImageView)
+        backgroundColor = UIColor(rgb: 0xFFFFFF, a: 0.8)
+        
+        button.tapHandler = didTapButton
+        
         addSubview(container)
         container.addSubview(label)
         container.addSubview(button)
         
-        let width = 261 * Screen.widthCoef
-        
-        addConstraintsWithFormat(format: "H:|-15-[v0(22)]", views: tailImageView)
-        addConstraintsWithFormat(format: "H:|[v0(\(width))]|", views: container)
-        addConstraintsWithFormat(format: "V:|[v0][v1(11)]|", views: container, tailImageView)
+        addConstraintsWithFormat(format: "H:|-\(Screen.sideInset + 10)-[v0]-\(Screen.sideInset + 10)-|", views: container)
         
         addConstraintsWithFormat(format: "H:|-20-[v0]-20-|", views: label)
-        addConstraintsWithFormat(format: "H:|-20-[v0]", views: button)
-        addConstraintsWithFormat(format: "V:|-25-[v0]-15-[v1]-20-|", views: label, button)
+        addConstraintsWithFormat(format: "V:|-20-[v0]-8-[v1]-15-|", views: label, button)
+        
+        NSLayoutConstraint.activate([
+            button.centerXAnchor.constraint(equalTo: centerXAnchor),
+            container.centerYAnchor.constraint(equalTo: centerYAnchor),
+        ])
+    }
+    
+    func didTapButton() {
+        delegate.didTapRepeatsGrayHintButton()
+        removeFromSuperview()
     }
 
 }

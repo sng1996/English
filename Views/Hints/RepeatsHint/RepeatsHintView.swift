@@ -8,17 +8,20 @@
 
 import UIKit
 
+protocol RepeatsHintViewDelegate {
+    func didTapRepeatsHintButton()
+}
+
 class RepeatsHintView: UIView {
 
     let label = UILabel(
         text: "Для полного закрепления повторите слово 3 раза",
-        color: UIColor(rgb: 0x454545),
-        font: UIFont.book(18)
+        color: UIColor(rgb: 0x626262),
+        font: UIFont.book(18),
+        alignment: .center
     )
     
-    let tailImageView = ImageView(name: "TailRight_white")
-    
-    let button = RepeatsButton()
+    let button = WordsCountButton()
     
     let container: UIView = {
         let view = UIView()
@@ -33,6 +36,8 @@ class RepeatsHintView: UIView {
         return view
     }()
     
+    var delegate: RepeatsHintViewDelegate!
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -43,25 +48,28 @@ class RepeatsHintView: UIView {
     }
     
     func setupViews() {
+        backgroundColor = UIColor(rgb: 0xFFFFFF, a: 0.8)
+        
+        button.tapHandler = didTapButton
+        
         addSubview(container)
-        addSubview(tailImageView)
-        addSubview(button)
         container.addSubview(label)
+        container.addSubview(button)
         
-        let width = 237 * Screen.widthCoef
-
-        addConstraintsWithFormat(format: "H:[v0(\(width))][v1(11)]-60-|", views: container, tailImageView)
-
-        addConstraintsWithFormat(format: "V:|-115-[v0]->=10-[v1]-60-|", views: container, button)
+        addConstraintsWithFormat(format: "H:|-\(Screen.sideInset + 10)-[v0]-\(Screen.sideInset + 10)-|", views: container)
         
-        addConstraintsWithFormat(format: "H:|-25-[v0]-25-|", views: label)
-        addConstraintsWithFormat(format: "V:|-20-[v0]-20-|", views: label)
+        addConstraintsWithFormat(format: "H:|-20-[v0]-20-|", views: label)
+        addConstraintsWithFormat(format: "V:|-20-[v0]-8-[v1]-15-|", views: label, button)
         
         NSLayoutConstraint.activate([
             button.centerXAnchor.constraint(equalTo: centerXAnchor),
-            tailImageView.centerYAnchor.constraint(equalTo: container.centerYAnchor),
-            tailImageView.heightAnchor.constraint(equalToConstant: 22),
+            container.centerYAnchor.constraint(equalTo: centerYAnchor),
         ])
+    }
+    
+    func didTapButton() {
+        delegate.didTapRepeatsHintButton()
+        removeFromSuperview()
     }
 
 }

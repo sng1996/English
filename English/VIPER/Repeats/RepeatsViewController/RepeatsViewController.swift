@@ -86,4 +86,44 @@ extension RepeatsViewController: RepeatsViewProtocol {
         MainViewController.tabBarView.hideStartButton()
     }
     
+    func showRepeatsHint() {
+        if !presenter.isShowRepeatsHint() {
+            let view = RepeatsHintView()
+            view.delegate = self
+            addSubview(view)
+            addConstraintsWithFormat(format: "H:|[v0]|", views: view)
+            addConstraintsWithFormat(format: "V:|[v0]|", views: view)
+            MainViewController.tabBarView.hide()
+        }
+    }
+    
+    func showRepeatsGrayHint() {
+        if !presenter.isShowRepeatsGrayHint() {
+            let view = RepeatsGrayHintView()
+            view.delegate = self
+            addSubview(view)
+            addConstraintsWithFormat(format: "H:|[v0]|", views: view)
+            addConstraintsWithFormat(format: "V:|[v0]|", views: view)
+            MainViewController.tabBarView.hide()
+        }
+    }
+    
 }
+
+extension RepeatsViewController: RepeatsHintViewDelegate {
+    
+    func didTapRepeatsHintButton() {
+        showRepeatsGrayHint()
+    }
+    
+}
+
+extension RepeatsViewController: RepeatsGrayHintViewDelegate {
+    
+    func didTapRepeatsGrayHintButton() {
+        MainViewController.tabBarView.show()
+    }
+    
+}
+
+

@@ -43,26 +43,21 @@ class ChooseFromThemesHintView: UIView {
     }
     
     func setupViews() {
-        addSubview(tailImageView)
         addSubview(container)
+        addSubview(tailImageView)
         container.addSubview(imageView)
         container.addSubview(label)
         
         let width = 299 * Screen.widthCoef
         
-        addConstraintsWithFormat(format: "H:|-20-[v0(50)]-20-[v1]-20-|", views: imageView, label)
-        addConstraintsWithFormat(format: "V:|-20-[v0]-20-|", views: imageView)
-        
         addConstraintsWithFormat(format: "H:|[v0(\(width))]|", views: container)
         addConstraintsWithFormat(format: "V:|[v0][v1(11)]|", views: container, tailImageView)
         
-        NSLayoutConstraint.activate([
-            imageView.heightAnchor.constraint(equalToConstant: 53),
-            imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            label.centerYAnchor.constraint(equalTo: centerYAnchor),
-            tailImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            tailImageView.widthAnchor.constraint(equalToConstant: 22)
-        ])
+        addConstraintsWithFormat(format: "H:|-20-[v0(50)]-20-[v1]-20-|", views: imageView, label)
+        addConstraintsWithFormat(format: "V:|-20-[v0(53)]-20-|", views: imageView)
+        addConstraintsWithFormat(format: "V:|[v0]|", views: label)
+        
+        tailImageView.widthAnchor.constraint(equalToConstant: 22).isActive = true
     }
 
 }

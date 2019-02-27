@@ -39,6 +39,7 @@ class TranslateHintView: UIView {
     init() {
         super.init(frame: .zero)
         setupViews()
+        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(close), userInfo: nil, repeats: false)
     }
     
     func setupViews() {
@@ -56,6 +57,10 @@ class TranslateHintView: UIView {
             tailImageView.widthAnchor.constraint(equalToConstant: 22),
             tailImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
         ])
+    }
+    
+    @objc func close() {
+        removeFromSuperview()
     }
 
 }

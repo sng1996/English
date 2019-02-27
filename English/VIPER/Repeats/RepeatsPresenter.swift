@@ -25,6 +25,7 @@ extension RepeatsPresenter: RepeatsPresenterProtocol {
     func configureView() {
         if interactor.todayWordsCount > 0 {
             view.showStartButton()
+            view.showRepeatsHint()
         } else {
             view.hideStartButton()
         }
@@ -66,6 +67,14 @@ extension RepeatsPresenter: RepeatsPresenterProtocol {
     
     func getBadgeValue() -> Int {
         return interactor.todayWordsCount
+    }
+    
+    func isShowRepeatsHint() -> Bool {
+        return interactor.isShowRepeatsHint
+    }
+    
+    func isShowRepeatsGrayHint() -> Bool {
+        return interactor.isShowRepeatsGrayHint
     }
     
 }

@@ -21,13 +21,14 @@ class SpellingRouter {
 extension SpellingRouter: SpellingRouterProtocol {
     
     func back() {
+        MainViewController.tabBarView.show()
         if let inboxViewController = viewController.superview as? InboxViewController {
             inboxViewController.viewDidAppear()
+            inboxViewController.showOptimalCountHint()
         } else if let repeatsViewController = viewController.superview as? RepeatsViewController {
             repeatsViewController.viewDidAppear()
         }
         viewController.viewWillDisappear()
-        MainViewController.tabBarView.show()
     }
     
     func presentResultView(with mistakes: Int) {

@@ -41,6 +41,8 @@ class StartHintView: UIView {
     }
     
     func setupViews() {
+        alpha = 0.0
+        
         addSubview(container)
         addSubview(tailImageView)
         container.addSubview(label)
@@ -48,11 +50,12 @@ class StartHintView: UIView {
         let width = 237 * Screen.widthCoef
         
         addConstraintsWithFormat(format: "H:|[v0(\(width))]|", views: container)
-        addConstraintsWithFormat(format: "H:[v0(22)]-20-|", views: tailImageView)
         addConstraintsWithFormat(format: "V:|[v0][v1(11)]|", views: container, tailImageView)
         
-        addConstraintsWithFormat(format: "H:|-25-[v0]-25-|", views: label)
+        addConstraintsWithFormat(format: "H:|-20-[v0]-20-|", views: label)
         addConstraintsWithFormat(format: "V:|-20-[v0]-20-|", views: label)
+        
+        tailImageView.widthAnchor.constraint(equalToConstant: 22).isActive = true
     }
 
 }

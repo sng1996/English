@@ -33,6 +33,9 @@ class AddViewController: UIView {
             headerTextField.text = model.original
             showFooterTextField(with: model.translate)
             translatesView.sourceItem = (model.translates, model.translate)
+            if model.translates.count > 0 {
+                showTranslateHint()
+            }
             buttonsView.currentMode = .save
             addTableView.hide()
             footerTextField.becomeFirstResponder()
@@ -97,6 +100,26 @@ extension AddViewController: AddViewProtocol {
     
     func startLoading() {
         buttonsView.currentMode = .loader
+    }
+    
+    func showAddHint() {
+        if !presenter.isShowAddHint() {
+            let view = AddHintView()
+            addSubview(view)
+            
+            addConstraintsWithFormat(format: "H:|-\(Screen.sideInset - 10)-[v0]-\(Screen.sideInset - 10)-|", views: view)
+            view.topAnchor.constraint(equalTo: bottomAnchor, constant: 5).isActive = true
+        }
+    }
+    
+    func showTranslateHint() {
+        if !presenter.isShowTranslateHint() {
+            let view = TranslateHintView()
+            addSubview(view)
+            
+            addConstraintsWithFormat(format: "H:|-\(Screen.sideInset - 10)-[v0]-\(Screen.sideInset - 10)-|", views: view)
+            view.topAnchor.constraint(equalTo: translatesView.topAnchor, constant: 40).isActive = true
+        }
     }
     
 }

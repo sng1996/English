@@ -14,6 +14,12 @@ extension UserDefaults {
         static let isOnNotification = "isOnNotification"
         static let notificationTime = "notificationTime"
         static let isShowNotificationHint = "isShowNotificationHint"
+        static let isShowStartHint = "isShowStartHint"
+        static let isShowCountHint = "isShowCountHint"
+        static let isShowRepeatsHint = "isShowRepeatsHint"
+        static let isShowRepeatsGrayHint = "isShowRepeatsGrayHint"
+        static let isShowAddHint = "isShowAddHint"
+        static let isShowTranslateHint = "isShowTranslateHint"
     }
     
 }

@@ -33,6 +33,22 @@ extension RepeatsInteractor: RepeatsInteractorProtocol {
         }
     }
     
+    var isShowRepeatsHint: Bool {
+        get {
+            let result = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isShowRepeatsHint)
+            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isShowRepeatsHint)
+            return result
+        }
+    }
+    
+    var isShowRepeatsGrayHint: Bool {
+        get {
+            let result = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isShowRepeatsGrayHint)
+            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isShowRepeatsGrayHint)
+            return result
+        }
+    }
+    
     func itemAt(_ index: Int) -> WordData {
         return wordDataService.repeatWords[index]
     }
