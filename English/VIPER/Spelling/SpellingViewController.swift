@@ -8,12 +8,14 @@
 
 import UIKit
 
-class SpellingViewControllerDataModel {
+class SpellingViewDataModel {
     
-    var text: String
+    var header: String
+    var count: String
     
-    init(_ spellingItem: SpellingItem) {
-        text = spellingItem.wordData.translate
+    init(header: String, count: String) {
+        self.header = header
+        self.count = count
     }
     
 }
@@ -25,8 +27,16 @@ class SpellingViewController: UIView {
     
     var sourceItem: Any? {
         didSet {
-            guard let model = sourceItem as? SpellingViewControllerDataModel else { return }
-            headerLabel.text = model.text
+            guard let model = sourceItem as? SpellingViewDataModel else { return }
+            headerLabel.text = model.header
+            customTextField.textField.text = ""
+            customTextField.textField.textColor = .black
+            customTextField.textField.becomeFirstResponder()
+            countLabel.text = model.count
+            bottomConstraint.constant = -Keyboard.height
+            layoutIfNeeded()
+            showViews()
+            
         }
     }
     
@@ -66,14 +76,17 @@ class SpellingViewController: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init() {
+    init(with data: [WordData]) {
         super.init(frame: .zero)
-        configurator.configure(with: self)
+        configurator.configure(with: self, data: data)
         setupViews()
-        viewDidAppear()
     }
     
     func setupViews() {
+        backgroundColor = .white
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
         backButton.tapHandler = didTapBackButton
         button.tapHandler = didTapShowAnswer
         customTextField.delegate = self
@@ -92,7 +105,6 @@ class SpellingViewController: UIView {
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: footerLabel)
         addConstraintsWithFormat(format: "H:|[v0]|", views: customTextField)
         
-        
         addConstraintsWithFormat(format: "V:|-\(Screen.sideInset + Screen.safeTop)-[v0]->=1-[v1]-20-[v2]-20-[v3(50)]->=20-[v4]-10-[v5]", views: backButton, countLabel, headerLabel, button, footerLabel, customTextField)
         
         translatesAutoresizingMaskIntoConstraints = false
@@ -101,30 +113,63 @@ class SpellingViewController: UIView {
         bottomConstraint.isActive = true
     }
     
+    func viewDidAppear() {
+        presenter.configureView()
+    }
+    
+    func viewWillDisappear() {
+        removeFromSuperview()
+    }
+    
     func didTapBackButton() {
         presenter.didTapBackButton()
     }
     
     func didTapShowAnswer() {
-        presenter.didTapShowAnswer()
+        headerLabel.text = presenter.getAnswer()
+    }
+    
+    func resultViewDidTapNext() {
+        presenter.resultViewDidTapNext()
+    }
+    
+    func resultViewDidTapRepeat() {
+        presenter.resultViewDidTapRepeat()
+    }
+    
+    func showViews() {
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
+            self.headerLabel.alpha = 1.0
+            self.customTextField.alpha = 1.0
+        }, completion: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: Notification) {
+        if let userInfo = notification.userInfo {
+            let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+            Keyboard.height = keyboardFrame.height
+        }
     }
     
 }
 
 extension SpellingViewController: SpellingViewProtocol {
     
-    func viewDidAppear() {
-        presenter.configureView()
+    func hideViews() {
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
+            self.headerLabel.alpha = 1.0
+            self.customTextField.alpha = 1.0
+        }, completion: { complete in
+            self.presenter.didFinishHideViews()
+        })
     }
     
-    func update() {
-        speechManager.play(vm.getOriginal())
-        textField.textField.textColor = UIColor(rgb: 0x53D397)
-        var delay = 0.5
-        if self.vm.getOriginal().count > 10 {
-            delay = Double(self.vm.getOriginal().count) / 20.0
-        }
-        Timer.scheduledTimer(timeInterval: delay, target: self, selector: #selector(finishStep), userInfo: nil, repeats: false)
+    func updateWithRightAnswer() {
+        customTextField.textField.textColor = UIColor(rgb: 0x53D397)
+    }
+    
+    func hideKeyboard() {
+        customTextField.textField.resignFirstResponder()
     }
     
 }
@@ -132,6 +177,7 @@ extension SpellingViewController: SpellingViewProtocol {
 extension SpellingViewController: SpellingTextFieldDelegate {
     
     func textFieldDidChange(with text: String) {
+        headerLabel.text = presenter.getHeader()
         presenter.textFieldDidChange(with: text)
     }
     

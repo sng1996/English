@@ -24,11 +24,14 @@ extension RepeatsPresenter: RepeatsPresenterProtocol {
     
     func configureView() {
         if interactor.todayWordsCount > 0 {
-            view.hideEmptyView()
+            view.showStartButton()
+        } else {
             view.hideStartButton()
+        }
+        if interactor.numberOfItems() > 0 {
+            view.hideEmptyView()
         } else {
             view.showEmptyView()
-            view.showStartButton()
         }
         view.update()
     }
@@ -59,6 +62,10 @@ extension RepeatsPresenter: RepeatsPresenterProtocol {
     
     func didSuccessfullyFinishChoosingView(with data: [WordData]) {
         router.presentSpellingViewController(with: data)
+    }
+    
+    func getBadgeValue() -> Int {
+        return interactor.todayWordsCount
     }
     
 }

@@ -1,40 +1,40 @@
+////
+////  ThousandsViewModel.swift
+////  English
+////
+////  Created by Сергей Гаврилко on 07/01/2019.
+////  Copyright © 2019 gavrilko. All rights reserved.
+////
 //
-//  ThousandsViewModel.swift
-//  English
+//import UIKit
 //
-//  Created by Сергей Гаврилко on 07/01/2019.
-//  Copyright © 2019 gavrilko. All rights reserved.
+//class ThousandsViewModel: NSObject {
 //
-
-import UIKit
-
-class ThousandsViewModel: NSObject {
-
-//    var words: [[String]] = []
-//    var currentIndex = 0
-//    
-//    func loadData() {
-//        words.removeAll()
-//        
-//        let array = CSVManager().getThousands()
-//        var decimalArray: [String] = []
-//        
-//        for i in array.indices {
-//            decimalArray.append(array[i])
-//            if i % 10 == 9 {
-//                words.append(decimalArray)
-//                decimalArray = []
-//            }
-//        }
-//        
-//        print("DATA LOADED")
-//    }
-//    
-//    func getNumberOfItems() -> Int {
-//        if words.isEmpty {
-//            return 0
-//        }
-//        return words[currentIndex].count
-//    }
-
-}
+////    var words: [[String]] = []
+////    var currentIndex = 0
+////    
+////    func loadData() {
+////        words.removeAll()
+////        
+////        let array = CSVManager().getThousands()
+////        var decimalArray: [String] = []
+////        
+////        for i in array.indices {
+////            decimalArray.append(array[i])
+////            if i % 10 == 9 {
+////                words.append(decimalArray)
+////                decimalArray = []
+////            }
+////        }
+////        
+////        print("DATA LOADED")
+////    }
+////    
+////    func getNumberOfItems() -> Int {
+////        if words.isEmpty {
+////            return 0
+////        }
+////        return words[currentIndex].count
+////    }
+//
+//}

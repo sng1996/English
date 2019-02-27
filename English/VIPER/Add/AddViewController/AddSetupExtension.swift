@@ -31,6 +31,8 @@ extension AddViewController {
         addSubview(addTableView)
         addSubview(translatesView)
         
+        translatesAutoresizingMaskIntoConstraints = false
+        
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0][v1]-\(Screen.sideInset - 10)-|", views: headerTextField, loaderContainer)
         addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0][v1]", views: footerTextField, loaderContainer)
         addConstraintsWithFormat(format: "H:|[v0]|", views: addTableView)

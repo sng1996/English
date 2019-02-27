@@ -27,7 +27,7 @@ extension StartRouter: StartRouterProtocol {
             repeatsViewController.viewDidAppear()
         }
         viewController.viewWillDisappear()
-        ViewController.tabBarView.show()
+        MainViewController.tabBarView.show()
     }
     
     func forward(with data: [WordData]) {

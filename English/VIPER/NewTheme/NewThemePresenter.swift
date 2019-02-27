@@ -1,25 +1,25 @@
+////
+////  NewThemePresenter.swift
+////  English
+////
+////  Created by Сергей Гаврилко on 23/02/2019.
+////  Copyright © 2019 gavrilko. All rights reserved.
+////
 //
-//  NewThemePresenter.swift
-//  English
+//import UIKit
 //
-//  Created by Сергей Гаврилко on 23/02/2019.
-//  Copyright © 2019 gavrilko. All rights reserved.
+//class NewThemePresenter {
+//    
+//    weak var view: NewThemeViewProtocol!
+//    var interactor: NewThemeInteractorProtocol!
+//    var router: NewThemeRouterProtocol!
+//    
+//    required init(view: NewThemeViewProtocol) {
+//        self.view = view
+//    }
+//    
+//}
 //
-
-import UIKit
-
-class NewThemePresenter {
-    
-    weak var view: NewThemeViewProtocol!
-    var interactor: NewThemeInteractorProtocol!
-    var router: NewThemeRouterProtocol!
-    
-    required init(view: NewThemeViewProtocol) {
-        self.view = view
-    }
-    
-}
-
-extension NewThemePresenter: NewThemePresenterProtocol {
-    
-}
+//extension NewThemePresenter: NewThemePresenterProtocol {
+//    
+//}

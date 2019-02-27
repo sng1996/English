@@ -10,31 +10,40 @@ import UIKit
 
 protocol SpellingViewProtocol: class {
     var sourceItem: Any? { get set }
-    func viewDidAppear()
-    func update(isRight: Bool, rightText: String)
+    func hideViews()
+    func updateWithRightAnswer()
+    func hideKeyboard()
 }
 
 protocol SpellingPresenterProtocol: class {
     func configureView()
     func didTapBackButton()
-    func didTapShowAnswer()
     func textFieldDidChange(with text: String)
-    func update(isRight: Bool, rightText: String)
+    func getHeader() -> String
+    func getAnswer() -> String
+    func didFinishHideViews()
+    func updateViewWithRightAnswer()
     func updateView()
     func finish(with mistakes: Int)
+    func resultViewDidTapNext()
+    func resultViewDidTapRepeat()
 }
 
 protocol SpellingInteractorProtocol: class {
     var currentSpellingItem: SpellingItem { get }
+    var currentIndex: Int { get set }
+    var numberOfItems: Int { get }
     func update()
+    func loadNextStep()
     func didChange(text: String)
+    func setMistake()
 }
 
 protocol SpellingRouterProtocol: class {
     func back()
-    func finish()
+    func presentResultView(with mistakes: Int)
 }
 
 protocol SpellingConfiguratorProtocol: class {
-    func configure(with viewController: SpellingViewController)
+    func configure(with viewController: SpellingViewController, data: [WordData])
 }

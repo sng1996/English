@@ -1,29 +1,29 @@
+////
+////  ThemesSecondProtocols.swift
+////  English
+////
+////  Created by Сергей Гаврилко on 23/02/2019.
+////  Copyright © 2019 gavrilko. All rights reserved.
+////
 //
-//  ThemesSecondProtocols.swift
-//  English
+//import UIKit
 //
-//  Created by Сергей Гаврилко on 23/02/2019.
-//  Copyright © 2019 gavrilko. All rights reserved.
+//protocol ThemesSecondViewProtocol: class {
+//    
+//}
 //
-
-import UIKit
-
-protocol ThemesSecondViewProtocol: class {
-    
-}
-
-protocol ThemesSecondPresenterProtocol: class {
-    
-}
-
-protocol ThemesSecondInteractorProtocol: class {
-    
-}
-
-protocol ThemesSecondRouterProtocol: class {
-    
-}
-
-protocol ThemesSecondConfiguratorProtocol: class {
-    func configure(with viewController: ThemesSecondViewController)
-}
+//protocol ThemesSecondPresenterProtocol: class {
+//    
+//}
+//
+//protocol ThemesSecondInteractorProtocol: class {
+//    
+//}
+//
+//protocol ThemesSecondRouterProtocol: class {
+//    
+//}
+//
+//protocol ThemesSecondConfiguratorProtocol: class {
+//    func configure(with viewController: ThemesSecondViewController)
+//}

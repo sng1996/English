@@ -27,7 +27,7 @@ extension TranslateRouter: TranslateRouterProtocol {
             repeatsViewController.didCloseTranslateView()
         }
         viewController.viewWillDisappear()
-        ViewController.tabBarView.show()
+        MainViewController.tabBarView.show()
     }
     
 }

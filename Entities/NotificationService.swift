@@ -9,9 +9,9 @@
 import UserNotifications
 import UIKit
 
-class NotificationService: ServiceProvider {
+class NotificationService {
     
-    var isOn: Bool {
+    var isOn: Bool! {
         set {
             UserDefaults.standard.set(newValue, forKey: UserDefaults.Keys.isOnNotification)
             update()
@@ -21,7 +21,7 @@ class NotificationService: ServiceProvider {
         }
     }
     
-    var time: String {
+    var time: String! {
         set {
             UserDefaults.standard.set(newValue, forKey: UserDefaults.Keys.notificationTime)
             update()
@@ -34,15 +34,23 @@ class NotificationService: ServiceProvider {
         }
     }
     
+    var count: Int = 0 {
+        didSet {
+            update()
+        }
+    }
+    
+    init() { }
+    
     private func update() {
-        var count = wordDataService.todayCount
+        var count = self.count
         var hour = 0
         var min = 0
         
         if count == 0 {
-            ViewController.tabBarView.hideBadge()
+            MainViewController.tabBarView.hideBadge()
         } else {
-            ViewController.tabBarView.showBadge()
+            MainViewController.tabBarView.showBadge()
         }
         
         if isOn {

@@ -44,7 +44,7 @@ class CardView: UIView {
     
     let soundButton = SoundButton()
     
-    let speechManager = SpeechManager()
+    let speechService = SpeechService()
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -88,8 +88,8 @@ class CardView: UIView {
     }
     
     func playSound() {
-        if let word = sourceItem as? WordData {
-            speechManager.play(word.original!)
+        if let model = sourceItem as? CardViewDataModel {
+            speechService.play(model.original)
         }
     }
     

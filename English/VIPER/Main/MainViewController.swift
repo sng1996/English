@@ -38,16 +38,16 @@ class MainViewController: UIViewController, ServiceProvider {
         
         configurator.configure(with: self)
         setupViews()
-        ViewController.tabBarView.buttons[0].didTap()
+        MainViewController.tabBarView.buttons[0].didTap()
     }
     
     func setupViews() {
-        ViewController.tabBarView.delegate = self
+        MainViewController.tabBarView.delegate = self
         
-        view.addSubview(ViewController.tabBarView)
+        view.addSubview(MainViewController.tabBarView)
         
-        view.addConstraintsWithFormat(format: "H:|[v0]|", views: ViewController.tabBarView)
-        view.addConstraintsWithFormat(format: "V:|[v0]|", views: ViewController.tabBarView)
+        view.addConstraintsWithFormat(format: "H:|[v0]|", views: MainViewController.tabBarView)
+        view.addConstraintsWithFormat(format: "V:[v0]|", views: MainViewController.tabBarView)
     }
 
 }

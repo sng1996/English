@@ -16,9 +16,9 @@ class RepeatsCellDataModel {
     var isActive: Bool
     
     init(_ word: WordData, isActive: Bool) {
-        original = word.original
-        translate = word.translate
-        repeats = word.count
+        original = word.original!
+        translate = word.translate!
+        repeats = Int(word.count)
         self.isActive = isActive
     }
     
@@ -32,6 +32,7 @@ class RepeatsCell: UITableViewCell {
             headerLabel.text = model.original
             footerLabel.text = model.translate
             repeatProgressBar.sourceItem = model.repeats
+            isActive = model.isActive
         }
     }
     

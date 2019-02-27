@@ -62,7 +62,9 @@ class AddButtonsView: UIView {
     }
     
     func currentModeToInit() {
-        saveButton.currentMode = .arrow
+        if saveButton.currentMode != .arrow {
+            saveButton.currentMode = .arrow
+        }
     }
     
     @objc func save() {

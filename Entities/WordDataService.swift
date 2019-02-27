@@ -21,6 +21,8 @@ class WordDataService: ServiceProvider {
     var repeatWords: [WordData] = []
     var archiveWords: [WordData] = []
     
+    let notificationService = NotificationService()
+    
     var todayCount = 0
     
     init() {
@@ -47,15 +49,15 @@ class WordDataService: ServiceProvider {
     
     func setRepeats(_ list: [SpellingItem]) {
         for item in list {
-            if item.word.mode == WordDataMode.new {
-                item.word.mode = WordDataMode.repeats
+            if item.wordData.mode == WordDataMode.new {
+                item.wordData.mode = WordDataMode.repeats
             } else {
-                item.word.count += 1
-                if item.word.count >= 3 && item.mistakes == 0 {
-                    item.word.mode = WordDataMode.archive
+                item.wordData.count += 1
+                if item.wordData.count >= 3 && !item.isMadeMistake {
+                    item.wordData.mode = WordDataMode.archive
                 }
             }
-            item.word.date = Date()
+            item.wordData.date = Date()
         }
         coreDataService.saveContext()
         
@@ -77,8 +79,7 @@ class WordDataService: ServiceProvider {
         loadRepeatWords()
         loadArchiveWords()
         
-        let notificationService = NotificationService()
-        notificationService.update()
+        notificationService.count = todayCount
     }
     
     private func loadNewWords() {

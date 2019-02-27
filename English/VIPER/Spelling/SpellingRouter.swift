@@ -21,11 +21,21 @@ class SpellingRouter {
 extension SpellingRouter: SpellingRouterProtocol {
     
     func back() {
-        
+        if let inboxViewController = viewController.superview as? InboxViewController {
+            inboxViewController.viewDidAppear()
+        } else if let repeatsViewController = viewController.superview as? RepeatsViewController {
+            repeatsViewController.viewDidAppear()
+        }
+        viewController.viewWillDisappear()
+        MainViewController.tabBarView.show()
     }
     
-    func finish() {
-        
+    func presentResultView(with mistakes: Int) {
+        let resultView = ResultView()
+        viewController.addSubview(resultView)
+        viewController.addConstraintsWithFormat(format: "H:|[v0]|", views: resultView)
+        viewController.addConstraintsWithFormat(format: "V:|[v0]|", views: resultView)
+        resultView.viewDidAppear(with: mistakes)
     }
     
 }

@@ -26,7 +26,7 @@ class InboxScrollView: UIScrollView {
     
     init() {
         super.init(frame: .zero)
-        contentInset.bottom = ViewController.tabBarView.height + 20
+        contentInset.bottom = MainViewController.tabBarView.height + 20
         showsVerticalScrollIndicator = false
         contentInsetAdjustmentBehavior = .never
         alwaysBounceVertical = true

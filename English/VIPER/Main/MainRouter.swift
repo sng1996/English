@@ -56,6 +56,7 @@ extension MainRouter: MainRouterProtocol {
         viewController.view.insertSubview(settingsViewController, belowSubview: MainViewController.tabBarView)
         viewController.view.addConstraintsWithFormat(format: "H:|[v0]|", views: settingsViewController)
         viewController.view.addConstraintsWithFormat(format: "V:|[v0]|", views: settingsViewController)
+        MainViewController.tabBarView.hideStartButton()
         settingsViewController.viewDidAppear()
     }
     

@@ -27,7 +27,7 @@ extension ChoosingRouter: ChoosingRouterProtocol {
             repeatsViewController.viewDidAppear()
         }
         viewController.viewWillDisappear()
-        ViewController.tabBarView.show()
+        MainViewController.tabBarView.show()
     }
     
     func forward(with data: [WordData]) {
@@ -40,10 +40,11 @@ extension ChoosingRouter: ChoosingRouterProtocol {
     }
     
     func presentResultView(with mistakes: Int) {
-        let resultView = ResultView(with: mistakes)
+        let resultView = ResultView()
         viewController.addSubview(resultView)
         viewController.addConstraintsWithFormat(format: "H:|[v0]|", views: resultView)
         viewController.addConstraintsWithFormat(format: "V:|[v0]|", views: resultView)
+        resultView.viewDidAppear(with: mistakes)
     }
     
 }

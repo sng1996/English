@@ -29,7 +29,7 @@ class ThousandsView: UIView {
     }
     
     func viewDidAppear() {
-        ViewController.tabBarView.hideStartButton()
+        MainViewController.tabBarView.hideStartButton()
     }
     
     func setupViews() {

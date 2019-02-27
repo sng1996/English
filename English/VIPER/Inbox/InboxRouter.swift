@@ -36,7 +36,7 @@ extension InboxRouter: InboxRouterProtocol {
         viewController.addConstraintsWithFormat(format: "H:|[v0]|", views: startViewController)
         viewController.addConstraintsWithFormat(format: "V:|[v0]|", views: startViewController)
         startViewController.viewDidAppear()
-        ViewController.tabBarView.hide()
+        MainViewController.tabBarView.hide()
     }
     
     func presentChoosingViewController(with data: [WordData]) {
@@ -45,7 +45,7 @@ extension InboxRouter: InboxRouterProtocol {
         viewController.addConstraintsWithFormat(format: "H:|[v0]|", views: choosingViewController)
         viewController.addConstraintsWithFormat(format: "V:|[v0]|", views: choosingViewController)
         choosingViewController.viewDidAppear()
-        ViewController.tabBarView.hide()
+        MainViewController.tabBarView.hide()
     }
     
     func presentSpellingViewController(with data: [WordData]) {
@@ -54,7 +54,7 @@ extension InboxRouter: InboxRouterProtocol {
         viewController.addConstraintsWithFormat(format: "H:|[v0]|", views: spellingViewController)
         viewController.addConstraintsWithFormat(format: "V:|[v0]|", views: spellingViewController)
         spellingViewController.viewDidAppear()
-        ViewController.tabBarView.hide()
+        MainViewController.tabBarView.hide()
     }
     
     func presentTranslateViewController(with data: WordData) {
@@ -63,7 +63,7 @@ extension InboxRouter: InboxRouterProtocol {
         viewController.addConstraintsWithFormat(format: "H:|[v0]|", views: translateViewController)
         viewController.addConstraintsWithFormat(format: "V:|[v0]|", views: translateViewController)
         translateViewController.viewDidAppear()
-        ViewController.tabBarView.hide()
+        MainViewController.tabBarView.hide()
     }
     
     func presentAddViewController() {
@@ -74,7 +74,7 @@ extension InboxRouter: InboxRouterProtocol {
         viewController.addConstraintsWithFormat(format: "H:|[v0]|", views: addViewController)
         addViewController.viewDidAppear()
         self.addViewController = addViewController
-        ViewController.tabBarView.hide()
+        MainViewController.tabBarView.hide()
     }
     
     func addViewDidDragging(_ contentOffset: CGFloat) {

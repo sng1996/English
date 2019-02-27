@@ -11,12 +11,10 @@ import UIKit
 extension RepeatsViewController {
 
     func setupViews() {
-        translateView.delegate = self
         tv.delegate = self
         tv.dataSource = self
         
         addSubview(scrollView)
-        addSubview(translateView)
         addSubview(emptyView)
         scrollView.addSubview(scrollContainer)
         scrollContainer.addSubview(topContainer)
@@ -28,9 +26,6 @@ extension RepeatsViewController {
         
         addConstraintsWithFormat(format: "H:|[v0]|", views: scrollView)
         addConstraintsWithFormat(format: "V:|[v0]|", views: scrollView)
-        
-        addConstraintsWithFormat(format: "H:|[v0]|", views: translateView)
-        addConstraintsWithFormat(format: "V:|[v0]|", views: translateView)
         
         addConstraintsWithFormat(format: "H:|[v0]|", views: emptyView)
         addConstraintsWithFormat(format: "V:[v0][v1]", views: topContainer, emptyView)

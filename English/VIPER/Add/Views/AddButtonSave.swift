@@ -41,22 +41,18 @@ class AddButtonSave: Button {
             case .arrow:
                 hideViews()
                 animateLayout(complete: {
-                    self.removeLoader()
                     self.showArrow()
                     self.animateLayout()
                 })
                 break
             case .loader:
                 hideViews()
-                animateLayout(complete: {
-                    self.showLoader()
-                    self.animateLayout()
-                })
+                showLoader()
+                animateLayout()
                 break
             case .save:
                 hideViews()
                 animateLayout(complete: {
-                    self.removeLoader()
                     self.showSave()
                     self.animateLayout()
                 })
@@ -131,14 +127,8 @@ class AddButtonSave: Button {
         saveHeightConstraint.constant = 0
     }
     
-    private func removeLoader() {
-        if let loader = self.loader {
-            loader.removeFromSuperview()
-        }
-    }
-    
     private func showLoader() {
-        removeLoader()
+        hideLoader()
         
         let loader = LoaderView()
         self.loader = loader
@@ -163,9 +153,9 @@ class AddButtonSave: Button {
     }
     
     private func hideLoader() {
-        if loader == nil { return }
-        loaderWidthConstraint.constant = 0
-        loaderHeightConstraint.constant = 0
+        if let loader = self.loader {
+            loader.removeFromSuperview()
+        }
     }
     
     private func animateLayout(complete: (() -> ())? = nil) {

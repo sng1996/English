@@ -1,25 +1,25 @@
+////
+////  SingleThemePresenter.swift
+////  English
+////
+////  Created by Сергей Гаврилко on 23/02/2019.
+////  Copyright © 2019 gavrilko. All rights reserved.
+////
 //
-//  SingleThemePresenter.swift
-//  English
+//import UIKit
 //
-//  Created by Сергей Гаврилко on 23/02/2019.
-//  Copyright © 2019 gavrilko. All rights reserved.
+//class SingleThemePresenter {
+//    
+//    weak var view: SingleThemeViewProtocol!
+//    var interactor: SingleThemeInteractorProtocol!
+//    var router: SingleThemeRouterProtocol!
+//    
+//    required init(view: SingleThemeViewProtocol) {
+//        self.view = view
+//    }
+//    
+//}
 //
-
-import UIKit
-
-class SingleThemePresenter {
-    
-    weak var view: SingleThemeViewProtocol!
-    var interactor: SingleThemeInteractorProtocol!
-    var router: SingleThemeRouterProtocol!
-    
-    required init(view: SingleThemeViewProtocol) {
-        self.view = view
-    }
-    
-}
-
-extension SingleThemePresenter: SingleThemePresenterProtocol {
-    
-}
+//extension SingleThemePresenter: SingleThemePresenterProtocol {
+//    
+//}

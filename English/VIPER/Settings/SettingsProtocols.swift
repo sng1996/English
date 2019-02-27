@@ -9,11 +9,11 @@
 import UIKit
 
 protocol SettingsViewProtocol: class {
-    func viewDidAppear()
     func updateNotificationContainer(with data: SettingsNotificationContainerDataModel)
 }
 
 protocol SettingsPresenterProtocol: class {
+    func configureView()
     func updateNotificationContainer()
     func didChangeSwitchValue(_ value: Bool)
     func didTapSaveButton(with date: Date)

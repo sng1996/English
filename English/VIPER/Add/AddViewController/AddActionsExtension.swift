@@ -75,7 +75,6 @@ extension AddViewController {
         presenter.textDidChange(with: textField.text!)
         
         hideFooterTextField()
-        addTableView.hide()
         translatesView.hide()
         buttonsView.currentModeToInit()
         addTableView.reloadData()

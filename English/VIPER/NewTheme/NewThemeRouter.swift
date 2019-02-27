@@ -1,24 +1,24 @@
+////
+////  NewThemeRouter.swift
+////  English
+////
+////  Created by Сергей Гаврилко on 23/02/2019.
+////  Copyright © 2019 gavrilko. All rights reserved.
+////
 //
-//  NewThemeRouter.swift
-//  English
+//import UIKit
 //
-//  Created by Сергей Гаврилко on 23/02/2019.
-//  Copyright © 2019 gavrilko. All rights reserved.
+//class NewThemeRouter {
+//    
+//    weak var viewController: NewThemeViewController!
+//    
+//    init(viewController: NewThemeViewController) {
+//        self.viewController = viewController
+//    }
+//    
+//}
 //
-
-import UIKit
-
-class NewThemeRouter {
-    
-    weak var viewController: NewThemeViewController!
-    
-    init(viewController: NewThemeViewController) {
-        self.viewController = viewController
-    }
-    
-}
-
-extension NewThemeRouter: NewThemeRouterProtocol {
-    
-}
-
+//extension NewThemeRouter: NewThemeRouterProtocol {
+//    
+//}
+//

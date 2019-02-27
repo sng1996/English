@@ -190,6 +190,8 @@
 		2AC6B0C72223B3FE008552B0 /* ForgetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6B0C62223B3FE008552B0 /* ForgetButton.swift */; };
 		2AC6B0CA2223B99A008552B0 /* WrongHintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6B0C92223B99A008552B0 /* WrongHintView.swift */; };
 		2AC6B0CC2223B9AE008552B0 /* WrongButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6B0CB2223B9AE008552B0 /* WrongButton.swift */; };
+		2AE2D01C22264EA400EDD90D /* ResultNextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE2D01B22264EA400EDD90D /* ResultNextButton.swift */; };
+		2AE2D01E22264EB200EDD90D /* ResultRepeatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE2D01D22264EB200EDD90D /* ResultRepeatButton.swift */; };
 		2AE8E6D921CF894200B7A8A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8E6D821CF894200B7A8A2 /* AppDelegate.swift */; };
 		2AE8E6DB21CF894200B7A8A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8E6DA21CF894200B7A8A2 /* ViewController.swift */; };
 		2AE8E6DE21CF894200B7A8A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AE8E6DC21CF894200B7A8A2 /* Main.storyboard */; };
@@ -495,6 +497,8 @@
 		2AC6B0C62223B3FE008552B0 /* ForgetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetButton.swift; sourceTree = "<group>"; };
 		2AC6B0C92223B99A008552B0 /* WrongHintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongHintView.swift; sourceTree = "<group>"; };
 		2AC6B0CB2223B9AE008552B0 /* WrongButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongButton.swift; sourceTree = "<group>"; };
+		2AE2D01B22264EA400EDD90D /* ResultNextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultNextButton.swift; sourceTree = "<group>"; };
+		2AE2D01D22264EB200EDD90D /* ResultRepeatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultRepeatButton.swift; sourceTree = "<group>"; };
 		2AE8E6D521CF894200B7A8A2 /* English.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = English.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AE8E6D821CF894200B7A8A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AE8E6DA21CF894200B7A8A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -864,11 +868,11 @@
 				2AADAFD522211D8E00C8E144 /* Repeats */,
 				2AADAFEF222127AF00C8E144 /* Start */,
 				2AADAFFC22212B2C00C8E144 /* Choosing */,
+				2AADB016222131AD00C8E144 /* Spelling */,
+				2AADAFE22221244400C8E144 /* Settings */,
 				2AADB025222134CD00C8E144 /* SingleTheme */,
 				2AADB024222134BC00C8E144 /* ThemesSecond */,
 				2AADB023222134A700C8E144 /* NewTheme */,
-				2AADB016222131AD00C8E144 /* Spelling */,
-				2AADAFE22221244400C8E144 /* Settings */,
 			);
 			path = VIPER;
 			sourceTree = "<group>";
@@ -1033,6 +1037,16 @@
 				2AC6B0CB2223B9AE008552B0 /* WrongButton.swift */,
 			);
 			path = WrongHint;
+			sourceTree = "<group>";
+		};
+		2AE2D01A22264E8E00EDD90D /* ResultView */ = {
+			isa = PBXGroup;
+			children = (
+				2A16D20A21D4DE7F00B34013 /* ResultView.swift */,
+				2AE2D01B22264EA400EDD90D /* ResultNextButton.swift */,
+				2AE2D01D22264EB200EDD90D /* ResultRepeatButton.swift */,
+			);
+			path = ResultView;
 			sourceTree = "<group>";
 		};
 		2AE8E6CC21CF894200B7A8A2 = {
@@ -1209,10 +1223,10 @@
 		2AE8E71021CF8B7F00B7A8A2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2AE2D01A22264E8E00EDD90D /* ResultView */,
 				2A31709022210B040038DE7D /* Hints */,
 				2AE8E78D21D235A900B7A8A2 /* Translate */,
 				2AE8E75E21D0C7A600B7A8A2 /* Add */,
-				2A16D20A21D4DE7F00B34013 /* ResultView.swift */,
 				2AE8E71E21CF92EC00B7A8A2 /* Line.swift */,
 				2AE8E72C21CFAF2F00B7A8A2 /* Button.swift */,
 				2AE8E76B21D0D81100B7A8A2 /* BlurView.swift */,
@@ -1664,6 +1678,7 @@
 				2AE8E74B21D09EC600B7A8A2 /* ProsesView.swift in Sources */,
 				2AF3067521E5B6C000326262 /* DateExtension.swift in Sources */,
 				2A197CB02216899900CD239B /* NewThemeCheckbox.swift in Sources */,
+				2AE2D01C22264EA400EDD90D /* ResultNextButton.swift in Sources */,
 				2A084DCD222263E40016F208 /* StartHintView.swift in Sources */,
 				2A1DCB3A21E5B1F2002B37CF /* SpeechService.swift in Sources */,
 				2AADB00422212B9100C8E144 /* ChoosingConfigurator.swift in Sources */,
@@ -1866,6 +1881,7 @@
 				2AA3A9472224EF5D005010EE /* AddProtocols.swift in Sources */,
 				2AFFB5B921FA9EA10011FD82 /* ThemesService.swift in Sources */,
 				2AFC5F1F2223CB6500F8677F /* MainProtocols.swift in Sources */,
+				2AE2D01E22264EB200EDD90D /* ResultRepeatButton.swift in Sources */,
 				2AADAFF52221283600C8E144 /* StartInteractor.swift in Sources */,
 				2A3FAC0A21F41F3C0025B1A2 /* Badge.swift in Sources */,
 				2AC6B0CA2223B99A008552B0 /* WrongHintView.swift in Sources */,

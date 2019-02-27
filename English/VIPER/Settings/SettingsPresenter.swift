@@ -22,6 +22,10 @@ class SettingsPresenter {
 
 extension SettingsPresenter: SettingsPresenterProtocol {
     
+    func configureView() {
+        updateNotificationContainer()
+    }
+    
     func updateNotificationContainer() {
         let isOn = interactor.getIsOn()
         let time = interactor.getTime()

@@ -57,7 +57,7 @@ class InboxCollectionView: UICollectionView {
     
     func deactivateCells() {
         visibleCells.forEach {
-            ($0 as! WordCell).isActive = true
+            ($0 as! WordCell).isActive = false
         }
     }
     

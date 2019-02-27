@@ -38,7 +38,7 @@ class SpellingService {
     func removeDuplicates(for array: [SpellingItem]) -> [SpellingItem] {
         var spellingItemList: [SpellingItem] = []
         for item in array {
-            if !array.contains(item) {
+            if !spellingItemList.contains(item) {
                 spellingItemList.append(item)
             }
         }

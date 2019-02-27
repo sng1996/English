@@ -32,7 +32,7 @@ class AddViewController: UIView {
             guard let model = sourceItem as? AddViewDataModel else { return }
             headerTextField.text = model.original
             showFooterTextField(with: model.translate)
-            translatesView.sourceItem = model.translates
+            translatesView.sourceItem = (model.translates, model.translate)
             buttonsView.currentMode = .save
             addTableView.hide()
             footerTextField.becomeFirstResponder()
@@ -82,6 +82,7 @@ class AddViewController: UIView {
     
     init(with view: BlurView) {
         super.init(frame: .zero)
+        blurView = view
         configurator.configure(with: self)
         setupViews()
     }
@@ -89,6 +90,10 @@ class AddViewController: UIView {
 }
 
 extension AddViewController: AddViewProtocol {
+    
+    func update() {
+        addTableView.reloadData()
+    }
     
     func startLoading() {
         buttonsView.currentMode = .loader

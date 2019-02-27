@@ -37,7 +37,7 @@ extension AddRouter: AddRouterProtocol {
             inboxViewController.didCloseAddView()
         }
         viewController.viewWillDisappear()
-        ViewController.tabBarView.show()
+        MainViewController.tabBarView.show()
     }
     
 }

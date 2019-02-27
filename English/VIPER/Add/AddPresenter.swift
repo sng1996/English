@@ -36,6 +36,7 @@ extension AddPresenter: AddPresenterProtocol {
     
     func textDidChange(with text: String) {
         interactor.textDidChange(with: text)
+        view.update()
     }
     
     func didTapButton(with mode: SaveButtonMode, header: String, footer: String) {

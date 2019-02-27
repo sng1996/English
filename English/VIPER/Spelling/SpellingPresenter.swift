@@ -18,9 +18,22 @@ class SpellingPresenter {
         self.view = view
     }
     
+    @objc func finishCurrentStep() {
+        view.hideViews()
+    }
+    
 }
 
 extension SpellingPresenter: SpellingPresenterProtocol {
+    
+    var currentItem: SpellingViewDataModel {
+        get {
+            let item = interactor.currentSpellingItem
+            let countText = "\(interactor.currentIndex + 1) из \(interactor.numberOfItems)"
+            let model = SpellingViewDataModel(header: item.wordData.translate!, count: countText)
+            return model
+        }
+    }
     
     func configureView() {
         interactor.update()
@@ -30,26 +43,51 @@ extension SpellingPresenter: SpellingPresenterProtocol {
         router.back()
     }
     
-    func didTapShowAnswer() {
-        let text = interactor.currentSpellingItem
-        view.showAnswer(text)
-    }
-    
     func textFieldDidChange(with text: String) {
         interactor.didChange(text: text)
     }
     
-    func update(isRight: Bool, rightText: String = "") {
-        view.update(isRight: isRight, rightText: rightText)
+    func getHeader() -> String {
+        let item = interactor.currentSpellingItem
+        return item.wordData.translate!
+    }
+    
+    func getAnswer() -> String {
+        interactor.setMistake()
+        let item = interactor.currentSpellingItem
+        return item.wordData.original!
+    }
+    
+    func didFinishHideViews() {
+        interactor.loadNextStep()
+    }
+    
+    func updateViewWithRightAnswer() {
+        view.updateWithRightAnswer()
+        
+        var delay = 0.5
+        let original = interactor.currentSpellingItem.wordData.original!
+        if original.count > 10 {
+            delay = Double(original.count) / 20.0
+        }
+        Timer.scheduledTimer(timeInterval: delay, target: self, selector: #selector(finishCurrentStep), userInfo: nil, repeats: false)
     }
     
     func updateView() {
-        let currentItem = interactor.currentSpellingItem
-        view.sourceItem = SpellingViewControllerDataModel(currentItem)
+        view.sourceItem = currentItem
     }
     
-    func finish(with: mistakesCount) {
-        router.finish()
+    func finish(with mistakes: Int) {
+        view.hideKeyboard()
+        router.presentResultView(with: mistakes)
+    }
+    
+    func resultViewDidTapNext() {
+        router.back()
+    }
+    
+    func resultViewDidTapRepeat() {
+        interactor.update()
     }
     
 }

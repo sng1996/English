@@ -26,8 +26,6 @@ class RepeatsViewController: UIView {
     
     let tv = RepeatsTableView()
     
-    let translateView = TranslateView()
-    
     let emptyView = RepeatsEmptyView()
     
     let badge = Badge()
@@ -44,6 +42,11 @@ class RepeatsViewController: UIView {
     
     func viewDidAppear() {
         presenter.configureView()
+    }
+    
+    func didCloseTranslateView() {
+        scrollView.isActive = true
+        viewDidAppear()
     }
     
     func didTapStartButton() {
@@ -63,6 +66,7 @@ class RepeatsViewController: UIView {
 extension RepeatsViewController: RepeatsViewProtocol {
     
     func update() {
+        badge.sourceItem = presenter.getBadgeValue()
         tv.reloadData()
     }
     
@@ -75,20 +79,11 @@ extension RepeatsViewController: RepeatsViewProtocol {
     }
     
     func showStartButton() {
-        ViewController.tabBarView.showStartButton()
+        MainViewController.tabBarView.showStartButton()
     }
     
     func hideStartButton() {
-        ViewController.tabBarView.hideStartButton()
-    }
-    
-}
-
-extension RepeatsViewController: TranslateViewDelegate {
-    
-    func didCloseTranslateView() {
-        scrollView.isActive = true
-        presenter.configureView()
+        MainViewController.tabBarView.hideStartButton()
     }
     
 }

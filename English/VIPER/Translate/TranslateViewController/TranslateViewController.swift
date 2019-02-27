@@ -18,7 +18,7 @@ class TranslateViewController: UIView {
             guard let model = sourceItem as? TranslateViewDataModel else { return }
             headerLabel.text = model.original
             footerLabel.text = model.translate
-            translatesView.sourceItem = model.translates
+            translatesView.sourceItem = (model.translates, model.translate)
         }
     }
     
@@ -80,6 +80,7 @@ class TranslateViewController: UIView {
     
     func viewDidAppear() {
         presenter.configureView()
+        layoutIfNeeded()
         isHidden = false
         topConstraint.constant = -view.frame.height
         animateLayout()

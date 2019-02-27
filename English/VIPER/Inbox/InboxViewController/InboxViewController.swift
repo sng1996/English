@@ -102,11 +102,11 @@ extension InboxViewController: InboxViewProtocol {
     }
     
     func showStartButton() {
-        ViewController.tabBarView.showStartButton()
+        MainViewController.tabBarView.showStartButton()
     }
     
     func hideStartButton() {
-        ViewController.tabBarView.hideStartButton()
+        MainViewController.tabBarView.hideStartButton()
     }
     
 }

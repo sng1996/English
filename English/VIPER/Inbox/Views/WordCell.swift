@@ -26,6 +26,7 @@ class WordCell: UICollectionViewCell {
         didSet {
             guard let model = sourceItem as? WordCellDataModel else { return }
             label.text = model.text
+            isActive = model.isActive
             container.layoutIfNeeded()
         }
     }

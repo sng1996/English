@@ -21,7 +21,8 @@ class TranslatesItemView: UIView {
     
     let posLabel = UILabel(
         color: UIColor(rgb: 0x9B9B9B),
-        font: UIFont.medium(18)
+        font: UIFont.medium(18),
+        lines: 1
     )
     
     let trLabel = UILabel(

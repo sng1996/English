@@ -10,6 +10,7 @@ import UIKit
 
 protocol AddViewProtocol: class {
     var sourceItem: Any? { get set }
+    func update()
     func startLoading()
 }
 

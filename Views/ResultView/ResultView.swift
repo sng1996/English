@@ -16,7 +16,7 @@ enum ResultMode {
 class ResultViewDataModel {
     
     var mode: (String, String)
-    var mistakes: String
+    var mistakes: String = ""
     
     init(_ mode: (String, String), mistakes: Int) {
         self.mode = mode
@@ -67,22 +67,15 @@ class ResultView: UIView {
     
     let nextButton = ResultNextButton()
     
-    let repeatButton = ResultReturnButton()
+    let repeatButton = ResultRepeatButton()
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(with mistakes: Int) {
+    init() {
         super.init(frame: .zero)
         setupViews()
-        
-        if let _ = superview as? ChoosingViewController {
-            sourceItem = ResultViewDataModel(ResultMode.choosing, mistakes: mistakes)
-        }
-        if let _ = superview as? SpellingViewController {
-            sourceItem = ResultViewDataModel(ResultMode.spelling, mistakes: mistakes)
-        }
     }
     
     func setupViews() {
@@ -112,6 +105,15 @@ class ResultView: UIView {
             repeatButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             footerLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
+    }
+    
+    func viewDidAppear(with mistakes: Int) {
+        if let _ = superview as? ChoosingViewController {
+            sourceItem = ResultViewDataModel(ResultMode.choosing, mistakes: mistakes)
+        }
+        if let _ = superview as? SpellingViewController {
+            sourceItem = ResultViewDataModel(ResultMode.spelling, mistakes: mistakes)
+        }
     }
     
     func didTapNextButton() {

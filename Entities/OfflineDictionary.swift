@@ -32,6 +32,8 @@ class OfflineDictionary: NSObject {
     }
     
     func query(text: String) -> [Word] {
+        if text == "" { return [] }
+        
         var words: [Word] = []
         var queryStatement: OpaquePointer?
         let queryStatementString = "SELECT * FROM Dictionary WHERE original MATCH '\(text)*' ORDER BY original;"

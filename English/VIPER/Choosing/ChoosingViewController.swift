@@ -78,6 +78,8 @@ class ChoosingViewController: UIView {
     }
     
     func setupViews() {
+        backgroundColor = .white
+        
         cv.delegate = self
         cv.dataSource = self
         cv.choosingDelegate = self

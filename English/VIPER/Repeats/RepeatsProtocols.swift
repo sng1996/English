@@ -14,7 +14,6 @@ protocol RepeatsViewProtocol: class {
     func hideEmptyView()
     func showStartButton()
     func hideStartButton()
-    func openTranslateView(with model: TranslateViewDataModel)
 }
 
 protocol RepeatsPresenterProtocol: class {
@@ -25,6 +24,7 @@ protocol RepeatsPresenterProtocol: class {
     func didTapStartButton()
     func didSuccessfullyFinishStartView(with data: [WordData])
     func didSuccessfullyFinishChoosingView(with data: [WordData])
+    func getBadgeValue() -> Int
 }
 
 protocol RepeatsInteractorProtocol: class {

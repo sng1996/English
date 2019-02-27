@@ -16,11 +16,11 @@ class TranslatesView: UIView {
     
     var sourceItem: Any? {
         didSet {
-            guard let word = sourceItem as? Word else { return }
-            close()
-            translates = word.translates
+            guard let model = sourceItem as? ([Translate], String) else { return }
+            hide()
+            translates = model.0
             setupViews()
-            chooseCurrentWord(translates, word.translate)
+            chooseCurrentWord(translates, model.1)
         }
     }
 
@@ -95,19 +95,19 @@ class TranslatesView: UIView {
         }
         view.setNext()
         if let translate = view.getTranslate() {
-            delegate.changeTranslate(translate)
+            delegate.didChangeTranslate(with: translate)
         }
     }
     
     func clear() {
-        _ = views.map { view in
-            view.clear()
+        views.forEach {
+            $0.clear()
         }
     }
     
     func hide() {
-        for view in views {
-            view.removeFromSuperview()
+        views.forEach {
+            $0.removeFromSuperview()
         }
         views.removeAll()
         line.isHidden = true

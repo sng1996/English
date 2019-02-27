@@ -33,7 +33,7 @@ class RepeatsTableView: UITableView {
     }
     
     func updateHeightConstraint() {
-        heightConstraint.constant = contentSize.height
+        heightConstraint.constant = contentSize.height + 40
         superview!.layoutIfNeeded()
     }
     
@@ -45,7 +45,7 @@ class RepeatsTableView: UITableView {
     
     func deactivateCells() {
         visibleCells.forEach {
-            ($0 as! RepeatsCell).isActive = true
+            ($0 as! RepeatsCell).isActive = false
         }
     }
     

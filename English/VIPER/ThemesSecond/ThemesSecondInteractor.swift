@@ -1,23 +1,23 @@
+////
+////  ThemesSecondInteractor.swift
+////  English
+////
+////  Created by Сергей Гаврилко on 23/02/2019.
+////  Copyright © 2019 gavrilko. All rights reserved.
+////
 //
-//  ThemesSecondInteractor.swift
-//  English
+//import UIKit
 //
-//  Created by Сергей Гаврилко on 23/02/2019.
-//  Copyright © 2019 gavrilko. All rights reserved.
+//class ThemesSecondInteractor {
+//    
+//    weak var presenter: ThemesSecondPresenterProtocol!
+//    
+//    required init(presenter: ThemesSecondPresenterProtocol) {
+//        self.presenter = presenter
+//    }
+//    
+//}
 //
-
-import UIKit
-
-class ThemesSecondInteractor {
-    
-    weak var presenter: ThemesSecondPresenterProtocol!
-    
-    required init(presenter: ThemesSecondPresenterProtocol) {
-        self.presenter = presenter
-    }
-    
-}
-
-extension ThemesSecondInteractor: ThemesSecondInteractorProtocol {
-    
-}
+//extension ThemesSecondInteractor: ThemesSecondInteractorProtocol {
+//    
+//}

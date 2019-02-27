@@ -13,15 +13,28 @@ class SpellingInteractor: ServiceProvider {
     weak var presenter: SpellingPresenterProtocol!
     
     let spellingService = SpellingService()
+    let speechService = SpeechService()
     
     var words: [WordData] = []
     var spellingItems: [SpellingItem] = []
     var currentIndex: Int = -1
     var mistakesCount: Int = 0
     var isMadeMistake: Bool = false
+    var isFirstTime: Bool = true
     
-    required init(presenter: SpellingPresenterProtocol) {
+    required init(presenter: SpellingPresenterProtocol, data: [WordData]) {
         self.presenter = presenter
+        words = data
+    }
+    
+    func finish() {
+        if isFirstTime {
+            let spellingItemList = spellingService.removeDuplicates(for: spellingItems)
+            print("qpojfpow", spellingItems.count)
+            wordDataService.setRepeats(spellingItemList)
+            isFirstTime = false
+        }
+        presenter.finish(with: mistakesCount)
     }
     
 }
@@ -34,11 +47,18 @@ extension SpellingInteractor: SpellingInteractorProtocol {
         }
     }
     
+    var numberOfItems: Int {
+        get {
+            return spellingItems.count
+        }
+    }
+    
     func update() {
         spellingItems = spellingService.data(for: words)
         currentIndex = -1
         mistakesCount = 0
         isMadeMistake = false
+        loadNextStep()
     }
     
     func loadNextStep() {
@@ -47,20 +67,18 @@ extension SpellingInteractor: SpellingInteractorProtocol {
             currentIndex += 1
             presenter.updateView()
         } else {
-            presenter.finish(with: mistakesCount)
+            finish()
         }
     }
     
     func didChange(text: String) {
         if text.lowercased() == spellingItems[currentIndex].wordData.original!.lowercased() {
-            presenter.update(isRight: true)
-        } else {
-            didEnterErrorAnswer()
-            presenter.update(isRight: false, rightText: spellingItems[currentIndex].wordData.original!.lowercased())
+            speechService.play(text.lowercased())
+            presenter.updateViewWithRightAnswer()
         }
     }
     
-    func didEnterErrorAnswer() {
+    func setMistake() {
         if !isMadeMistake {
             mistakesCount += 1
             if currentIndex + 3 < spellingItems.count {
@@ -71,11 +89,6 @@ extension SpellingInteractor: SpellingInteractorProtocol {
             isMadeMistake = true
             spellingItems[currentIndex].isMadeMistake = true
         }
-    }
-    
-    func didFinishTask() {
-        let spellingItemList = spellingService.removeDuplicates(for: spellingItems)
-        wordDataService.setRepeats(spellingItemList)
     }
     
 }

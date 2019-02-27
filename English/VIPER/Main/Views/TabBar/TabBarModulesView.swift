@@ -62,7 +62,7 @@ class TabBarModulesView: UIView {
     func deactivateButtons() {
         for button in buttons {
             if let button = button as? TabBarButton {
-                button.deactivate()
+                button.isActive = false
             }
         }
     }

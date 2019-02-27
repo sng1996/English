@@ -45,6 +45,7 @@ extension AddInteractor: AddInteractorProtocol {
     }
     
     func didFinishFirstStep(with text: String) {
+        if text == "" { return }
         if words.isEmpty || words[0].original.lowercased() != text.lowercased() {
             let language = detectLanguage(text: text)
             presenter.startLoading()
@@ -56,6 +57,8 @@ extension AddInteractor: AddInteractorProtocol {
     }
     
     func save(header: String, footer: String) {
+        if header == "" || footer == "" { return }
+        
         var translates: [Translate] = []
         let language = detectLanguage(text: header)
         

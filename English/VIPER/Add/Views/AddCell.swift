@@ -23,7 +23,7 @@ class AddCell: UITableViewCell {
     var sourceItem: Any? {
         didSet {
             guard let model = sourceItem as? AddCellDataModel else { return }
-            headerLabel.text = model.original
+            headerLabel.text = model.text
         }
     }
     

@@ -56,13 +56,13 @@ class SettingsViewController: UIView {
         addConstraintsWithFormat(format: "V:|-\(Screen.safeTop + 40)-[v0]-30-[v1]|", views: headerLabel, notificationContainer)
     }
     
-}
-
-extension SettingsViewController: SettingsViewProtocol {
-    
     func viewDidAppear() {
         presenter.configureView()
     }
+    
+}
+
+extension SettingsViewController: SettingsViewProtocol {
     
     func updateNotificationContainer(with data: SettingsNotificationContainerDataModel) {
         notificationContainer.sourceItem = data
