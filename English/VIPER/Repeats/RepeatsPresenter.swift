@@ -53,4 +53,12 @@ extension RepeatsPresenter: RepeatsPresenterProtocol {
         router.presentStartViewController(with: words)
     }
     
+    func didSuccessfullyFinishStartView(with data: [WordData]) {
+        router.presentChoosingViewController(with: data)
+    }
+    
+    func didSuccessfullyFinishChoosingView(with data: [WordData]) {
+        router.presentSpellingViewController(with: data)
+    }
+    
 }

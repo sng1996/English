@@ -54,6 +54,10 @@ class RepeatsViewController: UIView {
         presenter.didSuccessfullyFinishStartView(with: data)
     }
     
+    func didSuccessfullyFinishChoosingView(with data: [WordData]) {
+        presenter.didSuccessfullyFinishChoosingView(with: data)
+    }
+    
 }
 
 extension RepeatsViewController: RepeatsViewProtocol {

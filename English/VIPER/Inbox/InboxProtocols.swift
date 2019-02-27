@@ -25,7 +25,8 @@ protocol InboxPresenterProtocol: class {
     func scrollViewDidEndDragging(contentOffset: CGFloat)
     func scrollViewWillBeginDragging()
     func didTapStartButton()
-    func didSuccessfullyFinishStartView()
+    func didSuccessfullyFinishStartView(with data: [WordData])
+    func didSuccessfullyFinishChoosingView(with data: [WordData])
 }
 
 protocol InboxInteractorProtocol: class {
@@ -36,6 +37,8 @@ protocol InboxInteractorProtocol: class {
 
 protocol InboxRouterProtocol: class {
     func presentStartViewController(with: [WordData])
+    func presentChoosingViewController(with data: [WordData])
+    func presentSpellingViewController(with data: [WordData])
     func presentTranslateViewController(with data: WordData)
     func presentAddViewController()
     func addViewDidDragging(_ contentOffset: CGFloat)

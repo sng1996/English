@@ -10,7 +10,6 @@ import UIKit
 
 protocol ChoosingViewProtocol: class {
     var sourceItem: Any? { get set }
-    func viewDidAppear()
     func update(isRight: Bool, indexPath: IndexPath)
 }
 
@@ -25,9 +24,12 @@ protocol ChoosingPresenterProtocol: class {
     func updateView()
     func updateView(isRight: Bool, index: Int)
     func finish(with mistakes: Int)
+    func resultViewDidTapNext()
+    func resultViewDidTapRepeat()
 }
 
 protocol ChoosingInteractorProtocol: class {
+    var words: [WordData] { get set }
     var currentItem: ChoosingItem { get }
     var currentIndex: Int { get set }
     var numberOfItems: Int { get }
@@ -39,10 +41,11 @@ protocol ChoosingInteractorProtocol: class {
 
 protocol ChoosingRouterProtocol: class {
     func back()
+    func forward(with data: [WordData])
     func presentResultView(with mistakes: Int)
 }
 
 protocol ChoosingConfiguratorProtocol: class {
-    func configure(with viewController: ChoosingViewController)
+    func configure(with viewController: ChoosingViewController, data: [WordData])
 }
 

@@ -78,7 +78,11 @@ class InboxViewController: UIView {
     }
     
     func didSuccessfullyFinishStartView(with data: [WordData]) {
-        presenter.didSuccessfullyFinishStartView()
+        presenter.didSuccessfullyFinishStartView(with: data)
+    }
+    
+    func didSuccessfullyFinishChoosingView(with data: [WordData]) {
+        presenter.didSuccessfullyFinishChoosingView(with: data)
     }
     
 }

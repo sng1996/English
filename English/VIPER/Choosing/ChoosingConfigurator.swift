@@ -10,9 +10,9 @@ import UIKit
 
 class ChoosingConfigurator: ChoosingConfiguratorProtocol {
     
-    func configure(with viewController: ChoosingViewController) {
+    func configure(with viewController: ChoosingViewController, data: [WordData]) {
         let presenter = ChoosingPresenter(view: viewController)
-        let interactor = ChoosingInteractor(presenter: presenter)
+        let interactor = ChoosingInteractor(presenter: presenter, data: data)
         let router = ChoosingRouter(viewController: viewController)
         
         viewController.presenter = presenter

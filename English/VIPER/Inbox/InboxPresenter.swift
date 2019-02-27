@@ -66,8 +66,12 @@ extension InboxPresenter: InboxPresenterProtocol {
         router.presentStartViewController(with: words)
     }
     
-    func didSuccessfullyFinishStartView() {
-        router.presentChoosingViewController()
+    func didSuccessfullyFinishStartView(with data: [WordData]) {
+        router.presentChoosingViewController(with: data)
+    }
+    
+    func didSuccessfullyFinishChoosingView(with data: [WordData]) {
+        router.presentSpellingViewController(with: data)
     }
     
 }

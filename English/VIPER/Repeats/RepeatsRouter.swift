@@ -29,6 +29,24 @@ extension RepeatsRouter: RepeatsRouterProtocol {
         ViewController.tabBarView.hide()
     }
     
+    func presentChoosingViewController(with data: [WordData]) {
+        let choosingViewController = ChoosingViewController(with: data)
+        viewController.addSubview(choosingViewController)
+        viewController.addConstraintsWithFormat(format: "H:|[v0]|", views: choosingViewController)
+        viewController.addConstraintsWithFormat(format: "V:|[v0]|", views: choosingViewController)
+        choosingViewController.viewDidAppear()
+        ViewController.tabBarView.hide()
+    }
+    
+    func presentSpellingViewController(with data: [WordData]) {
+        let spellingViewController = SpellingViewController(with: data)
+        viewController.addSubview(spellingViewController)
+        viewController.addConstraintsWithFormat(format: "H:|[v0]|", views: spellingViewController)
+        viewController.addConstraintsWithFormat(format: "V:|[v0]|", views: spellingViewController)
+        spellingViewController.viewDidAppear()
+        ViewController.tabBarView.hide()
+    }
+    
     func presentTranslateViewController(with data: WordData) {
         let translateViewController = TranslateViewController(with: data)
         viewController.addSubview(translateViewController)
@@ -37,7 +55,5 @@ extension RepeatsRouter: RepeatsRouterProtocol {
         translateViewController.viewDidAppear()
         ViewController.tabBarView.hide()
     }
-    
-    
     
 }

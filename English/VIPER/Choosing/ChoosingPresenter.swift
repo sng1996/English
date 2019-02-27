@@ -74,4 +74,13 @@ extension ChoosingPresenter: ChoosingPresenterProtocol {
         router.presentResultView(with: mistakes)
     }
     
+    func resultViewDidTapNext() {
+        let words = interactor.words
+        router.forward(with: words)
+    }
+    
+    func resultViewDidTapRepeat() {
+        interactor.update()
+    }
+    
 }

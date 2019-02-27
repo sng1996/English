@@ -23,6 +23,8 @@ protocol RepeatsPresenterProtocol: class {
     func tableViewNumberOfItems() -> Int
     func tableViewDataForItemAt(_ indexPath: IndexPath) -> RepeatsCellDataModel
     func didTapStartButton()
+    func didSuccessfullyFinishStartView(with data: [WordData])
+    func didSuccessfullyFinishChoosingView(with data: [WordData])
 }
 
 protocol RepeatsInteractorProtocol: class {
@@ -34,6 +36,8 @@ protocol RepeatsInteractorProtocol: class {
 
 protocol RepeatsRouterProtocol: class {
     func presentStartViewController(with data: [WordData])
+    func presentChoosingViewController(with data: [WordData])
+    func presentSpellingViewController(with data: [WordData])
     func presentTranslateViewController(with data: WordData)
 }
 

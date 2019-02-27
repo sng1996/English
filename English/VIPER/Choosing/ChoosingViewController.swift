@@ -32,7 +32,6 @@ class ChoosingViewController: UIView {
             countLabel.text = model.count
             cv.reloadData()
             showViews()
-            speechManager.play(model.header)
         }
     }
     
@@ -68,17 +67,14 @@ class ChoosingViewController: UIView {
         return view
     }()
     
-    let speechManager = SpeechManager()
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init() {
+    init(with data: [WordData]) {
         super.init(frame: .zero)
-        configurator.configure(with: self)
+        configurator.configure(with: self, data: data)
         setupViews()
-        viewDidAppear()
     }
     
     func setupViews() {
@@ -111,12 +107,30 @@ class ChoosingViewController: UIView {
         addConstraintsWithFormat(format: "V:|[v0]|", views: nextButton)
     }
     
+    func viewDidAppear() {
+        presenter.configureView()
+    }
+    
+    func viewWillDisappear() {
+        removeFromSuperview()
+    }
+    
     func didTapBackButton() {
         presenter.didTapBackButton()
     }
     
     func didTapNextButton() {
-        hideViews()
+        hideViews(complete: {
+            self.presenter.didFinishHideViews()
+        })
+    }
+    
+    func resultViewDidTapNext() {
+        presenter.resultViewDidTapNext()
+    }
+    
+    func resultViewDidTapRepeat() {
+        presenter.resultViewDidTapRepeat()
     }
     
     func showViews() {
@@ -127,24 +141,20 @@ class ChoosingViewController: UIView {
         }, completion: nil)
     }
     
-    func hideViews() {
+    func hideViews(complete: @escaping () -> ()) {
         nextButton.isHidden = true
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
             self.cv.alpha = 0.0
             self.headerLabel.alpha = 0.0
             self.footerLabel.alpha = 0.0
         }, completion: { finished in
-            self.presenter.didFinishHideViews()
+            complete()
         })
     }
     
 }
 
 extension ChoosingViewController: ChoosingViewProtocol {
-    
-    func viewDidAppear() {
-        presenter.configureView()
-    }
     
     func update(isRight: Bool, indexPath: IndexPath) {
         cv.update(isRight: isRight, indexPath: indexPath)
@@ -185,7 +195,9 @@ extension ChoosingViewController: UICollectionViewDataSource {
 extension ChoosingViewController: ChoosingCollectionViewDelegate {
     
     func didFinishRightAnswerAnimation() {
-        hideViews()
+        hideViews(complete: {
+            self.presenter.didFinishHideViews()
+        })
     }
     
     func getRightIndexPath() -> IndexPath {

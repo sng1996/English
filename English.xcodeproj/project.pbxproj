@@ -41,8 +41,6 @@
 		2A16D20621D4688200B34013 /* ChoosingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A16D20521D4688200B34013 /* ChoosingCell.swift */; };
 		2A16D20821D472D900B34013 /* ChoosingContinueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A16D20721D472D900B34013 /* ChoosingContinueView.swift */; };
 		2A16D20B21D4DE7F00B34013 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A16D20A21D4DE7F00B34013 /* ResultView.swift */; };
-		2A16D20D21D4DFEB00B34013 /* ResultNextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A16D20C21D4DFEB00B34013 /* ResultNextButton.swift */; };
-		2A16D20F21D4E18400B34013 /* ResultReturnButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A16D20E21D4E18400B34013 /* ResultReturnButton.swift */; };
 		2A16D21221D4EF0700B34013 /* SpellingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A16D21121D4EF0700B34013 /* SpellingView.swift */; };
 		2A16D21421D4EF4E00B34013 /* SpellingSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A16D21321D4EF4E00B34013 /* SpellingSetup.swift */; };
 		2A16D21621D4EF6700B34013 /* SpellingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A16D21521D4EF6700B34013 /* SpellingExtension.swift */; };
@@ -152,12 +150,6 @@
 		2AADB00422212B9100C8E144 /* ChoosingConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB00322212B9100C8E144 /* ChoosingConfigurator.swift */; };
 		2AADB00622212BA400C8E144 /* ChoosingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB00522212BA400C8E144 /* ChoosingRouter.swift */; };
 		2AADB00822212BB800C8E144 /* ChoosingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB00722212BB800C8E144 /* ChoosingProtocols.swift */; };
-		2AADB00B22212EFD00C8E144 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB00A22212EFD00C8E144 /* ResultViewController.swift */; };
-		2AADB00D22212F1000C8E144 /* ResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB00C22212F1000C8E144 /* ResultPresenter.swift */; };
-		2AADB00F22212F2100C8E144 /* ResultInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB00E22212F2100C8E144 /* ResultInteractor.swift */; };
-		2AADB01122212F3400C8E144 /* ResultConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB01022212F3400C8E144 /* ResultConfigurator.swift */; };
-		2AADB01322212F4200C8E144 /* ResultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB01222212F4200C8E144 /* ResultRouter.swift */; };
-		2AADB01522212F5300C8E144 /* ResultProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB01422212F5300C8E144 /* ResultProtocols.swift */; };
 		2AADB0182221326900C8E144 /* SpellingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB0172221326900C8E144 /* SpellingViewController.swift */; };
 		2AADB01A2221327D00C8E144 /* SpellingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB0192221327D00C8E144 /* SpellingPresenter.swift */; };
 		2AADB01C2221329000C8E144 /* SpellingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADB01B2221329000C8E144 /* SpellingInteractor.swift */; };
@@ -354,8 +346,6 @@
 		2A16D20521D4688200B34013 /* ChoosingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingCell.swift; sourceTree = "<group>"; };
 		2A16D20721D472D900B34013 /* ChoosingContinueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingContinueView.swift; sourceTree = "<group>"; };
 		2A16D20A21D4DE7F00B34013 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
-		2A16D20C21D4DFEB00B34013 /* ResultNextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultNextButton.swift; sourceTree = "<group>"; };
-		2A16D20E21D4E18400B34013 /* ResultReturnButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultReturnButton.swift; sourceTree = "<group>"; };
 		2A16D21121D4EF0700B34013 /* SpellingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingView.swift; sourceTree = "<group>"; };
 		2A16D21321D4EF4E00B34013 /* SpellingSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingSetup.swift; sourceTree = "<group>"; };
 		2A16D21521D4EF6700B34013 /* SpellingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingExtension.swift; sourceTree = "<group>"; };
@@ -465,12 +455,6 @@
 		2AADB00322212B9100C8E144 /* ChoosingConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingConfigurator.swift; sourceTree = "<group>"; };
 		2AADB00522212BA400C8E144 /* ChoosingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingRouter.swift; sourceTree = "<group>"; };
 		2AADB00722212BB800C8E144 /* ChoosingProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingProtocols.swift; sourceTree = "<group>"; };
-		2AADB00A22212EFD00C8E144 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
-		2AADB00C22212F1000C8E144 /* ResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPresenter.swift; sourceTree = "<group>"; };
-		2AADB00E22212F2100C8E144 /* ResultInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultInteractor.swift; sourceTree = "<group>"; };
-		2AADB01022212F3400C8E144 /* ResultConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultConfigurator.swift; sourceTree = "<group>"; };
-		2AADB01222212F4200C8E144 /* ResultRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultRouter.swift; sourceTree = "<group>"; };
-		2AADB01422212F5300C8E144 /* ResultProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultProtocols.swift; sourceTree = "<group>"; };
 		2AADB0172221326900C8E144 /* SpellingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingViewController.swift; sourceTree = "<group>"; };
 		2AADB0192221327D00C8E144 /* SpellingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingPresenter.swift; sourceTree = "<group>"; };
 		2AADB01B2221329000C8E144 /* SpellingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingInteractor.swift; sourceTree = "<group>"; };
@@ -700,7 +684,6 @@
 		2A16D20921D4DE6F00B34013 /* Result */ = {
 			isa = PBXGroup;
 			children = (
-				2A16D20A21D4DE7F00B34013 /* ResultView.swift */,
 			);
 			path = Result;
 			sourceTree = "<group>";
@@ -880,12 +863,11 @@
 				2AADAFBE2221138200C8E144 /* Inbox */,
 				2AADAFD522211D8E00C8E144 /* Repeats */,
 				2AADAFEF222127AF00C8E144 /* Start */,
+				2AADAFFC22212B2C00C8E144 /* Choosing */,
 				2AADB025222134CD00C8E144 /* SingleTheme */,
 				2AADB024222134BC00C8E144 /* ThemesSecond */,
 				2AADB023222134A700C8E144 /* NewTheme */,
 				2AADB016222131AD00C8E144 /* Spelling */,
-				2AADB00922212EDC00C8E144 /* Result */,
-				2AADAFFC22212B2C00C8E144 /* Choosing */,
 				2AADAFE22221244400C8E144 /* Settings */,
 			);
 			path = VIPER;
@@ -911,8 +893,8 @@
 				2AFD906D22226AA400D42274 /* RepeatsViewController */,
 				2AADAFDC22211F5500C8E144 /* RepeatsPresenter.swift */,
 				2AADAFDA22211F2700C8E144 /* RepeatsInteractor.swift */,
-				2AADAFD822211EF300C8E144 /* RepeatsConfigurator.swift */,
 				2AADAFE022211FC800C8E144 /* RepeatsRouter.swift */,
+				2AADAFD822211EF300C8E144 /* RepeatsConfigurator.swift */,
 				2AADAFDE22211FAC00C8E144 /* RepeatsProtocols.swift */,
 				2AAD5DD522214A9B00F77B26 /* Views */,
 			);
@@ -953,26 +935,12 @@
 				2AADAFFD22212B5000C8E144 /* ChoosingViewController.swift */,
 				2AADAFFF22212B6200C8E144 /* ChoosingPresenter.swift */,
 				2AADB00122212B7900C8E144 /* ChoosingInteractor.swift */,
-				2AADB00322212B9100C8E144 /* ChoosingConfigurator.swift */,
 				2AADB00522212BA400C8E144 /* ChoosingRouter.swift */,
+				2AADB00322212B9100C8E144 /* ChoosingConfigurator.swift */,
 				2AADB00722212BB800C8E144 /* ChoosingProtocols.swift */,
 				2AFD90702222837400D42274 /* Views */,
 			);
 			path = Choosing;
-			sourceTree = "<group>";
-		};
-		2AADB00922212EDC00C8E144 /* Result */ = {
-			isa = PBXGroup;
-			children = (
-				2AADB00A22212EFD00C8E144 /* ResultViewController.swift */,
-				2AADB00C22212F1000C8E144 /* ResultPresenter.swift */,
-				2AADB00E22212F2100C8E144 /* ResultInteractor.swift */,
-				2AADB01022212F3400C8E144 /* ResultConfigurator.swift */,
-				2AADB01222212F4200C8E144 /* ResultRouter.swift */,
-				2AADB01422212F5300C8E144 /* ResultProtocols.swift */,
-				2AFC5F0F2223B80600F8677F /* Views */,
-			);
-			path = Result;
 			sourceTree = "<group>";
 		};
 		2AADB016222131AD00C8E144 /* Spelling */ = {
@@ -1244,6 +1212,7 @@
 				2A31709022210B040038DE7D /* Hints */,
 				2AE8E78D21D235A900B7A8A2 /* Translate */,
 				2AE8E75E21D0C7A600B7A8A2 /* Add */,
+				2A16D20A21D4DE7F00B34013 /* ResultView.swift */,
 				2AE8E71E21CF92EC00B7A8A2 /* Line.swift */,
 				2AE8E72C21CFAF2F00B7A8A2 /* Button.swift */,
 				2AE8E76B21D0D81100B7A8A2 /* BlurView.swift */,
@@ -1367,15 +1336,6 @@
 				2AE8E79221D2360800B7A8A2 /* TranslateExtension.swift */,
 			);
 			path = Translate;
-			sourceTree = "<group>";
-		};
-		2AFC5F0F2223B80600F8677F /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				2A16D20C21D4DFEB00B34013 /* ResultNextButton.swift */,
-				2A16D20E21D4E18400B34013 /* ResultReturnButton.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		2AFC5F122223C32E00F8677F /* Views */ = {
@@ -1746,9 +1706,7 @@
 				2AE8E72F21CFB11600B7A8A2 /* ViewControllerExtension.swift in Sources */,
 				2AE8E73C21CFB61200B7A8A2 /* UILabelExtension.swift in Sources */,
 				2A16D21621D4EF6700B34013 /* SpellingExtension.swift in Sources */,
-				2A16D20F21D4E18400B34013 /* ResultReturnButton.swift in Sources */,
 				2AA3A95322250F8D005010EE /* AddActionsExtension.swift in Sources */,
-				2AADB00D22212F1000C8E144 /* ResultPresenter.swift in Sources */,
 				2AAD5DD722214AB300F77B26 /* RepeatsTableView.swift in Sources */,
 				2A3FAC1D21F6E7A00025B1A2 /* SingleThemeCheckbox.swift in Sources */,
 				2AAD5DC0222143F500F77B26 /* InboxPresenter.swift in Sources */,
@@ -1817,7 +1775,6 @@
 				2A16D21821D4EF7200B34013 /* SpellingDelegate.swift in Sources */,
 				2A16D20621D4688200B34013 /* ChoosingCell.swift in Sources */,
 				2AE8E79321D2360800B7A8A2 /* TranslateExtension.swift in Sources */,
-				2A16D20D21D4DFEB00B34013 /* ResultNextButton.swift in Sources */,
 				2AADAFE122211FC800C8E144 /* RepeatsRouter.swift in Sources */,
 				2AFC5F2B2223E74F00F8677F /* TranslateRouter.swift in Sources */,
 				2AFC5F272223E72900F8677F /* TranslatePresenter.swift in Sources */,
@@ -1859,7 +1816,6 @@
 				2A16D22F21D62DA600B34013 /* ArchiveDelegate.swift in Sources */,
 				2A197CA12214083900CD239B /* ShadowsView.swift in Sources */,
 				2A3FAC1F21F72DDB0025B1A2 /* StringExtension.swift in Sources */,
-				2AADB00B22212EFD00C8E144 /* ResultViewController.swift in Sources */,
 				2A99A05622093EB000283D21 /* TranslateSetup.swift in Sources */,
 				2A16D21A21D4F06000B34013 /* SpellingViewModel.swift in Sources */,
 				2A084DCF22226B0B0016F208 /* WordsCountHintView.swift in Sources */,
@@ -1910,7 +1866,6 @@
 				2AA3A9472224EF5D005010EE /* AddProtocols.swift in Sources */,
 				2AFFB5B921FA9EA10011FD82 /* ThemesService.swift in Sources */,
 				2AFC5F1F2223CB6500F8677F /* MainProtocols.swift in Sources */,
-				2AADB00F22212F2100C8E144 /* ResultInteractor.swift in Sources */,
 				2AADAFF52221283600C8E144 /* StartInteractor.swift in Sources */,
 				2A3FAC0A21F41F3C0025B1A2 /* Badge.swift in Sources */,
 				2AC6B0CA2223B99A008552B0 /* WrongHintView.swift in Sources */,
@@ -1927,7 +1882,6 @@
 				2A3170A5222121870038DE7D /* ChooseFromThemesHintView.swift in Sources */,
 				2AE8E75121D0A72F00B7A8A2 /* TabBarSetup.swift in Sources */,
 				2ABB914221FD4B08003E1521 /* ThemesSecondCell.swift in Sources */,
-				2AADB01322212F4200C8E144 /* ResultRouter.swift in Sources */,
 				2AADAFF12221280700C8E144 /* StartViewController.swift in Sources */,
 				2AE8E78C21D22C4A00B7A8A2 /* TranslatesItemView.swift in Sources */,
 				2A16D23121D7107F00B34013 /* SettingsNotificationContainer.swift in Sources */,
@@ -1949,7 +1903,6 @@
 				2AC6B0C72223B3FE008552B0 /* ForgetButton.swift in Sources */,
 				2AAD5DCC2221444000F77B26 /* InboxScrollView.swift in Sources */,
 				2AFC5F252223E71300F8677F /* TranslateViewController.swift in Sources */,
-				2AADB01122212F3400C8E144 /* ResultConfigurator.swift in Sources */,
 				2AADAFF72221284C00C8E144 /* StartConfigurator.swift in Sources */,
 				2AFC5F1D2223CB4100F8677F /* MainRouter.swift in Sources */,
 				2AFFB5B321F82D830011FD82 /* SingleThemeDelegate.swift in Sources */,
@@ -1968,7 +1921,6 @@
 				2A16D20821D472D900B34013 /* ChoosingContinueView.swift in Sources */,
 				2A16D1E521D34DE300B34013 /* CardsView.swift in Sources */,
 				2A16D22021D60D6E00B34013 /* RepeatsSetup.swift in Sources */,
-				2AADB01522212F5300C8E144 /* ResultProtocols.swift in Sources */,
 				2A16D20B21D4DE7F00B34013 /* ResultView.swift in Sources */,
 				2AADAFDF22211FAC00C8E144 /* RepeatsProtocols.swift in Sources */,
 				2A084DDE2222938F0016F208 /* RepeatsButton.swift in Sources */,

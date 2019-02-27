@@ -12,13 +12,16 @@ class ChoosingInteractor {
     
     weak var presenter: ChoosingPresenterProtocol!
     
+    var speechService = SpeechService()
+    
     var words: [WordData] = []
     var choosingItems: [ChoosingItem] = []
     var currentIndex: Int = -1
     var mistakesCount: Int = 0
     
-    required init(presenter: ChoosingPresenterProtocol) {
+    required init(presenter: ChoosingPresenterProtocol, data: [WordData]) {
         self.presenter = presenter
+        words = data
     }
     
 }
@@ -49,6 +52,7 @@ extension ChoosingInteractor: ChoosingInteractorProtocol {
         if currentIndex + 1 < choosingItems.count {
             currentIndex += 1
             presenter.updateView()
+            speechService.play(currentItem.wordData.original!)
         } else {
             presenter.finish(with: mistakesCount)
         }
