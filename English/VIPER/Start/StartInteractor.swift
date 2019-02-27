@@ -14,8 +14,9 @@ class StartInteractor {
     
     var words: [WordData] = []
     
-    required init(presenter: StartPresenterProtocol) {
+    required init(presenter: StartPresenterProtocol, data: [WordData]) {
         self.presenter = presenter
+        words = data
     }
     
 }

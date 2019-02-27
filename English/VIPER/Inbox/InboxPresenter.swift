@@ -61,4 +61,13 @@ extension InboxPresenter: InboxPresenterProtocol {
         router.presentAddViewController()
     }
     
+    func didTapStartButton() {
+        let words = interactor.firstWords
+        router.presentStartViewController(with: words)
+    }
+    
+    func didSuccessfullyFinishStartView() {
+        router.presentChoosingViewController()
+    }
+    
 }

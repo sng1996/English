@@ -21,11 +21,22 @@ class StartRouter {
 extension StartRouter: StartRouterProtocol {
     
     func back() {
-        
+        if let inboxViewController = viewController.superview as? InboxViewController {
+            inboxViewController.viewDidAppear()
+        } else if let repeatsViewController = viewController.superview as? RepeatsViewController {
+            repeatsViewController.viewDidAppear()
+        }
+        viewController.viewWillDisappear()
+        ViewController.tabBarView.show()
     }
     
-    func presentChoosingView() {
-        
+    func forward(with data: [WordData]) {
+        if let inboxViewController = viewController.superview as? InboxViewController {
+            inboxViewController.didSuccessfullyFinishStartView(with: data)
+        } else if let repeatsViewController = viewController.superview as? RepeatsViewController {
+            repeatsViewController.didSuccessfullyFinishStartView(with: data)
+        }
+        viewController.viewWillDisappear()
     }
     
 }

@@ -26,6 +26,13 @@ extension RepeatsInteractor: RepeatsInteractorProtocol {
         }
     }
     
+    var firstWords: [WordData] {
+        get {
+            let count = wordDataService.todayCount < 10 ? wordDataService.todayCount : 10
+            return Array(wordDataService.repeatWords.prefix(count))
+        }
+    }
+    
     func itemAt(_ index: Int) -> WordData {
         return wordDataService.repeatWords[index]
     }

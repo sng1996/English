@@ -9,7 +9,6 @@
 import UIKit
 
 protocol StartViewProtocol: class {
-    func viewDidAppear()
     func update()
 }
 
@@ -23,16 +22,17 @@ protocol StartPresenterProtocol: class {
 }
 
 protocol StartInteractorProtocol: class {
+    var words: [WordData] { get set }
     func numberOfItems() -> Int
     func itemAt(_ index: Int) -> WordData
 }
 
 protocol StartRouterProtocol: class {
     func back()
-    func presentChoosingView()
+    func forward(with data: [WordData])
 }
 
 protocol StartConfiguratorProtocol: class {
-    func configure(with viewController: StartViewController)
+    func configure(with viewController: StartViewController, data: [WordData])
 }
 

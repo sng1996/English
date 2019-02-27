@@ -9,7 +9,6 @@
 import UIKit
 
 protocol RepeatsViewProtocol: class {
-    func viewDidAppear()
     func update()
     func showEmptyView()
     func hideEmptyView()
@@ -23,16 +22,19 @@ protocol RepeatsPresenterProtocol: class {
     func tableViewDidSelectItemAt(_ indexPath: IndexPath)
     func tableViewNumberOfItems() -> Int
     func tableViewDataForItemAt(_ indexPath: IndexPath) -> RepeatsCellDataModel
+    func didTapStartButton()
 }
 
 protocol RepeatsInteractorProtocol: class {
-    var todayWordsCount: Int
+    var todayWordsCount: Int { get }
+    var firstWords: [WordData] { get }
     func itemAt(_ index: Int) -> WordData
     func numberOfItems() -> Int
 }
 
 protocol RepeatsRouterProtocol: class {
-    
+    func presentStartViewController(with data: [WordData])
+    func presentTranslateViewController(with data: WordData)
 }
 
 protocol RepeatsConfiguratorProtocol: class {

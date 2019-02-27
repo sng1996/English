@@ -66,7 +66,7 @@ class InboxViewController: UIView {
     }
     
     func didTapStartButton() {
-        
+        presenter.didTapStartButton()
     }
     
     func changeScrollViewContentOffset(value: CGFloat) {
@@ -75,6 +75,10 @@ class InboxViewController: UIView {
     
     func fixScrollViewContentOffset(value: CGFloat) {
         scrollView.fix(at: value)
+    }
+    
+    func didSuccessfullyFinishStartView(with data: [WordData]) {
+        presenter.didSuccessfullyFinishStartView()
     }
     
 }

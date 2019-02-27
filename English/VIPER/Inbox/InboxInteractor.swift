@@ -26,6 +26,12 @@ extension InboxInteractor: InboxInteractorProtocol {
         }
     }
     
+    var firstWords: [WordData] {
+        get {
+            return Array(wordDataService.newWords.prefix(10))
+        }
+    }
+    
     func itemAt(_ index: Int) -> WordData {
         return wordDataService.newWords[index]
     }

@@ -40,16 +40,23 @@ class RepeatsViewController: UIView {
         super.init(frame: .zero)
         configurator.configure(with: self)
         setupViews()
-        viewDidAppear()
+    }
+    
+    func viewDidAppear() {
+        presenter.configureView()
+    }
+    
+    func didTapStartButton() {
+        presenter.didTapStartButton()
+    }
+    
+    func didSuccessfullyFinishStartView(with data: [WordData]) {
+        presenter.didSuccessfullyFinishStartView(with: data)
     }
     
 }
 
 extension RepeatsViewController: RepeatsViewProtocol {
-    
-    func viewDidAppear() {
-        presenter.configureView()
-    }
     
     func update() {
         tv.reloadData()
@@ -69,10 +76,6 @@ extension RepeatsViewController: RepeatsViewProtocol {
     
     func hideStartButton() {
         ViewController.tabBarView.hideStartButton()
-    }
-    
-    func openTranslateView(with model: TranslateViewDataModel) {
-        translateView.open(with: model)
     }
     
 }

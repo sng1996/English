@@ -48,7 +48,7 @@ extension RepeatsViewController {
         NSLayoutConstraint.activate([
             badge.leftAnchor.constraint(equalTo: label.rightAnchor),
             badge.bottomAnchor.constraint(equalTo: label.centerYAnchor)
-            ])
+        ])
         
         tv.setInitConstraint()
     }

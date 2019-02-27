@@ -27,7 +27,7 @@ extension RepeatsPresenter: RepeatsPresenterProtocol {
             view.hideEmptyView()
             view.hideStartButton()
         } else {
-            view.showEmptyView()p
+            view.showEmptyView()
             view.showStartButton()
         }
         view.update()
@@ -35,8 +35,7 @@ extension RepeatsPresenter: RepeatsPresenterProtocol {
     
     func tableViewDidSelectItemAt(_ indexPath: IndexPath) {
         let word = interactor.itemAt(indexPath.row)
-        let model = TranslateViewDataModel(word)
-        view.openTranslateView(with: model)
+        router.presentTranslateViewController(with: word)
     }
     
     func tableViewNumberOfItems() -> Int {
@@ -46,7 +45,12 @@ extension RepeatsPresenter: RepeatsPresenterProtocol {
     func tableViewDataForItemAt(_ indexPath: IndexPath) -> RepeatsCellDataModel {
         let word = interactor.itemAt(indexPath.row)
         let isActive = indexPath.row < interactor.todayWordsCount
-        return WordCellDataModel(word, isActive: isActive)
+        return RepeatsCellDataModel(word, isActive: isActive)
+    }
+    
+    func didTapStartButton() {
+        let words = interactor.firstWords
+        router.presentStartViewController(with: words)
     }
     
 }

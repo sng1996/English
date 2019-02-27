@@ -31,11 +31,13 @@ extension StartPresenter: StartPresenterProtocol {
     }
     
     func didTapPassButton() {
-        router.presentChoosingView()
+        let words = interactor.words
+        router.forward(with: words)
     }
     
     func didTapStartButton() {
-        router.presentChoosingView()
+        let words = interactor.words
+        router.forward(with: words)
     }
     
     func numberOfItems() -> Int {

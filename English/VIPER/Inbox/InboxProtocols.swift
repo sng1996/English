@@ -24,14 +24,18 @@ protocol InboxPresenterProtocol: class {
     func scrollViewDidScroll(contentOffset: CGFloat)
     func scrollViewDidEndDragging(contentOffset: CGFloat)
     func scrollViewWillBeginDragging()
+    func didTapStartButton()
+    func didSuccessfullyFinishStartView()
 }
 
 protocol InboxInteractorProtocol: class {
     var numberOfItems: Int { get }
+    var firstWords: [WordData] { get }
     func itemAt(_ index: Int) -> WordData
 }
 
 protocol InboxRouterProtocol: class {
+    func presentStartViewController(with: [WordData])
     func presentTranslateViewController(with data: WordData)
     func presentAddViewController()
     func addViewDidDragging(_ contentOffset: CGFloat)

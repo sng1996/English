@@ -10,9 +10,9 @@ import UIKit
 
 class StartConfigurator: StartConfiguratorProtocol {
     
-    func configure(with viewController: StartViewController) {
+    func configure(with viewController: StartViewController, data: [WordData]) {
         let presenter = StartPresenter(view: viewController)
-        let interactor = StartInteractor(presenter: presenter)
+        let interactor = StartInteractor(presenter: presenter, data: data)
         let router = StartRouter(viewController: viewController)
         
         viewController.presenter = presenter

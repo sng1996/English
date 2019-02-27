@@ -46,11 +46,10 @@ class StartViewController: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init() {
+    init(with data: [WordData]) {
         super.init(frame: .zero)
-        configurator.configure(with: self)
+        configurator.configure(with: self, data: data)
         setupViews()
-        viewDidAppear()
     }
     
     func setupViews() {
@@ -90,6 +89,14 @@ class StartViewController: UIView {
         addConstraintsWithFormat(format: "V:|[v0]|", views: startButton)
     }
     
+    func viewDidAppear() {
+        presenter.configureView()
+    }
+    
+    func viewWillDisappear() {
+        removeFromSuperview()
+    }
+    
     func didTapReturnButton() {
         cardsView.returnCard()
     }
@@ -109,10 +116,6 @@ class StartViewController: UIView {
 }
 
 extension StartViewController: StartViewProtocol {
-    
-    func viewDidAppear() {
-        presenter.configureView()
-    }
     
     func update() {
         cardsView.reloadData()
