@@ -11,6 +11,7 @@ import UIKit
 protocol TabBarViewDelegate {
     func didTapInboxButton()
     func didTapRepeatsButton()
+    func didTapThemesButton()
     func didTapSettingsButton()
     func didTapStartButton()
 }

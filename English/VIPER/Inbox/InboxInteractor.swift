@@ -32,8 +32,21 @@ extension InboxInteractor: InboxInteractorProtocol {
         }
     }
     
+    var isShowNotificationHint: Bool {
+        get {
+            let result = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isShowNotificationHint)
+            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isShowNotificationHint)
+            return result
+        }
+    }
+    
     func itemAt(_ index: Int) -> WordData {
         return wordDataService.newWords[index]
+    }
+    
+    func requestAccessForNotifications() {
+        let notificationService = NotificationService()
+        notificationService.requestAuth()
     }
     
 }

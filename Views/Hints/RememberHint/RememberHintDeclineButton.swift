@@ -30,7 +30,7 @@ class RememberHintDeclineButton: Button {
     func setupViews() {
         addSubview(label)
         
-        addConstraintsWithFormat(format: "H:|-20-[v0]-20-|", views: label)
+        addConstraintsWithFormat(format: "H:|-30-[v0]-30-|", views: label)
         addConstraintsWithFormat(format: "V:|[v0(\(height))]|", views: label)
     }
 

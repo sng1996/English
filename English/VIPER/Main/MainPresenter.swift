@@ -30,6 +30,10 @@ extension MainPresenter: MainPresenterProtocol {
         router.presentRepeatsViewController()
     }
     
+    func didTapThemesButton() {
+        router.presentThemesViewController()
+    }
+    
     func didTapSettingsButton() {
         router.presentSettingsViewController()
     }

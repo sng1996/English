@@ -22,7 +22,7 @@ class StartViewController: UIView {
     )
     
     let footerLabel = UILabel(
-        text: "Изучите слова или нажмите «пропустить», чтобы начать обучение",
+        text: "Пролистайте слова или нажмите «пропустить», чтобы начать обучение",
         color: UIColor(rgb: 0x9B9B9B),
         font: UIFont.book(20),
         alignment: .center

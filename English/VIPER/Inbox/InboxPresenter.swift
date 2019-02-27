@@ -32,6 +32,10 @@ extension InboxPresenter: InboxPresenterProtocol {
             view.hideStartButton()
         }
         view.update()
+        
+        if !interactor.isShowNotificationHint {
+            view.showRememberHint()
+        }
     }
     
     func collectionViewDidSelectItemAt(_ indexPath: IndexPath) {
@@ -72,6 +76,10 @@ extension InboxPresenter: InboxPresenterProtocol {
     
     func didSuccessfullyFinishChoosingView(with data: [WordData]) {
         router.presentSpellingViewController(with: data)
+    }
+    
+    func rememberHintDidTapAcceptButton() {
+        interactor.requestAccessForNotifications()
     }
     
 }

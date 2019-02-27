@@ -21,6 +21,7 @@ class SpellingTextField: UIView {
         textField.textAlignment = .center
         textField.autocorrectionType = .no
         textField.keyboardLanguage = "en"
+        textField.returnKeyType = .done
         return textField
     }()
     

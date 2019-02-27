@@ -30,8 +30,8 @@ enum TabBarButtonType {
         size: CGSize(width: 20, height: 20)
     )
     static let themes = ImageItem(
-        image: UIImage(named: "Themes_gray")!,
-        activatedImage: UIImage(named: "Themes_green")!,
+        image: UIImage(named: "Modules_gray")!,
+        activatedImage: UIImage(named: "Modules_green")!,
         size: CGSize(width: 20, height: 20)
     )
     static let prose = ImageItem(

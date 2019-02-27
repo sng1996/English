@@ -49,8 +49,8 @@ class RememberHintView: UIView {
     
     func setupViews() {
         backgroundColor = .white
-        acceptButton.tapHandler = delegate.didTapAcceptButton
-        declineButton.tapHandler = delegate.didTapDeclineButton
+        acceptButton.tapHandler = didTapAcceptButton
+        declineButton.tapHandler = didTapDeclineButton
         
         addSubview(container)
         addSubview(footerLabel)
@@ -72,6 +72,16 @@ class RememberHintView: UIView {
             declineButton.centerXAnchor.constraint(equalTo: container.centerXAnchor),
             container.centerYAnchor.constraint(equalTo: centerYAnchor),
         ])
+    }
+    
+    func didTapAcceptButton() {
+        delegate.didTapAcceptButton()
+        removeFromSuperview()
+    }
+    
+    func didTapDeclineButton() {
+        delegate.didTapDeclineButton()
+        removeFromSuperview()
     }
 
 }

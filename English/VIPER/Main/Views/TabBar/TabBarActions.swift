@@ -28,6 +28,7 @@ extension TabBarView {
     
     func didTapThemes() {
         deactivateButtons()
+        delegate.didTapThemesButton()
     }
     
     func didTapSettings() {

@@ -37,6 +37,7 @@ class MainViewController: UIViewController, ServiceProvider {
         }
         
         configurator.configure(with: self)
+        themesService.loadDataFromFiles()
         setupViews()
         MainViewController.tabBarView.buttons[0].didTap()
     }
@@ -64,6 +65,10 @@ extension MainViewController: TabBarViewDelegate {
     
     func didTapRepeatsButton() {
         presenter.didTapRepeatsButton()
+    }
+    
+    func didTapThemesButton() {
+        presenter.didTapThemesButton()
     }
     
     func didTapSettingsButton() {

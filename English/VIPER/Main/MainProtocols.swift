@@ -14,6 +14,7 @@ protocol MainViewProtocol: class {
 protocol MainPresenterProtocol: class {
     func didTapInboxButton()
     func didTapRepeatsButton()
+    func didTapThemesButton()
     func didTapSettingsButton()
     func didTapStartButton()
 }
@@ -24,6 +25,7 @@ protocol MainInteractorProtocol: class {
 protocol MainRouterProtocol: class {
     func presentInboxViewController()
     func presentRepeatsViewController()
+    func presentThemesViewController()
     func presentSettingsViewController()
     func didTapStartButton()
 }

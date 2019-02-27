@@ -63,13 +63,16 @@ class NotificationService {
         updateSchedule(count, hour, min)
     }
     
+    func requestAuth() {
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+        }
+    }
+    
     func updateSchedule(_ count: Int, _ hour: Int, _ min: Int) {
         let center = UNUserNotificationCenter.current()
         center.removeAllDeliveredNotifications()
         center.removeAllPendingNotificationRequests()
-        
-        center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
-        }
         
         UIApplication.shared.registerForRemoteNotifications()
         UIApplication.shared.applicationIconBadgeNumber = count

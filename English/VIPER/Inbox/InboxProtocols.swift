@@ -14,6 +14,7 @@ protocol InboxViewProtocol: class {
     func hideEmptyView()
     func showStartButton()
     func hideStartButton()
+    func showRememberHint()
 }
 
 protocol InboxPresenterProtocol: class {
@@ -27,12 +28,15 @@ protocol InboxPresenterProtocol: class {
     func didTapStartButton()
     func didSuccessfullyFinishStartView(with data: [WordData])
     func didSuccessfullyFinishChoosingView(with data: [WordData])
+    func rememberHintDidTapAcceptButton()
 }
 
 protocol InboxInteractorProtocol: class {
     var numberOfItems: Int { get }
     var firstWords: [WordData] { get }
+    var isShowNotificationHint: Bool { get }
     func itemAt(_ index: Int) -> WordData
+    func requestAccessForNotifications()
 }
 
 protocol InboxRouterProtocol: class {

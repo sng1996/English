@@ -49,6 +49,17 @@ extension MainRouter: MainRouterProtocol {
         repeatsViewController.viewDidAppear()
     }
     
+    func presentThemesViewController() {
+        removeCurrentViewController()
+        let themesViewController = ThemesView()
+        self.currentViewController = themesViewController
+        viewController.view.insertSubview(themesViewController, belowSubview: MainViewController.tabBarView)
+        viewController.view.addConstraintsWithFormat(format: "H:|[v0]|", views: themesViewController)
+        viewController.view.addConstraintsWithFormat(format: "V:|[v0]|", views: themesViewController)
+        MainViewController.tabBarView.hideStartButton()
+        themesViewController.viewDidAppear()
+    }
+    
     func presentSettingsViewController() {
         removeCurrentViewController()
         let settingsViewController = SettingsViewController()
