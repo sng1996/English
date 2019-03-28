@@ -11,5 +11,7 @@ target 'English' do
     pod 'CSV.swift', '~> 2.2.1'
     pod "DynamicBlurView"
     pod 'UITextView+Placeholder'
+    pod 'PromiseKit/Alamofire', '~> 6.0'
+    pod 'SwiftSoup'
 
 end

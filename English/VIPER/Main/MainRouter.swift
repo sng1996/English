@@ -36,7 +36,6 @@ extension MainRouter: MainRouterProtocol {
         viewController.view.insertSubview(inboxViewController, belowSubview: MainViewController.tabBarView)
         viewController.view.addConstraintsWithFormat(format: "H:|[v0]|", views: inboxViewController)
         viewController.view.addConstraintsWithFormat(format: "V:|[v0]|", views: inboxViewController)
-        MainViewController.tabBarView.hideHint()
         inboxViewController.viewDidAppear()
     }
     
@@ -47,20 +46,18 @@ extension MainRouter: MainRouterProtocol {
         viewController.view.insertSubview(repeatsViewController, belowSubview: MainViewController.tabBarView)
         viewController.view.addConstraintsWithFormat(format: "H:|[v0]|", views: repeatsViewController)
         viewController.view.addConstraintsWithFormat(format: "V:|[v0]|", views: repeatsViewController)
-        MainViewController.tabBarView.hideHint()
         repeatsViewController.viewDidAppear()
     }
     
     func presentThemesViewController() {
         removeCurrentViewController()
-        let themesViewController = ThemesView()
+        let themesViewController = MusicViewController()
         self.currentViewController = themesViewController
         viewController.view.insertSubview(themesViewController, belowSubview: MainViewController.tabBarView)
         viewController.view.addConstraintsWithFormat(format: "H:|[v0]|", views: themesViewController)
         viewController.view.addConstraintsWithFormat(format: "V:|[v0]|", views: themesViewController)
         MainViewController.tabBarView.hideStartButton()
-        MainViewController.tabBarView.hideHint()
-        themesViewController.viewDidAppear()
+        //themesViewController.viewDidAppear()
     }
     
     func presentSettingsViewController() {
@@ -71,7 +68,6 @@ extension MainRouter: MainRouterProtocol {
         viewController.view.addConstraintsWithFormat(format: "H:|[v0]|", views: settingsViewController)
         viewController.view.addConstraintsWithFormat(format: "V:|[v0]|", views: settingsViewController)
         MainViewController.tabBarView.hideStartButton()
-        MainViewController.tabBarView.hideHint()
         settingsViewController.viewDidAppear()
     }
     

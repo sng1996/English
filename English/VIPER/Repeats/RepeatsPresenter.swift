@@ -35,6 +35,11 @@ extension RepeatsPresenter: RepeatsPresenterProtocol {
             view.showEmptyView()
         }
         view.update()
+        
+        if !interactor.isShowNotificationHint && interactor.isRepeat {
+            interactor.isShowNotificationHint = true
+            view.showRememberHint()
+        }
     }
     
     func tableViewDidSelectItemAt(_ indexPath: IndexPath) {
@@ -75,6 +80,10 @@ extension RepeatsPresenter: RepeatsPresenterProtocol {
     
     func isShowRepeatsGrayHint() -> Bool {
         return interactor.isShowRepeatsGrayHint
+    }
+    
+    func rememberHintDidTapAcceptButton() {
+        interactor.requestAccessForNotifications()
     }
     
 }

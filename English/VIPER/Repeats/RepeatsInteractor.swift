@@ -49,12 +49,35 @@ extension RepeatsInteractor: RepeatsInteractorProtocol {
         }
     }
     
+    var isShowNotificationHint: Bool {
+        get {
+            let result = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isShowNotificationHint)
+            return result
+        }
+        set {
+            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isShowNotificationHint)
+        }
+    }
+    
+    var isRepeat: Bool {
+        get {
+            let result = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isRepeat)
+            return result
+        }
+    }
+    
+    
     func itemAt(_ index: Int) -> WordData {
         return wordDataService.repeatWords[index]
     }
     
     func numberOfItems() -> Int {
         return wordDataService.repeatWords.count
+    }
+    
+    func requestAccessForNotifications() {
+        let notificationService = NotificationService()
+        notificationService.requestAuth()
     }
     
 }

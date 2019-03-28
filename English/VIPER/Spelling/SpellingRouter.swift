@@ -26,6 +26,7 @@ extension SpellingRouter: SpellingRouterProtocol {
             inboxViewController.viewDidAppear()
             inboxViewController.showOptimalCountHint()
         } else if let repeatsViewController = viewController.superview as? RepeatsViewController {
+            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isRepeat)
             repeatsViewController.viewDidAppear()
         }
         viewController.viewWillDisappear()

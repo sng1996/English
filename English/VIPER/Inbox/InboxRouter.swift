@@ -74,7 +74,6 @@ extension InboxRouter: InboxRouterProtocol {
         viewController.addConstraintsWithFormat(format: "H:|[v0]|", views: addViewController)
         addViewController.viewDidAppear()
         self.addViewController = addViewController
-        MainViewController.tabBarView.hide()
     }
     
     func addViewDidDragging(_ contentOffset: CGFloat) {

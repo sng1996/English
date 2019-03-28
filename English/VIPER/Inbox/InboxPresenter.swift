@@ -34,12 +34,12 @@ extension InboxPresenter: InboxPresenterProtocol {
         } else {
             view.showEmptyView()
             view.hideStartButton()
+            
+            if !interactor.isShowHint {
+                MainViewController.tabBarView.showHint()
+            }
         }
         view.update()
-        
-        if !interactor.isShowNotificationHint {
-            view.showRememberHint()
-        }
     }
     
     func isShowCountHint() -> Bool {
@@ -84,10 +84,6 @@ extension InboxPresenter: InboxPresenterProtocol {
     
     func didSuccessfullyFinishChoosingView(with data: [WordData]) {
         router.presentSpellingViewController(with: data)
-    }
-    
-    func rememberHintDidTapAcceptButton() {
-        interactor.requestAccessForNotifications()
     }
     
 }

@@ -108,6 +108,15 @@ extension RepeatsViewController: RepeatsViewProtocol {
         }
     }
     
+    func showRememberHint() {
+        let rememberHint = RememberHintView()
+        rememberHint.delegate = self
+        addSubview(rememberHint)
+        addConstraintsWithFormat(format: "H:|[v0]|", views: rememberHint)
+        addConstraintsWithFormat(format: "V:|[v0]|", views: rememberHint)
+        MainViewController.tabBarView.hide()
+    }
+    
 }
 
 extension RepeatsViewController: RepeatsHintViewDelegate {
@@ -121,6 +130,19 @@ extension RepeatsViewController: RepeatsHintViewDelegate {
 extension RepeatsViewController: RepeatsGrayHintViewDelegate {
     
     func didTapRepeatsGrayHintButton() {
+        MainViewController.tabBarView.show()
+    }
+    
+}
+
+extension RepeatsViewController: RememberHintViewDelegate {
+    
+    func didTapAcceptButton() {
+        presenter.rememberHintDidTapAcceptButton()
+        MainViewController.tabBarView.show()
+    }
+    
+    func didTapDeclineButton() {
         MainViewController.tabBarView.show()
     }
     

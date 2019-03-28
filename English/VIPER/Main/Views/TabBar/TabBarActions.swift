@@ -80,10 +80,12 @@ extension TabBarView {
     func showHint() {
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
             self.hintView.alpha = 1.0
-        }, completion: nil)
+        }, completion: { complete in
+            Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.hideHint), userInfo: nil, repeats: false)
+        })
     }
     
-    func hideHint() {
+    @objc func hideHint() {
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
             self.hintView.alpha = 0.0
         }, completion: nil)

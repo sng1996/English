@@ -106,12 +106,10 @@ extension InboxViewController: InboxViewProtocol {
     
     func showEmptyView() {
         emptyView.isHidden = false
-        MainViewController.tabBarView.showHint()
     }
     
     func hideEmptyView() {
         emptyView.isHidden = true
-        MainViewController.tabBarView.hideHint()
     }
     
     func showStartButton() {
@@ -120,28 +118,6 @@ extension InboxViewController: InboxViewProtocol {
     
     func hideStartButton() {
         MainViewController.tabBarView.hideStartButton()
-    }
-    
-    func showRememberHint() {
-        let rememberHint = RememberHintView()
-        rememberHint.delegate = self
-        addSubview(rememberHint)
-        addConstraintsWithFormat(format: "H:|[v0]|", views: rememberHint)
-        addConstraintsWithFormat(format: "V:|[v0]|", views: rememberHint)
-        MainViewController.tabBarView.hide()
-    }
-    
-}
-
-extension InboxViewController: RememberHintViewDelegate {
-    
-    func didTapAcceptButton() {
-        presenter.rememberHintDidTapAcceptButton()
-        MainViewController.tabBarView.show()
-    }
-    
-    func didTapDeclineButton() {
-        MainViewController.tabBarView.show()
     }
     
 }
