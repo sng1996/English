@@ -25,7 +25,7 @@ extension MusicRouter: MusicRouterProtocol {
         viewController.addSubview(lyricsViewController)
         viewController.addConstraintsWithFormat(format: "H:|[v0]|", views: lyricsViewController)
         viewController.addConstraintsWithFormat(format: "V:|[v0]|", views: lyricsViewController)
-        MainViewController.tabBarView.hide()
+        //MainViewController.tabBarView.hide()
         lyricsViewController.viewDidAppear()
     }
     

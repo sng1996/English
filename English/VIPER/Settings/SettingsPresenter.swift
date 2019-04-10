@@ -10,12 +10,12 @@ import UIKit
 
 class SettingsPresenter {
     
-    weak var view: SettingsViewProtocol!
+    weak var viewController: SettingsViewProtocol!
     var interactor: SettingsInteractorProtocol!
     var router: SettingsRouterProtocol!
     
-    required init(view: SettingsViewProtocol) {
-        self.view = view
+    required init(viewController: SettingsViewProtocol) {
+        self.viewController = viewController
     }
     
 }
@@ -30,7 +30,7 @@ extension SettingsPresenter: SettingsPresenterProtocol {
         let isOn = interactor.getIsOn()
         let time = interactor.getTime()
         let model = SettingsNotificationContainerDataModel(isOn: isOn, time: time)
-        view.updateNotificationContainer(with: model)
+        viewController.updateNotificationContainer(with: model)
     }
     
     func didChangeSwitchValue(_ value: Bool) {

@@ -43,6 +43,7 @@ class LyricsViewController: UIView {
             style.lineSpacing = 7
             let atributes = [NSAttributedString.Key.paragraphStyle: style, NSAttributedString.Key.font: UIFont.book(22)]
             textView.attributedText = NSAttributedString(string: model.lyrics, attributes: atributes)
+            translateButton.isHidden = true
         }
     }
     
@@ -74,6 +75,7 @@ class LyricsViewController: UIView {
         textView.textContainerInset = UIEdgeInsets.zero
         textView.textContainer.lineFragmentPadding = 0
         textView.showsVerticalScrollIndicator = false
+        textView.contentInset.bottom = 40 + Screen.sideInset
         return textView
     }()
     
@@ -97,6 +99,8 @@ class LyricsViewController: UIView {
         translateButton.isHidden = true
         
         textView.delegate = self
+        backButton.tapHandler = didTapBackButton
+        translateButton.tapHandler = didTapTranslateButton
         
         let side = 70 * Screen.heightCoef
         let height = 177 * Screen.heightCoef
@@ -119,7 +123,7 @@ class LyricsViewController: UIView {
         addConstraintsWithFormat(format: "H:[v0]-\(Screen.sideInset)-|", views: translateButton)
         
         addConstraintsWithFormat(format: "V:|[v0(\(height))]", views: backCachedImageView)
-        addConstraintsWithFormat(format: "V:|[v0(\(height))]-20-[v1]-\(Screen.sideInset)-|", views: container, textView)
+        addConstraintsWithFormat(format: "V:|[v0(\(height))]-20-[v1]-\(Screen.sideInset + Screen.safeBottom / 2)-|", views: container, textView)
         addConstraintsWithFormat(format: "V:[v0]-\(Screen.sideInset + Screen.safeBottom / 2)-|", views: backButton)
         addConstraintsWithFormat(format: "V:[v0]-\(Screen.sideInset + Screen.safeBottom / 2)-|", views: translateButton)
         
@@ -130,6 +134,10 @@ class LyricsViewController: UIView {
             headerLabel.bottomAnchor.constraint(equalTo: container.centerYAnchor),
             footerLabel.topAnchor.constraint(equalTo: container.centerYAnchor)
         ])
+    }
+    
+    func viewWillDisappear() {
+        removeFromSuperview()
     }
     
     func createBlurView() {
@@ -143,21 +151,55 @@ class LyricsViewController: UIView {
     func viewDidAppear() {
         presenter.configureView()
     }
+    
+    func didTapBackButton() {
+        presenter.didTapBackButton()
+    }
+    
+    func didTapTranslateButton() {
+        if let textRange = textView.selectedTextRange {
+            if let text = textView.text(in: textRange) {
+                presenter.didTapTranslateButton(with: text)
+            }
+        }
+    }
 
 }
 
-extension LyricsViewController: LyricsViewProtocol { }
+extension LyricsViewController: LyricsViewProtocol {
+    
+    func openTranlsateView(with word: Word) {
+        let translateView = LyricsTranslateView()
+        translateView.sourceItem = word
+        translateView.delegate = self
+        addSubview(translateView)
+        addConstraintsWithFormat(format: "H:|[v0]|", views: translateView)
+        addConstraintsWithFormat(format: "V:|[v0]|", views: translateView)
+        translateView.viewDidAppear()
+    }
+    
+}
 
 extension LyricsViewController: UITextViewDelegate {
     
     func textViewDidChangeSelection(_ textView: UITextView) {
-        if let textRange = textView.selectedTextRange {
+        if let _ = textView.selectedTextRange {
             translateButton.isHidden = false
-            print(textView.text(in: textRange)!)
         } else {
             translateButton.isHidden = true
-            print("empty")
         }
+    }
+    
+}
+
+extension LyricsViewController: LyricsTranslateViewDelegate {
+    
+    func didChangeTranslate(with text: String) {
+        presenter.didChangeTranslate(with: text)
+    }
+    
+    func didTapAddButton() {
+        presenter.didTapAddButton()
     }
     
 }

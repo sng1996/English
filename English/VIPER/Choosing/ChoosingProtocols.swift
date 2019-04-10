@@ -11,6 +11,7 @@ import UIKit
 protocol ChoosingViewProtocol: class {
     var sourceItem: Any? { get set }
     func update(isRight: Bool, indexPath: IndexPath)
+    func openResultView(with model: ResultViewDataModel)
 }
 
 protocol ChoosingPresenterProtocol: class {
@@ -42,7 +43,6 @@ protocol ChoosingInteractorProtocol: class {
 protocol ChoosingRouterProtocol: class {
     func back()
     func forward(with data: [WordData])
-    func presentResultView(with mistakes: Int)
 }
 
 protocol ChoosingConfiguratorProtocol: class {

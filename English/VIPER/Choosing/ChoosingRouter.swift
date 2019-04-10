@@ -11,9 +11,11 @@ import UIKit
 class ChoosingRouter {
     
     weak var viewController: ChoosingViewController!
+    weak var navigationViewController: UINavigationController?
     
     init(viewController: ChoosingViewController) {
         self.viewController = viewController
+        navigationViewController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController
     }
     
 }
@@ -21,30 +23,15 @@ class ChoosingRouter {
 extension ChoosingRouter: ChoosingRouterProtocol {
     
     func back() {
-        if let inboxViewController = viewController.superview as? InboxViewController {
-            inboxViewController.viewDidAppear()
-        } else if let repeatsViewController = viewController.superview as? RepeatsViewController {
-            repeatsViewController.viewDidAppear()
-        }
-        viewController.viewWillDisappear()
-        MainViewController.tabBarView.show()
+        navigationViewController?.popToRootViewController(animated: true)
     }
     
     func forward(with data: [WordData]) {
-        if let inboxViewController = viewController.superview as? InboxViewController {
-            inboxViewController.didSuccessfullyFinishChoosingView(with: data)
-        } else if let repeatsViewController = viewController.superview as? RepeatsViewController {
-            repeatsViewController.didSuccessfullyFinishChoosingView(with: data)
+        if let navVC = navigationViewController {
+            let spellingViewController = SpellingViewController()
+            spellingViewController.data = data
+            navVC.pushViewController(spellingViewController, animated: true)
         }
-        viewController.viewWillDisappear()
-    }
-    
-    func presentResultView(with mistakes: Int) {
-        let resultView = ResultView()
-        viewController.addSubview(resultView)
-        viewController.addConstraintsWithFormat(format: "H:|[v0]|", views: resultView)
-        viewController.addConstraintsWithFormat(format: "V:|[v0]|", views: resultView)
-        resultView.viewDidAppear(with: mistakes)
     }
     
 }

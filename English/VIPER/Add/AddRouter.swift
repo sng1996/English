@@ -10,34 +10,12 @@ import UIKit
 
 class AddRouter {
 
-    weak var viewController: AddViewController!
+    weak var view: AddView!
     
-    init(viewController: AddViewController) {
-        self.viewController = viewController
+    init(view: AddView) {
+        self.view = view
     }
 
 }
 
-extension AddRouter: AddRouterProtocol {
-    
-    func changeScrollViewContentOffset(value: CGFloat) {
-        if let inboxViewController = viewController.superview as? InboxViewController {
-            inboxViewController.changeScrollViewContentOffset(value: value)
-        }
-    }
-    
-    func fixScrollViewContentOffset(value: CGFloat) {
-        if let inboxViewController = viewController.superview as? InboxViewController {
-            inboxViewController.fixScrollViewContentOffset(value: value)
-        }
-    }
-    
-    func close() {
-        if let inboxViewController = viewController.superview as? InboxViewController {
-            inboxViewController.didCloseAddView()
-        }
-        viewController.viewWillDisappear()
-        MainViewController.tabBarView.show()
-    }
-    
-}
+extension AddRouter: AddRouterProtocol { }

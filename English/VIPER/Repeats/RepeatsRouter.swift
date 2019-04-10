@@ -11,9 +11,11 @@ import UIKit
 class RepeatsRouter {
     
     weak var viewController: RepeatsViewController!
+    weak var navigationViewController: UINavigationController?
     
     init(viewController: RepeatsViewController) {
         self.viewController = viewController
+        navigationViewController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController
     }
     
 }
@@ -21,39 +23,11 @@ class RepeatsRouter {
 extension RepeatsRouter: RepeatsRouterProtocol {
     
     func presentStartViewController(with data: [WordData]) {
-        let startViewController = StartViewController(with: data)
-        viewController.addSubview(startViewController)
-        viewController.addConstraintsWithFormat(format: "H:|[v0]|", views: startViewController)
-        viewController.addConstraintsWithFormat(format: "V:|[v0]|", views: startViewController)
-        startViewController.viewDidAppear()
-        MainViewController.tabBarView.hide()
-    }
-    
-    func presentChoosingViewController(with data: [WordData]) {
-        let choosingViewController = ChoosingViewController(with: data)
-        viewController.addSubview(choosingViewController)
-        viewController.addConstraintsWithFormat(format: "H:|[v0]|", views: choosingViewController)
-        viewController.addConstraintsWithFormat(format: "V:|[v0]|", views: choosingViewController)
-        choosingViewController.viewDidAppear()
-        MainViewController.tabBarView.hide()
-    }
-    
-    func presentSpellingViewController(with data: [WordData]) {
-        let spellingViewController = SpellingViewController(with: data)
-        viewController.addSubview(spellingViewController)
-        viewController.addConstraintsWithFormat(format: "H:|[v0]|", views: spellingViewController)
-        viewController.addConstraintsWithFormat(format: "V:|[v0]|", views: spellingViewController)
-        spellingViewController.viewDidAppear()
-        MainViewController.tabBarView.hide()
-    }
-    
-    func presentTranslateViewController(with data: WordData) {
-        let translateViewController = TranslateViewController(with: data)
-        viewController.addSubview(translateViewController)
-        viewController.addConstraintsWithFormat(format: "H:|[v0]|", views: translateViewController)
-        viewController.addConstraintsWithFormat(format: "V:|[v0]|", views: translateViewController)
-        translateViewController.viewDidAppear()
-        MainViewController.tabBarView.hide()
+        if let navVC = navigationViewController {
+            let startViewController = StartViewController()
+            startViewController.data = data
+            navVC.pushViewController(startViewController, animated: true)
+        }
     }
     
 }

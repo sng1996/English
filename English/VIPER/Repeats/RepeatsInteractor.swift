@@ -33,32 +33,6 @@ extension RepeatsInteractor: RepeatsInteractorProtocol {
         }
     }
     
-    var isShowRepeatsHint: Bool {
-        get {
-            let result = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isShowRepeatsHint)
-            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isShowRepeatsHint)
-            return result
-        }
-    }
-    
-    var isShowRepeatsGrayHint: Bool {
-        get {
-            let result = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isShowRepeatsGrayHint)
-            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isShowRepeatsGrayHint)
-            return result
-        }
-    }
-    
-    var isShowNotificationHint: Bool {
-        get {
-            let result = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isShowNotificationHint)
-            return result
-        }
-        set {
-            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isShowNotificationHint)
-        }
-    }
-    
     var isRepeat: Bool {
         get {
             let result = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isRepeat)
@@ -75,10 +49,10 @@ extension RepeatsInteractor: RepeatsInteractorProtocol {
         return wordDataService.repeatWords.count
     }
     
-    func requestAccessForNotifications() {
-        let notificationService = NotificationService()
-        notificationService.requestAuth()
-    }
+//    func requestAccessForNotifications() {
+//        let notificationService = NotificationService()
+//        notificationService.requestAuth()
+//    }
     
 }
 

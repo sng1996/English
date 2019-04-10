@@ -33,7 +33,8 @@ class OnlineDictionary: NSObject {
     var delegate: OnlineDictionaryDelegate!
     var csv: CSVReader!
     
-    func getTk(_ text: String, language: String) {
+    func getTk(_ text: String) {
+        let language = detectLanguage(text: text)
         updateTKK(text, language: language)
     }
     
@@ -241,6 +242,13 @@ class OnlineDictionary: NSObject {
             c += 3
         }
         return a_int
+    }
+    
+    func detectLanguage(text: String) -> String {
+        if let c = text.lowercased().first {
+            return c.detectLanguage()
+        }
+        return Language.en
     }
     
     func parse(pos: String) -> String {

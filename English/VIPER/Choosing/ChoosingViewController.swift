@@ -20,10 +20,16 @@ class ChoosingViewControllerDataModel {
     
 }
 
-class ChoosingViewController: UIView {
+class ChoosingViewController: UIViewController {
     
     var presenter: ChoosingPresenterProtocol!
     var configurator: ChoosingConfiguratorProtocol = ChoosingConfigurator()
+    
+    var data: [WordData] = [] {
+        didSet {
+            configurator.configure(with: self, data: data)
+        }
+    }
     
     var sourceItem: Any? {
         didSet {
@@ -67,18 +73,14 @@ class ChoosingViewController: UIView {
         return view
     }()
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    init(with data: [WordData]) {
-        super.init(frame: .zero)
-        configurator.configure(with: self, data: data)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         setupViews()
+        presenter.configureView()
     }
     
     func setupViews() {
-        backgroundColor = .white
+        view.backgroundColor = .white
         
         cv.delegate = self
         cv.dataSource = self
@@ -86,35 +88,27 @@ class ChoosingViewController: UIView {
         backButton.tapHandler = didTapBackButton
         nextButton.tapHandler = didTapNextButton
         
-        addSubview(topContainer)
-        addSubview(headerLabel)
-        addSubview(footerLabel)
-        addSubview(cv)
-        addSubview(nextButton)
+        view.addSubview(topContainer)
+        view.addSubview(headerLabel)
+        view.addSubview(footerLabel)
+        view.addSubview(cv)
+        view.addSubview(nextButton)
         topContainer.addSubview(backButton)
         topContainer.addSubview(countLabel)
         
-        addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: topContainer)
-        addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: headerLabel)
-        addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: footerLabel)
-        addConstraintsWithFormat(format: "H:|[v0]|", views: cv)
-        addConstraintsWithFormat(format: "H:|[v0]", views: backButton)
-        addConstraintsWithFormat(format: "H:[v0]|", views: countLabel)
+        view.addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: topContainer)
+        view.addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: headerLabel)
+        view.addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: footerLabel)
+        view.addConstraintsWithFormat(format: "H:|[v0]|", views: cv)
+        view.addConstraintsWithFormat(format: "H:|[v0]", views: backButton)
+        view.addConstraintsWithFormat(format: "H:[v0]|", views: countLabel)
         
-        addConstraintsWithFormat(format: "V:|-\(Screen.sideInset + Screen.safeTop)-[v0]-(>=\(Screen.sideInset))-[v1][v2(60)][v3(\(cv.height))]-\(Screen.safeBottom)-|", views: topContainer, headerLabel, footerLabel, cv)
-        addConstraintsWithFormat(format: "V:|[v0]|", views: backButton)
-        addConstraintsWithFormat(format: "V:|[v0]|", views: countLabel)
+        view.addConstraintsWithFormat(format: "V:|-\(Screen.sideInset + Screen.safeTop)-[v0]-(>=\(Screen.sideInset))-[v1][v2(60)][v3(\(cv.height))]-\(Screen.safeBottom)-|", views: topContainer, headerLabel, footerLabel, cv)
+        view.addConstraintsWithFormat(format: "V:|[v0]|", views: backButton)
+        view.addConstraintsWithFormat(format: "V:|[v0]|", views: countLabel)
         
-        addConstraintsWithFormat(format: "H:|[v0]|", views: nextButton)
-        addConstraintsWithFormat(format: "V:|[v0]|", views: nextButton)
-    }
-    
-    func viewDidAppear() {
-        presenter.configureView()
-    }
-    
-    func viewWillDisappear() {
-        removeFromSuperview()
+        view.addConstraintsWithFormat(format: "H:|[v0]|", views: nextButton)
+        view.addConstraintsWithFormat(format: "V:|[v0]|", views: nextButton)
     }
     
     func didTapBackButton() {
@@ -125,14 +119,6 @@ class ChoosingViewController: UIView {
         hideViews(complete: {
             self.presenter.didFinishHideViews()
         })
-    }
-    
-    func resultViewDidTapNext() {
-        presenter.resultViewDidTapNext()
-    }
-    
-    func resultViewDidTapRepeat() {
-        presenter.resultViewDidTapRepeat()
     }
     
     func showViews() {
@@ -160,6 +146,16 @@ extension ChoosingViewController: ChoosingViewProtocol {
     
     func update(isRight: Bool, indexPath: IndexPath) {
         cv.update(isRight: isRight, indexPath: indexPath)
+    }
+    
+    func openResultView(with model: ResultViewDataModel) {
+        let resultView = ResultView()
+        resultView.sourceItem = model
+        resultView.delegate = self
+        view.addSubview(resultView)
+        
+        view.addConstraintsWithFormat(format: "H:|[v0]|", views: resultView)
+        view.addConstraintsWithFormat(format: "V:|[v0]|", views: resultView)
     }
     
 }
@@ -208,6 +204,18 @@ extension ChoosingViewController: ChoosingCollectionViewDelegate {
     
     func showNextButton() {
         nextButton.isHidden = false
+    }
+    
+}
+
+extension ChoosingViewController: ResultViewDelegate {
+    
+    func resultViewDidTapNextButton() {
+        presenter.resultViewDidTapNext()
+    }
+    
+    func resultViewDidTapRepeatButton() {
+        presenter.resultViewDidTapRepeat()
     }
     
 }

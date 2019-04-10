@@ -14,8 +14,7 @@ protocol RepeatsViewProtocol: class {
     func hideEmptyView()
     func showStartButton()
     func hideStartButton()
-    func showRepeatsHint()
-    func showRememberHint()
+    func openTranslateView(with data: WordData)
 }
 
 protocol RepeatsPresenterProtocol: class {
@@ -24,31 +23,20 @@ protocol RepeatsPresenterProtocol: class {
     func tableViewNumberOfItems() -> Int
     func tableViewDataForItemAt(_ indexPath: IndexPath) -> RepeatsCellDataModel
     func didTapStartButton()
-    func didSuccessfullyFinishStartView(with data: [WordData])
-    func didSuccessfullyFinishChoosingView(with data: [WordData])
     func getBadgeValue() -> Int
-    func isShowRepeatsHint() -> Bool
-    func isShowRepeatsGrayHint() -> Bool
-    func rememberHintDidTapAcceptButton()
 }
 
 protocol RepeatsInteractorProtocol: class {
     var todayWordsCount: Int { get }
     var firstWords: [WordData] { get }
-    var isShowRepeatsHint: Bool { get }
     var isRepeat: Bool { get }
-    var isShowRepeatsGrayHint: Bool { get }
     func itemAt(_ index: Int) -> WordData
     func numberOfItems() -> Int
-    var isShowNotificationHint: Bool { get set }
-    func requestAccessForNotifications()
+    //func requestAccessForNotifications()
 }
 
 protocol RepeatsRouterProtocol: class {
     func presentStartViewController(with data: [WordData])
-    func presentChoosingViewController(with data: [WordData])
-    func presentSpellingViewController(with data: [WordData])
-    func presentTranslateViewController(with data: WordData)
 }
 
 protocol RepeatsConfiguratorProtocol: class {

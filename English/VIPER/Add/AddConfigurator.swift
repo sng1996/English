@@ -10,12 +10,12 @@ import UIKit
 
 class AddConfigurator: AddConfiguratorProtocol {
 
-    func configure(with viewController: AddViewController) {
-        let presenter = AddPresenter(view: viewController)
+    func configure(with view: AddView) {
+        let presenter = AddPresenter(view: view)
         let interactor = AddInteractor(presenter: presenter)
-        let router = AddRouter(viewController: viewController)
+        let router = AddRouter(view: view)
         
-        viewController.presenter = presenter
+        view.presenter = presenter
         presenter.interactor = interactor
         presenter.router = router
     }

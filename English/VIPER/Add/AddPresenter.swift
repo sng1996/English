@@ -22,18 +22,6 @@ class AddPresenter {
 
 extension AddPresenter: AddPresenterProtocol {
     
-    func changeScrollViewContentOffset(value: CGFloat) {
-        router.changeScrollViewContentOffset(value: value)
-    }
-    
-    func fixScrollViewContentOffset(value: CGFloat) {
-        router.fixScrollViewContentOffset(value: value)
-    }
-    
-    func didTapBlurView() {
-        router.close()
-    }
-    
     func textDidChange(with text: String) {
         interactor.textDidChange(with: text)
         view.update()
@@ -48,13 +36,9 @@ extension AddPresenter: AddPresenterProtocol {
             break
         case .save:
             interactor.save(header: header, footer: footer)
-            router.close()
+            view.close()
             break
         }
-    }
-    
-    func didTapCancelButton() {
-        router.close()
     }
     
     func textFieldShouldChangeCharacters(string: String, text: String) -> Bool {
@@ -93,14 +77,6 @@ extension AddPresenter: AddPresenterProtocol {
         if let word = interactor.word {
             view.sourceItem = AddViewDataModel(word)
         }
-    }
-    
-    func isShowAddHint() -> Bool {
-        return interactor.isShowAddHint
-    }
-    
-    func isShowTranslateHint() -> Bool {
-        return interactor.isShowTanslateHint
     }
     
 }

@@ -17,7 +17,7 @@ class SpellingInteractor: ServiceProvider {
     
     var words: [WordData] = []
     var spellingItems: [SpellingItem] = []
-    var currentIndex: Int = -1
+    var currentIndex: Int = 0
     var mistakesCount: Int = 0
     var isMadeMistake: Bool = false
     var isFirstTime: Bool = true
@@ -40,7 +40,7 @@ class SpellingInteractor: ServiceProvider {
 
 extension SpellingInteractor: SpellingInteractorProtocol {
     
-    var currentSpellingItem: SpellingItem {
+    var currentItem: SpellingItem {
         get {
             return spellingItems[currentIndex]
         }
@@ -54,17 +54,20 @@ extension SpellingInteractor: SpellingInteractorProtocol {
     
     func update() {
         spellingItems = spellingService.data(for: words)
-        currentIndex = -1
+        currentIndex = 0
         mistakesCount = 0
         isMadeMistake = false
-        loadNextStep()
     }
     
-    func loadNextStep() {
+    func itemAt(_ index: Int) -> SpellingItem {
+        return spellingItems[index]
+    }
+    
+    func next() {
         isMadeMistake = false
         if currentIndex + 1 < spellingItems.count {
             currentIndex += 1
-            presenter.updateView()
+            presenter.scrollToNext(currentIndex)
         } else {
             finish()
         }
@@ -73,7 +76,7 @@ extension SpellingInteractor: SpellingInteractorProtocol {
     func didChange(text: String) {
         if text.lowercased() == spellingItems[currentIndex].wordData.original!.lowercased() {
             speechService.play(text.lowercased())
-            presenter.updateViewWithRightAnswer()
+            presenter.updateViewWithGreen()
         }
     }
     
@@ -82,8 +85,10 @@ extension SpellingInteractor: SpellingInteractorProtocol {
             mistakesCount += 1
             if currentIndex + 3 < spellingItems.count {
                 spellingItems.insert(spellingItems[currentIndex], at: currentIndex + 3)
+                presenter.insertItemAt(currentIndex + 3)
             } else {
                 spellingItems.append(spellingItems[currentIndex])
+                presenter.insertItemAt(spellingItems.count - 1)
             }
             isMadeMistake = true
             spellingItems[currentIndex].isMadeMistake = true

@@ -11,33 +11,35 @@ import UIKit
 extension RepeatsViewController {
 
     func setupViews() {
+        badge.isHidden = true
+        
         tv.delegate = self
         tv.dataSource = self
         
-        addSubview(scrollView)
-        addSubview(emptyView)
+        view.addSubview(scrollView)
+        view.addSubview(emptyView)
         scrollView.addSubview(scrollContainer)
         scrollContainer.addSubview(topContainer)
         scrollContainer.addSubview(tv)
         topContainer.addSubview(label)
         topContainer.addSubview(badge)
         
-        translatesAutoresizingMaskIntoConstraints = false
+        view.translatesAutoresizingMaskIntoConstraints = false
         
-        addConstraintsWithFormat(format: "H:|[v0]|", views: scrollView)
-        addConstraintsWithFormat(format: "V:|[v0]|", views: scrollView)
+        view.addConstraintsWithFormat(format: "H:|[v0]|", views: scrollView)
+        view.addConstraintsWithFormat(format: "V:|[v0]|", views: scrollView)
         
-        addConstraintsWithFormat(format: "H:|[v0]|", views: emptyView)
-        addConstraintsWithFormat(format: "V:[v0][v1]", views: topContainer, emptyView)
+        view.addConstraintsWithFormat(format: "H:|[v0]|", views: emptyView)
+        view.addConstraintsWithFormat(format: "V:[v0][v1]", views: topContainer, emptyView)
         
-        addConstraintsWithFormat(format: "H:|[v0(\(Screen.width))]|", views: scrollContainer)
-        addConstraintsWithFormat(format: "V:|[v0]|", views: scrollContainer)
+        view.addConstraintsWithFormat(format: "H:|[v0(\(Screen.width))]|", views: scrollContainer)
+        view.addConstraintsWithFormat(format: "V:|[v0]|", views: scrollContainer)
         
-        addConstraintsWithFormat(format: "H:|[v0]|", views: topContainer)
-        addConstraintsWithFormat(format: "H:|[v0]|", views: tv)
-        addConstraintsWithFormat(format: "V:|-\(Screen.safeTop + 40)-[v0][v1]|", views: topContainer, tv)
-        addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]->=\(Screen.sideInset)-|", views: label)
-        addConstraintsWithFormat(format: "V:|[v0]-20-|", views: label)
+        view.addConstraintsWithFormat(format: "H:|[v0]|", views: topContainer)
+        view.addConstraintsWithFormat(format: "H:|[v0]|", views: tv)
+        view.addConstraintsWithFormat(format: "V:|-\(Screen.safeTop + 40)-[v0][v1]|", views: topContainer, tv)
+        view.addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]->=\(Screen.sideInset)-|", views: label)
+        view.addConstraintsWithFormat(format: "V:|[v0]-20-|", views: label)
         
         badge.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

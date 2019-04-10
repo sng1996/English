@@ -10,24 +10,12 @@ import UIKit
 
 class TranslateRouter {
 
-    weak var viewController: TranslateViewController!
+    weak var view: TranslateView!
     
-    init(viewController: TranslateViewController) {
-        self.viewController = viewController
+    init(view: TranslateView) {
+        self.view = view
     }
 
 }
 
-extension TranslateRouter: TranslateRouterProtocol {
-    
-    func close() {
-        if let inboxViewController = viewController.superview as? InboxViewController {
-            inboxViewController.didCloseTranslateView()
-        } else if let repeatsViewController = viewController.superview as? RepeatsViewController {
-            repeatsViewController.didCloseTranslateView()
-        }
-        viewController.viewWillDisappear()
-        MainViewController.tabBarView.show()
-    }
-    
-}
+extension TranslateRouter: TranslateRouterProtocol { }

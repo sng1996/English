@@ -25,7 +25,6 @@ extension RepeatsPresenter: RepeatsPresenterProtocol {
     func configureView() {
         if interactor.todayWordsCount > 0 {
             view.showStartButton()
-            view.showRepeatsHint()
         } else {
             view.hideStartButton()
         }
@@ -35,16 +34,11 @@ extension RepeatsPresenter: RepeatsPresenterProtocol {
             view.showEmptyView()
         }
         view.update()
-        
-        if !interactor.isShowNotificationHint && interactor.isRepeat {
-            interactor.isShowNotificationHint = true
-            view.showRememberHint()
-        }
     }
     
     func tableViewDidSelectItemAt(_ indexPath: IndexPath) {
         let word = interactor.itemAt(indexPath.row)
-        router.presentTranslateViewController(with: word)
+        view.openTranslateView(with: word)
     }
     
     func tableViewNumberOfItems() -> Int {
@@ -62,28 +56,8 @@ extension RepeatsPresenter: RepeatsPresenterProtocol {
         router.presentStartViewController(with: words)
     }
     
-    func didSuccessfullyFinishStartView(with data: [WordData]) {
-        router.presentChoosingViewController(with: data)
-    }
-    
-    func didSuccessfullyFinishChoosingView(with data: [WordData]) {
-        router.presentSpellingViewController(with: data)
-    }
-    
     func getBadgeValue() -> Int {
         return interactor.todayWordsCount
-    }
-    
-    func isShowRepeatsHint() -> Bool {
-        return interactor.isShowRepeatsHint
-    }
-    
-    func isShowRepeatsGrayHint() -> Bool {
-        return interactor.isShowRepeatsGrayHint
-    }
-    
-    func rememberHintDidTapAcceptButton() {
-        interactor.requestAccessForNotifications()
     }
     
 }

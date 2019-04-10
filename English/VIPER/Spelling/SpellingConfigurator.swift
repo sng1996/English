@@ -11,7 +11,7 @@ import UIKit
 class SpellingConfigurator: SpellingConfiguratorProtocol {
     
     func configure(with viewController: SpellingViewController, data: [WordData]) {
-        let presenter = SpellingPresenter(view: viewController)
+        let presenter = SpellingPresenter(viewController: viewController)
         let interactor = SpellingInteractor(presenter: presenter, data: data)
         let router = SpellingRouter(viewController: viewController)
         

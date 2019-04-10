@@ -20,4 +20,9 @@ class LyricsRouter {
 
 extension LyricsRouter: LyricsRouterProtocol {
     
+    func back() {
+        viewController.viewWillDisappear()
+        //MainViewController.tabBarView.show()
+    }
+    
 }

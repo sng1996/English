@@ -14,39 +14,25 @@ protocol InboxViewProtocol: class {
     func hideEmptyView()
     func showStartButton()
     func hideStartButton()
+    func openTranslateView(with data: WordData)
 }
 
 protocol InboxPresenterProtocol: class {
     func configureView()
-    func isShowCountHint() -> Bool
     func collectionViewDidSelectItemAt(_ indexPath: IndexPath)
     func collectionViewNumberOfItems() -> Int
     func collectionViewDataForItemAt(_ indexPath: IndexPath) -> WordCellDataModel
-    func scrollViewDidScroll(contentOffset: CGFloat)
-    func scrollViewDidEndDragging(contentOffset: CGFloat)
-    func scrollViewWillBeginDragging()
     func didTapStartButton()
-    func didSuccessfullyFinishStartView(with data: [WordData])
-    func didSuccessfullyFinishChoosingView(with data: [WordData])
 }
 
 protocol InboxInteractorProtocol: class {
     var numberOfItems: Int { get }
     var firstWords: [WordData] { get }
-    var isShowHint: Bool { get }
-    var isShowStartHint: Bool { get }
-    var isShowCountHint: Bool { get }
     func itemAt(_ index: Int) -> WordData
 }
 
 protocol InboxRouterProtocol: class {
     func presentStartViewController(with: [WordData])
-    func presentChoosingViewController(with data: [WordData])
-    func presentSpellingViewController(with data: [WordData])
-    func presentTranslateViewController(with data: WordData)
-    func presentAddViewController()
-    func addViewDidDragging(_ contentOffset: CGFloat)
-    func addViewDidEndDragging(_ contentOffset: CGFloat)
 }
 
 protocol InboxConfiguratorProtocol: class {

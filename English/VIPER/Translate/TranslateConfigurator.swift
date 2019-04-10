@@ -10,12 +10,12 @@ import UIKit
 
 class TranslateConfigurator: TranslateConfiguratorProtocol {
 
-    func configure(with viewController: TranslateViewController, data: WordData) {
-        let presenter = TranslatePresenter(view: viewController)
+    func configure(with view: TranslateView, data: WordData) {
+        let presenter = TranslatePresenter(view: view)
         let interactor = TranslateInteractor(presenter: presenter, data: data)
-        let router = TranslateRouter(viewController: viewController)
+        let router = TranslateRouter(view: view)
         
-        viewController.presenter = presenter
+        view.presenter = presenter
         presenter.interactor = interactor
         presenter.router = router
     }

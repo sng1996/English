@@ -11,35 +11,35 @@ import UIKit
 extension InboxViewController {
     
     func setupViews() {
-        backgroundColor = .white
+        view.backgroundColor = .white
         
         scrollView.delegate = self
         cv.delegate = self
         cv.dataSource = self
         
-        addSubview(scrollView)
+        view.addSubview(scrollView)
         scrollView.addSubview(scrollContainer)
         scrollView.addSubview(emptyView)
         scrollContainer.addSubview(labelContainer)
         scrollContainer.addSubview(cv)
         labelContainer.addSubview(label)
         
-        translatesAutoresizingMaskIntoConstraints = false
+        view.translatesAutoresizingMaskIntoConstraints = false
         
-        addConstraintsWithFormat(format: "H:|[v0]|", views: scrollView)
-        addConstraintsWithFormat(format: "V:|[v0]|", views: scrollView)
+        view.addConstraintsWithFormat(format: "H:|[v0]|", views: scrollView)
+        view.addConstraintsWithFormat(format: "V:|[v0]|", views: scrollView)
         
-        addConstraintsWithFormat(format: "H:|[v0(\(Screen.width))]|", views: scrollContainer)
-        addConstraintsWithFormat(format: "V:|[v0]|", views: scrollContainer)
+        view.addConstraintsWithFormat(format: "H:|[v0(\(Screen.width))]|", views: scrollContainer)
+        view.addConstraintsWithFormat(format: "V:|[v0]|", views: scrollContainer)
         
-        addConstraintsWithFormat(format: "H:|[v0(\(Screen.width))]", views: emptyView)
-        addConstraintsWithFormat(format: "V:|[v0(\(Screen.height))]", views: emptyView)
+        view.addConstraintsWithFormat(format: "H:|[v0(\(Screen.width))]", views: emptyView)
+        view.addConstraintsWithFormat(format: "V:|[v0(\(Screen.height))]", views: emptyView)
         
-        addConstraintsWithFormat(format: "H:|[v0]|", views: labelContainer)
-        addConstraintsWithFormat(format: "H:|[v0]|", views: cv)
-        addConstraintsWithFormat(format: "V:|-\(Screen.safeTop)-[v0(70)][v1]|", views: labelContainer, cv)
+        view.addConstraintsWithFormat(format: "H:|[v0]|", views: labelContainer)
+        view.addConstraintsWithFormat(format: "H:|[v0]|", views: cv)
+        view.addConstraintsWithFormat(format: "V:|-\(Screen.safeTop)-[v0(70)][v1]|", views: labelContainer, cv)
         
-        addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]|", views: label)
+        view.addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]|", views: label)
         label.centerYAnchor.constraint(equalTo: labelContainer.centerYAnchor).isActive = true
         
         cv.setInitConstraint()

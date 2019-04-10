@@ -11,9 +11,11 @@ import UIKit
 class SpellingRouter {
     
     weak var viewController: SpellingViewController!
+    weak var navigationViewController: UINavigationController?
     
     init(viewController: SpellingViewController) {
         self.viewController = viewController
+        navigationViewController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController
     }
     
 }
@@ -21,23 +23,7 @@ class SpellingRouter {
 extension SpellingRouter: SpellingRouterProtocol {
     
     func back() {
-        MainViewController.tabBarView.show()
-        if let inboxViewController = viewController.superview as? InboxViewController {
-            inboxViewController.viewDidAppear()
-            inboxViewController.showOptimalCountHint()
-        } else if let repeatsViewController = viewController.superview as? RepeatsViewController {
-            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isRepeat)
-            repeatsViewController.viewDidAppear()
-        }
-        viewController.viewWillDisappear()
-    }
-    
-    func presentResultView(with mistakes: Int) {
-        let resultView = ResultView()
-        viewController.addSubview(resultView)
-        viewController.addConstraintsWithFormat(format: "H:|[v0]|", views: resultView)
-        viewController.addConstraintsWithFormat(format: "V:|[v0]|", views: resultView)
-        resultView.viewDidAppear(with: mistakes)
+        navigationViewController?.popToRootViewController(animated: true)
     }
     
 }

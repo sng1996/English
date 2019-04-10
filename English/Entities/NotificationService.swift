@@ -48,9 +48,9 @@ class NotificationService {
         var min = 0
         
         if count == 0 {
-            MainViewController.tabBarView.hideBadge()
+            //MainViewController.tabBarView.hideBadge()
         } else {
-            MainViewController.tabBarView.showBadge()
+            //MainViewController.tabBarView.showBadge()
         }
         
         if isOn {

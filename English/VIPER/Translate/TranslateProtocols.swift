@@ -10,13 +10,13 @@ import UIKit
 
 protocol TranslateViewProtocol: class {
     var sourceItem: Any? { get set }
+    func close()
 }
 
 protocol TranslatePresenterProtocol: class {
     func configureView()
     func didTapDeleteButton()
     func didTapSoundButton()
-    func didSwipeView()
 }
 
 protocol TranslateInteractorProtocol: class {
@@ -26,9 +26,8 @@ protocol TranslateInteractorProtocol: class {
 }
 
 protocol TranslateRouterProtocol: class {
-    func close()
 }
 
 protocol TranslateConfiguratorProtocol: class {
-    func configure(with viewController: TranslateViewController, data: WordData)
+    func configure(with view: TranslateView, data: WordData)
 }

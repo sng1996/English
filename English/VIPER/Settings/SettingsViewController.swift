@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsViewController: UIView {
+class SettingsViewController: UIViewController {
     
     var presenter: SettingsPresenterProtocol!
     var configurator: SettingsConfiguratorProtocol = SettingsConfigurator()
@@ -24,40 +24,32 @@ class SettingsViewController: UIView {
     
     let notificationContainer = SettingsNotificationContainer()
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    init() {
-        super.init(frame: .zero)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         configurator.configure(with: self)
         setupViews()
-        viewDidAppear()
+        presenter.configureView()
     }
     
     func setupViews() {
-        backgroundColor = .white
+        view.backgroundColor = .white
         
         notificationContainer.delegate = self
         
-        addSubview(scrollView)
+        view.addSubview(scrollView)
         scrollView.addSubview(scrollContainer)
         scrollContainer.addSubview(headerLabel)
         scrollContainer.addSubview(notificationContainer)
         
-        addConstraintsWithFormat(format: "H:|[v0]|", views: scrollView)
-        addConstraintsWithFormat(format: "V:|[v0]|", views: scrollView)
+        view.addConstraintsWithFormat(format: "H:|[v0]|", views: scrollView)
+        view.addConstraintsWithFormat(format: "V:|[v0]|", views: scrollView)
         
-        addConstraintsWithFormat(format: "H:|[v0(\(Screen.width))]|", views: scrollContainer)
-        addConstraintsWithFormat(format: "V:|[v0]|", views: scrollContainer)
+        view.addConstraintsWithFormat(format: "H:|[v0(\(Screen.width))]|", views: scrollContainer)
+        view.addConstraintsWithFormat(format: "V:|[v0]|", views: scrollContainer)
         
-        addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: headerLabel)
-        addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: notificationContainer)
-        addConstraintsWithFormat(format: "V:|-\(Screen.safeTop + 40)-[v0]-30-[v1]|", views: headerLabel, notificationContainer)
-    }
-    
-    func viewDidAppear() {
-        presenter.configureView()
+        view.addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: headerLabel)
+        view.addConstraintsWithFormat(format: "H:|-\(Screen.sideInset)-[v0]-\(Screen.sideInset)-|", views: notificationContainer)
+        view.addConstraintsWithFormat(format: "V:|-\(Screen.safeTop + 40)-[v0]-30-[v1]|", views: headerLabel, notificationContainer)
     }
     
 }

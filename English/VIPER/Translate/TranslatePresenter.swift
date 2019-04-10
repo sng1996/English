@@ -29,15 +29,11 @@ extension TranslatePresenter: TranslatePresenterProtocol {
     
     func didTapDeleteButton() {
         interactor.delete()
-        router.close()
+        view.close()
     }
     
     func didTapSoundButton() {
         interactor.play()
-    }
-    
-    func didSwipeView() {
-        router.close()
     }
     
 }

@@ -22,13 +22,6 @@ class AddInteractor: ServiceProvider {
         self.presenter = presenter
         onlineDictionary.delegate = self
     }
-    
-    func detectLanguage(text: String) -> String {
-        if let c = text.lowercased().first {
-            return c.detectLanguage()
-        }
-        return Language.en
-    }
 
 }
 
@@ -40,22 +33,6 @@ extension AddInteractor: AddInteractorProtocol {
         }
     }
     
-    var isShowAddHint: Bool {
-        get {
-            let result = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isShowAddHint)
-            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isShowAddHint)
-            return result
-        }
-    }
-    
-    var isShowTanslateHint: Bool {
-        get {
-            let result = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isShowTranslateHint)
-            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isShowTranslateHint)
-            return result
-        }
-    }
-    
     func textDidChange(with text: String) {
         words = offlineDictionary.query(text: text.lowercased())
     }
@@ -63,9 +40,8 @@ extension AddInteractor: AddInteractorProtocol {
     func didFinishFirstStep(with text: String) {
         if text == "" { return }
         if words.isEmpty || words[0].original.lowercased() != text.lowercased() {
-            let language = detectLanguage(text: text)
             presenter.startLoading()
-            onlineDictionary.getTk(text, language: language)
+            onlineDictionary.getTk(text)
         } else {
             word = words[0]
             presenter.startSecondStep()
@@ -76,7 +52,7 @@ extension AddInteractor: AddInteractorProtocol {
         if header == "" || footer == "" { return }
         
         var translates: [Translate] = []
-        let language = detectLanguage(text: header)
+        let language = onlineDictionary.detectLanguage(text: header)
         
         if let word = word {
             translates = word.translates

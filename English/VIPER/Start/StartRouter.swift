@@ -11,9 +11,11 @@ import UIKit
 class StartRouter {
     
     weak var viewController: StartViewController!
+    weak var navigationViewController: UINavigationController?
     
     init(viewController: StartViewController) {
         self.viewController = viewController
+        navigationViewController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController
     }
     
 }
@@ -21,22 +23,15 @@ class StartRouter {
 extension StartRouter: StartRouterProtocol {
     
     func back() {
-        if let inboxViewController = viewController.superview as? InboxViewController {
-            inboxViewController.viewDidAppear()
-        } else if let repeatsViewController = viewController.superview as? RepeatsViewController {
-            repeatsViewController.viewDidAppear()
-        }
-        viewController.viewWillDisappear()
-        MainViewController.tabBarView.show()
+        navigationViewController?.popViewController(animated: true)
     }
     
     func forward(with data: [WordData]) {
-        if let inboxViewController = viewController.superview as? InboxViewController {
-            inboxViewController.didSuccessfullyFinishStartView(with: data)
-        } else if let repeatsViewController = viewController.superview as? RepeatsViewController {
-            repeatsViewController.didSuccessfullyFinishStartView(with: data)
+        if let navVC = navigationViewController {
+            let choosingViewController = ChoosingViewController()
+            choosingViewController.data = data
+            navVC.pushViewController(choosingViewController, animated: true)
         }
-        viewController.viewWillDisappear()
     }
     
 }

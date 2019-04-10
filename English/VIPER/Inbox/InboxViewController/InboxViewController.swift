@@ -8,10 +8,22 @@
 
 import UIKit
 
-class InboxViewController: UIView {
+protocol InboxViewControllerDelegate {
+    func showTabBar()
+    func showStartButton()
+    func hideStartButton()
+    func inboxVCOpenTranslateView(with data: WordData)
+    func openAddView()
+    func addViewDidDragging(_ contentOffset: CGFloat)
+    func addViewDidEndDragging(_ contentOffset: CGFloat)
+}
+
+class InboxViewController: UIViewController {
 
     var presenter: InboxPresenterProtocol!
     var configurator: InboxConfiguratorProtocol = InboxConfigurator()
+    
+    var addView: AddView?
     
     let scrollView = InboxScrollView()
     
@@ -31,49 +43,26 @@ class InboxViewController: UIView {
     
     var cvHeightAnchor: NSLayoutConstraint!
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    var delegate: InboxViewControllerDelegate?
     
-    init() {
-        super.init(frame: .zero)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         configurator.configure(with: self)
         setupViews()
     }
     
-    //  MARK: Methods
-    
-    func createBlurView() -> BlurView {
-        let blurView = BlurView()
-        blurView.frame = scrollView.bounds
-        scrollView.addSubview(blurView)
-        return blurView
-    }
-    
-    func showOptimalCountHint() {
-        if !presenter.isShowCountHint() {
-            let view = WordsCountHintView()
-            view.delegate = self
-            addSubview(view)
-            addConstraintsWithFormat(format: "H:|[v0]|", views: view)
-            addConstraintsWithFormat(format: "V:|[v0]|", views: view)
-            MainViewController.tabBarView.hide()
-        }
-    }
-    
-    //  MARK: Actions
-    
-    func viewDidAppear() {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         presenter.configureView()
     }
     
     func didCloseTranslateView() {
         scrollView.isActive = true
-        viewDidAppear()
+        presenter.configureView()
     }
     
     func didCloseAddView() {
-        viewDidAppear()
+        presenter.configureView()
     }
     
     func didTapStartButton() {
@@ -86,14 +75,6 @@ class InboxViewController: UIView {
     
     func fixScrollViewContentOffset(value: CGFloat) {
         scrollView.fix(at: value)
-    }
-    
-    func didSuccessfullyFinishStartView(with data: [WordData]) {
-        presenter.didSuccessfullyFinishStartView(with: data)
-    }
-    
-    func didSuccessfullyFinishChoosingView(with data: [WordData]) {
-        presenter.didSuccessfullyFinishChoosingView(with: data)
     }
     
 }
@@ -113,19 +94,40 @@ extension InboxViewController: InboxViewProtocol {
     }
     
     func showStartButton() {
-        MainViewController.tabBarView.showStartButton()
+        delegate?.showStartButton()
     }
     
     func hideStartButton() {
-        MainViewController.tabBarView.hideStartButton()
+        delegate?.hideStartButton()
+    }
+    
+    func openTranslateView(with data: WordData) {
+        delegate?.inboxVCOpenTranslateView(with: data)
     }
     
 }
 
-extension InboxViewController: WordsCountHintViewDelegate {
+extension InboxViewController: AddViewDelegate {
     
-    func didTapButton() {
-        MainViewController.tabBarView.show()
+    func addViewChangeScrollViewContentOffset(value: CGFloat) {
+        changeScrollViewContentOffset(value: value)
+    }
+    
+    func addViewFixScrollViewContentOffset(value: CGFloat) {
+        fixScrollViewContentOffset(value: value)
+    }
+    
+    func addViewDidClose() {
+        didCloseAddView()
+    }
+    
+}
+
+extension InboxViewController: TranslateViewDelegate {
+    
+    func translateViewDidClose() {
+        delegate?.showTabBar()
+        didCloseTranslateView()
     }
     
 }

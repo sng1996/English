@@ -8,7 +8,14 @@
 
 import UIKit
 
-class RepeatsViewController: UIView {
+protocol RepeatsViewControllerDelegate {
+    func showTabBar()
+    func showStartButton()
+    func hideStartButton()
+    func repeatsVCOpenTranslateView(with data: WordData)
+}
+
+class RepeatsViewController: UIViewController {
     
     var presenter: RepeatsPresenterProtocol!
     var configurator: RepeatsConfiguratorProtocol = RepeatsConfigurator()
@@ -30,35 +37,26 @@ class RepeatsViewController: UIView {
     
     let badge = Badge()
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    var delegate: RepeatsViewControllerDelegate?
     
-    init() {
-        super.init(frame: .zero)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         configurator.configure(with: self)
         setupViews()
     }
     
-    func viewDidAppear() {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         presenter.configureView()
     }
     
     func didCloseTranslateView() {
         scrollView.isActive = true
-        viewDidAppear()
+        presenter.configureView()
     }
     
     func didTapStartButton() {
         presenter.didTapStartButton()
-    }
-    
-    func didSuccessfullyFinishStartView(with data: [WordData]) {
-        presenter.didSuccessfullyFinishStartView(with: data)
-    }
-    
-    func didSuccessfullyFinishChoosingView(with data: [WordData]) {
-        presenter.didSuccessfullyFinishChoosingView(with: data)
     }
     
 }
@@ -79,71 +77,24 @@ extension RepeatsViewController: RepeatsViewProtocol {
     }
     
     func showStartButton() {
-        MainViewController.tabBarView.showStartButton()
+        delegate?.showStartButton()
     }
     
     func hideStartButton() {
-        MainViewController.tabBarView.hideStartButton()
+        delegate?.hideStartButton()
     }
     
-    func showRepeatsHint() {
-        if !presenter.isShowRepeatsHint() {
-            let view = RepeatsHintView()
-            view.delegate = self
-            addSubview(view)
-            addConstraintsWithFormat(format: "H:|[v0]|", views: view)
-            addConstraintsWithFormat(format: "V:|[v0]|", views: view)
-            MainViewController.tabBarView.hide()
-        }
-    }
-    
-    func showRepeatsGrayHint() {
-        if !presenter.isShowRepeatsGrayHint() {
-            let view = RepeatsGrayHintView()
-            view.delegate = self
-            addSubview(view)
-            addConstraintsWithFormat(format: "H:|[v0]|", views: view)
-            addConstraintsWithFormat(format: "V:|[v0]|", views: view)
-            MainViewController.tabBarView.hide()
-        }
-    }
-    
-    func showRememberHint() {
-        let rememberHint = RememberHintView()
-        rememberHint.delegate = self
-        addSubview(rememberHint)
-        addConstraintsWithFormat(format: "H:|[v0]|", views: rememberHint)
-        addConstraintsWithFormat(format: "V:|[v0]|", views: rememberHint)
-        MainViewController.tabBarView.hide()
+    func openTranslateView(with data: WordData) {
+        delegate?.repeatsVCOpenTranslateView(with: data)
     }
     
 }
 
-extension RepeatsViewController: RepeatsHintViewDelegate {
+extension RepeatsViewController: TranslateViewDelegate {
     
-    func didTapRepeatsHintButton() {
-        showRepeatsGrayHint()
-    }
-    
-}
-
-extension RepeatsViewController: RepeatsGrayHintViewDelegate {
-    
-    func didTapRepeatsGrayHintButton() {
-        MainViewController.tabBarView.show()
-    }
-    
-}
-
-extension RepeatsViewController: RememberHintViewDelegate {
-    
-    func didTapAcceptButton() {
-        presenter.rememberHintDidTapAcceptButton()
-        MainViewController.tabBarView.show()
-    }
-    
-    func didTapDeclineButton() {
-        MainViewController.tabBarView.show()
+    func translateViewDidClose() {
+        delegate?.showTabBar()
+        didCloseTranslateView()
     }
     
 }

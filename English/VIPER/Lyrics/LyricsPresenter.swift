@@ -31,4 +31,24 @@ extension LyricsPresenter: LyricsPresenterProtocol {
         view.sourceItem = LyricsViewModelData(song)
     }
     
+    func didTapTranslateButton(with text: String) {
+        interactor.translate(text)
+    }
+    
+    func didFinishTranslate(_ word: Word) {
+        view.openTranlsateView(with: word)
+    }
+    
+    func didChangeTranslate(with text: String) {
+        interactor.changeTranslate(with: text)
+    }
+    
+    func didTapAddButton() {
+        interactor.createWord()
+    }
+    
+    func didTapBackButton() {
+        router.back()
+    }
+    
 }

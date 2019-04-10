@@ -32,30 +32,6 @@ extension InboxInteractor: InboxInteractorProtocol {
         }
     }
     
-    var isShowHint: Bool {
-        get {
-            let result = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isShowHint)
-            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isShowHint)
-            return result
-        }
-    }
-    
-    var isShowStartHint: Bool {
-        get {
-            let result = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isShowStartHint)
-            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isShowStartHint)
-            return result
-        }
-    }
-    
-    var isShowCountHint: Bool {
-        get {
-            let result = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isShowCountHint)
-            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isShowCountHint)
-            return result
-        }
-    }
-    
     func itemAt(_ index: Int) -> WordData {
         return wordDataService.newWords[index]
     }

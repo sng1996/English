@@ -71,7 +71,8 @@ extension ChoosingPresenter: ChoosingPresenterProtocol {
     }
     
     func finish(with mistakes: Int) {
-        router.presentResultView(with: mistakes)
+        let model = ResultViewDataModel(ResultMode.choosing, mistakes: mistakes)
+        view.openResultView(with: model)
     }
     
     func resultViewDidTapNext() {

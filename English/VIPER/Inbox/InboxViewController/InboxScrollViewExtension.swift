@@ -11,16 +11,16 @@ import UIKit
 extension InboxViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        presenter.scrollViewDidScroll(contentOffset: scrollView.contentOffset.y)
+        delegate?.addViewDidDragging(scrollView.contentOffset.y)
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        presenter.scrollViewDidEndDragging(contentOffset: scrollView.contentOffset.y)
+        delegate?.addViewDidEndDragging(scrollView.contentOffset.y)
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y == 0 {
-            presenter.scrollViewWillBeginDragging()
+            delegate?.openAddView()
         }
     }
     

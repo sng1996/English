@@ -11,7 +11,7 @@ import UIKit
 class SettingsConfigurator: SettingsConfiguratorProtocol {
     
     func configure(with viewController: SettingsViewController) {
-        let presenter = SettingsPresenter(view: viewController)
+        let presenter = SettingsPresenter(viewController: viewController)
         let interactor = SettingsInteractor(presenter: presenter)
         let router = SettingsRouter(viewController: viewController)
         

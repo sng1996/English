@@ -16,6 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ServiceProvider {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        
+        let tabBarController = MainTabBarController()
+        let navigationController = UINavigationController(rootViewController: tabBarController)
+        navigationController.isNavigationBarHidden = true
+        window?.rootViewController = navigationController
+        
+//        if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
+//            //Do something
+//        }
+        
         return true
     }
 

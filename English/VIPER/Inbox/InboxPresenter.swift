@@ -27,28 +27,16 @@ extension InboxPresenter: InboxPresenterProtocol {
         if numberOfItems > 0 {
             view.hideEmptyView()
             view.showStartButton()
-            
-            if !interactor.isShowStartHint {
-                MainViewController.tabBarView.showStartHint()
-            }
         } else {
             view.showEmptyView()
             view.hideStartButton()
-            
-            if !interactor.isShowHint {
-                MainViewController.tabBarView.showHint()
-            }
         }
         view.update()
     }
     
-    func isShowCountHint() -> Bool {
-        return interactor.isShowCountHint
-    }
-    
     func collectionViewDidSelectItemAt(_ indexPath: IndexPath) {
         let word = interactor.itemAt(indexPath.row)
-        router.presentTranslateViewController(with: word)
+        view.openTranslateView(with: word)
     }
     
     func collectionViewNumberOfItems() -> Int {
@@ -61,29 +49,9 @@ extension InboxPresenter: InboxPresenterProtocol {
         return WordCellDataModel(word, isActive: isActive)
     }
     
-    func scrollViewDidScroll(contentOffset: CGFloat) {
-        router.addViewDidDragging(contentOffset)
-    }
-    
-    func scrollViewDidEndDragging(contentOffset: CGFloat) {
-        router.addViewDidEndDragging(contentOffset)
-    }
-    
-    func scrollViewWillBeginDragging() {
-        router.presentAddViewController()
-    }
-    
     func didTapStartButton() {
         let words = interactor.firstWords
         router.presentStartViewController(with: words)
-    }
-    
-    func didSuccessfullyFinishStartView(with data: [WordData]) {
-        router.presentChoosingViewController(with: data)
-    }
-    
-    func didSuccessfullyFinishChoosingView(with data: [WordData]) {
-        router.presentSpellingViewController(with: data)
     }
     
 }
